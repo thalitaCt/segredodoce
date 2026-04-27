@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,7 +35,6 @@ if ($_GET['erro'] == 'produto') echo "Produto não encontrado";
 <?php endif; ?>
 
 <?php
-session_start();
 include 'includes/conexao.php';
 
     $sql = $pdo->query("SELECT * FROM produtos ORDER BY id_produtos");
