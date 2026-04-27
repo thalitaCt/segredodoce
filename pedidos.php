@@ -26,6 +26,8 @@ if ($_GET['msg'] == 'feito') echo "Pedido realizado com sucesso!";
 </div>
 <?php endif; ?>
 
+<?php
+
 include 'includes/conexao.php';
 include 'includes/navbar.php';
 
