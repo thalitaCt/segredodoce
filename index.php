@@ -1,5 +1,6 @@
 <?php
 include 'includes/conexao.php';
+session_start();
 
 $sql = $pdo->query("
 SELECT * FROM produtos WHERE destaque = true");
@@ -17,10 +18,6 @@ $produtos = $sql->fetchAll(PDO::FETCH_ASSOC);
     <title>Home</title>
 </head>
 <body>
-
-<?php
-session_start();
-?>
 
 <?php if (isset($_GET['msg'])): ?>
 <div class="alerta-sucesso">
