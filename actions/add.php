@@ -36,7 +36,7 @@ if (isset($_SESSION['carrinho'][$id])) {
     }
 } else {
     $_SESSION['carrinho'][$id] = [
-        'id' => $produto['id'],
+        'id_produtos' => $produto['id_produtos'],
         'nome' => $produto['nome'],
         'preco' => $produto['preco'],
         'imagem' => $produto['imagem'],
