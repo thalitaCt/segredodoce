@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,7 +23,6 @@ if ($_GET['msg'] == 'feito') echo "Pedido realizado com sucesso!";
 <?php endif; ?>
 
 <?php
-session_start();
 
 if (!isset($_SESSION['usuario'])) {
     header("Location: login.php?erro=login");
