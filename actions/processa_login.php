@@ -17,20 +17,27 @@
         if (password_verify($senha, $usuario['senha'])) {
             $_SESSION['usuario'] = $usuario['email'];
             $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['tipo'] = $usuario['tipo'];
 
             if (!$usuario['verificado']) {
             header("Location: ../verificar.php?erro=nao_verificado&email=$email");
             exit;
     }
-
-            header("Location: ../index.php?msg=login_sucesso");
+            if ($usuario['tipo'] == 'admin') {
+            header("Location: ../admin.php?msg=login_sucesso");
             exit;
+            } else {
+                header("Location: ../index.php?msg=login_sucesso");
+                exit;
+            }
+
+
         } else {
-            header("Location: ../login.php?erro=senha");
+            header("Location: ../contas.php?erro=senha");
             exit;
         }
     } else {
-        header ("Location: ../login.php?erro=email");
+        header ("Location: ../contas.php?erro=email");
         exit;
     }
 
