@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php?erro=login");
+    exit;
 ?>
 
 <!DOCTYPE html>
@@ -21,13 +24,6 @@ if ($_GET['msg'] == 'feito') echo "Pedido realizado com sucesso!";
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>
 <?php endif; ?>
-
-<?php
-
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php?erro=login");
-    exit;
-}
 
 include 'includes/conexao.php';
 include 'includes/navbar.php';
