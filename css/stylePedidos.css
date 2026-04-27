@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --bege: #ffedcd;
+  --bege2: #fff4ee;
+  --bege3: #eacab6;
+  --marrom: #7d5147;
+  --marrom2: #833c2c;
+  --marrom3: #421d14;
+  --rosa: #ff877d;
+  --rosa2: #ee5350;
+  --verde: #347141;
+  --branco: #ffffff;
+  --preto: #000000;
+  --preto2: #1b1b1b;
+  --amarelo: #fde047;
+  --amarelo2: #facc15;
+}
+
+* {
+    font-family: Poppins;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    padding-top: 110px;
+    background-color: var(--bege2);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#tittle {
+  text-decoration: underline;
+  text-align: center;
+  text-decoration-color: var(--amarelo2);
+  color: var(--marrom3);
+  font-size: 28pt;
+}
+
+.container {
+    flex: 1;
+}
+
+.pedido {
+    padding: 15px;
+    color: var(--marrom3);
+}
+
+.alerta {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgb(0, 207, 17);
+  color: var(--branco);
+  padding: 25px 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  font-weight: 650;
+}
+
+.alerta .fechar {
+  color: var(--branco);
+  font-size: 15px;
+  padding: 3px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .alerta {
+      right: 5px;
+      margin: 15px;
+      font-size: 10pt;
+    }
+}
+

@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --bege: #ffedcd;
+  --bege2: #fff4ee;
+  --bege3: #eacab6;
+  --marrom: #7d5147;
+  --marrom2: #833c2c;
+  --marrom3: #421d14;
+  --rosa: #ff877d;
+  --rosa2: #ee5350;
+  --verde: #347141;
+  --branco: #ffffff;
+  --preto: #000000;
+  --preto2: #1b1b1b;
+  --amarelo: #fde047;
+  --amarelo2: #facc15;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+    padding-top: 120px;
+    background-color: var(--bege2);
+}
+
+.produtos {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-self: center;
+  gap: 55px;
+}
+
+.produto {
+  background-color: var(--branco);
+  color: var(--marrom3);
+  border-radius: 20px;
+  min-height: 500px;
+  width: 380px;
+  box-shadow: 0 2px 15px var(--preto2);
+
+  img {
+    width: 380px;
+    border-radius: 20px;
+    height: 330px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  button {
+    margin-left: 160px;
+    border: none;
+    background-color: var(--rosa);
+    border-radius: 350px;
+    color: var(--rosa);
+    padding: 4px;
+    transition: 0.5s;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--bege2);
+    transition: 0.5s;
+
+    i {
+      margin: 8px;
+      font-size: 19px;
+      transition: 0.5s;
+    }
+  }
+
+  h2 {
+    font-size: 16pt;
+    text-align: left;
+    font-weight: 750;
+    font-family: Poppins;
+    padding-left: 10px;
+  }
+}
+
+.produto button:hover {
+  transform: scale(1.2);
+  background-color: var(--amarelo2);
+}
+
+.info {
+  padding-left: 10px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  font-family: Poppins;
+}
+
+.esquerda {
+  text-align: left;
+
+  p {
+    font-size: 8pt;
+  }
+
+  span {
+    font-size: 16pt;
+    font-weight: 800;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 11pt;
+  }
+}
+
+.direita {
+  padding-right: 15px;
+  padding-top: 5px;
+  text-align: center;
+
+  .estrelas {
+    padding: 10px;
+    font-size: 13px;
+    display: flex;
+    color: var(--amarelo2);
+  }
+}
+
+.categoria {
+  border-radius: 20px;
+  font-size: 10pt;
+  font-weight: 600;
+}
+
+.bolo-de-pote {
+  background-color: var(--bege);
+  box-shadow: 2px 2px 0px var(--marrom2);
+  border-color: var(--marrom2);
+  color: var(--marrom2);
+}
+
+.gourmet {
+  background-color: var(--verde);
+  box-shadow: 2px 2px 0px var(--bege);
+  color: var(--bege2);
+}
+
+.copo-da-felicidade {
+  line-height: 17px;
+  box-shadow: 2px 2px 0px var(--rosa);
+  background-color: var(--rosa2);
+  color: var(--bege2);
+}
+
+.fatias {
+  background-color: var(--marrom2);
+  box-shadow: 2px 2px 0px var(--marrom);
+  color: var(--bege2);
+}
+
+.titulo {
+    font-family: Yeseva One;
+    color: var(--marrom3);
+    text-align: center;
+    text-decoration: underline;
+    font-size: 30pt;
+    text-decoration-color: var(--amarelo2);
+}
+
+.alerta {
+  font-family: Poppins;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgb(0, 207, 17);
+  color: var(--branco);
+  padding: 25px 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  font-weight: 650;
+}
+
+.alerta .fechar {
+  color: var(--branco);
+  font-size: 15px;
+  padding: 3px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.alerta-sucesso {
+  font-family: Poppins;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgb(0, 160, 13);
+  color: var(--branco);
+  padding: 25px 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  font-weight: 650;
+}
+
+.alerta-sucesso .fechar {
+  color: var(--branco);
+  font-size: 15px;
+  padding: 3px;
+  border-radius: 8px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.produto.sem-estoque {
+  opacity: 0.5;
+  filter: grayscale(100%);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .alerta {
+      right: 5px;
+      margin: 15px;
+      font-size: 10pt;
+    }
+
+    .alerta-sucesso {
+      right: 5px;
+      margin: 15px;
+      font-size: 10pt;
+    }
+
+    .produtos {
+      grid-template-columns: 1fr;
+    }
+
+    .produto {
+      margin: 5px;
+      width: 320px;
+      height: 530px;
+
+      img {
+         width: 320px;
+      }
+
+      button {
+        margin-left: 140px;
+  }
+
+    }
+}

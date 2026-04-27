@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --bege: #ffedcd;
+    --bege2: #fff4ee;
+    --bege3: #eacab6;
+    --marrom: #7d5147;
+    --marrom2: #833c2c;
+    --marrom3: #421d14;
+    --rosa: #ff877d;
+    --rosa2: #ee5350;
+    --verde: #347141;
+    --branco: #ffffff;
+    --preto: #000000;
+    --preto2: #1b1b1b;
+    --amarelo: #fde047;
+    --amarelo2: #facc15;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    padding-top: 120px;
+    background-color: var(--bege2);
+}
+
+.titulo {
+    font-family: Yeseva One;
+    color: var(--marrom3);
+    text-align: center;
+    text-decoration: underline;
+    font-size: 30pt;
+    text-decoration-color: var(--amarelo2);
+}
+
+.texto {
+    font-family: Poppins;
+    font-size: 15pt;
+    font-weight: 500;
+    text-align: center;
+    color: var(--marrom3);
+}
+
+.cards {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: 20px;
+    font-family: Poppins;
+}
+
+.card {
+    padding: 20px;
+    color: var(--marrom2);
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bege);
+    border-radius: 20px;
+    align-items: center;
+    width: 250px;
+    height: 160px;
+    text-align: center;
+
+    i {
+        font-size: 60px;
+    }
+
+   
+}
+
+form {
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+input {
+    border: none;
+    border-radius: 14px;
+    padding:10px;
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    padding: 60px;
+    border-radius: 14px;
+    width: 300px;
+    border: none;
+}
+
+    button {
+        margin: 7px;
+        font-family: Poppins;
+        border-color: var(--marrom3);
+        background-color: var(--rosa);
+        padding: 10px;
+        font-size: 13pt;
+        border-radius: 10px;
+        transition: 0.5s;
+        color: var(--bege2);
+        font-weight: 800;
+        width: 100px;
+        cursor: pointer;
+    }
+
+    select{
+        width: 260px;
+        padding:11px;
+        border:none;
+        border-radius:16px;
+        background:#fff;
+        font-size:18px;
+        outline:none;
+        cursor:pointer;
+        color:#555;
+        }
+
+#meio {
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+     h2 {
+        font-family: Poppins;
+        line-height: 28px;
+        padding-left: 15px;
+        font-size: 22pt;
+        text-decoration: underline;
+        text-decoration-color: var(--amarelo);
+        color: var(--marrom3);
+     }
+}
+
+.mapa {
+    h2 {
+        text-align: end;
+        padding-bottom: 20px;
+    }
+}
+
+.alerta {
+  position: fixed;
+  top: 20px;
+  font-family: Poppins;
+  right: 20px;
+  background-color: rgb(0, 207, 17);
+  color: var(--branco);
+  padding: 25px 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  font-weight: 650;
+}
+
+.alerta .fechar {
+  color: var(--branco);
+  font-size: 15px;
+  padding: 3px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+    }
+    .alerta {
+      right: 5px;
+      margin: 15px;
+      font-size: 10pt;
+    }
+
+    #meio {
+        flex-direction: column;
+
+        h2 {
+            text-align: center;
+            font-size: 18pt;
+        }
+    }
+
+    input {
+        width: 300px;
+    }
+
+    textarea {
+        width: 200px;
+    }
+
+    .mapa {
+        text-align: center;
+        iframe {
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    select {
+        padding:5px;
+    }
+}

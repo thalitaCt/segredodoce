@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --bege: #ffedcd;
+  --bege2: #fff4ee;
+  --bege3: #eacab6;
+  --marrom: #7d5147;
+  --marrom2: #833c2c;
+  --marrom3: #421d14;
+  --rosa: #ff877d;
+  --rosa2: #ee5350;
+  --verde: #347141;
+  --branco: #ffffff;
+  --preto: #000000;
+  --preto2: #1b1b1b;
+  --amarelo: #fde047;
+  --amarelo2: #facc15;
+}
+
+* {
+    font-family: Poppins;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    padding-top: 110px;
+    overflow-x: hidden;
+    background-color: var(--bege2);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+#tittle {
+  text-decoration: underline;
+  text-align: center;
+  text-decoration-color: var(--amarelo2);
+  font-size: 28pt;
+  color: var(--marrom3);
+  margin-bottom: 15px;
+}
+
+.card {
+    padding: 10px;
+    background-color: var(--verde);
+    width: 290px;
+    border-radius: 10px;
+    height: 180px;
+    color: var(--bege2);
+}
+
+button {
+    color: var(--branco);
+    margin-top: 10px;
+    margin-left: 40px;
+    border-color: var(--amarelo);
+    background-color: var(--marrom3);
+    padding: 10px;
+    font-size: 15pt;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-weight: 600;
+}
+button a {
+    color: var(--branco);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: var(--amarelo2);
+}
+
+button a:hover {
+    color: var(--roxoEscuro3);
+}
+
+select {
+    color: var(--branco);
+    border-color: var(--amarelo);
+    background-color: var(--verde);
+    padding: 3px;
+    font-size: 10pt;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 220px;
+        font-size: 11pt;
+        align-items: center;
+    }
+
+    button {
+        font-size: 12pt;
+    }
+}
