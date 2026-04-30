@@ -165,11 +165,11 @@ button {
 @media (max-width: 768px) {
 
     .form {
-        width: 300px;
+        width: 320px;
     }
 
     .input-box input {
-        padding-right: 40px;
+        padding-right: 30px;
     }
 
 .alerta {
