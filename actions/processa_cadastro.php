@@ -15,7 +15,7 @@
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $codigo = rand(100000, 999999);
 
-    $sql = "SELECT * FROM CLIENTES WHERE email = ?";
+    $sql = "SELECT * FROM usuarios WHERE email = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$email]);
 
