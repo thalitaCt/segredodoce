@@ -1,3 +1,29 @@
+<?php
+$nomeFormatado = '';
+$logado = false;
+
+if(isset($_SESSION['id'])){
+
+    $logado = true;
+
+    if($_SESSION['tipo'] == 'cliente'){
+        $sql = $pdo->prepare("SELECT nome FROM clientes WHERE usuario_id = ?");
+    } else {
+        $sql = $pdo->prepare("SELECT nome FROM funcionarios WHERE usuario_id = ?");
+    }
+
+    $sql->execute([$_SESSION['id']]);
+    $user = $sql->fetch();
+
+    if($user){
+        $partes = explode(" ", trim($user['nome']));
+        $primeiro = $partes[0];
+        $segundo = $partes[1] ?? '';
+        $nomeFormatado = trim($primeiro . " " . $segundo);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -324,29 +350,34 @@
             <li><a href="contato.php">Contato</a></li>
 
             <div class="mobile-extra">
-                    <?php if(isset($_SESSION['nome'])): ?>
-                        <li><a href="logout.php" title="Sair">Sair</a></li>
 
-                            <?php
-                            $nome = $_SESSION['nome'];
-                            $partes = explode(" ", trim($nome));
-                            $primeiro = $partes[0];
+<?php if($logado): ?>
 
-                            if(isset($partes[1]) && !empty($partes[1])) {
-                                $nomeFormatado= $primeiro . " " . $partes[1];
-                            } else {
-                                $nomeFormatado = $primeiro;
-                            }
-                            ?>
+    <?php if($tipo == 'admin'): ?>
+        <li><a href="admin.php">Painel Admin</a></li>
 
-                        <span class="nome-user"><?= $nomeFormatado?></span>
-                        <?php else: ?>
+    <?php elseif($tipo == 'gerente'): ?>
+        <li><a href="gerente.php">Painel Gerente</a></li>
 
-                            <li><a href="login.php">Minha Conta</a></li>
+    <?php elseif($tipo == 'recepcionista'): ?>
+        <li><a href="pedidos.php">Pedidos</a></li>
 
-                        <?php endif; ?>
-                </div>
-        </ul>
+    <?php else: ?>
+        <li><a href="pedidos.php">Meus Pedidos</a></li>
+    <?php endif; ?>
+
+    <li><a href="logout.php">Sair</a></li>
+
+    <span class="nome-user"><?= $nomeFormatado ?></span>
+
+<?php else: ?>
+
+    <li><a href="login.php">Minha Conta</a></li>
+
+<?php endif; ?>
+
+            </div>
+            </ul>
             </div>
 
         <div class="icons">
