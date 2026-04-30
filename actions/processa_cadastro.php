@@ -77,7 +77,7 @@
       exit;
     } catch(PDOException $e) {
     $pdo->rollBack();
-    header("Location: ../cadastro.php?erro=geral");
+    echo "Erro: " . $e->getMessage();
     exit;
     }
 ?>
