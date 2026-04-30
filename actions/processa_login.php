@@ -1,45 +1,56 @@
 <?php
-    session_start();
-    
-    include '../includes/conexao.php';
+session_start();
 
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+include '../includes/conexao.php';
 
-    $sql = "SELECT * FROM clientes WHERE email = :email";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute(['email' => $email]);
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+$sql = "SELECT * FROM usuarios WHERE email = :email";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['email' => $email]);
 
-    if ($usuario) {
+$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (password_verify($senha, $usuario['senha'])) {
-            $_SESSION['usuario'] = $usuario['email'];
-            $_SESSION['nome'] = $usuario['nome'];
-            $_SESSION['tipo'] = $usuario['tipo'];
+if ($usuario) {
 
-            if (!$usuario['verificado']) {
+    if (password_verify($senha, $usuario['senha'])) {
+
+        if (!$usuario['verificado']) {
             header("Location: ../verificar.php?erro=nao_verificado&email=$email");
             exit;
-    }
-            if ($usuario['tipo'] == 'admin') {
-            header("Location: ../admin.php?msg=login_sucesso");
-            exit;
-            } else {
-                header("Location: ../index.php?msg=login_sucesso");
-                exit;
-            }
-
-
-        } else {
-            header("Location: ../contas.php?erro=senha");
-            exit;
         }
+
+        // SESSÃO
+        $_SESSION['id'] = $usuario['id_usuario'];
+        $_SESSION['usuario'] = $usuario['email'];
+        $_SESSION['tipo'] = $usuario['tipo'];
+
+        switch($usuario['tipo']){
+    case 'admin':
+        header("Location: ../admin.php");
+        break;
+
+    case 'gerente':
+        header("Location: ../gerente.php");
+        break;
+
+    case 'recepcionista':
+        header("Location: ../recepcionista.php");
+        break;
+
+    default:
+        header("Location: ../index.php");
+}
+exit;
+
     } else {
-        header ("Location: ../contas.php?erro=email");
+        header("Location: ../contas.php?erro=senha");
         exit;
     }
 
-    
-?> 
+} else {
+    header("Location: ../contas.php?erro=email");
+    exit;
+}
+?>
