@@ -1,17 +1,12 @@
 <?php
 include '../includes/conexao.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require '../actions/PHPMailer/src/Exception.php';
-require '../actions/PHPMailer/src/PHPMailer.php';
-require '../actions/PHPMailer/src/SMTP.php';
-
 
 $nome = trim($_POST['nome'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $assunto = trim($_POST['assunto'] ?? '');
+$mensagem = trim($_POST['mensagem'] ?? '');
+
 
 $assuntosPermitidos = [
     'pedido',
@@ -23,11 +18,11 @@ $assuntosPermitidos = [
     'outro'
 ];
 
+
 if (!in_array($assunto, $assuntosPermitidos)) {
     header("Location: ../contato.php?erro=assunto");
     exit;
 }
-$mensagem = trim($_POST['mensagem'] ?? '');
 
 
 if (empty($nome) || empty($email) || empty($assunto) || empty($mensagem)) {
@@ -37,6 +32,9 @@ if (empty($nome) || empty($email) || empty($assunto) || empty($mensagem)) {
 
 
 try {
+
+
+    // salva no banco
     $sql = $pdo->prepare("
         INSERT INTO contatos (nome, email, assunto, mensagem)
         VALUES (?, ?, ?, ?)
@@ -46,39 +44,65 @@ try {
     $sql->execute([$nome, $email, $assunto, $mensagem]);
 
 
-    $mail = new PHPMailer(true);
+    /* =========================
+       SENDGRID API
+    ========================= */
 
 
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'confeitariasegredoce@gmail.com';
-    $mail->Password = 'pulr odxm kcqw bkhw';
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
+    $apiKey = getenv('SENDGRID_API_KEY');
 
 
-    $mail->CharSet = 'UTF-8';
+    $data = [
+        "personalizations" => [
+            [
+                "to" => [
+                    ["email" => "confeitariasegredoce@gmail.com"]
+                ]
+            ]
+        ],
+        "from" => [
+            "email" => "confeitariasegredoce@gmail.com",
+            "name" => "Segredo Doce - Site"
+        ],
+        "subject" => "Novo contato - " . ucfirst($assunto),
+        "content" => [
+            [
+                "type" => "text/html",
+                "value" => "
+                    <h2>Novo contato pelo site</h2>
+                    <p><strong>Nome:</strong> $nome</p>
+                    <p><strong>Email:</strong> $email</p>
+                    <p><strong>Assunto:</strong> " . ucfirst($assunto) . "</p>
+                    <p><strong>Mensagem:</strong><br>$mensagem</p>
+                "
+            ]
+        ]
+    ];
 
 
-    $mail->setFrom('confeitariasegredoce@gmail.com', 'Segredo Doce');
-    $mail->addAddress('confeitariasegredoce@gmail.com');
+    $ch = curl_init();
 
 
-    $mail->isHTML(true);
-    $mail->Subject = 'Novo contato - ' . ucfirst($assunto);
+    curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Authorization: Bearer $apiKey",
+        "Content-Type: application/json"
+    ]);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
 
-    $mail->Body = "
-        <h2>Novo contato pelo site</h2>
-        <p><strong>Nome:</strong> $nome</p>
-        <p><strong>Email:</strong> $email</p>
-        <p><strong>Assunto:</strong> " . ucfirst($assunto) . "</p>
-        <p><strong>Mensagem:</strong><br>$mensagem</p>
-    ";
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 
-    $mail->send();
+    curl_close($ch);
+
+
+    if ($httpCode >= 400) {
+        error_log("Erro SendGrid contato: " . $response);
+    }
 
 
     header("Location: ../contato.php?msg=enviado");
