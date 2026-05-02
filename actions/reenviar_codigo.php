@@ -1,56 +1,78 @@
 <?php
 include '../includes/conexao.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
 
 $email = $_POST['email'];
+$codigo = rand(100000, 999999);
 
-$codigo = rand(100000,999999);
 
+// atualiza código no banco
 $sql = $pdo->prepare("
-UPDATE usuarios
-SET codigo_verificacao = ?
-WHERE email = ?
+    UPDATE usuarios
+    SET codigo_verificacao = ?
+    WHERE email = ?
 ");
+
 
 $sql->execute([$codigo, $email]);
 
-$mail = new PHPMailer(true);
 
-try {
-$mail->isSMTP();
-$mail->Host = 'smtp.sendgrid.net';
-$mail->SMTPAuth = true;
-$mail->Username = 'apikey';
-$mail->Password = getenv('SENDGRID_API_KEY');
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
+// SENDGRID API
+$apiKey = getenv('SENDGRID_API_KEY');
 
-$mail->CharSet = 'UTF-8';
 
-$mail->setFrom('confeitariasegredoce@gmail.com', 'Segredo Doce');
-$mail->addAddress($email);
+$data = [
+    "personalizations" => [
+        [
+            "to" => [
+                ["email" => $email]
+            ]
+        ]
+    ],
+    "from" => [
+        "email" => "confeitariasegredoce@gmail.com",
+        "name" => "Segredo Doce"
+    ],
+    "subject" => "Novo código de verificação",
+    "content" => [
+        [
+            "type" => "text/html",
+            "value" => "
+                <h2>Seu novo código</h2>
+                <h1>$codigo</h1>
+                <p>Use este código para verificar sua conta.</p>
+            "
+        ]
+    ]
+];
 
-$mail->isHTML(true);
 
-$mail->Subject = 'Novo código de verificação';
+$ch = curl_init();
 
-$mail->Body = "
-<h2>Seu novo código</h2>
-<h1>$codigo</h1>
-<p>Use este código para verificar sua conta.</p>
-";
 
-$mail->send();
-} catch (Exception $e) {
-    echo "Erro: " . $mail->ErrorInfo;
-    exit;
+curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "Authorization: Bearer $apiKey",
+    "Content-Type: application/json"
+]);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
-} header("Location: ../verificar.php?email=$email&msg=reenviado");
-  exit;
+
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+
+curl_close($ch);
+
+
+if ($httpCode >= 400) {
+    error_log("Erro SendGrid: " . $response);
+}
+
+
+header("Location: ../verificar.php?email=$email&msg=reenviado");
+exit;
 ?>
+
