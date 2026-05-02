@@ -1,8 +1,6 @@
 <?php
     include '../includes/conexao.php';
 
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
@@ -36,8 +34,6 @@
         print_r($stmt->errorInfo());
         exit;
     };
-
-    echo "INSERT usuarios OK";
 
     $mail = new PHPMailer(true);
 
