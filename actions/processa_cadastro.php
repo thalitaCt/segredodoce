@@ -35,6 +35,9 @@
 
     $id_usuario = $pdo->lastInsertId('usuarios_id_usuario_seq');
 
+        echo "ID capturado: " . $id_usuario;
+        exit;
+
     $sql = "INSERT INTO clientes (usuario_id, nome, telefone, endereco)
     VALUES (?, ?, ?, ?)";
 
