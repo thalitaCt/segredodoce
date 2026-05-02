@@ -35,14 +35,14 @@
 
     $id_usuario = $pdo->lastInsertId('usuarios_id_usuario_seq');
 
-        echo "ID capturado: " . $id_usuario;
-        exit;
-
     $sql = "INSERT INTO clientes (usuario_id, nome, telefone, endereco)
     VALUES (?, ?, ?, ?)";
 
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id_usuario, $nome, $telefone, $endereco]);
+    if (!$stmt->execute([$id_usuario, $nome, $telefone, $endereco])) {
+        print_r($stmt->errorInfo());
+        exit;
+    };
 
     //$pdo->commit();
 
