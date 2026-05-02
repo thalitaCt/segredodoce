@@ -28,7 +28,7 @@
             'email' => $email
         ]);
 
-        $link = "http://segredodoce.onrender.com/nova_senha.php?token=$token";
+        $link = "http://segredodoce.onrender.com//nova_senha.php?token=$token";
 
         $mail = new PHPMailer(true);
 
