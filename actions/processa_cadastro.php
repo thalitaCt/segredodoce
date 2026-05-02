@@ -25,7 +25,7 @@
     }
 
     try {
-    $pdo->beginTransaction();
+    //$pdo->beginTransaction();
 
     $sql = "INSERT INTO usuarios (email, senha, tipo, codigo_verificacao, verificado)
     VALUES (?, ?, 'cliente', ?, false)";
@@ -44,7 +44,7 @@
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id_usuario, $nome, $telefone, $endereco]);
 
-    $pdo->commit();
+    //$pdo->commit();
 
     $mail = new PHPMailer(true);
 
@@ -79,7 +79,7 @@
     } header("Location: ../verificar.php?email=$email");
       exit;
     }  catch(PDOException $e) {
-        $pdo->rollBack();
+        //$pdo->rollBack();
         echo "Erro real: " . $e->getMessage();
         exit;
     }
