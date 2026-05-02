@@ -23,8 +23,6 @@
         header("Location: ../cadastro.php?erro=email_existente");
         exit;
     }
-
-    try {
     //$pdo->beginTransaction();
 
     $sql = "INSERT INTO usuarios (email, senha, tipo, codigo_verificacao, verificado)
@@ -45,41 +43,53 @@
 
     //$pdo->commit();
 
-    $mail = new PHPMailer(true);
+    $apiKey = getenv('SENDGRID_API_KEY');
 
-    try {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.sendgrid.net';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'apikey';
-        $mail->Password = getenv('SENDGRID_API_KEY');
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
 
-        $mail->CharSet = 'UTF-8';
-        $mail->Encoding = 'base64';
+$dados = [
+  "personalizations" => [[
+    "to" => [[ "email" => $email ]]
+  ]],
+  "from" => [
+    "email" => "confeitariasegredoce@gmail.com",
+    "name" => "Segredo Doce"
+  ],
+  "subject" => "Verificação de conta",
+  "content" => [[
+    "type" => "text/html",
+    "value" => "
+      <h2>Seu código de verificação</h2>
+      <p>Olá, $nome</p>
+      <p>Seu código é:</p>
+      <h1 style='letter-spacing:5px;'>$codigo</h1>
+      <p>Digite esse código no site para ativar sua conta.</p>
+    "
+  ]]
+];
 
-        $mail->setFrom('confeitariasegredoce@gmail.com', 'Segredo Doce');
-        $mail->addAddress($email);
-        $mail->isHTML(true);
-        $mail->Subject = 'Verificação de conta';
 
-        $mail->Body = "<h2>Seu código de verificação</h2>
-        <p>Olá, $nome</p>
-        <p>Seu código é:</p>
-        
-        <h1 style='letter-spacing:5px;'>$codigo</h1>
-        
-        <p>Digite esse código no site para ativar sua conta.</p>";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+  "Authorization: Bearer $apiKey",
+  "Content-Type: application/json"
+]);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($dados));
 
-        $mail->send();
-    } catch (Exception $e) {
 
-    } header("Location: ../verificar.php?email=$email");
-      exit;
-    }  catch(PDOException $e) {
-        //$pdo->rollBack();
-        echo "Erro real: " . $e->getMessage();
-        exit;
-    }
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+
+curl_close($ch);
+
+header("Location: ../verificar.php?email=$email");
+
+if ($httpCode != 202) {
+    echo "Erro ao enviar email: " . $response;
+    exit;
+}
+
 ?>
