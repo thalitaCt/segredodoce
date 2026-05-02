@@ -1,6 +1,8 @@
 <?php
     include '../includes/conexao.php';
 
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
 
@@ -32,15 +34,21 @@
     VALUES (?, ?, 'cliente', ?, false)";
     
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$email, $senha, $codigo]);
+    if (!$stmt->execute([$email, $senha, $codigo])) {
+        print_r($stmt->errorInfo());
+        exit;
+    };
 
-    $id_usuario = $pdo->lastInsertId();
+    $id_usuario = $pdo->lastInsertId('usuarios_id_usuario_seq');
 
     $sql = "INSERT INTO clientes (usuario_id, nome, telefone, endereco) 
     VALUES (?, ?, ?, ?)";
     
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id_usuario, $nome, $telefone, $endereco]);
+    if (!$stmt->execute([$id_usuario, $nome, $telefone, $endereco])) {
+        print_r($stmt->errorInfo());
+        exit;
+    };
 
     $pdo->commit();
     $mail = new PHPMailer(true);
@@ -75,6 +83,7 @@
 
     } header("Location: ../verificar.php?email=$email");
       exit;
+
     } catch(PDOException $e) {
     $pdo->rollBack();
     echo "Erro: " . $e->getMessage();
