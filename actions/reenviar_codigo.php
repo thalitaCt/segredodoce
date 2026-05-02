@@ -23,12 +23,12 @@ $sql->execute([$codigo, $email]);
 $mail = new PHPMailer(true);
 
 try {$mail->isSMTP();
-$mail->Host = 'smtp-relay.gmail.com';
+$mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = 'confeitariasegredoce@gmail.com';
 $mail->Password = 'pulr odxm kcqw bkhw';
-$mail->SMTPSecure = 'tls';
-$mail->Port = 587;
+$mail->SMTPSecure = 'ssl';
+$mail->Port = 465;
 
 $mail->Timeout = 10;
 $mail->SMTPDebug = 2;
