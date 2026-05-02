@@ -28,8 +28,6 @@
 
     try {
 
-    $pdo->beginTransaction();
-
     $sql = "INSERT INTO usuarios (email, senha, tipo, codigo_verificacao, verificado) 
     VALUES (?, ?, 'cliente', ?, false)";
     
@@ -39,18 +37,8 @@
         exit;
     };
 
-    $id_usuario = $pdo->lastInsertId('usuarios_id_usuario_seq');
+    echo "INSERT usuarios OK";
 
-    $sql = "INSERT INTO clientes (usuario_id, nome, telefone, endereco) 
-    VALUES (?, ?, ?, ?)";
-    
-    $stmt = $pdo->prepare($sql);
-    if (!$stmt->execute([$id_usuario, $nome, $telefone, $endereco])) {
-        print_r($stmt->errorInfo());
-        exit;
-    };
-
-    $pdo->commit();
     $mail = new PHPMailer(true);
 
     try {
@@ -85,7 +73,6 @@
       exit;
 
     } catch(PDOException $e) {
-    $pdo->rollBack();
     echo "Erro: " . $e->getMessage();
     exit;
     }
