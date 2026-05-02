@@ -22,20 +22,21 @@ $sql->execute([$codigo, $email]);
 
 $mail = new PHPMailer(true);
 
-try {$mail->isSMTP();
+try {
+$mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username = 'confeitariasegredoce@gmail.com';
-$mail->Password = 'pulr odxm kcqw bkhw';
-$mail->SMTPSecure = 'ssl';
-$mail->Port = 465;
+$mail->Username = 'costathalita685@gmail.com';
+$mail->Password = 'otks kucd jvjz kcne';
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
 
 $mail->Timeout = 10;
 $mail->SMTPDebug = 2;
 
 $mail->CharSet = 'UTF-8';
 
-$mail->setFrom('confeitariasegredoce@gmail.com', 'Segredo Doce');
+$mail->setFrom('costathalita685@gmail.com', 'Segredo Doce');
 $mail->addAddress($email);
 
 $mail->isHTML(true);
