@@ -79,7 +79,8 @@
     } header("Location: ../verificar.php?email=$email");
       exit;
     }  catch(PDOException $e) {
-        header("Location: ../cadastro.php?erro=geral");
+        $pdo->rollBack();
+        echo "Erro real: " . $e->getMessage();
         exit;
     }
 ?>
