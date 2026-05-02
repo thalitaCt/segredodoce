@@ -25,15 +25,23 @@
     }
 
     try {
+    $pdo->beginTransaction();
 
-    $sql = "INSERT INTO usuarios (email, senha, tipo, codigo_verificacao, verificado) 
+    $sql = "INSERT INTO usuarios (email, senha, tipo, codigo_verificacao, verificado)
     VALUES (?, ?, 'cliente', ?, false)";
-    
+
     $stmt = $pdo->prepare($sql);
-    if (!$stmt->execute([$email, $senha, $codigo])) {
-        print_r($stmt->errorInfo());
-        exit;
-    };
+    $stmt->execute([$email, $senha, $codigo]);
+
+    $id_usuario = $pdo->lastInsertId('usuarios_id_usuario_seq');
+
+    $sql = "INSERT INTO clientes (usuario_id, nome, telefone, endereco)
+    VALUES (?, ?, ?, ?)";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id_usuario, $nome, $telefone, $endereco]);
+
+    $pdo->commit();
 
     $mail = new PHPMailer(true);
 
@@ -67,9 +75,8 @@
 
     } header("Location: ../verificar.php?email=$email");
       exit;
-
-    } catch(PDOException $e) {
-    echo "Erro: " . $e->getMessage();
-    exit;
+    }  catch(PDOException $e) {
+        header("Location: ../cadastro.php?erro=geral");
+        exit;
     }
 ?>
