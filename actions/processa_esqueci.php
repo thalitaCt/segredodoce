@@ -10,7 +10,7 @@
 
     $email = $_POST['email'];
 
-    $sql = "SELECT * FROM  clientes WHERE email = :email";
+    $sql = "SELECT * FROM  usuarios WHERE email = :email";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['email' => $email]);
 
@@ -20,7 +20,7 @@
         $token = bin2hex(random_bytes(16));
         $expira = date("Y-m-d H:i:s", strtotime("+1 hour"));
 
-        $sql = "UPDATE clientes SET token = :token, token_expira = :expira WHERE email = :email";
+        $sql = "UPDATE usuarios SET token = :token, token_expira = :expira WHERE email = :email";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             'token' => $token,
@@ -28,7 +28,7 @@
             'email' => $email
         ]);
 
-        $link = "http://segredodoce.onrender.com//nova_senha.php?token=$token";
+        $link = "http://segredodoce.onrender.com/nova_senha.php?token=$token";
 
         $mail = new PHPMailer(true);
 

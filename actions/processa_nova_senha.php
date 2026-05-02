@@ -4,14 +4,14 @@
     $token = $_POST['token'];
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
-    $sql = "SELECT * FROM clientes WHERE token = :token";
+    $sql = "SELECT * FROM usuarios WHERE token = :token";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['token' => $token]);
     
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($usuario) {
-        $sql = "UPDATE clientes SET senha = :senha, token = NULL, token_expira = NULL WHERE token = :token";
+        $sql = "UPDATE usuarios SET senha = :senha, token = NULL, token_expira = NULL WHERE token = :token";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             'senha' => $senha,

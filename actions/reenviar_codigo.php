@@ -13,7 +13,7 @@ $email = $_POST['email'];
 $codigo = rand(100000,999999);
 
 $sql = $pdo->prepare("
-UPDATE clientes
+UPDATE usuarios
 SET codigo_verificacao = ?
 WHERE email = ?
 ");
