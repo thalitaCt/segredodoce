@@ -22,13 +22,16 @@ $sql->execute([$codigo, $email]);
 
 $mail = new PHPMailer(true);
 
-$mail->isSMTP();
+try {$mail->isSMTP();
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
 $mail->Username = 'confeitariasegredoce@gmail.com';
 $mail->Password = 'pulr odxm kcqw bkhw';
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
+
+$mail->Timeout = 10;
+$mail->SMTPDebug = 2;
 
 $mail->CharSet = 'UTF-8';
 
@@ -46,7 +49,10 @@ $mail->Body = "
 ";
 
 $mail->send();
+} catch (Exception $e) {
+    echo "Erro: " . $mail->ErrorInfo;
+    exit;
 
-header("Location: ../verificar.php?email=$email&msg=reenviado");
-exit;
+} header("Location: ../verificar.php?email=$email&msg=reenviado");
+  exit;
 ?>
