@@ -23,17 +23,19 @@ $pago = ($forma === 'boleto') ? false : true;
 $sql = $pdo->prepare("
 INSERT INTO pedidos
 (cliente_email, cliente_nome, total, status, pago, forma_pagamento, data_pedido)
-VALUES (?, ?, ?, ?, ?, ?,NOW())
+VALUES (:email, :nome, :total, :status, :pago, :forma, NOW())
 ");
 
+
 $sql->execute([
-    $_SESSION['usuario'],
-    $_SESSION['nome'],
-    $total,
-    'Pendente',
-    $pago,
-    $forma
+    ':email' => $_SESSION['usuario'],
+    ':nome' => $_SESSION['nome'],
+    ':total' => $total,
+    ':status' => 'Pendente',
+    ':pago' => $pago,
+    ':forma' => $forma
 ]);
+
 
 
 $pedido_id = $pdo->lastInsertId();
