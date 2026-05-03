@@ -47,21 +47,21 @@ try {
     
     $sql = $pdo->prepare("
     INSERT INTO pedidos
-    (cliente_nome, cliente_email, total, status, forma_pagamento, pago, data_pedido)
+    (cliente_email, cliente_nome, total, status, pago, forma_pagamento, data_pedido)
     VALUES (?, ?, ?, 'Pendente', ?, ?, NOW())
     ");
 
 
     $sql->execute([
-        $cliente_nome,
         $cliente_email,
+        $cliente_nome,
         $total,
-        $forma,
-        $pago
+        $pago,
+        $forma
     ]);
 
 
-    $pedido_id = $pdo->lastInsertId('pedidos_id_seq');
+    $pedido_id = $pdo->lastInsertId('pedidos_id_pedidos_seq');
 
 
     $sql = $pdo->prepare("
