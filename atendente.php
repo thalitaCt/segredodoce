@@ -137,7 +137,6 @@ input {
 }
 
 .card .pedido{
-
     background:white;
     padding:15px;
     margin-bottom:20px;
@@ -189,11 +188,11 @@ input {
         padding:11px;
         border:none;
         border-radius:16px;
-        background:#fff;
+        background: #fff;
         font-size:18px;
         outline:none;
         cursor:pointer;
-        color:#555;
+        color: #555;
         }
 }
 </style>
