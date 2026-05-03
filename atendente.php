@@ -77,7 +77,7 @@ header{
     text-decoration: underline;
     text-decoration-color: var(--amarelo2);
     text-align: center;
-    font-size: 23pt;
+    font-size: 25pt;
     }
 }
 
@@ -94,10 +94,11 @@ button{
 
 select{
     padding: 10px;
-    width: 300px;
+    width: 250px;
     border:none;
     border-radius:16px;
-    background: #555;
+    background-color: grey;
+    color: var(--branco);
     font-size:15px;
     outline:none;
     cursor:pointer;
@@ -149,12 +150,17 @@ input {
     margin-bottom:20px;
     border-radius:10px;
     box-shadow:0 0 5px rgba(0,0,0,0.1);
+    text-align: center;
+    justify-self: center;
+    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
 
     h2 {
     text-decoration: underline;
     text-decoration-color: var(--amarelo2);
     text-align: center;
-    font-size: 23pt;
+    font-size: 25pt;
     }
 
     form {
@@ -169,7 +175,8 @@ input {
         border: none;
         border-radius: 14px;
         padding:10px;
-        background: #333;
+        background-color: grey;
+        color: var(--branco);
         width: 200px;
         margin-bottom: 10px;
     }
@@ -194,9 +201,10 @@ input {
         padding:11px;
         border:none;
         border-radius:16px;
-        background: #555;
+        background-color: grey;
         font-size:18px;
         outline:none;
+        color: var(--branco);
         cursor:pointer;
         }
 }
