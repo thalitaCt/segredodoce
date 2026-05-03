@@ -21,11 +21,15 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 try {
     $pdo->beginTransaction();
 
+    var_dump($produto_id);
+    exit;
 
     $sql = $pdo->prepare("SELECT nome, preco, estoque FROM produtos WHERE id_produtos = ?");
     $sql->execute([$produto_id]);
     $produto = $sql->fetch(PDO::FETCH_ASSOC);
 
+    var_dump($produto);
+    exit;
 
     if(!$produto){
         throw new Exception("Produto não encontrado");
