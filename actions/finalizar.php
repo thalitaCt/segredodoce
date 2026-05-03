@@ -22,8 +22,8 @@ $pago = ($forma === 'boleto') ? false : true;
 
 $sql = $pdo->prepare("
 INSERT INTO pedidos
-(cliente_email, cliente_nome, total, status, data_pedido, pago, forma_pagamento)
-VALUES (?, ?, ?, ?, NOW(), ?, ?)
+(cliente_email, cliente_nome, total, status, pago, forma_pagamento, data_pedido)
+VALUES (?, ?, ?, ?, ?, ?,NOW())
 ");
 
 $sql->execute([
