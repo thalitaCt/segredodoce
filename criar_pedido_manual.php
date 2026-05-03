@@ -13,7 +13,7 @@ $cliente_nome = $_POST['cliente_nome'];
 $cliente_email = $_POST['cliente_email'];
 $produto_id = $_POST['produto_id'];
 $quantidade = $_POST['quantidade'];
-$forma = $_POST['forma_pagamento'];
+$forma = $_POST['forma_pagamento'] ?? 'pix';
 
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -61,7 +61,7 @@ try {
     ]);
 
 
-    $pedido_id = $pdo->lastInsertId('pedidos_id_seq');
+    $pedido_id = $pdo->lastInsertId();
 
 
     $sql = $pdo->prepare("
