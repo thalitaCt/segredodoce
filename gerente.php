@@ -364,9 +364,9 @@ switch($_GET['msg']){
     </table>
 </div>
 
-
 </div>
 
+<?php include 'includes/dashboard.php'; ?>
 
 </body>
 </html>
