@@ -3,7 +3,7 @@
 
     $token = $_GET['token'];
 
-    $sql = "SELECT * FROM clientes WHERE token = :token";
+    $sql = "SELECT * FROM usuarios WHERE token = :token";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['token' => $token]);
 
