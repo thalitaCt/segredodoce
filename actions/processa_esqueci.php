@@ -12,6 +12,18 @@ $stmt->execute(['email' => $email]);
 
 $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
+if($usuario['tipo'] == 'cliente'){
+    $sqlNome = $pdo->prepare("SELECT nome FROM clientes WHERE usuario_id = ?");
+} else {
+    $sqlNome = $pdo->prepare("SELECT nome FROM funcionarios WHERE usuario_id = ?");
+}
+
+
+$sqlNome->execute([$usuario['id_usuario']]);
+$user = $sqlNome->fetch(PDO::FETCH_ASSOC);
+
+
+$nome = $user['nome'] ?? 'Usuário';
 
 if ($usuario) {
 
@@ -58,7 +70,7 @@ if ($usuario) {
                 "type" => "text/html",
                 "value" => "
                     <h2>Recuperação de Senha</h2>
-                    <p>Olá, {$usuario['nome']}</p>
+                    <p>Olá, $nome</p>
                     <p>Clique no botão abaixo para redefinir sua senha:</p>
 
 
