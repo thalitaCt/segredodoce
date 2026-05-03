@@ -88,5 +88,5 @@ try {
     exit;
 }
 
-header("Location: recepcionista.php?msg=pedido_criado");
+header("Location: atendente.php?msg=pedido_criado");
 exit;
