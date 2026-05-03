@@ -8,6 +8,7 @@ if(empty($_SESSION['carrinho'])){
     exit;
 }
 
+
 $carrinho = $_SESSION['carrinho'];
 $total = 0;
 
@@ -16,10 +17,9 @@ foreach($carrinho as $item){
     $total += $item['preco'] * $item['quantidade'];
 }
 
-
 $forma = $_POST['forma_pagamento'] ?? 'pix';
 $pago = ($forma == 'boleto') ? false : true;
-
+$pago = (bool)$pago;
 
 $sql = $pdo->prepare("
 INSERT INTO pedidos
@@ -63,7 +63,6 @@ foreach($carrinho as $id => $item){
     SET estoque = estoque - ?
     WHERE id_produtos = ?
     ");
-
 
     $sql->execute([
         $item['quantidade'],
