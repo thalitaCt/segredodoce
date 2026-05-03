@@ -128,19 +128,16 @@ input {
   right: 10px;
   cursor: pointer;
 }
-.card2 {
+.card .pedido{
     form {
     font-family: Poppins;
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
 }
 
 input {
     border: none;
     border-radius: 14px;
     padding:10px;
-    width: 350px;
+    width: 200px;
     margin-bottom: 10px;
 }
 
@@ -160,7 +157,7 @@ input {
     }
 
     select{
-        width: 260px;
+        width: 300px;
         padding:11px;
         border:none;
         border-radius:16px;
@@ -193,7 +190,7 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
 
 <div class="container">
 
-<div class="card2">
+<div class="card pedido">
     <h2>Novo Pedido</h2>
 
 
