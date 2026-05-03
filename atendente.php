@@ -220,21 +220,16 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
     <div>Olá, <?= $nome ?> | <a href="../logout.php" style="color:white;">Sair</a></div>
 </header>
 
-
 <div class="container">
 
 <div class="card pedido">
     <h2>Novo Pedido</h2>
 
-
     <form action="criar_pedido_manual.php" method="POST">
-
 
         <input type="text" name="cliente_nome" placeholder="Nome do cliente" required>
 
-
         <input type="email" name="cliente_email" placeholder="Email do cliente" required>
-
 
         <select name="produto_id" required>
             <?php
@@ -245,18 +240,16 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
                       </option>";
             }
             ?>
-        </select><br><br>
+        </select>
 
 
-        <input type="number" name="quantidade" placeholder="Quantidade" required><br><br>
-
+        <input type="number" name="quantidade" placeholder="Quantidade" required>
 
         <select name="forma_pagamento" required>
             <option value="pix">Pix</option>
             <option value="cartao">Cartão</option>
             <option value="boleto">Boleto</option>
-        </select><br><br>
-
+        </select>
 
         <button type="submit">Criar Pedido</button>
     </form>
