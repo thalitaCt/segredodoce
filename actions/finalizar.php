@@ -18,24 +18,22 @@ foreach($carrinho as $item){
 }
 
 $forma = $_POST['forma_pagamento'] ?? 'pix';
-$pago = ($forma === 'boleto') ? false : true;
+$pago = ($forma === 'boleto') ? 'false' : 'true';
 
 $sql = $pdo->prepare("
 INSERT INTO pedidos
 (cliente_email, cliente_nome, total, status, pago, forma_pagamento, data_pedido)
-VALUES (:email, :nome, :total, :status, :pago, :forma, NOW())
+VALUES (?, ?, ?, ?, ?, ?, NOW())
 ");
 
-
 $sql->execute([
-    ':email' => $_SESSION['usuario'],
-    ':nome' => $_SESSION['nome'],
-    ':total' => $total,
-    ':status' => 'Pendente',
-    ':pago' => $pago,
-    ':forma' => $forma
+    $_SESSION['usuario'],
+    $_SESSION['nome'],
+    $total,
+    'Pendente',
+    $pago,
+    $forma
 ]);
-
 
 
 $pedido_id = $pdo->lastInsertId();
