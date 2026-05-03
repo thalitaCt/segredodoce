@@ -56,9 +56,13 @@ $pedidos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 <p>Total: R$ <?= number_format($p['total'],2,',','.'); ?></p>
 
-<p>Status: <?= $p['status']; ?></p>
+<p>Pagamento: <?= ucfirst($p['forma_pagamento']); ?></p>
 
-<p>Data: <?= $p['data_pedido']; ?></p>
+<p>Status pagamento: <?= $p['pago'] ? 'Pago' : 'Pendente' ?></p>
+
+<p>Status pedido: <?= $p['status']; ?></p>
+
+<p>Data: <?= date('d/m/Y H:i', strtotime($p['data_pedido'])) ?></p>
 
 </div>
 
