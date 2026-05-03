@@ -120,7 +120,7 @@ select{
 
 
         <tr>
-            <td><?= $p['id_pedido'] ?></td>
+            <td><?= $p['id_pedidos'] ?></td>
             <td><?= $p['cliente_nome'] ?? 'Cliente' ?></td>
             <td>R$ <?= number_format($p['total'], 2, ',', '.') ?></td>
 
@@ -140,7 +140,7 @@ select{
 
             <td>
                 <form action="atualizar_status.php" method="POST">
-                    <input type="hidden" name="id" value="<?= $p['id_pedido'] ?>">
+                    <input type="hidden" name="id" value="<?= $p['id_pedidos'] ?>">
 
 
                     <select name="status">
