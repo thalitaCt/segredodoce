@@ -15,6 +15,8 @@ $produto_id = $_POST['produto_id'];
 $quantidade = $_POST['quantidade'];
 $forma = $_POST['forma_pagamento'];
 
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 
 try {
     $pdo->beginTransaction();
