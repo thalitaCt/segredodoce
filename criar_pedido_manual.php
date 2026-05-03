@@ -61,7 +61,7 @@ try {
     ]);
 
 
-    $pedido_id = $pdo->lastInsertId();
+    $pedido_id = $pdo->lastInsertId('pedidos_id_seq');
 
 
     $sql = $pdo->prepare("
