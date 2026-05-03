@@ -67,13 +67,13 @@ if ($usuario) {
 
 
     } else {
-        header("Location: ../contas.php?erro=senha");
+        header("Location: ../login.php?erro=senha");
         exit;
     }
 
 
 } else {
-    header("Location: ../contas.php?erro=email");
+    header("Location: ../login.php?erro=email");
     exit;
 }
 ?>
