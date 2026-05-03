@@ -77,7 +77,7 @@ header{
     text-decoration: underline;
     text-decoration-color: var(--amarelo2);
     text-align: center;
-    color: var(--marrom3);
+    font-size: 18pt;
     }
 }
 
@@ -155,7 +155,7 @@ input {
     text-decoration: underline;
     text-decoration-color: var(--amarelo2);
     text-align: center;
-    color: var(--marrom3);
+    font-size: 18pt;
     }
 
     form {
