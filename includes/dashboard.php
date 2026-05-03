@@ -38,7 +38,7 @@ $pendentes = $pdo->query("SELECT COUNT(*) FROM pedidos WHERE status = 'Pendente'
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    margin: 30px 0;
+    margin: 30px;
     font-family: Poppins;
 }
 
@@ -75,7 +75,10 @@ $pendentes = $pdo->query("SELECT COUNT(*) FROM pedidos WHERE status = 'Pendente'
 
 .titulo-dashboard {
     font-family: Poppins;
-    font-size: 24px;
+    font-size: 22pt;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: var(--amarelo2);
     margin-top: 20px;
     color: var(--marrom3);
 }

@@ -97,6 +97,7 @@ header{
 
 
 .card h2{
+    font-size: 22pt;
     text-align:center;
     text-decoration: underline;
     text-decoration-color:#facc15;
@@ -186,6 +187,8 @@ button:hover{
 
 
 <body>
+
+<?php include 'includes/dashboard.php'; ?>
 
 <?php if(isset($_GET['msg'])): ?>
 
@@ -365,8 +368,6 @@ switch($_GET['msg']){
 </div>
 
 </div>
-
-<?php include 'includes/dashboard.php'; ?>
 
 </body>
 </html>
