@@ -77,7 +77,7 @@ header{
     text-decoration: underline;
     text-decoration-color: var(--amarelo2);
     text-align: center;
-    font-size: 18pt;
+    font-size: 23pt;
     }
 }
 
@@ -97,11 +97,10 @@ select{
     width: 300px;
     border:none;
     border-radius:16px;
-    background: #fff;
-    font-size:18px;
+    background: #555;
+    font-size:15px;
     outline:none;
     cursor:pointer;
-    color: #555;
 }
 
 
@@ -155,7 +154,7 @@ input {
     text-decoration: underline;
     text-decoration-color: var(--amarelo2);
     text-align: center;
-    font-size: 18pt;
+    font-size: 23pt;
     }
 
     form {
@@ -163,15 +162,14 @@ input {
     justify-self: center;
     justify-items: center;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     }
 
     input {
         border: none;
         border-radius: 14px;
         padding:10px;
-        background: #eee;
-        color: #333;
+        background: #333;
         width: 200px;
         margin-bottom: 10px;
     }
@@ -196,11 +194,10 @@ input {
         padding:11px;
         border:none;
         border-radius:16px;
-        background: #fff;
+        background: #555;
         font-size:18px;
         outline:none;
         cursor:pointer;
-        color: #555;
         }
 }
 </style>
