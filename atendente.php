@@ -79,10 +79,8 @@ header{
     text-align: center;
     font-size: 25pt;
     }
-}
 
-
-button{
+    button{
     background:#ff877d;
     color:white;
     border:none;
@@ -94,11 +92,9 @@ button{
 
 select{
     padding: 10px;
-    width: 250px;
-    border:none;
+    width: 220px;
+    border-color: var(--rosa);
     border-radius:16px;
-    background-color: grey;
-    color: var(--branco);
     font-size:15px;
     outline:none;
     cursor:pointer;
@@ -113,6 +109,7 @@ input {
     border: none;
     padding: 10px;
     margin: 10px;
+}
 }
 
 .alerta {
@@ -172,11 +169,9 @@ input {
     }
 
     input {
-        border: none;
+        border-color: var(--rosa);
         border-radius: 14px;
         padding:10px;
-        background-color: grey;
-        color: var(--branco);
         width: 200px;
         margin-bottom: 10px;
     }
@@ -197,14 +192,12 @@ input {
     }
 
     select {
-        width: 300px;
+        width: 230px;
         padding:11px;
-        border:none;
+        border-color: var(--rosa);
         border-radius:16px;
-        background-color: grey;
         font-size:18px;
         outline:none;
-        color: var(--branco);
         cursor:pointer;
         }
 }
