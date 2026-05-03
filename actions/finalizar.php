@@ -24,7 +24,7 @@ $sql->execute([
     $_SESSION['usuario'],
     $_SESSION['nome'],
     $total,
-    'Recebido'
+    'Pendente'
 ]);
 
 $pedido_id = $pdo->lastInsertId();

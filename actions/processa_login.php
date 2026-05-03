@@ -55,8 +55,8 @@ if ($usuario) {
                 break;
 
 
-            case 'recepcionista':
-                header("Location: ../recepcionista.php");
+            case 'atendente':
+                header("Location: ../atendente.php");
                 break;
 
 
