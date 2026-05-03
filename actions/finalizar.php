@@ -18,8 +18,7 @@ foreach($carrinho as $item){
 }
 
 $forma = $_POST['forma_pagamento'] ?? 'pix';
-$pago = ($forma == 'boleto') ? false : true;
-$pago = (bool)$pago;
+$pago = ($forma === 'boleto') ? false : true;
 
 $sql = $pdo->prepare("
 INSERT INTO pedidos
