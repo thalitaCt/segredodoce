@@ -2,6 +2,7 @@
 session_start();
 include '../includes/conexao.php';
 
+
 if(empty($_SESSION['carrinho'])){
     header("Location: ../carrinho.php");
     exit;
@@ -10,24 +11,35 @@ if(empty($_SESSION['carrinho'])){
 $carrinho = $_SESSION['carrinho'];
 $total = 0;
 
+
 foreach($carrinho as $item){
     $total += $item['preco'] * $item['quantidade'];
 }
 
+
+$forma = $_POST['forma_pagamento'] ?? 'pix';
+$pago = ($forma == 'boleto') ? false : true;
+
+
 $sql = $pdo->prepare("
 INSERT INTO pedidos
-(cliente_email, cliente_nome, total, status, data_pedido)
-VALUES (?, ?, ?, ?, NOW())
+(cliente_email, cliente_nome, total, status, forma_pagamento, pago, data_pedido)
+VALUES (?, ?, ?, ?, ?, ?, NOW())
 ");
+
 
 $sql->execute([
     $_SESSION['usuario'],
     $_SESSION['nome'],
     $total,
-    'Pendente'
+    'Pendente',
+    $forma,
+    $pago
 ]);
 
+
 $pedido_id = $pdo->lastInsertId();
+
 
 foreach($carrinho as $id => $item){
 
@@ -36,6 +48,7 @@ foreach($carrinho as $id => $item){
     (pedido_id, produto_id, nome, quantidade, preco)
     VALUES (?, ?, ?, ?, ?)
     ");
+
 
     $sql->execute([
         $pedido_id,
@@ -50,6 +63,7 @@ foreach($carrinho as $id => $item){
     SET estoque = estoque - ?
     WHERE id_produtos = ?
     ");
+
 
     $sql->execute([
         $item['quantidade'],

@@ -40,10 +40,10 @@ foreach($_SESSION['carrinho'] as $item){
 
 <label>Forma de pagamento:</label>
 
-<select name="pagamento">
-    <option>Pix</option>
-    <option>Cartão</option>
-    <option>Boleto</option>
+<select name="forma_pagamento">
+    <option value="pix">Pix</option>
+    <option value="cartao">Cartão</option>
+    <option value="boleto">Boleto</option>
 </select>
 
 <br>
