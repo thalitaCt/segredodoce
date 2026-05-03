@@ -188,8 +188,6 @@ button:hover{
 
 <body>
 
-<?php include 'includes/dashboard.php'; ?>
-
 <?php if(isset($_GET['msg'])): ?>
 
 
@@ -368,6 +366,8 @@ switch($_GET['msg']){
 </div>
 
 </div>
+
+<?php include 'includes/dashboard.php'; ?>
 
 </body>
 </html>
