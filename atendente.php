@@ -93,7 +93,15 @@ button{
 
 
 select{
-    padding:5px;
+    padding: 10px;
+    width: 300px;
+    border:none;
+    border-radius:16px;
+    background: #fff;
+    font-size:18px;
+    outline:none;
+    cursor:pointer;
+    color: #555;
 }
 
 
