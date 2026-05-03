@@ -128,6 +128,49 @@ input {
   right: 10px;
   cursor: pointer;
 }
+.card2 {
+    form {
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+input {
+    border: none;
+    border-radius: 14px;
+    padding:10px;
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+    button {
+        margin: 7px;
+        font-family: Poppins;
+        border-color: var(--marrom3);
+        background-color: var(--rosa);
+        padding: 10px;
+        font-size: 13pt;
+        border-radius: 10px;
+        transition: 0.5s;
+        color: var(--bege2);
+        font-weight: 800;
+        width: 100px;
+        cursor: pointer;
+    }
+
+    select{
+        width: 260px;
+        padding:11px;
+        border:none;
+        border-radius:16px;
+        background:#fff;
+        font-size:18px;
+        outline:none;
+        cursor:pointer;
+        color:#555;
+        }
+}
 </style>
 </head>
 <body>
@@ -150,7 +193,7 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
 
 <div class="container">
 
-<div class="card">
+<div class="card2">
     <h2>Novo Pedido</h2>
 
 
