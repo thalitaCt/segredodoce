@@ -19,7 +19,6 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 try {
-    $pdo->beginTransaction();
 
     $sql = $pdo->prepare("SELECT nome, preco, estoque FROM produtos WHERE id_produtos = ?");
     $sql->execute([$produto_id]);
@@ -29,46 +28,40 @@ try {
         throw new Exception("Produto não encontrado");
     }
 
-
     if($produto['estoque'] < $quantidade){
         throw new Exception("Estoque insuficiente");
     }
 
-
     $produto_nome = $produto['nome'];
     $preco = $produto['preco'];
 
-
     $total = $quantidade * $preco;
+    $pago = ($forma === 'boleto') ? false : true;
 
-
-    $pago = ($forma === 'boleto') ? 'false' : 'true';
-
-    
+    // INSERT pedido
     $sql = $pdo->prepare("
-INSERT INTO pedidos
-(cliente_nome, cliente_email, total, status, forma_pagamento, pago, data_pedido)
-VALUES (?, ?, ?, 'Pendente', ?, ?, NOW())
-RETURNING id_pedidos
-");
-
-$sql->execute([
-    $cliente_nome,
-    $cliente_email,
-    $total,
-    $forma,
-    $pago
-]);
-
-$pedido_id = $sql->fetchColumn();
-
-
-    $sql = $pdo->prepare("
-    INSERT INTO itens_pedido
-    (pedido_id, produto_id, nome, quantidade, preco)
-    VALUES (?, ?, ?, ?, ?)
+        INSERT INTO pedidos
+        (cliente_nome, cliente_email, total, status, forma_pagamento, pago, data_pedido)
+        VALUES (?, ?, ?, 'Pendente', ?, ?, NOW())
+        RETURNING id_pedidos
     ");
 
+    $sql->execute([
+        $cliente_nome,
+        $cliente_email,
+        $total,
+        $forma,
+        $pago
+    ]);
+
+    $pedido_id = $sql->fetchColumn();
+
+    // INSERT item
+    $sql = $pdo->prepare("
+        INSERT INTO itens_pedido
+        (pedido_id, produto_id, nome, quantidade, preco)
+        VALUES (?, ?, ?, ?, ?)
+    ");
 
     $sql->execute([
         $pedido_id,
@@ -78,32 +71,20 @@ $pedido_id = $sql->fetchColumn();
         $preco
     ]);
 
-
+    // UPDATE estoque
     $sql = $pdo->prepare("
-    UPDATE produtos
-    SET estoque = estoque - ?
-    WHERE id_produtos = ?
+        UPDATE produtos
+        SET estoque = estoque - ?
+        WHERE id_produtos = ?
     ");
-
 
     $sql->execute([
         $quantidade,
         $produto_id
     ]);
 
-
-    $pdo->commit();
-
-
 } catch(Exception $e){
-    $pdo->rollBack();
-
-    echo "<pre>";
-    echo "ERRO REAL: " . $e->getMessage() . "\n";
-    echo "VARS:\n";
-    var_dump($produto_id, $quantidade, $cliente_nome, $cliente_email);
-    echo "</pre>";
-
+    echo "Erro: " . $e->getMessage();
     exit;
 }
 
