@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '/includes/conexao.php';
+include 'includes/conexao.php';
 
 
 if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'recepcionista'){
