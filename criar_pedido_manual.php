@@ -42,10 +42,8 @@ try {
     $total = $quantidade * $preco;
 
 
-    $pago = ($forma == 'boleto') ? 'false' : 'true';
+    $pago = ($forma === 'boleto') ? 'false' : 'true';
 
-    echo "antes do insert pedido";
-    exit;
     
     $sql = $pdo->prepare("
     INSERT INTO pedidos
