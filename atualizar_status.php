@@ -6,7 +6,7 @@ $id = $_POST['id'];
 $status = $_POST['status'];
 
 
-$sql = $pdo->prepare("UPDATE pedidos SET status = ? WHERE id_pedido = ?");
+$sql = $pdo->prepare("UPDATE pedidos SET status = ? WHERE id_pedidos = ?");
 $sql->execute([$status, $id]);
 
 
