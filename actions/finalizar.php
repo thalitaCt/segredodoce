@@ -27,7 +27,7 @@ VALUES (?, ?, ?, ?, ?, ?, NOW())
 ");
 
 var_dump($_SESSION['usuario']);
-var_dump($_SESSION['nomme']);
+var_dump($_SESSION['nome']);
 var_dump($total);
 var_dump($forma);
 var_dump($pago);
