@@ -25,9 +25,6 @@ try {
     $sql->execute([$produto_id]);
     $produto = $sql->fetch(PDO::FETCH_ASSOC);
 
-    var_dump($produto);
-    exit;
-
     if(!$produto){
         throw new Exception("Produto não encontrado");
     }
@@ -47,7 +44,9 @@ try {
 
     $pago = ($forma == 'boleto') ? 'false' : 'true';
 
-
+    echo "antes do insert pedido";
+    exit;
+    
     $sql = $pdo->prepare("
     INSERT INTO pedidos
     (cliente_nome, cliente_email, total, status, forma_pagamento, pago, data_pedido)
