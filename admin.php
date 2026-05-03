@@ -46,7 +46,6 @@ LIMIT 5
 
 
 
-
 /* ULTIMOS PEDIDOS */
 $pedidos = $pdo->query("
     SELECT id_pedidos, cliente_nome, total
@@ -171,8 +170,8 @@ Pedido #<?= $p['id_pedidos'] ?><br>
 
 </div>
 
+<?php include 'admin_gerentes.php'; ?>
 
-
-
+<?php include 'admin_relatorios.php'; ?>
 </body>
 </html>
