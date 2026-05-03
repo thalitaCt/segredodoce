@@ -26,6 +26,13 @@ INSERT INTO pedidos
 VALUES (?, ?, ?, ?, ?, ?, NOW())
 ");
 
+var_dump($_SESSION['usuario']);
+var_dump($_SESSION['nomme']);
+var_dump($total);
+var_dump($forma);
+var_dump($pago);
+exit;
+
 
 $sql->execute([
     $_SESSION['usuario'],
