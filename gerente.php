@@ -45,6 +45,27 @@ WHERE u.tipo = 'recepcionista'
 
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --bege: #ffedcd;
+  --bege2: #fff4ee;
+  --bege3: #eacab6;
+  --marrom: #7d5147;
+  --marrom2: #833c2c;
+  --marrom3: #421d14;
+  --rosa: #ff877d;
+  --rosa2: #ee5350;
+  --verde: #347141;
+  --branco: #ffffff;
+  --preto: #000000;
+  --preto2: #1b1b1b;
+  --amarelo: #fde047;
+  --amarelo2: #facc15;
+}
+
 body{
     font-family:Poppins;
     margin:0;
@@ -131,11 +152,106 @@ button:hover{
     padding:10px 15px;
     font-weight:bold;
 }
+
+.alerta {
+  font-family: Poppins;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgb(0, 160, 13);
+  color: var(--branco);
+  padding: 25px 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  font-weight: 650;
+}
+
+.alerta .fechar {
+  color: var(--branco);
+  font-size: 15px;
+  padding: 3px;
+  border-radius: 8px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+}
 </style>
 </head>
 
 
 <body>
+
+<?php if(isset($_GET['msg'])): ?>
+
+
+<div class="alerta">
+
+
+<?php
+switch($_GET['msg']){
+    case 'produto_criado':
+        echo "Produto criado com sucesso!";
+        break;
+
+
+    case 'produto_editado':
+        echo "Produto atualizado com sucesso!";
+        break;
+
+
+    case 'produto_excluido':
+        echo "Produto excluído com sucesso!";
+        break;
+
+
+    case 'cliente_criado':
+        echo "Cliente criado com sucesso!";
+        break;
+
+
+    case 'cliente_editado':
+        echo "Cliente atualizado com sucesso!";
+        break;
+
+
+    case 'cliente_excluido':
+        echo "Cliente excluído com sucesso!";
+        break;
+
+
+    case 'atendente_criado':
+        echo "Atendente criado com sucesso!";
+        break;
+
+
+    case 'atendente_editado':
+        echo "Atendente atualizado com sucesso!";
+        break;
+
+
+    case 'atendente_excluido':
+        echo "Atendente excluído com sucesso!";
+        break;
+
+
+    default:
+        echo "Ação realizada com sucesso!";
+}
+?>
+
+
+<span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
+</div>
+
+
+<?php endif; ?>
+
 
 
 <header>

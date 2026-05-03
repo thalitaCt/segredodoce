@@ -17,6 +17,18 @@ $sql->execute([$id]);
 $produto = $sql->fetch(PDO::FETCH_ASSOC);
 ?>
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/styleGerente.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="form-card">
+
+<h2>Alterar Produto</h2>
 
 <form method="POST" action="salvar_edicao.php">
     <input type="hidden" name="id" value="<?= $produto['id_produtos'] ?>">
@@ -29,3 +41,7 @@ $produto = $sql->fetch(PDO::FETCH_ASSOC);
 
     <button type="submit">Salvar</button>
 </form>
+</div>
+
+</body>
+</html>
