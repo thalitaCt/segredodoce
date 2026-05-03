@@ -19,12 +19,34 @@ $pedidos = $sql->fetchAll(PDO::FETCH_ASSOC);
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <title>Painel do Atendente</title>
 
-
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --bege: #ffedcd;
+  --bege2: #fff4ee;
+  --bege3: #eacab6;
+  --marrom: #7d5147;
+  --marrom2: #833c2c;
+  --marrom3: #421d14;
+  --rosa: #ff877d;
+  --rosa2: #ee5350;
+  --verde: #347141;
+  --branco: #ffffff;
+  --preto: #000000;
+  --preto2: #1b1b1b;
+  --amarelo: #fde047;
+  --amarelo2: #facc15;
+}
+
 body{
-    font-family: Arial;
+    font-family: Poppins;
     margin:0;
     background:#fff4ee;
 }
@@ -33,7 +55,7 @@ body{
 header{
     background:#ff877d;
     color:white;
-    padding:15px;
+    padding:20px;
     display:flex;
     justify-content:space-between;
 }
@@ -129,7 +151,7 @@ select{
 
 
             <td>
-                <?= $p['pago'] ? '✅ Pago' : '❌ Pendente' ?>
+                <?= $p['pago'] ? 'Pago' : 'Pendente' ?>
             </td>
 
 
