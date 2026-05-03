@@ -17,7 +17,7 @@ $forma = $_POST['forma_pagamento'];
 
 
 try {
-    //$pdo->beginTransaction();
+    $pdo->beginTransaction();
 
 
     $sql = $pdo->prepare("SELECT nome, preco, estoque FROM produtos WHERE id_produtos = ?");
@@ -97,7 +97,7 @@ try {
 
 
 } catch(Exception $e){
-    //$pdo->rollBack();
+    $pdo->rollBack();
     echo "Erro: " . $e->getMessage();
     exit;
 }
