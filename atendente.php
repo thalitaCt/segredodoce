@@ -72,6 +72,13 @@ header{
     margin-bottom:20px;
     border-radius:10px;
     box-shadow:0 0 5px rgba(0,0,0,0.1);
+
+    h2 {
+    text-decoration: underline;
+    text-decoration-color: var(--amarelo2);
+    text-align: center;
+    color: var(--marrom3);
+    }
 }
 
 
@@ -128,18 +135,39 @@ input {
   right: 10px;
   cursor: pointer;
 }
-.card .pedido{
-    form {
-    font-family: Poppins;
-}
 
-input {
-    border: none;
-    border-radius: 14px;
-    padding:10px;
-    width: 200px;
-    margin-bottom: 10px;
-}
+.card .pedido{
+
+    background:white;
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 0 5px rgba(0,0,0,0.1);
+
+    h2 {
+    text-decoration: underline;
+    text-decoration-color: var(--amarelo2);
+    text-align: center;
+    color: var(--marrom3);
+    }
+
+    form {
+    text-align: center;
+    justify-self: center;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    }
+
+    input {
+        border: none;
+        border-radius: 14px;
+        padding:10px;
+        background: #eee;
+        color: #333;
+        width: 200px;
+        margin-bottom: 10px;
+    }
 
     button {
         margin: 7px;
@@ -156,7 +184,7 @@ input {
         cursor: pointer;
     }
 
-    select{
+    select {
         width: 300px;
         padding:11px;
         border:none;
