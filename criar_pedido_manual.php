@@ -98,7 +98,13 @@ try {
 
 } catch(Exception $e){
     $pdo->rollBack();
-    echo "Erro: " . $e->getMessage();
+
+    echo "<pre>";
+    echo "ERRO REAL: " . $e->getMessage() . "\n";
+    echo "VARS:\n";
+    var_dump($produto_id, $quantidade, $cliente_nome, $cliente_email);
+    echo "</pre>";
+
     exit;
 }
 
