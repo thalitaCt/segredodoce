@@ -22,25 +22,17 @@ $pago = ($forma === 'boleto') ? false : true;
 
 $sql = $pdo->prepare("
 INSERT INTO pedidos
-(cliente_email, cliente_nome, total, status, forma_pagamento, pago, data_pedido)
-VALUES (?, ?, ?, ?, ?, ?, NOW())
+(cliente_email, cliente_nome, total, status, data_pedido, pago, forma_pagamento)
+VALUES (?, ?, ?, ?, NOW(), ?, ?)
 ");
-
-var_dump($_SESSION['usuario']);
-var_dump($_SESSION['nome']);
-var_dump($total);
-var_dump($forma);
-var_dump($pago);
-exit;
-
 
 $sql->execute([
     $_SESSION['usuario'],
     $_SESSION['nome'],
     $total,
     'Pendente',
-    $forma,
-    $pago
+    $pago,
+    $forma
 ]);
 
 
