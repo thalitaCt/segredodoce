@@ -4,7 +4,7 @@ include 'includes/conexao.php';
 
 
 if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'recepcionista'){
-    header("Location: ../login.php");
+    header("Location: login.php");
     exit;
 }
 
