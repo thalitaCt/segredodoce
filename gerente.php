@@ -356,8 +356,8 @@ switch($_GET['msg']){
             <td><?= $a['email'] ?></td>
             <td><?= $a['cargo'] ?></td>
             <td>
-                <a href="atendentes/editar.php?id=<?= $c['usuario_id'] ?>"><button>Editar</button></a>
-                <a href="atendentes/excluir.php?id=<?= $c['usuario_id'] ?>"><button>Excluir</button>
+                <a href="atendentes/editar.php?id=<?= $a['usuario_id'] ?>"><button>Editar</button></a>
+                <a href="atendentes/excluir.php?id=<?= $a['usuario_id'] ?>"><button>Excluir</button>
             </td>
         </tr>
         <?php endforeach; ?>

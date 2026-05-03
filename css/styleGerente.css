@@ -48,7 +48,7 @@ body{
 
 .form-card input,
 .form-card select {
-    width: 100%;
+    width: 80%;
     padding: 12px;
     margin: 8px 0;
     border-radius: 10px;
