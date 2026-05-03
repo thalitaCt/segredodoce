@@ -94,6 +94,12 @@ select{
     font-weight:bold;
 }
 
+input {
+    border: none;
+    padding: 10px;
+    margin: 10px;
+}
+
 .alerta {
   font-family: Poppins;
   position: fixed;
@@ -151,10 +157,10 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
     <form action="criar_pedido_manual.php" method="POST">
 
 
-        <input type="text" name="cliente_nome" placeholder="Nome do cliente" required><br><br>
+        <input type="text" name="cliente_nome" placeholder="Nome do cliente" required>
 
 
-        <input type="email" name="cliente_email" placeholder="Email do cliente" required><br><br>
+        <input type="email" name="cliente_email" placeholder="Email do cliente" required>
 
 
         <select name="produto_id" required>
