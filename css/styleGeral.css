@@ -669,6 +669,18 @@ h1 {
 }
 
 @media (max-width: 768px) {
+  h1 {
+    padding-left: 0px;
+  }
+
+ .subtitulo {
+   padding-left: 0px;
+ }
+
+ .texto {
+   padding-left: 0px;
+ }
+  
   #hero {
     display: block;
     text-align: center;
