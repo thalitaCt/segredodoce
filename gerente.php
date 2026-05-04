@@ -183,6 +183,68 @@ button:hover{
   cursor: pointer;
 }
 
+@media (max-width: 768px){
+
+    /* CONTAINER */
+    .container{
+        padding:15px;
+    }
+
+    /* CARDS */
+    .card{
+        padding:15px;
+    }
+
+    .card h2{
+        font-size:18pt;
+    }
+
+    /* BOTÃO CADASTRAR */
+    .top-actions{
+        justify-content:center;
+    }
+
+    .top-actions button{
+        width:100%;
+        max-width:250px;
+    }
+
+    /* TABELAS */
+    table{
+        font-size:12px;
+        min-width:650px; /* impede esmagar */
+    }
+
+    th, td{
+        padding:6px;
+    }
+
+    /* SCROLL HORIZONTAL (ESSENCIAL) */
+    .card{
+        overflow-x:auto;
+    }
+
+    /* AÇÕES (botões dentro da tabela) */
+    td{
+        white-space:nowrap;
+    }
+
+    td button{
+        display:block;
+        width:100%;
+        margin:3px 0;
+        font-size:12px;
+    }
+
+    /* ALERTA */
+    .alerta {
+      right: 5px;
+      margin: 15px;
+      font-size: 10pt;
+    }
+
+}    
+
 </style>
 </head>
 
