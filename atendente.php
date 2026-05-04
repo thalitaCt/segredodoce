@@ -204,15 +204,6 @@ input {
 
 @media (max-width: 768px){
 
-
-    /* HEADER */
-    header{
-        flex-direction: column;
-        align-items: flex-start;
-        gap:10px;
-    }
-
-
     /* CONTAINER */
     .container{
         padding:15px;
