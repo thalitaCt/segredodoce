@@ -25,7 +25,7 @@ try {
     $sql->execute([$id]);
 
 
-    header("Location: ../gerente.php?msg=atendente_excluido");
+    header("Location: ../gerente.php?msg=gerente_excluido");
     exit;
 
 

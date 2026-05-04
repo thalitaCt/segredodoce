@@ -40,7 +40,7 @@ try {
     $sql->execute([$nome, $cargo, $telefone, $salario, $id]);
 
 
-    header("Location: ../gerente.php?msg=atendente_editado");
+    header("Location: ../gerente.php?msg=gerente_editado");
     exit;
 
 

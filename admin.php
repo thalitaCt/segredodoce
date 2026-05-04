@@ -199,6 +199,10 @@ button:hover{
     background:#ee5350;
 }
 
+.container {
+    margin: 30px;
+}
+
 
 .top-actions{
     display:flex;
@@ -263,7 +267,7 @@ button:hover{
 
 
 .cards{
-    margin-top: 50px;
+    margin-top: 30px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
@@ -366,12 +370,48 @@ button:hover{
 
 <body>
 
+<?php if(isset($_GET['msg'])): ?>
+
+
+<div class="alerta">
+
+
+<?php
+switch($_GET['msg']){
+    case 'gerente_criado':
+        echo "Gerente criado com sucesso!";
+        break;
+
+
+    case 'gerente_editado':
+        echo "Gerente atualizado com sucesso!";
+        break;
+
+
+    case 'gerente_excluido':
+        echo "Gerente excluído com sucesso!";
+        break;
+
+
+    default:
+        echo "Ação realizada com sucesso!";
+}
+?>
+
+
+<span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
+</div>
+
+
+<?php endif; ?>
+
 
 <header>
     <div>Admin</div>
     <div>Olá, <?= $nome ?> | <a href="logout.php" style="color:white;">Sair</a></div>
 </header>
 
+<div class="container">
 
 <!-- ================= DASHBOARD ================= -->
 <div class="cards">  
@@ -422,11 +462,7 @@ Pedido #<?= $p['id_pedidos'] ?><br>
 
 <?php endforeach; ?>  
 </div>  
-</div>  
-</div>
-
-
-</div>
+</div> 
 
 
 <!-- ================= GERENTES ================= -->
@@ -520,6 +556,7 @@ Pedido #<?= $p['id_pedidos'] ?><br>
     </div>
 </div>
 </section>
+            </div>
 
 </body>
 </html>

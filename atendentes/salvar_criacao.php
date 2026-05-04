@@ -53,7 +53,7 @@ try {
     $sql->execute([$usuario_id, $nome, $cargo, $salario, $telefone]);
 
 
-    header("Location: ../gerente.php?msg=atendente_criado");
+    header("Location: ../gerente.php?msg=gerente_criado");
     exit;
 
 

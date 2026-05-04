@@ -11,11 +11,11 @@
 
 <h2>Cadastrar Gerente</h2>
 
-<form action="salvar.php" method="POST">
+<form action="salvar_criacao.php" method="POST">
     <input type="text" name="nome" placeholder="Nome" required>
     <input type="email" name="email" placeholder="Email" required>
     <input type="text" name="telefone" placeholder="Telefone">
-    <input type="text" name="cargo" placeholder="Cargo" required>
+    <input type="text" name="cargo" placeholder="Cargo" value="Gerente" required>
     <input type="number" step="0.01" name="salario" placeholder="Salário" required>
     <input type="password" name="senha" placeholder="Senha" required>
 
