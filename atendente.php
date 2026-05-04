@@ -285,11 +285,10 @@ input {
 
 
     /* ALERTA */
-    .alerta{
-        width:90%;
-        right:5%;
-        padding:15px;
-        font-size:14px;
+    .alerta {
+      right: 5px;
+      margin: 15px;
+      font-size: 10pt;
     }
 
 
