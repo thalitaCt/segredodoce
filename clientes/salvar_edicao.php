@@ -15,6 +15,15 @@ $email = $_POST['email'];
 $telefone = $_POST['telefone'];
 $endereco = $_POST['endereco'];
 
+$sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = ?");
+$sql->execute([$email]);
+
+
+if($sql->rowCount() > 0){
+    header("Location: editar.php?erro=email_existente");
+    exit;
+}
+
 
 /* atualiza usuario */
 $sql = $pdo->prepare("UPDATE usuarios SET email=? WHERE id_usuario=?");

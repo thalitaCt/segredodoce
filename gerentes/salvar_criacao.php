@@ -31,7 +31,7 @@ try {
 
     $sql = $pdo->prepare("
         INSERT INTO usuarios (email, senha, tipo, verificado)
-        VALUES (?, ?, 'Gerente', true)
+        VALUES (?, ?, 'gerente', true)
         RETURNING id_usuario
     ");
 

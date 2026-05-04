@@ -146,6 +146,7 @@ header{
 }
 
 .card-gerente{
+    margin-top: 25px;
     background:white;
     padding:20px;
     margin-bottom:25px;
@@ -541,7 +542,7 @@ Pedido #<?= $p['id_pedidos'] ?><br>
 
         <!-- VENDAS POR DIA -->
         <div class="box-relatorio">
-            <h3>Últimos Dias</h3>
+            <h3>Vendas por Dias</h3>
 
 
             <?php foreach($vendasDia as $v): ?>

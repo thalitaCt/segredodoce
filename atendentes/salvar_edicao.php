@@ -16,6 +16,15 @@ $cargo = $_POST['cargo'];
 $telefone = $_POST['telefone'];
 $salario = $_POST['salario'];
 
+$sql = $pdo->prepare("SELECT id_usuario FROM usuarios WHERE email = ?");
+$sql->execute([$email]);
+
+
+if($sql->rowCount() > 0){
+    header("Location: editar.php?erro=email_existente");
+    exit;
+}
+
 
 try {
 
