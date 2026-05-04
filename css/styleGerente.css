@@ -111,57 +111,11 @@ body {
 }
 
 @media (max-width: 768px){
-
-
-  body{
-    padding: 10px;
-  }
-
-
-  .form-card{
-    width: 100%;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 12px;
-  }
-
-
-  .form-card h2{
-    font-size: 20px;
-  }
-
-
-  .form-card input,
-  .form-card select{
-    width: 100%;
-    font-size: 15px;
-    padding: 12px;
-  }
-
-
-  .form-card button{
-    font-size: 15px;
-    padding: 12px;
-  }
-
-
   /* ALERTA (mensagem no topo) */
-  .alerta{
-    top: 10px;
-    right: 10px;
-    left: 10px;
-    width: auto;
-    padding: 15px 20px;
-    font-size: 14px;
-    border-radius: 8px;
+  .alerta {
+      right: 5px;
+      margin: 15px;
+      font-size: 10pt;
   }
-
-
-  .alerta .fechar{
-    font-size: 13px;
-    top: 5px;
-    right: 8px;
-  }
-
 
 }
