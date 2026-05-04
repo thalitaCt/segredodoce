@@ -11,41 +11,7 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'admin') {
 $nome = $_SESSION['nome'] ?? 'Usuário';
 
 
-/* =========================
-   AÇÕES (CRIAR GERENTE)
-========================= */
 
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $cargo = $_POST['cargo'];
-    $salario = $_POST['salario'];
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-
-
-    /* cria usuário */
-    $sql = $pdo->prepare("
-    INSERT INTO usuarios (email, senha, tipo)
-    VALUES (?, ?, 'gerente')
-    ");
-    $sql->execute([$email, $senha]);
-
-
-    $usuario_id = $pdo->lastInsertId();
-
-
-    /* cria funcionario */
-    $sql = $pdo->prepare("
-    INSERT INTO funcionarios (usuario_id, nome, telefone, cargo)
-    VALUES (?, ?, ?, 'Gerente')
-    ");
-    $sql->execute([$usuario_id, $nome, $telefone]);
-
-
-/* =========================
-   DASHBOARD
-========================= */
-/* TOTAL CLIENTES */  
 $sqlClientes = $pdo->query("SELECT COUNT(*) AS total FROM clientes");  
 $totalClientes = $sqlClientes->fetch(PDO::FETCH_ASSOC)['total'];  
   
