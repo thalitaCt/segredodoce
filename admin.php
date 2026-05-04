@@ -67,9 +67,10 @@ $totalVendas = $sqlVendas->fetch(PDO::FETCH_ASSOC)['total'];
   
 /* ULTIMOS CLIENTES */  
 $clientes = $pdo->query("  
-    SELECT nome, email  
-    FROM clientes  
-    ORDER BY id_clientes DESC  
+    SELECT c.nome, u.email  
+    FROM clientes c 
+    JOIN usuarios u ON u.id_usuario = c.usuario_id 
+    ORDER BY c.id_clientes DESC  
     LIMIT 5  
 ")->fetchAll(PDO::FETCH_ASSOC);  
   
