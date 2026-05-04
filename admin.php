@@ -8,16 +8,18 @@ if (!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'admin') {
     exit;
 }
 
+$nome = $_SESSION['nome'] ?? 'Usuário';
+
 
 /* =========================
    AÇÕES (CRIAR GERENTE)
 ========================= */
-if(isset($_POST['acao']) && $_POST['acao'] == 'criar_gerente'){
-
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
+    $cargo = $_POST['cargo'];
+    $salario = $_POST['salario'];
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
 
@@ -38,7 +40,6 @@ if(isset($_POST['acao']) && $_POST['acao'] == 'criar_gerente'){
     VALUES (?, ?, ?, 'Gerente')
     ");
     $sql->execute([$usuario_id, $nome, $telefone]);
-}
 
 
 /* =========================
@@ -254,6 +255,7 @@ th,td{
 
 
 .cards{
+    margin-top: 50px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
