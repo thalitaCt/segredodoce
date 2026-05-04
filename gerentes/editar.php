@@ -33,7 +33,7 @@ $g = $sql->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<?php if(isset($_GET['msg'])): ?>
+<?php if(isset($_GET['erro'])): ?>
 <div class="alerta">
 <?php
 if ($_GET['erro'] == 'email_existente') echo "E-mail já cadastrado";
