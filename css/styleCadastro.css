@@ -163,10 +163,16 @@ button {
 }
 
 @media (max-width: 768px) {
-
-.input-box input {
+  .input-box input {
+    margin-left: 10px;
+    margin-right: 10px;
     width: 70%;
-}
+  }
+
+  button {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
 
 .alerta {
       right: 5px;
