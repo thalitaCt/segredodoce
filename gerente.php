@@ -257,7 +257,7 @@ switch($_GET['msg']){
 
 <header>
     <div>Gerente</div>
-    <div>Olá, <?= $nome ?> | <a href="../logout.php" style="color:white;">Sair</a></div>
+    <div>Olá, <?= $nome ?> | <a href="logout.php" style="color:white;">Sair</a></div>
 </header>
 
 
