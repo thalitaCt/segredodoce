@@ -201,6 +201,109 @@ input {
         cursor:pointer;
         }
 }
+
+@media (max-width: 768px){
+
+
+    /* HEADER */
+    header{
+        flex-direction: column;
+        align-items: flex-start;
+        gap:10px;
+    }
+
+
+    /* CONTAINER */
+    .container{
+        padding:15px;
+    }
+
+
+    /* CARD */
+    .card{
+        padding:12px;
+    }
+
+
+    .card h2{
+        font-size:18pt;
+    }
+
+
+    /* FORMULÁRIO (NOVO PEDIDO) */
+    .card.pedido{
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .card.pedido form{
+        flex-direction: column;
+        width:100%;
+        align-items:center;
+    }
+
+
+    .card.pedido input,
+    .card.pedido select{
+        width:100%;
+        max-width:300px;
+    }
+
+
+    .card.pedido button{
+        width:100%;
+        max-width:200px;
+    }
+
+
+    /* TABELA */
+    table{
+        font-size:12px;
+        min-width:650px; /* evita esmagar */
+    }
+
+
+    th, td{
+        padding:6px;
+    }
+
+
+    /* SCROLL HORIZONTAL (ESSENCIAL) */
+    .card{
+        overflow-x:auto;
+    }
+
+
+    /* STATUS SELECT */
+    td form{
+        display:flex;
+        flex-direction:column;
+        gap:5px;
+    }
+
+
+    td select{
+        width:100%;
+    }
+
+
+    td button{
+        width:100%;
+    }
+
+
+    /* ALERTA */
+    .alerta{
+        width:90%;
+        right:5%;
+        padding:15px;
+        font-size:14px;
+    }
+
+
+}
+
 </style>
 </head>
 <body>

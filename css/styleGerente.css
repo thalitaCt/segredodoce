@@ -19,71 +19,66 @@
   --amarelo2: #facc15;
 }
 
-body{
-    font-family:Poppins;
-    margin:0;
-    background:#fff4ee;
+body {
+  font-family: Poppins;
+  margin: 0;
+  background: #fff4ee;
 }
 
 .form-card {
-    background: white;
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    font-family: Poppins;
+  background: white;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: Poppins;
 }
-
 
 .form-card h2 {
-    text-align: center;
-    color: var(--marrom3);
-    margin-bottom: 20px;
-    font-size: 24px;
-    text-decoration: underline;
-    text-decoration-color: var(--amarelo2);
+  text-align: center;
+  color: var(--marrom3);
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-decoration: underline;
+  text-decoration-color: var(--amarelo2);
 }
-
 
 .form-card input,
 .form-card select {
-    width: 95%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    outline: none;
-    transition: 0.3s;
-    font-size: 14px;
+  width: 95%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
 }
-
 
 .form-card input:focus,
 .form-card select:focus {
-    border-color: var(--rosa);
-    box-shadow: 0 0 5px rgba(255,135,125,0.4);
+  border-color: var(--rosa);
+  box-shadow: 0 0 5px rgba(255, 135, 125, 0.4);
 }
-
 
 .form-card button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 10px;
-    background: var(--rosa);
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 10px;
+  background: var(--rosa);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-
 .form-card button:hover {
-    background: var(--rosa2);
-    transform: scale(1.02);
+  background: var(--rosa2);
+  transform: scale(1.02);
 }
 
 .alerta {
@@ -113,4 +108,60 @@ body{
   top: 8px;
   right: 10px;
   cursor: pointer;
+}
+
+@media (max-width: 768px){
+
+
+  body{
+    padding: 10px;
+  }
+
+
+  .form-card{
+    width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+
+  .form-card h2{
+    font-size: 20px;
+  }
+
+
+  .form-card input,
+  .form-card select{
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+
+  .form-card button{
+    font-size: 15px;
+    padding: 12px;
+  }
+
+
+  /* ALERTA (mensagem no topo) */
+  .alerta{
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    padding: 15px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+
+
+  .alerta .fechar{
+    font-size: 13px;
+    top: 5px;
+    right: 8px;
+  }
+
+
 }
