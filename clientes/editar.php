@@ -27,15 +27,6 @@ $cliente = $sql->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<?php if(isset($_GET['erro'])): ?>
-<div class="alerta">
-<?php
-if ($_GET['erro'] == 'email_existente') echo "E-mail já cadastrado";
-?>
-<span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
-</div>
-<?php endif; ?>
-
 <div class="form-card">
 
 <h2>Editar Cliente</h2>
