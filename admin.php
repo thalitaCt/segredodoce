@@ -59,9 +59,9 @@ $totalGerentes = $pdo->query("SELECT COUNT(*) FROM usuarios WHERE tipo='gerente'
    GERENTES
 ========================= */
 $gerentes = $pdo->query("
-SELECT u.id_usuario, u.email, f.nome, f.telefone
-FROM usuarios u
-JOIN funcionarios f ON f.usuario_id = u.id_usuario
+SELECT f.*, u.email
+FROM funcionarios f
+JOIN usuarios u ON u.id_usuario = f.usuario_id
 WHERE u.tipo = 'gerente'
 ")->fetchAll(PDO::FETCH_ASSOC);
 
