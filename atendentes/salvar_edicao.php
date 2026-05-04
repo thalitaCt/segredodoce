@@ -21,7 +21,7 @@ $sql->execute([$email]);
 
 
 if($sql->rowCount() > 0){
-    header("Location: editar.php?erro=email_existente");
+    header("Location: editar.php?id=$id&&erro=email_existente");
     exit;
 }
 
