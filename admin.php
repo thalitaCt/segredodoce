@@ -74,6 +74,27 @@ SELECT status, COUNT(*) as total
 FROM pedidos
 GROUP BY status
 ")->fetchAll(PDO::FETCH_ASSOC);
+
+
+/* TOP PRODUTOS */
+$topProdutos = $pdo->query("
+SELECT nome, SUM(quantidade) as total
+FROM itens_pedido
+GROUP BY nome
+ORDER BY total DESC
+LIMIT 5
+")->fetchAll(PDO::FETCH_ASSOC);
+
+
+/* VENDAS POR DIA */
+$vendasDia = $pdo->query("
+SELECT DATE(data_pedido) as dia, SUM(total) as total
+FROM pedidos
+GROUP BY dia
+ORDER BY dia DESC
+LIMIT 5
+")->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -124,83 +145,104 @@ header{
     justify-content:space-between;
 }
 
-
-/* DASHBOARD */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
-    padding:20px;
-}
-
-
-.card{
+.card-gerente{
     background:white;
     padding:20px;
-    border-radius:15px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    border-left:6px solid #ff877d;
+    margin-bottom:25px;
+    border-radius:10px;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
 }
 
 
-.card i{
-    font-size:22px;
-    color:#ff877d;
+.card-gerente h2{
+    font-size: 22pt;
+    text-align:center;
+    text-decoration: underline;
+    text-decoration-color:#facc15;
+    margin-bottom:15px;
 }
 
 
-.card p{
-    font-size:24px;
-    font-weight:bold;
+/* TABELAS */
+table{
+    width:100%;
+    border-collapse: collapse;
+    margin-top:10px;
+    background:white;
 }
 
 
-/* SEÇÕES */
-section{
-    padding:20px;
-}
-
-
-h2{
-    color:#421d14;
-}
-
-
-/* FORM */
-form input{
+th, td{
+    border:1px solid #eee;
     padding:10px;
-    margin:5px;
-    border-radius:8px;
-    border:1px solid #ccc;
+    text-align:center;
 }
 
 
-form button{
-    padding:10px;
+th{
+    background:#ffedcd;
+}
+
+
+button{
     background:#ff877d;
     color:white;
     border:none;
-    border-radius:8px;
+    padding:6px 10px;
+    border-radius:6px;
     cursor:pointer;
+    margin:2px;
 }
 
 
-/* TABELA */
-table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
+button:hover{
+    background:#ee5350;
 }
 
 
-th,td{
-    padding:10px;
-    border-bottom:1px solid #ddd;
+.top-actions{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:10px;
 }
 
+
+.top-actions button{
+    padding:10px 15px;
+    font-weight:bold;
+}
+
+.alerta {
+  font-family: Poppins;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgb(0, 160, 13);
+  color: var(--branco);
+  padding: 25px 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  font-weight: 650;
+}
+
+.alerta .fechar {
+  color: var(--branco);
+  font-size: 15px;
+  padding: 3px;
+  border-radius: 8px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+}
 
 /* LISTA */
-.item{
+.item2{
     background:white;
     padding:10px;
     margin:5px 0;
@@ -275,6 +317,49 @@ th,td{
     padding:10px 0;
     border-bottom:1px solid #eee;
 }
+
+.relatorios-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+}
+
+
+.box-relatorio{
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+.box-relatorio h3{
+    margin-bottom:15px;
+    color:#421d14;
+    font-size:18px;
+}
+
+
+.linha{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+}
+
+
+.linha:last-child{
+    border-bottom:none;
+}
+
+
+.destaque{
+    font-size:26px;
+    font-weight:bold;
+    color:#ff877d;
+    text-align:center;
+}
+
 </style>
 </head>
 
@@ -346,7 +431,7 @@ Pedido #<?= $p['id_pedidos'] ?><br>
 
 <!-- ================= GERENTES ================= -->
 <section>
-<div class="card">
+<div class="card-gerente">
     <h2>Gerentes</h2>
 
 
@@ -384,16 +469,56 @@ Pedido #<?= $p['id_pedidos'] ?><br>
 
 <!-- ================= RELATÓRIOS ================= -->
 <section>
-<h2>Relatórios</h2>
+<div class="card-relatorio">
+    <h2>Relatórios</h2>
 
 
-<?php foreach($statusPedidos as $s): ?>
-<div class="item">
-<?= $s['status'] ?>: <?= $s['total'] ?>
+    <div class="relatorios-grid">
+
+        <!-- STATUS -->
+        <div class="box-relatorio">
+            <h3>Pedidos por Status</h3>
+
+
+            <?php foreach($statusPedidos as $s): ?>
+                <div class="linha">
+                    <span><?= $s['status'] ?></span>
+                    <strong><?= $s['total'] ?></strong>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+
+        <!-- TOP PRODUTOS -->
+        <div class="box-relatorio">
+            <h3>Produtos Mais Vendidos</h3>
+
+
+            <?php foreach($topProdutos as $p): ?>
+                <div class="linha">
+                    <span><?= $p['nome'] ?></span>
+                    <strong><?= $p['total'] ?></strong>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+
+        <!-- VENDAS POR DIA -->
+        <div class="box-relatorio">
+            <h3>Últimos Dias</h3>
+
+
+            <?php foreach($vendasDia as $v): ?>
+                <div class="linha">
+                    <span><?= date('d/m', strtotime($v['dia'])) ?></span>
+                    <strong>R$ <?= number_format($v['total'],2,',','.') ?></strong>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+
+    </div>
 </div>
-<?php endforeach; ?>
-
-
 </section>
 
 </body>
