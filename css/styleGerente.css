@@ -111,6 +111,9 @@ body {
 }
 
 @media (max-width: 768px){
+  body {
+    margin: 15px;
+  }
   /* ALERTA (mensagem no topo) */
   .alerta {
       right: 5px;
