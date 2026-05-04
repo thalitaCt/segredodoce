@@ -370,8 +370,8 @@ Pedido #<?= $p['id_pedidos'] ?><br>
             <td><?= $g['email'] ?></td>
             <td><?= $g['cargo'] ?></td>
             <td>
-                <a href="gerentes/editar.php?id=<?= $g['id_usuario'] ?>"><button>Editar</button></a>
-                <a href="gerentes/excluir.php?id=<?= $g['id_usuario'] ?>"><button>Excluir</button>
+                <a href="gerentes/editar.php?id=<?= $g['usuario_id'] ?>"><button>Editar</button></a>
+                <a href="gerentes/excluir.php?id=<?= $g['usuario_id'] ?>"><button>Excluir</button></a>
             </td>
         </tr>
         <?php endforeach; ?>
