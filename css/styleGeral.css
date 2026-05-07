@@ -904,15 +904,14 @@ h1 {
 }
 
 @media screen and (min-width: 1200px) {
-  .titulo {
-    font-size: 50pt;
+  body {
+    font-size: 48pt;
   }
-
   #favoritos {
-  height: 120vh;
+  height: 180vh;
   }
 
-  .texto {
-    font-size: 70pt;
+  .produtos {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
