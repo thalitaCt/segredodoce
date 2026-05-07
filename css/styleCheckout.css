@@ -99,5 +99,28 @@ select {
 
   button {
     font-size: 12pt;
+    button {
+        font-size: 12pt;
+    }
+}
+
+@media (min-width: 1400px) {
+  #tittle {
+    font-size: 35pt;
   }
+
+  .card {
+    font-size: 25pt;
+    height: 200px;
+    width: 260px;
+  }
+
+  button {
+    font-size: 20pt;
+  }
+
+  select {
+    font-size: 20pt;
+  }
+}
 }

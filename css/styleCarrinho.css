@@ -213,5 +213,44 @@ p {
 
   #limpar {
     margin-top: 20px;
+    .item {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #limpar {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 1400px) {
+  h1 {
+    font-size: 45pt;
   }
+
+  p {
+    font-size: 25pt;
+  }
+
+  .item img {
+    width: 200px;
+  }
+
+  .item {
+    font-size: 30pt;
+  }
+
+  .resumo {
+    font-size: 30pt;
+  }
+
+  #limpar {
+    font-size: 25pt;
+  }
+
+  #finalizar {
+    font-size: 25pt;
+
+  }
+}
 }
