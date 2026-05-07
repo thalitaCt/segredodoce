@@ -25,8 +25,8 @@
 }
 
 body {
-    padding-top: 120px;
-    background-color: var(--bege2);
+  padding-top: 120px;
+  background-color: var(--bege2);
 }
 
 .produtos {
@@ -161,12 +161,12 @@ body {
 }
 
 .titulo {
-    font-family: Yeseva One;
-    color: var(--marrom3);
-    text-align: center;
-    text-decoration: underline;
-    font-size: 30pt;
-    text-decoration-color: var(--amarelo2);
+  font-family: Yeseva One;
+  color: var(--marrom3);
+  text-align: center;
+  text-decoration: underline;
+  font-size: 30pt;
+  text-decoration-color: var(--amarelo2);
 }
 
 .alerta {
@@ -233,34 +233,64 @@ body {
 }
 
 @media (max-width: 768px) {
-    .alerta {
-      right: 5px;
-      margin: 15px;
-      font-size: 10pt;
-    }
-
-    .alerta-sucesso {
-      right: 5px;
-      margin: 15px;
-      font-size: 10pt;
-    }
-
-    .produtos {
-      grid-template-columns: 1fr;
-    }
-
-    .produto {
-      margin: 5px;
-      width: 320px;
-      height: 530px;
-
-      img {
-         width: 320px;
-      }
-
-      button {
-        margin-left: 140px;
+  .alerta {
+    right: 5px;
+    margin: 15px;
+    font-size: 10pt;
   }
 
+  .alerta-sucesso {
+    right: 5px;
+    margin: 15px;
+    font-size: 10pt;
+  }
+
+  .produtos {
+    grid-template-columns: 1fr;
+  }
+
+  .produto {
+    margin: 5px;
+    width: 320px;
+    height: 530px;
+
+    img {
+      width: 320px;
     }
+
+    button {
+      margin-left: 140px;
+    }
+  }
+}
+
+.filtros{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+    justify-content:center;
+}
+
+
+.filtros button{
+    background:#ff877d;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:30px;
+    cursor:pointer;
+    font-family:Poppins;
+    font-weight:600;
+    transition:0.3s;
+}
+
+
+.filtros button:hover{
+    background:#ee5350;
+}
+
+
+.filtros button.ativo{
+    background:#421d14;
 }

@@ -102,11 +102,9 @@ if ($_GET['msg'] == 'login_sucesso') echo "Login realizado com sucesso";
 
             <div class="card doce"><i class="fa-solid fa-candy-cane"></i><h3>Doces Gourmet</h3></div>
 
-            <div class="card bebida"><i class="fa-solid fa-mug-hot"></i><h3>Bebidas</h3></div>
+            <div class="card bebida"><i class="fa-solid fa-mug-hot"></i><h3>Copos da Felicidade</h3></div>
 
-            <div class="card gelado"><i class="fa-regular fa-snowflake"></i><h3>Gelados</h3></div>
-
-            <div class="card caixa"><i class="fa-solid fa-box"></i><h3>Encomendas</h3>
+            <div class="card gelado"><i class="fa-regular fa-snowflake"></i><h3>Fatias</h3></div>
             </div>
 
         </div>

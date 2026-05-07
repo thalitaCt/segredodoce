@@ -673,14 +673,14 @@ h1 {
     padding-left: 0px;
   }
 
- .subtitulo {
-   padding-left: 0px;
- }
+  .subtitulo {
+    padding-left: 0px;
+  }
 
- .texto {
-   padding-left: 0px;
- }
-  
+  .texto {
+    padding-left: 0px;
+  }
+
   #hero {
     display: block;
     text-align: center;
@@ -770,7 +770,7 @@ h1 {
   }
 
   .topo {
-      gap: 20px;
+    gap: 20px;
     i {
       padding: 0px;
     }
@@ -815,94 +815,106 @@ h1 {
     }
   }
 
-  .avaliacoes{
+  .avaliacoes {
     padding: 70px 20px;
-}
+  }
 
-.avaliacoes h2{
+  .avaliacoes h2 {
     font-size: 32px;
     text-align: center;
     line-height: 1.2;
-}
+  }
 
-.avaliacoes .subtitulo{
+  .avaliacoes .subtitulo {
     font-size: 16px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 35px;
     line-height: 1.6;
-}
+  }
 
-.area-avaliacoes{
+  .area-avaliacoes {
     display: flex;
     align-items: center;
     position: relative;
     justify-content: center;
     gap: 10px;
-}
+  }
 
-.seta{
+  .seta {
     width: 42px;
     height: 42px;
     font-size: 18px;
     position: absolute;
     flex-shrink: 0;
     z-index: 10;
-}
+  }
 
-.seta.esquerda {
-  left: 10px;
-}
+  .seta.esquerda {
+    left: 10px;
+  }
 
-.seta.direita {
-  right: 10px;
-}
+  .seta.direita {
+    right: 10px;
+  }
 
-.card-avaliacao{
+  .card-avaliacao {
     width: 100%;
     max-width: 100%;
     padding: 28px 22px;
     border-radius: 22px;
-}
+  }
 
-.card-avaliacao .cargo{
+  .card-avaliacao .cargo {
     font-size: 13px;
     margin-top: 5px;
-}
+  }
 
-
-.laterais{
+  .laterais {
     display: none;
-}
+  }
 
-
-.fade-lado{
+  .fade-lado {
     display: none;
-}
+  }
 
-.estatisticas{
+  .estatisticas {
     grid-template-columns: 1fr;
-}
+  }
 
+  .stat h3 {
+    font-size: 35pt;
+  }
 
-.stat h3{
-    font-size:35pt;
-}
+  .stat p {
+    font-size: 14px;
+  }
 
+  #final {
+    h2 {
+      font-size: 18pt;
+    }
+  }
 
-.stat p{
-    font-size:14px;
-}
-
-#final {
-  h2 {
-    font-size: 18pt;
+  .alerta-sucesso {
+    right: 5px;
+    margin: 15px;
+    font-size: 10pt;
   }
 }
 
-.alerta-sucesso {
-      right: 5px;
-      margin: 15px;
-      font-size: 10pt;
-    }
+@media (min-width: 1600px) {
+  body {
+    font-size: 38pt;
+  }
+
+  #favoritos {
+  text-align: center;
+  align-items: center;
+  height: 180vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  justify-content: center;
+  }
 }

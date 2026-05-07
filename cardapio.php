@@ -42,11 +42,40 @@ include 'includes/conexao.php';
 ?>
     <?php include 'includes/navbar.php'; ?>
         <h2 class="titulo">Nossos Produtos</h2>
+        <div class="filtros">
+
+
+    <button onclick="filtrar('todos')">
+        Todos
+    </button>
+
+
+    <button onclick="filtrar('fatias')">
+        Fatias
+    </button>
+
+
+    <button onclick="filtrar('bolo-de-pote')">
+        Bolo de Pote
+    </button>
+
+
+    <button onclick="filtrar('gourmet')">
+        Gourmet
+    </button>
+
+
+    <button onclick="filtrar('copo-da-felicidade')">
+        Copo da Felicidade
+    </button>
+
+
+</div>
 
         <div class="produtos">
 
 <?php foreach($produtos as $p): ?>
-            <div class="produto <?php if($p['estoque'] <= 0) echo 'sem-estoque'; ?>">
+            <div class="produto <?php if($p['estoque'] <= 0) echo 'sem-estoque'; ?> <?= strtolower(str_replace(' ', '-',$p['categoria'])); ?>">
                 <img src="<?= $p['imagem']; ?>">
                 <h2><?= $p['nome']; ?></h2>
 
@@ -91,5 +120,37 @@ include 'includes/conexao.php';
     </div>
         
     <?php include 'includes/footer.php'; ?>
+
+<script>
+function filtrarProdutos(categoria, botao){
+
+
+    let produtos = document.querySelectorAll('.produto');
+    let botoes = document.querySelectorAll('.filtros button');
+
+
+    botoes.forEach(btn => btn.classList.remove('ativo'));
+    botao.classList.add('ativo');
+
+
+    produtos.forEach(produto => {
+
+
+        if(categoria === 'todos'){
+            produto.style.display = 'block';
+        }
+        else if(produto.classList.contains(categoria)){
+            produto.style.display = 'block';
+        }
+        else{
+            produto.style.display = 'none';
+        }
+
+
+    });
+
+
+}
+</script>
 </body>
 </html>
