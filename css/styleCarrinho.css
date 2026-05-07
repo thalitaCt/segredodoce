@@ -19,7 +19,6 @@
   --amarelo2: #facc15;
 }
 
-
 * {
   font-family: Poppins;
   margin: 0px;
@@ -195,25 +194,24 @@ p {
 }
 
 @media (max-width: 768px) {
+  .item img {
+    width: 150px;
+  }
 
-    .item img {
-        width: 150px;
-    }
+  .carrinho-container {
+    display: block;
+  }
 
-    .carrinho-container {
-        display: block;
-    }
+  .nome {
+    font-size: 12pt;
+  }
 
-    .nome {
-        font-size: 12pt;
-    }
+  .item {
+    flex-direction: column;
+    gap: 5px;
+  }
 
-    .item {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    #limpar {
-        margin-top: 20px;
-    }
+  #limpar {
+    margin-top: 20px;
+  }
 }

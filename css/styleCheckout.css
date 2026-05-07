@@ -20,18 +20,18 @@
 }
 
 * {
-    font-family: Poppins;
-    margin: 0px;
-    padding: 0px;
+  font-family: Poppins;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-    padding-top: 110px;
-    overflow-x: hidden;
-    background-color: var(--bege2);
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
+  padding-top: 110px;
+  overflow-x: hidden;
+  background-color: var(--bege2);
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
 }
 
 #tittle {
@@ -44,60 +44,60 @@ body {
 }
 
 .card {
-    padding: 10px;
-    background-color: var(--verde);
-    width: 290px;
-    border-radius: 10px;
-    height: 180px;
-    color: var(--bege2);
+  padding: 10px;
+  background-color: var(--verde);
+  width: 290px;
+  border-radius: 10px;
+  height: 180px;
+  color: var(--bege2);
 }
 
 button {
-    color: var(--branco);
-    margin-top: 10px;
-    margin-left: 40px;
-    border-color: var(--amarelo);
-    background-color: var(--marrom3);
-    padding: 10px;
-    font-size: 15pt;
-    border-radius: 10px;
-    transition: 0.5s;
-    font-weight: 600;
+  color: var(--branco);
+  margin-top: 10px;
+  margin-left: 40px;
+  border-color: var(--amarelo);
+  background-color: var(--marrom3);
+  padding: 10px;
+  font-size: 15pt;
+  border-radius: 10px;
+  transition: 0.5s;
+  font-weight: 600;
 }
 button a {
-    color: var(--branco);
-    text-decoration: none;
-    transition: 0.3s;
+  color: var(--branco);
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 button:hover {
-    transform: scale(1.1);
-    background-color: var(--amarelo2);
+  transform: scale(1.1);
+  background-color: var(--amarelo2);
 }
 
 button a:hover {
-    color: var(--roxoEscuro3);
+  color: var(--roxoEscuro3);
 }
 
 select {
-    color: var(--branco);
-    border-color: var(--amarelo);
-    background-color: var(--verde);
-    padding: 3px;
-    font-size: 10pt;
-    border-radius: 10px;
-    transition: 0.5s;
-    font-weight: 600;
+  color: var(--branco);
+  border-color: var(--amarelo);
+  background-color: var(--verde);
+  padding: 3px;
+  font-size: 10pt;
+  border-radius: 10px;
+  transition: 0.5s;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
-    .card {
-        width: 220px;
-        font-size: 11pt;
-        align-items: center;
-    }
+  .card {
+    width: 220px;
+    font-size: 11pt;
+    align-items: center;
+  }
 
-    button {
-        font-size: 12pt;
-    }
+  button {
+    font-size: 12pt;
+  }
 }
