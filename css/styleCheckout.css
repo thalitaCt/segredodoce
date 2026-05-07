@@ -111,16 +111,17 @@ select {
     }
 
     .card {
-      font-size: 25pt;
-      height: 200px;
+      width: 350px;
+      font-size: 18pt;
+      height: 350px;
       width: 260px;
     }
 
     button {
-      font-size: 20pt;
+      font-size: 17pt;
     }
 
     select {
-      font-size: 20pt;
+      font-size: 17pt;
     }
   }
