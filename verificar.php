@@ -141,6 +141,16 @@ body {
                     font-size: 10pt;
                 }
             }
+
+            @media (min-width: 1400px) {
+                input {
+                    font-size: 18pt;
+                }
+
+                h2 {
+                    font-size: 28pt;
+                }
+            }
     </style>
 
 <body>
