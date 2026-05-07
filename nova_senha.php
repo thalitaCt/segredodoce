@@ -123,11 +123,15 @@ body {
 
             @media (min-width: 1400px) {
                 input {
-                    font-size: 18pt;
+                    font-size: 20pt;
                 }
 
                 h2 {
-                    font-size: 28pt;
+                    font-size: 30pt;
+                }
+
+                button {
+                    font-size: 20pt;
                 }
             }
     </style>
