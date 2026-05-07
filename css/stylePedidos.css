@@ -85,3 +85,12 @@ body {
     }
 }
 
+@media (min-width: 1400px) {
+  #tittle {
+    font-size: 35pt;
+  }
+
+  .pedido {
+    font-size: 20pt;
+  }
+}
