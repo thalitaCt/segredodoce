@@ -930,10 +930,10 @@ h1 {
   }
 
   .produto {
-    width: 500px;
+    width: 530px;
 
     img {
-      width: 500px;
+      width: 530px;
       height: 420px;
     }
 
@@ -1010,8 +1010,10 @@ h1 {
   }
 
   #favoritos {
+    margin-top: 30px;
+    margin-bottom: 30px;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
   }
 
 }
