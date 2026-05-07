@@ -134,27 +134,27 @@ body {
   font-weight: 600;
 }
 
-.bolo-de-pote {
+.produto .bolo-de-pote {
   background-color: var(--bege);
   box-shadow: 2px 2px 0px var(--marrom2);
   border-color: var(--marrom2);
   color: var(--marrom2);
 }
 
-.gourmet {
+.produto .gourmet {
   background-color: var(--verde);
   box-shadow: 2px 2px 0px var(--bege);
   color: var(--bege2);
 }
 
-.copo-da-felicidade {
+.produto .copo-da-felicidade {
   line-height: 17px;
   box-shadow: 2px 2px 0px var(--rosa);
   background-color: var(--rosa2);
   color: var(--bege2);
 }
 
-.fatias {
+.produto .fatias {
   background-color: var(--marrom2);
   box-shadow: 2px 2px 0px var(--marrom);
   color: var(--bege2);
@@ -232,6 +232,37 @@ body {
   pointer-events: none;
 }
 
+.filtros{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+    justify-content:center;
+}
+
+
+.filtros button{
+    background:#ff877d;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:30px;
+    cursor:pointer;
+    font-family:Poppins;
+    font-weight:600;
+    transition:0.3s;
+}
+
+
+.filtros button:hover{
+    background:#ee5350;
+}
+
+
+.filtros button.ativo{
+    background:#421d14;
+}
+
 @media (max-width: 768px) {
   .alerta {
     right: 5px;
@@ -264,40 +295,14 @@ body {
   }
 }
 
-.filtros{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:25px;
-    justify-content:center;
-}
-
-
-.filtros button{
-    background:#ff877d;
-    color:white;
-    border:none;
-    padding:10px 18px;
-    border-radius:30px;
-    cursor:pointer;
-    font-family:Poppins;
-    font-weight:600;
-    transition:0.3s;
-}
-
-
-.filtros button:hover{
-    background:#ee5350;
-}
-
-
-.filtros button.ativo{
-    background:#421d14;
-}
-
 @media (min-width: 1400px) {
   .produto {
     width: 530px;
+    min-height: 650px;
+
+    button {
+      margin-left: 270px;
+    }
 
     img {
       width: 530px;
@@ -335,7 +340,7 @@ body {
     }
   }
 
-  .categoria {
+  .produto .categoria {
     padding: 10px;
     font-size: 15pt;
   }

@@ -293,32 +293,34 @@ body {
     }
 
     .texto {
-        font-size: 25pt;
+        font-size: 20pt;
     }
 
     .subtitulo {
-        font-size: 35pt;
+        font-size: 33pt;
     }
 
     .pilar {
         i {
-            font-size: 75px;
+            font-size: 70px;
         }
 
         h3 {
-            font-size: 24pt;
+            font-size: 20pt;
         }
 
         p {
-            font-size: 17pt;
+            font-size: 15pt;
         }
     }
 
-    .cards {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
     .card {
+        h3 {
+            font-size: 20pt;
+        }
+        p {
+            font-size: 20pt;
+        }
         i {
             font-size: 80px;
         }
