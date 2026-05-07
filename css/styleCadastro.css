@@ -213,4 +213,20 @@ button {
   button {
     font-size: 18pt;
   }
+
+  .alerta {
+    font-size: 18pt;
+  }
+
+  .alerta-sucesso {
+    font-size: 18pt;
+  }
+
+  .alerta.fechar {
+    font-size: 18pt;
+  }
+
+  .alerta-sucesso.fechar {
+    font-size: 18pt;
+  }
 }
