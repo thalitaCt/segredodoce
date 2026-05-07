@@ -302,7 +302,7 @@
 
     @media (min-width: 1400px) {
         .logo {
-            font-size: 18pt;
+            font-size: 25pt;
 
             img {
                 width: 100px;
@@ -311,8 +311,11 @@
         }
 
         .navbar {
+            padding: 30px;
+            height: 70px;
+
             .carrinho-icon {
-                font-size: 20px;
+                font-size: 35px;
 
                 #numeroC {
                     font-size: 16pt;
@@ -325,7 +328,7 @@
         }
 
         .icons i {
-            font-size: 20px;
+            font-size: 35px;
         }
     }
     </style>
