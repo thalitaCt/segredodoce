@@ -294,3 +294,49 @@ body {
 .filtros button.ativo{
     background:#421d14;
 }
+
+@media (min-width: 1400px) {
+  .produto {
+    width: 530px;
+
+    img {
+      width: 530px;
+      height: 420px;
+    }
+
+    a {
+      i {
+      font-size: 28px;
+    }
+  }
+
+    h2 {
+      font-size: 22pt;
+    }
+  }
+
+  .esquerda {
+    p {
+      font-size: 14pt;
+    }
+
+    span {
+      font-size: 24pt;
+    }
+
+    h3 {
+      font-size: 17pt;
+    }
+  }
+
+  .direita {
+    .estrelas {
+      font-size: 17px;
+    }
+  }
+
+  .categoria {
+    padding: 10px;
+    font-size: 15pt;
+  }
+}

@@ -286,3 +286,47 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+@media (min-width: 1400px) {
+    .titulo {
+        font-size: 40pt;
+    }
+
+    .texto {
+        font-size: 25pt;
+    }
+
+    .subtitulo {
+        font-size: 35pt;
+    }
+
+    .pilar {
+        i {
+            font-size: 75px;
+        }
+
+        h3 {
+            font-size: 24pt;
+        }
+
+        p {
+            font-size: 17pt;
+        }
+    }
+
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .card {
+        i {
+            font-size: 80px;
+        }
+    }
+
+    .missao {
+        #info {
+            font-size: 25pt;
+        }
+    }
+}
