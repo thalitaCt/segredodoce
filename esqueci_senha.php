@@ -131,6 +131,16 @@ body {
                     width: 80%;
                 }
             }
+
+            @media (min-width: 1400px) {
+                input {
+                    font-size: 18pt;
+                }
+
+                h2 {
+                    font-size: 28pt;
+                }
+            }
     </style>
 </head>
 <body>
