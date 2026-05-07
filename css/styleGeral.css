@@ -917,7 +917,7 @@ h1 {
   }
 
   .btn {
-    font-size: 20pt;
+    font-size: 22pt;
   }
 
   #esquerda {
@@ -936,16 +936,18 @@ h1 {
   }
 
   .produto {
-    width: 420px;
+    width: 480px;
 
     img {
-      width: 420px;
+      width: 480px;
       height: 420px;
     }
 
-    i {
+    a {
+      i {
       font-size: 25px;
     }
+  }
 
     h2 {
       font-size: 22pt;
@@ -977,7 +979,7 @@ h1 {
   }
   
   #favoritos {
-  height: 200vh;
+  height: 230vh;
   }
 
 }
