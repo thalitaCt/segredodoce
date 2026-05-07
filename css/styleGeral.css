@@ -903,7 +903,7 @@ h1 {
   }
 }
 
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
   .titulo {
     font-size: 50pt;
   }
