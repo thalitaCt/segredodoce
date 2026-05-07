@@ -234,37 +234,34 @@ body {
 }
 
 .filtros-produtos {
-    margin-top: 20px;
-    margin-bottom: 50px;
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:25px;
-    justify-content:center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  justify-content: center;
 }
 
-
-.filtros-produtos button{
-    font-size: 15pt;
-    background:#ff877d;
-    color:white;
-    border:none;
-    padding:10px 18px;
-    border-radius:30px;
-    cursor:pointer;
-    font-family:Poppins;
-    font-weight:600;
-    transition:0.3s;
+.filtros-produtos button {
+  font-size: 15pt;
+  background: #ff877d;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: Poppins;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-
-.filtros-produtos button:hover{
-    background:#ee5350;
+.filtros-produtos button:hover {
+  background: #ee5350;
 }
 
-
-.filtros-produtos button.ativo{
-    background:#421d14;
+.filtros-produtos button.ativo {
+  background: #421d14;
 }
 
 @media (max-width: 768px) {
@@ -316,9 +313,9 @@ body {
 
     a {
       i {
-      font-size: 28px;
+        font-size: 28px;
+      }
     }
-  }
 
     h2 {
       font-size: 22pt;
@@ -348,5 +345,13 @@ body {
   .produto .categoria {
     padding: 10px;
     font-size: 15pt;
+  }
+
+  .alerta {
+    font-size: 25pt;
+  }
+
+  .alerta-sucesso {
+    font-size: 25pt;
   }
 }
