@@ -903,7 +903,7 @@ h1 {
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-height: 1600px) {
   body {
     font-size: 50pt;
   }
@@ -911,7 +911,7 @@ h1 {
   #favoritos {
   text-align: center;
   align-items: center;
-  height: 180vh;
+  height: 120vh;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
