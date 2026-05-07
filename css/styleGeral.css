@@ -936,10 +936,10 @@ h1 {
   }
 
   .produto {
-    width: 480px;
+    width: 500px;
 
     img {
-      width: 480px;
+      width: 500px;
       height: 420px;
     }
 
@@ -960,7 +960,7 @@ h1 {
     }
 
     span {
-      font-size: 20pt;
+      font-size: 24pt;
     }
 
     h3 {
@@ -980,6 +980,22 @@ h1 {
   
   #favoritos {
   height: 250vh;
+  }
+
+  #beneficios .card {
+    i {
+      font-size: 25px;
+    }
+
+    .texto {
+      font-size: 24pt;
+    }
+  }
+
+  .topo {
+    h3 {
+      font-size: 30pt;
+    }
   }
 
 }
