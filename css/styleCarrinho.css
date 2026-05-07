@@ -241,8 +241,13 @@ p {
     font-size: 20pt;
   }
 
+  .remover {
+    font-size: 20pt;
+  }
+
   .resumo {
     font-size: 20pt;
+    height: 150px;
   }
 
   #limpar {

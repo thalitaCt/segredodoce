@@ -348,10 +348,18 @@ body {
   }
 
   .alerta {
-    font-size: 20pt;
+    font-size: 18pt;
   }
 
   .alerta-sucesso {
-    font-size: 20pt;
+    font-size: 18pt;
+  }
+
+  .alerta.fechar {
+    font-size: 18pt;
+  }
+
+  .alerta-sucesso.fechar {
+    font-size: 18pt;
   }
 }
