@@ -219,3 +219,49 @@ textarea {
         padding:5px;
     }
 }
+
+@media (min-width: 1400px) {
+    .titulo {
+        font-size: 40pt;
+    }
+
+    .texto {
+        font-size: 25pt;
+    }
+
+    .card {
+        font-size: 30pt;
+
+        i {
+            font-size: 70px;
+        }
+    }
+
+    form {
+        font-size: 20pt;
+    }
+
+    input {
+        padding: 20px;
+        width: 380px;
+    }
+
+    textarea {
+        padding: 60px;
+    }
+
+    button {
+        font-size: 23pt;
+    }
+
+    #meio {
+        h2 {
+            font-size: 28pt;
+        }
+    }
+
+    .mapa {
+        width: 900px;
+        height: 700px;
+    }
+}
