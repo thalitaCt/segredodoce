@@ -155,17 +155,11 @@ h1 {
 #favoritos {
   text-align: center;
   align-items: center;
-  height: 260vh;
-  background-image: url("../imagens/bordaMarrom3.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
+  background-color: var(--marrom3);
   justify-content: center;
 
   .titulo {
     color: var(--bege2);
-    padding-top: 160px;
   }
 
   .subtitulo {
@@ -975,11 +969,8 @@ h1 {
   }
 
   .categoria {
+    padding: 10px;
     font-size: 15pt;
-  }
-  
-  #favoritos {
-  height: 250vh;
   }
 
   #beneficios .card {
@@ -996,6 +987,27 @@ h1 {
     h3 {
       font-size: 30pt;
     }
+  }
+
+  .lado {
+    width: 200px;
+    height: 330px;
+  }
+
+  .comentario {
+    font-size: 33px;
+  }
+
+  .estrelas {
+    font-size: 33px;
+  }
+
+  .nome {
+    font-size: 25pt;
+  }
+
+  .seta {
+    font-size: 30px;
   }
 
 }
