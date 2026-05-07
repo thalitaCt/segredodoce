@@ -225,11 +225,11 @@ p {
 
 @media (min-width: 1400px) {
   h1 {
-    font-size: 45pt;
+    font-size: 55pt;
   }
 
   p {
-    font-size: 25pt;
+    font-size: 35pt;
   }
 
   .item img {
@@ -237,19 +237,19 @@ p {
   }
 
   .item {
-    font-size: 30pt;
+    font-size: 40pt;
   }
 
   .resumo {
-    font-size: 30pt;
+    font-size: 40pt;
   }
 
   #limpar {
-    font-size: 25pt;
+    font-size: 35pt;
   }
 
   #finalizar {
-    font-size: 25pt;
+    font-size: 35pt;
 
   }
 }
