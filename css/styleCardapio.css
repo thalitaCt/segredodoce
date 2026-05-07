@@ -233,6 +233,8 @@ body {
 }
 
 .filtros-produtos {
+    margin-top: 50px;
+    margin-bottom: 50px;
     display:flex;
     gap:10px;
     flex-wrap:wrap;
@@ -242,6 +244,7 @@ body {
 
 
 .filtros-produtos button{
+    font-size: 15pt;
     background:#ff877d;
     color:white;
     border:none;

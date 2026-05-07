@@ -230,18 +230,19 @@ textarea {
     }
 
     .card {
-        font-size: 30pt;
+        font-size: 15pt;
 
         i {
-            font-size: 70px;
+            font-size: 80px;
         }
     }
 
     form {
-        font-size: 20pt;
+        font-size: 17pt;
     }
 
     input {
+        font-size: 17pt;
         padding: 20px;
         width: 380px;
     }
@@ -251,17 +252,17 @@ textarea {
     }
 
     button {
-        font-size: 23pt;
+        font-size: 18pt;
     }
 
     #meio {
         h2 {
-            font-size: 28pt;
+            font-size: 32pt;
         }
     }
 
     .mapa {
-        width: 900px;
+        width: 950px;
         height: 700px;
     }
 }
