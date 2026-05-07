@@ -195,6 +195,23 @@ button {
 
 @media (min-width: 1400px) {
   .form {
-    font-size: 22pt;
+    width: 420px;
+    height: 420px;
+  }
+
+  .titulo {
+    font-size: 35pt;
+  }
+
+  .input-box input {
+    font-size: 20pt;
+  }
+
+  .link {
+    font-size: 18pt;
+  }
+
+  button {
+    font-size: 18pt;
   }
 }
