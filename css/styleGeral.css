@@ -989,11 +989,6 @@ h1 {
     }
   }
 
-  .lado {
-    width: 200px;
-    height: 330px;
-  }
-
   .comentario {
     font-size: 33px;
   }
@@ -1008,6 +1003,15 @@ h1 {
 
   .seta {
     font-size: 30px;
+  }
+
+  .card-avaliacao {
+    width: 570px;
+  }
+
+  #favoritos {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
 }
