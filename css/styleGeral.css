@@ -913,11 +913,67 @@ h1 {
   }
 
   .texto {
-    font-size: 25pt;
+    font-size: 20pt;
   }
 
   .btn {
-    font-size: 25pt;
+    font-size: 20pt;
+  }
+
+  #esquerda {
+    width: 350px;
+    height: 350px;
+  }
+
+  #direita {
+    width: 350px;
+    height: 350px;
+  }
+
+   #destaque {
+    width: 400px;
+    height: 400px;
+  }
+
+  .produto {
+    width: 420px;
+
+    img {
+      width: 420px;
+      height: 420px;
+    }
+
+    i {
+      font-size: 25px;
+    }
+
+    h2 {
+      font-size: 22pt;
+    }
+  }
+
+  .esquerda {
+    p {
+      font-size: 14pt;
+    }
+
+    span {
+      font-size: 20pt;
+    }
+
+    h3 {
+      font-size: 17pt;
+    }
+  }
+
+  .direita {
+    .estrelas {
+      font-size: 17px;
+    }
+  }
+
+  .categoria {
+    font-size: 15pt;
   }
   
   #favoritos {
