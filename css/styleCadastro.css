@@ -189,7 +189,7 @@ button {
 
 @media (min-width: 1400px) {
   .form {
-    width: 460px;
+    width: 480px;
     height: 440px;
   }
 
@@ -197,8 +197,16 @@ button {
     font-size: 35pt;
   }
 
+  .link.login {
+    font-size: 18pt;
+  }
+
+  p {
+    font-size: 18pt;
+  }
+
   .input-box input {
-    width: 95%;
+    width: 80%;
     font-size: 20pt;
   }
 
