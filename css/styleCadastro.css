@@ -186,3 +186,23 @@ button {
     font-size: 10pt;
   }
 }
+
+@media (min-width: 1400px) {
+  .form {
+    width: 460px;
+    height: 440px;
+  }
+
+  .titulo {
+    font-size: 35pt;
+  }
+
+  .input-box input {
+    width: 95%;
+    font-size: 20pt;
+  }
+
+  button {
+    font-size: 18pt;
+  }
+}
