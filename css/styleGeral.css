@@ -903,7 +903,7 @@ h1 {
   }
 }
 
-@media (min-height: 1600px) {
+@media (min-width: 1200px) {
   body {
     font-size: 50pt;
   }
