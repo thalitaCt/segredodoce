@@ -305,12 +305,13 @@
             font-size: 25pt;
 
             img {
-                width: 90px;
-                height: 90px;
+                width: 80px;
+                height: 80px;
             }
         }
 
         .navbar {
+            padding: 30px;
 
             .carrinho-icon {
                 font-size: 35px;
