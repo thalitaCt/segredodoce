@@ -222,6 +222,7 @@ p {
         margin-top: 20px;
     }
 }
+}
 
 @media (min-width: 1400px) {
   h1 {
@@ -252,5 +253,4 @@ p {
     font-size: 35pt;
 
   }
-}
 }
