@@ -179,16 +179,22 @@ button {
     margin-left: 15px;
     margin-right: 15px;
   }
-  
+
   .alerta {
-      right: 5px;
-      margin: 15px;
-      font-size: 10pt;
-    }
+    right: 5px;
+    margin: 15px;
+    font-size: 10pt;
+  }
 
   .alerta-sucesso {
-      right: 5px;
-      margin: 15px;
-      font-size: 10pt;
-    }
+    right: 5px;
+    margin: 15px;
+    font-size: 10pt;
+  }
+}
+
+@media (min-width: 1400px) {
+  .form {
+    font-size: 22pt;
+  }
 }

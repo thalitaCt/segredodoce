@@ -232,7 +232,7 @@ textarea {
     .card {
         font-size: 15pt;
         width: 370px;
-        height: 200px;
+        height: 210px;
 
         i {
             font-size: 80px;
@@ -259,17 +259,22 @@ textarea {
     }
 
     select {
+        width: 300px;
         font-size: 19pt;
     }
 
     #meio {
         h2 {
-            line-height: 36px;
+            line-height: 39px;
             font-size: 32pt;
         }
     }
 
     .mapa {
+        align-items: end;
+        justify-content: end;
+        justify-items: end;
+        justify-self: end;
         width: 950px;
         height: 700px;
     }
