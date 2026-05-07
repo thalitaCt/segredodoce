@@ -298,10 +298,11 @@ body {
 @media (min-width: 1400px) {
   .produto {
     width: 530px;
-    min-height: 650px;
+    min-height: 700px;
 
     button {
-      margin-left: 270px;
+      margin-left: 210px;
+      margin-bottom: 20px;
     }
 
     img {

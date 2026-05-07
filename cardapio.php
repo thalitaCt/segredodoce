@@ -45,27 +45,27 @@ include 'includes/conexao.php';
         <div class="filtros">
 
 
-    <button onclick="filtrar('todos')">
+    <button onclick="filtrar('todos', this)">
         Todos
     </button>
 
 
-    <button onclick="filtrar('fatias')">
+    <button onclick="filtrar('fatias', this)">
         Fatias
     </button>
 
 
-    <button onclick="filtrar('bolo-de-pote')">
+    <button onclick="filtrar('bolo-de-pote', this)">
         Bolo de Pote
     </button>
 
 
-    <button onclick="filtrar('gourmet')">
+    <button onclick="filtrar('gourmet', this)">
         Gourmet
     </button>
 
 
-    <button onclick="filtrar('copo-da-felicidade')">
+    <button onclick="filtrar('copo-da-felicidade', this)">
         Copo da Felicidade
     </button>
 
