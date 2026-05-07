@@ -299,6 +299,35 @@
 
                
             }
+
+    @media (min-width: 1400px) {
+        .logo {
+            font-size: 18pt;
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        .navbar {
+            .carrinho-icon {
+                font-size: 20px;
+
+                #numeroC {
+                    font-size: 16pt;
+                }
+            }
+        }
+
+        .menu ul li {
+            font-size: 22pt;
+        }
+
+        .icons i {
+            font-size: 20px;
+        }
+    }
     </style>
 <body>
     <header class="navbar">
