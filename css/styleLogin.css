@@ -204,10 +204,23 @@ button {
   }
 
   .input-box input {
+    width: 95%;
     font-size: 20pt;
   }
 
+  .link.senha {
+    font-size: 18pt;
+  }
+
   .link {
+    font-size: 18pt;
+  }
+
+  p {
+    font-size: 18pt;
+  }
+
+  .link.cadastro {
     font-size: 18pt;
   }
 
