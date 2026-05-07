@@ -42,30 +42,31 @@ include 'includes/conexao.php';
 ?>
     <?php include 'includes/navbar.php'; ?>
         <h2 class="titulo">Nossos Produtos</h2>
-        <div class="filtros">
+
+        <div class="filtros-produtos">
 
 
-    <button onclick="filtrar('todos', this)">
+    <button class="ativo" onclick="filtrarProdutos('todos', this)">
         Todos
     </button>
 
 
-    <button onclick="filtrar('fatias', this)">
+    <button onclick="filtrarProdutos('fatias', this)">
         Fatias
     </button>
 
 
-    <button onclick="filtrar('bolo-de-pote', this)">
+    <button onclick="filtrarProdutos('bolo-de-pote', this)">
         Bolo de Pote
     </button>
 
 
-    <button onclick="filtrar('gourmet', this)">
+    <button onclick="filtrarProdutos('gourmet', this)">
         Gourmet
     </button>
 
 
-    <button onclick="filtrar('copo-da-felicidade', this)">
+    <button onclick="filtrarProdutos('copo-da-felicidade', this)">
         Copo da Felicidade
     </button>
 
@@ -122,7 +123,7 @@ include 'includes/conexao.php';
     <?php include 'includes/footer.php'; ?>
 
 <script>
-function filtrarProdutos(categoria){
+function filtrarProdutos(categoria, botao){
 
 
     let produtos = document.querySelectorAll('.produto');
@@ -140,9 +141,15 @@ function filtrarProdutos(categoria){
             produto.style.display = 'none';
         }
 
-
     });
 
+    let botoes = document.querySelectorAll('.filtros-produtos button');
+
+    botoes.forEach(btn => {
+        btn.classList.remove('ativo');
+    });
+
+    botao.classList.add('ativo');
 
 }
 </script>

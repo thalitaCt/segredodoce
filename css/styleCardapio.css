@@ -232,7 +232,7 @@ body {
   pointer-events: none;
 }
 
-.filtros{
+.filtros-produtos {
     display:flex;
     gap:10px;
     flex-wrap:wrap;
@@ -241,7 +241,7 @@ body {
 }
 
 
-.filtros button{
+.filtros-produtos button{
     background:#ff877d;
     color:white;
     border:none;
@@ -254,12 +254,12 @@ body {
 }
 
 
-.filtros button:hover{
+.filtros-produtos button:hover{
     background:#ee5350;
 }
 
 
-.filtros button.ativo{
+.filtros-produtos button.ativo{
     background:#421d14;
 }
 
