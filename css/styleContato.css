@@ -231,6 +231,7 @@ textarea {
 
     .card {
         font-size: 15pt;
+        width: 370px;
 
         i {
             font-size: 80px;
@@ -243,20 +244,26 @@ textarea {
 
     input {
         font-size: 17pt;
-        padding: 20px;
+        padding: 15px;
         width: 380px;
     }
 
     textarea {
+        font-size: 17pt;
         padding: 60px;
     }
 
     button {
-        font-size: 18pt;
+        font-size: 15pt;
+    }
+
+    select {
+        font-size: 15pt;
     }
 
     #meio {
         h2 {
+            line-height: 33px;
             font-size: 32pt;
         }
     }
