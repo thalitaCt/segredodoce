@@ -315,6 +315,8 @@ body {
     }
 
     .card {
+        width: 400px;
+        
         h3 {
             font-size: 20pt;
         }

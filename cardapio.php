@@ -122,16 +122,10 @@ include 'includes/conexao.php';
     <?php include 'includes/footer.php'; ?>
 
 <script>
-function filtrarProdutos(categoria, botao){
+function filtrarProdutos(categoria){
 
 
     let produtos = document.querySelectorAll('.produto');
-    let botoes = document.querySelectorAll('.filtros button');
-
-
-    botoes.forEach(btn => btn.classList.remove('ativo'));
-    botao.classList.add('ativo');
-
 
     produtos.forEach(produto => {
 
