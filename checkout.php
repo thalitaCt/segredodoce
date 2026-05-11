@@ -23,9 +23,19 @@ if(empty($_SESSION['carrinho'])){
 
 $total = 0;
 
+
 foreach($_SESSION['carrinho'] as $item){
     $total += $item['preco'] * $item['quantidade'];
 }
+
+
+$frete = $_SESSION['frete'] ?? 0;
+
+
+$totalFinal = $total + $frete;
+
+
+$endereco = $_SESSION['endereco_pedido'] ?? null;
 ?>
 
 <h1 id="tittle">Checkout</h1>
@@ -34,7 +44,32 @@ foreach($_SESSION['carrinho'] as $item){
 
 <p>Cliente: <?= $_SESSION['nome']; ?></p>
 
-<p>Total: R$ <?= number_format($total,2,',','.'); ?></p>
+<p>Subtotal: R$ <?= number_format($total,2,',','.'); ?></p>
+
+
+<p>Frete: R$ <?= number_format($frete,2,',','.'); ?></p>
+
+<p><strong>Total:</strong>R$ <?= number_format($totalFinal,2,',','.'); ?></p>
+
+<?php if($endereco): ?>
+
+
+<div class="endereco">
+
+
+<p><strong>Entrega:</strong><br>
+
+<?= $endereco['endereco']; ?>,
+<?= $endereco['numero']; ?><br>
+
+
+<?= $endereco['bairro']; ?> -
+<?= $endereco['cidade']; ?>/<?= $endereco['estado']; ?>
+</p>
+
+</div>
+
+<?php endif; ?>
 
 <form action="actions/finalizar.php" method="POST">
 

@@ -40,7 +40,6 @@ if ($_GET['erro'] == 'login') echo "Faça login ou crie uma conta para comprar p
         <div class="input-box"><input type="text" name="nome" placeholder="Nome" required></div>
         <div class="input-box"><input type="text" id="telefone" name="telefone" placeholder="Telefone" maxlength="15" required></div>
         <div class="input-box"><input type="email" name="email" placeholder="E-mail" required></div>
-        <div class="input-box"><input type="text" name="endereco" placeholder="Endereço" required></div>
         <div class="input-box"><input type="password" name="senha" placeholder="Senha" required></div>
         <button type="submit">Cadastrar</button>
         <p>Já tem uma conta? <span class="link login"><a href="login.php">Login</a></span></p>

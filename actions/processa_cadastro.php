@@ -38,12 +38,12 @@ try {
 
 
     // INSERE CLIENTE
-    $sql = "INSERT INTO clientes (usuario_id, nome, telefone, endereco)
-            VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO clientes (usuario_id, nome, telefone)
+            VALUES (?, ?, ?)";
 
 
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id_usuario, $nome, $telefone, $endereco]);
+    $stmt->execute([$id_usuario, $nome, $telefone]);
 
 
 

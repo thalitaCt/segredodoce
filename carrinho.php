@@ -70,10 +70,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho</title>
     <link rel="stylesheet" href="css/styleCarrinho.css">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -145,11 +142,6 @@
 
             <?php endforeach; ?>
 
-<?php
-$frete = 15;
-$totalFinal = $total + $frete;
-?>
-
         </div>
 
         <div class="resumo">
@@ -157,16 +149,16 @@ $totalFinal = $total + $frete;
 
             <p><span>Subtotal:</span> R$ <?php echo number_format($total, 2, ',', '.'); ?></p>
 
-            <p><span>Frete:</span> R$ <?php echo number_format($frete, 2, ',', '.'); ?></p>
+            <p><span>Frete:</span>Será calculado</p>
 
             <p id="linha"> </p>
 
             <p> 
-                <strong>Total:</strong> R$ <?php echo number_format($totalFinal, 2, ',', '.'); ?>
+                <strong>Total parcial:</strong> R$ <?php echo number_format($total, 2, ',', '.'); ?>
                 
         </p>
 
-            <button id="finalizar"><a href="checkout.php">Finalizar Compra</a></button>
+            <button id="finalizar"><a href="frete.php">Finalizar Compra</a></button>
         </div>
         </div>
 
