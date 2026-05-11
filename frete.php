@@ -67,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
 // CEP inválido
-if (strlen(preg_replace('/\D/', '', $cep)) != 9) {
+if (strlen(preg_replace('/\D/', '', $cep)) != 8) {
     header("Location: frete.php?erro=cep_invalido");
     exit;
 }
