@@ -250,6 +250,8 @@
 
             .seta{
                 font-size:12px !important;
+                display: flex;
+                align-items: center;
             }
 
             @media (max-width: 768px) {
