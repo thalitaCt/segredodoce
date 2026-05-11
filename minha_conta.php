@@ -24,7 +24,8 @@ SELECT
     c.numero,
     c.bairro,
     c.cidade,
-    c.estado
+    c.estado,
+    c.regiao
 FROM clientes c
 JOIN usuarios u ON u.id_usuario = c.usuario_id
 WHERE c.usuario_id = ?
