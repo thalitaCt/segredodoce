@@ -369,6 +369,35 @@
                
             }
 
+            .mobile-user-mobile{
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+        }
+
+
+        .mobile-user-mobile li{
+            list-style:none;
+        }
+
+
+        .mobile-user-mobile a{
+            color:white;
+            text-decoration:none;
+            font-size:16px;
+            padding:8px;
+            display:block;
+        }
+
+
+        .user-header{
+            font-weight:600;
+            font-size:18px;
+            padding:10px 8px;
+            border-bottom:1px solid rgba(255,255,255,0.3);
+            margin-bottom:5px;
+        }
+
     @media (min-width: 1400px) {
         .logo {
             font-size: 25pt;
@@ -422,29 +451,39 @@
             <li><a href="sobre.php">Sobre</a></li>
             <li><a href="contato.php">Contato</a></li>
 
-            <div class="mobile-extra">
-                    <?php if(isset($_SESSION['nome'])): ?>
-                        <li><a href="minha_conta.php">Minha Conta</a></li>
+            <div class="mobile-user-mobile">
 
-                            <?php
-                            $nome = $_SESSION['nome'];
-                            $partes = explode(" ", trim($nome));
-                            $primeiro = $partes[0];
 
-                            if(isset($partes[1]) && !empty($partes[1])) {
-                                $nomeFormatado= $primeiro . " " . $partes[1];
-                            } else {
-                                $nomeFormatado = $primeiro;
-                            }
-                            ?>
+<?php if(isset($_SESSION['nome'])): ?>
 
-                        <span class="nome-user"><?= $nomeFormatado?></span>
-                        <?php else: ?>
+<?php
+$nome = $_SESSION['nome'];
+$partes = explode(" ", trim($nome));
+$primeiro = $partes[0];
+?>
 
-                            <li><a href="login.php">Conta</a></li>
 
-                        <?php endif; ?>
-                </div>
+    <li class="user-header">
+        Olá, <?= $primeiro; ?>
+    </li>
+
+
+    <li><a href="minha_conta.php">Minha Conta</a></li>
+    <li><a href="pedidos.php">Meus Pedidos</a></li>
+    <li><a href="logout.php">Sair</a></li>
+
+
+<?php else: ?>
+
+
+    <li><a href="login.php">Entrar / Criar Conta</a></li>
+
+
+<?php endif; ?>
+
+
+</div>
+
         </ul>
             </div>
 
