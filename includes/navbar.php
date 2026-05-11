@@ -258,6 +258,10 @@
                 font-weight: 400;
             }
 
+            .mobile-user-mobile {
+                display: none;
+            }
+
             @media (max-width: 768px) {
 
             html, body {
