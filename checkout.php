@@ -42,13 +42,13 @@ $endereco = $_SESSION['endereco_pedido'] ?? null;
 
 <div class="card">
 
-<p>Cliente: <?= $_SESSION['nome']; ?></p>
+<p><strong>Cliente:</strong> <?= $_SESSION['nome']; ?></p>
 
-<p>Subtotal: R$ <?= number_format($total,2,',','.'); ?></p>
+<p><strong>Subtotal:</strong> R$ <?= number_format($total,2,',','.'); ?></p>
 
-<p>Frete: R$ <?= number_format($frete,2,',','.'); ?></p>
+<p><strong>Frete:</strong> R$ <?= number_format($frete,2,',','.'); ?></p>
 
-<p><strong>Total:</strong>R$ <?= number_format($totalFinal,2,',','.'); ?></p>
+<p><strong>Total:</strong> R$ <?= number_format($totalFinal,2,',','.'); ?></p>
 
 <?php if($endereco): ?>
 
@@ -56,7 +56,7 @@ $endereco = $_SESSION['endereco_pedido'] ?? null;
 <div class="endereco">
 
 
-<p><strong>Entrega:</strong><br>
+<p><strong>Entrega: </strong>
 
 <?= $endereco['endereco']; ?>,
 <?= $endereco['numero']; ?><br>
