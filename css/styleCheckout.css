@@ -52,6 +52,10 @@ body {
   color: var(--bege2);
 }
 
+p {
+  padding-left: 15px;
+}
+
 button {
   color: var(--branco);
   margin-top: 10px;
@@ -92,8 +96,7 @@ select {
 
 @media (max-width: 768px) {
   .card {
-    width: 220px;
-    font-size: 11pt;
+    font-size: 12pt;
     align-items: center;
   }
 
@@ -111,7 +114,7 @@ select {
     }
 
     .card {
-      width: 480px;
+      width: 420px;
       font-size: 18pt;
       height: 350px;
       width: 260px;
