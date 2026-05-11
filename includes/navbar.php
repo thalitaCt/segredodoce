@@ -177,13 +177,6 @@
                 display: none;
             }
 
-
-            .mobile-extra {
-                display: none;
-            }
-
-            
-
             .user-menu{
                 position:relative;
                 display: flex;
@@ -258,8 +251,8 @@
                 font-weight: 400;
             }
 
-            .mobile-user-mobile {
-                display: none;
+            .mobile-user-mobile{
+                display: none !important;
             }
 
             @media (max-width: 768px) {
@@ -286,12 +279,6 @@
 
             .logo {
                 order: 1;
-            }
-
-
-            .mobile-extra {
-                display: block;
-                cursor: pointer;
             }
 
 
