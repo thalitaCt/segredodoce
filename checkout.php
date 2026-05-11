@@ -46,7 +46,6 @@ $endereco = $_SESSION['endereco_pedido'] ?? null;
 
 <p>Subtotal: R$ <?= number_format($total,2,',','.'); ?></p>
 
-
 <p>Frete: R$ <?= number_format($frete,2,',','.'); ?></p>
 
 <p><strong>Total:</strong>R$ <?= number_format($totalFinal,2,',','.'); ?></p>

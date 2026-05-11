@@ -52,7 +52,7 @@ $totalFinal = null;
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
-    $cep = trim($_POST['cep']);
+    $cep = trim(preg_replace('/\D/', '', $_POST['cep']));
     $endereco = trim($_POST['endereco']);
     $numero = trim($_POST['numero']);
     $bairro = trim($_POST['bairro']);
@@ -332,15 +332,17 @@ button:hover{
     <form method="POST">
 
 
-        <input
+        CEP<input
         type="text"
+        id="cep" 
         name="cep"
-        placeholder="CEP"
+        maxlength="9"
+        placeholder="00000-000"
         value="<?= $cliente['cep'] ?? '' ?>"
         required>
 
 
-        <input
+        Endereço<input
         type="text"
         name="endereco"
         placeholder="Rua / Avenida"
@@ -406,7 +408,7 @@ button:hover{
         <input
         type="text"
         name="cidade"
-        placeholder="Cidade"
+        placeholder="Rio de Janeiro"
         value="<?= $cliente['cidade'] ?? '' ?>"
         required>
 
@@ -414,7 +416,7 @@ button:hover{
         <input
         type="text"
         name="estado"
-        placeholder="Estado"
+        placeholder="RJ"
         value="<?= $cliente['estado'] ?? '' ?>"
         required>
 
@@ -472,6 +474,24 @@ button:hover{
 
 </div>
 
+<script>
+document.getElementById('cep').addEventListener('input', function(e){
+
+
+    let v = e.target.value.replace(/\D/g,'');
+
+
+    if(v.length > 8){
+        v = v.slice(0,8);
+    }
+
+
+    v = v.replace(/(\d{5})(\d)/,'$1-$2');
+
+
+    e.target.value = v;
+});
+</script>
 
 </body>
 </html>
