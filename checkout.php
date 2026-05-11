@@ -72,7 +72,7 @@ $endereco = $_SESSION['endereco_pedido'] ?? null;
 
 <form action="actions/finalizar.php" method="POST">
 
-<label>Forma de pagamento:</label>
+<label><strong>Forma de pagamento:</strong></label>
 
 <select name="forma_pagamento">
     <option value="pix">Pix</option>

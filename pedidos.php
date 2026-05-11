@@ -55,17 +55,9 @@ $pedidos = $sql->fetchAll(PDO::FETCH_ASSOC);
 <h3>Pedido #<?= $p['id_pedidos']; ?></h3>
 
 <p>
-Subtotal + Frete:
-<strong>
-R$ <?= number_format($p['total'],2,',','.'); ?>
-</strong>
-</p>
+Subtotal + Frete: R$ <?= number_format($p['total'],2,',','.'); ?></p>
 
-<p>
-Frete:
-R$ <?= number_format($p['frete'],2,',','.'); ?>
-</p>
-
+<p>Frete: <?= $p['frete'] !== null ? 'R$ ' . number_format($p['frete'],2,',','.') : 'Não informado' ?></p>
 
 <p>Pagamento: <?= ucfirst($p['forma_pagamento']); ?></p>
 
@@ -73,15 +65,9 @@ R$ <?= number_format($p['frete'],2,',','.'); ?>
 
 <p>Status pedido: <?= $p['status']; ?></p>
 
-<p>
-<strong>Entrega:</strong><br>
-<?= $p['endereco_entrega']; ?>
-</p>
+<p>Entrega:<?= $p['endereco_entrega']; ?></p>
 
-<p>
-<strong>Região:</strong>
-<?= $p['regiao']; ?>
-</p>
+<p>Região: <?= !empty($p['regiao']) ? $p['regiao'] : 'Não informado' ?></p>
 
 <p>Data: <?= date('d/m/Y H:i', strtotime($p['data_pedido'])) ?></p>
 

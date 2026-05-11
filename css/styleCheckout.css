@@ -46,7 +46,7 @@ body {
 .card {
   padding: 10px;
   background-color: var(--verde);
-  width: 370px;
+  width: 340px;
   border-radius: 10px;
   height: 270px;
   color: var(--bege2);
