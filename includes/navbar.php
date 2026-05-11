@@ -182,6 +182,14 @@
                 display: none;
             }
 
+            
+
+            .user-actions{
+                display:flex;
+                gap:15px;
+                align-items:center;
+                justify-content:center;
+            }
 
             @media (max-width: 768px) {
 
@@ -295,8 +303,6 @@
                         font-size: 6pt;
                     }
                 }
-
-
                
             }
 
@@ -356,7 +362,7 @@
 
             <div class="mobile-extra">
                     <?php if(isset($_SESSION['nome'])): ?>
-                        <li><a href="logout.php" title="Sair">Sair</a></li>
+                        <li><a href="minha_conta.php">Minha Conta</a></li>
 
                             <?php
                             $nome = $_SESSION['nome'];
@@ -371,9 +377,11 @@
                             ?>
 
                         <span class="nome-user"><?= $nomeFormatado?></span>
+
+                        <li><a href="logout.php" title="Sair">Sair</a></li>
                         <?php else: ?>
 
-                            <li><a href="login.php">Minha Conta</a></li>
+                            <li><a href="login.php">Conta</a></li>
 
                         <?php endif; ?>
                 </div>
@@ -387,26 +395,42 @@
                     <span id="numeroC"><?php echo $totalItens; ?></span> 
                 </div>
 
-                <div class="user-icon">
-                    <?php if(isset($_SESSION['nome'])): ?>
-                        <a href="logout.php" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            <div class="user-icon">
 
-                            <?php
-                            $nome = $_SESSION['nome'];
-                            $partes = explode(" ", trim($nome));
-                            $primeiro = $partes[0];
-                            $segundo = $partes[1] ?? "";
-                            $nomeFormatado = $primeiro . "  " . $segundo;
-                            ?>
+            <?php if(isset($_SESSION['nome'])): ?>
 
-                        <span class="nome-user"><?= $nomeFormatado?></span>
-                        <?php else: ?>
+                <div class="user-actions">
 
-                            <a href="login.php"><i class="fa-solid fa-user"></i></a>
+                    <a href="minha_conta.php" title="Minha Conta">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
 
-                        <?php endif; ?>
+                    <a href="logout.php" title="Sair">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    </a>
+
                 </div>
-                </div>
+
+                <?php
+                $nome = $_SESSION['nome'];
+                $partes = explode(" ", trim($nome));
+                $primeiro = $partes[0];
+                $segundo = $partes[1] ?? "";
+                $nomeFormatado = $primeiro . " " . $segundo;
+                ?>
+
+                <span class="nome-user"><?= $nomeFormatado ?></span>
+
+            <?php else: ?>
+
+                <a href="login.php">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+
+            <?php endif; ?>
+
+            </div>
+            </div>
         
     </header>
 

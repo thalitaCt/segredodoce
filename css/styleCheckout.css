@@ -52,8 +52,8 @@ body {
   color: var(--bege2);
 }
 
-p {
-  padding-left: 15px;
+strong {
+  padding-left: 18px;
 }
 
 button {
