@@ -248,7 +248,7 @@
             }
 
 
-            .seta{
+            .user-button .seta{
                 font-size:12px !important;
                 display: flex;
                 align-items: center;
