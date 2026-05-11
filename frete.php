@@ -46,8 +46,6 @@ foreach($_SESSION['carrinho'] as $produto){
 
 $frete = null;
 $totalFinal = null;
-$sucessoFrete = true;
-
 
 /* CALCULAR FRETE */
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -141,6 +139,7 @@ if (!empty($cidade) && strtolower($cidade) != "rio de janeiro") {
 
 
     $totalFinal = $total + $frete;
+    $sucessoFrete = true;
 
 
     /* SALVAR FRETE */
