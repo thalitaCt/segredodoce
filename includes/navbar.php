@@ -474,7 +474,7 @@ $primeiro = $partes[0];
     <i class="fa-solid fa-user"></i>
 
 
-    <span>Olá, <?= $primeiro; ?></span>
+    <span id="user-conta">Olá, <?= $primeiro; ?></span>
 
 
     <i class="fa-solid fa-chevron-down seta"></i>
