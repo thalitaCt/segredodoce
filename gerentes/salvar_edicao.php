@@ -16,6 +16,11 @@ $cargo = $_POST['cargo'];
 $telefone = preg_replace('/\D/', '', $_POST['telefone']);
 $salario = $_POST['salario'];
 
+if (strlen($telefone) != 11) {
+    header("Location: salvar_edicao.php?erro=telefone_invalido");
+    exit;
+}
+
 
 try {
 

@@ -20,6 +20,11 @@ if ($stmt->rowCount() > 0) {
     exit;
 }
 
+if (strlen($telefone) != 11) {
+    header("Location: conta.php?erro=telefone_invalido");
+    exit;
+}
+
 
 try {
 

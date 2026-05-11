@@ -10,7 +10,7 @@
 <?php if(isset($_GET['erro'])): ?>
 <div class="alerta">
 <?php
-if ($_GET['erro'] == 'email_existente') echo "E-mail já cadastrado";
+if ($_GET['erro'] == 'telefone_invalido') echo "Número de celular inválido. Use DDD + número (ex: 21999999999).";
 ?>
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>

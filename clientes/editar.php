@@ -27,6 +27,15 @@ $cliente = $sql->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
 
+<?php if(isset($_GET['erro'])): ?>
+<div class="alerta">
+<?php
+if ($_GET['erro'] == 'telefone_invalido') echo "Número de celular inválido. Use DDD + número (ex: 21999999999).";
+?>
+<span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
+</div>
+<?php endif; ?>
+
 <div class="form-card">
 
 <h2>Editar Cliente</h2>

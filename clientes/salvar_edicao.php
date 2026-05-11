@@ -31,6 +31,11 @@ WHERE usuario_id=?
 
 $sql->execute([$nome, $telefone, $endereco, $id]);
 
+if (strlen($telefone) != 11) {
+    header("Location: salvar_edicao.php?erro=telefone_invalido");
+    exit;
+}
+
 
 header("Location: ../gerente.php?msg=cliente_editado");
 exit;

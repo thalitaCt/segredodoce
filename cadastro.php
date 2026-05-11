@@ -24,6 +24,7 @@ if ($_GET['msg'] == 'verificado') echo "Conta verificada com sucesso! <br>Faça 
 <?php
 if ($_GET['erro'] == 'geral') echo "Erro ao cadastrar";
 if ($_GET['erro'] == 'email_existente') echo "E-mail já cadastrado";
+if ($_GET['erro'] == 'telefone_invalido') echo "Número de celular inválido. Use DDD + número (ex: 21999999999).";
 if ($_GET['erro'] == 'login') echo "Faça login ou crie uma conta para comprar produtos";
 ?>
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>

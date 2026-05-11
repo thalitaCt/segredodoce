@@ -44,43 +44,60 @@ $primeiroNome = explode(" ", trim($cliente['nome']))[0];
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
 <title>Minha Conta</title>
-
-
 <link rel="stylesheet" href="css/styleConta.css">
-
-
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
-
 <body>
 
-
-<?php include 'includes/navbar.php'; ?>
-
-
-<div class="container">
+<?php if(isset($_GET['erro'])): ?>
 
 
-<?php if(isset($_GET['msg'])): ?>
-
-
-<div class="alerta-sucesso">
+<div class="alerta">
 
 
 <?php
-if($_GET['msg'] == 'salvo'){
-    echo "Dados atualizados com sucesso!";
+
+
+if($_GET['erro'] == 'nome_vazio'){
+    echo "Preencha o nome.";
 }
+
+
+elseif($_GET['erro'] == 'telefone_vazio'){
+    echo "Preencha o telefone.";
+}
+
+
+elseif($_GET['erro'] == 'telefone_invalido'){
+    echo "Número de celular inválido.";
+}
+
+
+elseif($_GET['erro'] == 'cep_invalido'){
+    echo "CEP inválido.";
+}
+
+
+elseif($_GET['erro'] == 'regiao_vazia'){
+    echo "Selecione uma região.";
+}
+
+
+elseif($_GET['erro'] == 'endereco_incompleto'){
+    echo "Complete os dados do endereço.";
+}
+
+
+else{
+    echo "Ocorreu um erro inesperado.";
+}
+
+
 ?>
 
 
@@ -94,6 +111,49 @@ X
 
 
 <?php endif; ?>
+
+
+<?php if(isset($_GET['msg'])): ?>
+
+
+<div class="alerta-sucesso">
+
+
+<?php
+
+
+if($_GET['msg'] == 'salvo'){
+    echo "Dados atualizados com sucesso!";
+}
+
+
+elseif($_GET['msg'] == 'endereco_salvo'){
+    echo "Endereço atualizado com sucesso!";
+}
+
+
+else{
+    echo "Operação realizada com sucesso!";
+}
+
+
+?>
+
+
+<span class="fechar"
+onclick="this.parentElement.style.display='none'">X</span>
+
+
+</div>
+
+
+<?php endif; ?>
+
+
+<?php include 'includes/navbar.php'; ?>
+
+
+<div class="container">
 
 
 <div class="topo-conta">

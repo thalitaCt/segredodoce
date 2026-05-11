@@ -155,6 +155,47 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $idUsuario
     ]);
 }
+
+// CEP vazio
+if (empty($cep)) {
+    header("Location: frete.php?erro=cep_vazio");
+    exit;
+}
+
+
+// CEP inválido
+if (strlen(preg_replace('/\D/', '', $cep)) != 9) {
+    header("Location: frete.php?erro=cep_invalido");
+    exit;
+}
+
+
+// Região não selecionada
+if (empty($regiao)) {
+    header("Location: frete.php?erro=regiao_vazia");
+    exit;
+}
+
+
+// Estado fora do RJ (taxa extra)
+if (!empty($estado) && strtoupper($estado) != "RJ") {
+    header("Location: frete.php?msg=frete_extra_estado");
+    exit;
+}
+
+
+// Cidade fora do Rio (taxa extra)
+if (!empty($cidade) && strtolower($cidade) != "rio de janeiro") {
+    header("Location: frete.php?msg=frete_extra_cidade");
+    exit;
+}
+
+
+// SUCESSO
+header("Location: frete.php?msg=frete_calculado");
+exit;
+
+
 ?>
 
 
@@ -278,6 +319,60 @@ button:hover{
     line-height:1.6;
 }
 
+.alerta {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgb(0, 207, 17);
+  color: var(--branco);
+  padding: 25px 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  font-weight: 650;
+}
+
+.alerta .fechar {
+  color: var(--branco);
+  font-size: 15px;
+  padding: 3px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.alerta-sucesso {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgb(0, 160, 13);
+  color: var(--branco);
+  padding: 25px 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  font-weight: 650;
+}
+
+.alerta-sucesso .fechar {
+  color: var(--branco);
+  font-size: 15px;
+  padding: 3px;
+  border-radius: 8px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+}
 
 @media(max-width:768px){
 
@@ -299,7 +394,17 @@ button:hover{
         font-size:14px;
     }
 
+    .alerta {
+    right: 5px;
+    margin: 15px;
+    font-size: 10pt;
+  }
 
+  .alerta-sucesso {
+    right: 5px;
+    margin: 15px;
+    font-size: 10pt;
+  }
 }
 
 
@@ -307,6 +412,73 @@ button:hover{
 </head>
 <body>
 
+<?php if(isset($_GET['erro'])): ?>
+
+
+<div class="alerta">
+
+
+<?php
+
+
+if($_GET['erro'] == 'cep_vazio'){
+    echo "Informe o CEP para calcular o frete.";
+}
+
+
+elseif($_GET['erro'] == 'cep_invalido'){
+    echo "CEP inválido.";
+}
+
+
+elseif($_GET['erro'] == 'regiao_vazia'){
+    echo "Selecione uma região.";
+}
+
+
+elseif($_GET['erro'] == 'regiao_invalida'){
+    echo "Região inválida selecionada.";
+}
+
+
+elseif($_GET['erro'] == 'sem_endereco'){
+    echo "Cadastre um endereço antes de continuar.";
+}
+
+
+elseif($_GET['erro'] == 'cep_nao_confere'){
+    echo "O CEP não corresponde à cidade ou estado.";
+}
+
+
+elseif($_GET['erro'] == 'carrinho_vazio'){
+    echo "Seu carrinho está vazio.";
+}
+
+
+elseif($_GET['erro'] == 'login'){
+    echo "Faça login para continuar.";
+}
+
+
+else{
+    echo "Ocorreu um erro inesperado.";
+}
+
+
+?>
+
+
+<span class="fechar"
+onclick="this.parentElement.style.display='none'">
+X
+</span>
+
+
+</div>
+
+
+<?php endif; ?>
 
 <div class="container">
 

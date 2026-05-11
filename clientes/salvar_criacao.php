@@ -26,6 +26,11 @@ if($sql->rowCount() > 0){
     exit;
 }
 
+if (strlen($telefone) != 11) {
+    header("Location: salvar_criacao.php?erro=telefone_invalido");
+    exit;
+}
+
 
 try {
 

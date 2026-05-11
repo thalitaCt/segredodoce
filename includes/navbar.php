@@ -365,7 +365,7 @@
             }
 
             .mobile-user-mobile{
-            display:flex;
+            display:flex !important;
             flex-direction:column;
             gap:10px;
         }
