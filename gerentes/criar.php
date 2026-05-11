@@ -23,7 +23,7 @@ if ($_GET['erro'] == 'email_existente') echo "E-mail já cadastrado";
 <form action="salvar_criacao.php" method="POST">
     <input type="text" name="nome" placeholder="Nome" required>
     <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="telefone" placeholder="Telefone">
+    <input type="text" id="telefone" name="telefone" placeholder="Telefone" maxlength="15" required>
     <input type="text" name="cargo" placeholder="Cargo" value="Gerente" required>
     <input type="number" step="0.01" name="salario" placeholder="Salário" required>
     <input type="password" name="senha" placeholder="Senha" required>
@@ -31,6 +31,20 @@ if ($_GET['erro'] == 'email_existente') echo "E-mail já cadastrado";
     <button type="submit">Cadastrar</button>
 </form>
 </div>
+
+<script>
+        document.getElementById('telefone').addEventListener('input', function(e) {
+        let v = e.target.value.replace(/\D/g,'');
+
+        if (v.length > 11) v = v.slice(0, 11);
+
+        v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+        v = v.replace(/(\d{5})(\d{4})$/,"$1-$2");
+
+        e.target.value = v;
+});
+
+    </script>
 
 </body>
 </html>

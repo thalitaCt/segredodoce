@@ -248,6 +248,41 @@ maxlength="2"
 value="<?= htmlspecialchars($cliente['estado']) ?>">
 </div>
 
+<div class="input-group full">
+    <label>Região</label>
+    
+    <select name="regiao" required>
+
+            <option value="">Selecione sua região</option>
+
+            <option value="Centro"
+            <?= ($cliente['regiao'] ?? '') == 'Centro' ? 'selected' : '' ?>>
+            Centro
+            </option>
+
+            <option value="Zona Sul"
+            <?= ($cliente['regiao'] ?? '') == 'Zona Sul' ? 'selected' : '' ?>>
+            Zona Sul
+            </option>
+
+            <option value="Zona Norte"
+            <?= ($cliente['regiao'] ?? '') == 'Zona Norte' ? 'selected' : '' ?>>
+            Zona Norte
+            </option>
+
+            <option value="Zona Oeste"
+            <?= ($cliente['regiao'] ?? '') == 'Zona Oeste' ? 'selected' : '' ?>>
+            Zona Oeste
+            </option>
+
+            <option value="Outro Município"
+            <?= ($cliente['regiao'] ?? '') == 'Outro Município' ? 'selected' : '' ?>>
+            Outro Município
+            </option>
+        </select>
+</div>
+
+
 
 </div>
 

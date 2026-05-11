@@ -1,33 +1,23 @@
 <?php
 session_start();
 
-
 include '../includes/conexao.php';
-
 
 if(!isset($_SESSION['usuario'])){
     header("Location: ../login.php");
     exit;
 }
 
-
 $idUsuario = $_SESSION['id'];
-
-
 $nome = $_POST['nome'];
-
-
 $telefone = preg_replace('/\D/', '', $_POST['telefone']);
-
-
 $cep = preg_replace('/\D/', '', $_POST['cep']);
-
-
 $endereco = $_POST['endereco'];
 $numero = $_POST['numero'];
 $bairro = $_POST['bairro'];
 $cidade = $_POST['cidade'];
 $estado = strtoupper($_POST['estado']);
+$regiao = $_POST['regiao'];
 
 
 $sql = $pdo->prepare("
@@ -40,10 +30,10 @@ SET
     numero = ?,
     bairro = ?,
     cidade = ?,
-    estado = ?
+    estado = ?,
+    regiao = ?
 WHERE usuario_id = ?
 ");
-
 
 $sql->execute([
     $nome,
@@ -54,12 +44,11 @@ $sql->execute([
     $bairro,
     $cidade,
     $estado,
+    $regiao,
     $idUsuario
 ]);
 
-
 $_SESSION['nome'] = $nome;
-
 
 header("Location: ../minha_conta.php?msg=salvo");
 exit;

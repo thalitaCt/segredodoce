@@ -12,7 +12,7 @@ if($_SESSION['tipo'] != 'gerente'){
 $id = $_POST['id'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
-$telefone = $_POST['telefone'];
+$telefone = preg_replace('/\D/', '', $_POST['telefone']);
 $endereco = $_POST['endereco'];
 
 

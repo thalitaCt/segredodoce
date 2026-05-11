@@ -45,5 +45,19 @@ $cliente = $sql->fetch(PDO::FETCH_ASSOC);
 </form>
 </div>
 
+<script>
+        document.getElementById('telefone').addEventListener('input', function(e) {
+        let v = e.target.value.replace(/\D/g,'');
+
+        if (v.length > 11) v = v.slice(0, 11);
+
+        v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+        v = v.replace(/(\d{5})(\d{4})$/,"$1-$2");
+
+        e.target.value = v;
+});
+
+    </script>
+
 </body>
 </html>

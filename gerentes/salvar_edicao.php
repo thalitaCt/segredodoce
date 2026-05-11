@@ -13,7 +13,7 @@ $id = $_POST['id'];
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $cargo = $_POST['cargo'];
-$telefone = $_POST['telefone'];
+$telefone = preg_replace('/\D/', '', $_POST['telefone']);
 $salario = $_POST['salario'];
 
 
