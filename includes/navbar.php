@@ -339,7 +339,7 @@
                 }
 
 
-                .user-icon {
+                .user-menu {
                     display: none;
                 }
 
