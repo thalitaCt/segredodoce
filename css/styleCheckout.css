@@ -46,9 +46,9 @@ body {
 .card {
   padding: 10px;
   background-color: var(--verde);
-  width: 290px;
+  width: 330px;
   border-radius: 10px;
-  height: 180px;
+  height: 250px;
   color: var(--bege2);
 }
 
