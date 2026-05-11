@@ -186,6 +186,10 @@
 
             .user-menu{
                 position:relative;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                height: 60px;
             }
 
 
@@ -195,10 +199,11 @@
                 color:white;
                 display:flex;
                 align-items:center;
-                gap:10px;
+                gap: 8px;
                 cursor:pointer;
                 font-size:16px;
                 font-family:Poppins;
+                height: 60px;
             }
 
 
@@ -222,12 +227,14 @@
 
 
             .dropdown-user.active{
+                font-size: 13pt;
                 display:flex;
                 flex-direction:column;
             }
 
 
             .dropdown-user a{
+                font-size: 13pt;
                 color:#421d14 !important;
                 padding:15px;
                 text-decoration:none;
