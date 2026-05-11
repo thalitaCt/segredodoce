@@ -54,8 +54,7 @@ $pedidos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 <h3>Pedido #<?= $p['id_pedidos']; ?></h3>
 
-<p>
-Subtotal + Frete: R$ <?= number_format($p['total'],2,',','.'); ?></p>
+<p>Subtotal + Frete: R$ <?= number_format($p['total'],2,',','.'); ?></p>
 
 <p>Frete: <?= $p['frete'] !== null ? 'R$ ' . number_format($p['frete'],2,',','.') : 'Não informado' ?></p>
 
@@ -65,7 +64,7 @@ Subtotal + Frete: R$ <?= number_format($p['total'],2,',','.'); ?></p>
 
 <p>Status pedido: <?= $p['status']; ?></p>
 
-<p>Entrega:<?= $p['endereco_entrega']; ?></p>
+<p>Entrega: <?= !empty($p['endereco_entrega']) ? $p['endereco_entrega'] : 'Não informado' ?></p>
 
 <p>Região: <?= !empty($p['regiao']) ? $p['regiao'] : 'Não informado' ?></p>
 

@@ -332,7 +332,7 @@ button:hover{
     <form method="POST">
 
 
-        CEP<input
+        <strong>CEP</strong><input
         type="text"
         id="cep" 
         name="cep"
@@ -342,7 +342,7 @@ button:hover{
         required>
 
 
-        Endereço<input
+        <strong>Endereço</strong><input
         type="text"
         name="endereco"
         placeholder="Rua / Avenida"
@@ -350,7 +350,7 @@ button:hover{
         required>
 
 
-        <input
+        <strong>Número</strong><input
         type="text"
         name="numero"
         placeholder="Número"
@@ -358,7 +358,7 @@ button:hover{
         required>
 
 
-        <input
+        <strong>Bairro</strong><input
         type="text"
         name="bairro"
         placeholder="Bairro"
@@ -366,7 +366,7 @@ button:hover{
         required>
 
 
-        <select name="regiao" required>
+        <strong>Região</strong><select name="regiao" required>
 
 
             <option value="">Selecione sua região</option>
@@ -405,7 +405,7 @@ button:hover{
         </select>
 
 
-        <input
+        <strong>Cidade</strong><input
         type="text"
         name="cidade"
         placeholder="Rio de Janeiro"
@@ -413,7 +413,7 @@ button:hover{
         required>
 
 
-        <input
+        <strong>Estado</strong><input
         type="text"
         name="estado"
         placeholder="RJ"
