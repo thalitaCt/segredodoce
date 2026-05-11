@@ -5,7 +5,6 @@ include '../includes/conexao.php';
 $nome = $_POST['nome'];
 $telefone = preg_replace('/\D/', '', $_POST['telefone']);
 $email = $_POST['email'];
-$endereco = $_POST['endereco'];
 $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 $codigo = rand(100000, 999999);
 
