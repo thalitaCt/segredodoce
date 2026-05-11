@@ -60,6 +60,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $estado = trim($_POST['estado']);
     $regiao = trim($_POST['regiao']);
 
+    if (empty($cep)) {
+    header("Location: frete.php?erro=cep_vazio");
+    exit;
+}
+
+
+// CEP inválido
+if (strlen(preg_replace('/\D/', '', $cep)) != 9) {
+    header("Location: frete.php?erro=cep_invalido");
+    exit;
+}
+
+
+// Região não selecionada
+if (empty($regiao)) {
+    header("Location: frete.php?erro=regiao_vazia");
+    exit;
+}
+
+
+// Estado fora do RJ (taxa extra)
+if (!empty($estado) && strtoupper($estado) != "RJ") {
+    header("Location: frete.php?msg=frete_extra_estado");
+    exit;
+}
+
+
+// Cidade fora do Rio (taxa extra)
+if (!empty($cidade) && strtolower($cidade) != "rio de janeiro") {
+    header("Location: frete.php?msg=frete_extra_cidade");
+    exit;
+}
+
 
     /* VALIDAÇÃO CIDADE/ESTADO */
 
@@ -154,46 +187,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $regiao,
         $idUsuario
     ]);
-}
 
-// CEP vazio
-if (empty($cep)) {
-    header("Location: frete.php?erro=cep_vazio");
-    exit;
-}
-
-
-// CEP inválido
-if (strlen(preg_replace('/\D/', '', $cep)) != 9) {
-    header("Location: frete.php?erro=cep_invalido");
-    exit;
-}
-
-
-// Região não selecionada
-if (empty($regiao)) {
-    header("Location: frete.php?erro=regiao_vazia");
-    exit;
-}
-
-
-// Estado fora do RJ (taxa extra)
-if (!empty($estado) && strtoupper($estado) != "RJ") {
-    header("Location: frete.php?msg=frete_extra_estado");
-    exit;
-}
-
-
-// Cidade fora do Rio (taxa extra)
-if (!empty($cidade) && strtolower($cidade) != "rio de janeiro") {
-    header("Location: frete.php?msg=frete_extra_cidade");
-    exit;
-}
-
-
-// SUCESSO
-header("Location: frete.php?msg=frete_calculado");
-exit;
+    }
 
 
 ?>
@@ -411,6 +406,7 @@ button:hover{
 </style>
 </head>
 <body>
+    
 
 <div class="container">
 
