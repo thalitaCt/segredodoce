@@ -15,7 +15,7 @@ if(empty($_SESSION['carrinho'])){
 }
 
 
-$idUsuario = $_SESSION['id_usuario'];
+$idUsuario = $_SESSION['usuario_id'];
 
 
 /* CLIENTE */
