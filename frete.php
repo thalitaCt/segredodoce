@@ -46,6 +46,7 @@ foreach($_SESSION['carrinho'] as $produto){
 
 $frete = null;
 $totalFinal = null;
+$sucessoFrete = true;
 
 
 /* CALCULAR FRETE */
@@ -406,7 +407,111 @@ button:hover{
 </style>
 </head>
 <body>
-    
+
+<?php if(isset($_GET['erro'])): ?>
+
+<div class="alerta">
+
+<?php
+
+if($_GET['erro'] == 'cep_vazio'){
+    echo "Informe o CEP para calcular o frete.";
+}
+
+elseif($_GET['erro'] == 'cep_invalido'){
+    echo "CEP inválido.";
+}
+
+elseif($_GET['erro'] == 'regiao_vazia'){
+    echo "Selecione uma região.";
+}
+
+elseif($_GET['erro'] == 'regiao_invalida'){
+    echo "Região inválida selecionada.";
+}
+
+elseif($_GET['erro'] == 'sem_endereco'){
+    echo "Cadastre um endereço antes de continuar.";
+}
+
+elseif($_GET['erro'] == 'cep_nao_confere'){
+    echo "O CEP não corresponde à cidade ou estado.";
+}
+
+elseif($_GET['erro'] == 'carrinho_vazio'){
+    echo "Seu carrinho está vazio.";
+}
+
+elseif($_GET['erro'] == 'login'){
+    echo "Faça login para continuar.";
+}
+
+else{
+    echo "Ocorreu um erro inesperado.";
+}
+
+?>
+
+<span class="fechar"
+onclick="this.parentElement.style.display='none'">
+X
+</span>
+
+</div>
+
+<?php endif; ?>
+
+
+
+
+
+<?php if(isset($_GET['msg'])): ?>
+
+<div class="alerta-sucesso">
+
+<?php
+
+if($_GET['msg'] == 'frete_extra_estado'){
+    echo "Entrega fora do estado do RJ possui taxa adicional.";
+}
+
+elseif($_GET['msg'] == 'frete_extra_cidade'){
+    echo "Entrega fora da cidade do Rio de Janeiro possui taxa adicional.";
+}
+
+elseif($_GET['msg'] == 'regiao_externa'){
+    echo "Frete de região externa aplicado.";
+}
+
+else{
+    echo "Operação realizada com sucesso!";
+}
+
+?>
+
+<span class="fechar"
+onclick="this.parentElement.style.display='none'">
+X
+</span>
+
+</div>
+
+<?php endif; ?>  
+
+<?php if(isset($sucessoFrete)): ?>
+
+<div class="alerta-sucesso">
+
+Frete calculado com sucesso!
+
+<span class="fechar"
+onclick="this.parentElement.style.display='none'">
+X
+</span>
+
+</div>
+
+<?php endif; ?>
 
 <div class="container">
 
