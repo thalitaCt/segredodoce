@@ -1,86 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+:root{
+    --rosa:#ff877d;
+    --rosa2:#ee5350;
+    --bege:#fff4ee;
+    --marrom:#421d14;
+    --cinza:#666;
+}
+
+
 body{
-    background:#fff4ee;
+    background:var(--bege);
     font-family:Poppins;
     margin:0;
 }
 
 
 .container{
-    padding:120px 20px 40px;
-}
-
-
-.card{
-    max-width:600px;
+    max-width:1200px;
     margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    padding:130px 25px 50px;
 }
 
 
-h1{
-    text-align:center;
-    margin-bottom:25px;
+.topo-conta{
+    margin-bottom:35px;
 }
 
 
-form{
+.topo-conta h1{
+    color:var(--marrom);
+    font-size:34px;
+    margin-bottom:8px;
+}
+
+
+.topo-conta p{
+    color:var(--cinza);
+    font-size:15px;
+}
+
+
+.grid-conta{
     display:flex;
     flex-direction:column;
-    gap:15px;
+    gap:25px;
 }
 
 
-input{
-    padding:12px;
-    border-radius:10px;
+.card-conta{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+
+.card-conta h2{
+    color:var(--marrom);
+    margin-bottom:25px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:22px;
+}
+
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+}
+
+
+.input-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:var(--marrom);
+    font-size:14px;
+}
+
+
+.input-group input{
+    padding:14px;
+    border-radius:14px;
     border:1px solid #ddd;
     font-size:15px;
+    outline:none;
+    transition:0.3s;
+    box-sizing:border-box;
 }
 
 
-button{
-    background:#ff877d;
+.input-group input:focus{
+    border-color:var(--rosa);
+    box-shadow:0 0 0 3px rgba(255,135,125,0.15);
+}
+
+
+.full{
+    grid-column:1 / -1;
+}
+
+
+.botao-salvar{
+    width:100%;
+    margin-top:30px;
+    background:var(--rosa);
     color:white;
     border:none;
-    padding:14px;
-    border-radius:10px;
+    padding:16px;
+    border-radius:16px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+
+.botao-salvar:hover{
+    background:var(--rosa2);
+    transform:translateY(-2px);
+}
+
+
+.alerta-sucesso{
+    background:#d1fae5;
+    color:#065f46;
+    padding:16px;
+    border-radius:14px;
+    margin-bottom:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-weight:500;
+}
+
+
+.fechar{
     cursor:pointer;
     font-weight:bold;
-    font-size:15px;
+    font-size:18px;
 }
 
 
-button:hover{
-    background:#ee5350;
-}
+@media (max-width:768px){
 
-.alerta {
-  font-family: Poppins;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: rgb(0, 207, 17);
-  color: var(--branco);
-  padding: 25px 33px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  z-index: 9999;
-  font-weight: 650;
-}
 
-.alerta .fechar {
-  color: var(--branco);
-  font-size: 15px;
-  padding: 3px;
-  font-weight: 700;
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  cursor: pointer;
+    .container{
+        padding:110px 15px 40px;
+    }
+
+
+    .topo-conta h1{
+        font-size:28px;
+    }
+
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    .card-conta{
+        padding:22px;
+    }
+
+
 }

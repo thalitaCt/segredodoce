@@ -184,11 +184,65 @@
 
             
 
-            .user-actions{
+            .user-menu{
+                position:relative;
+            }
+
+
+            .user-button{
+                background:none;
+                border:none;
+                color:white;
                 display:flex;
-                gap:15px;
                 align-items:center;
-                justify-content:center;
+                gap:10px;
+                cursor:pointer;
+                font-size:16px;
+                font-family:Poppins;
+            }
+
+
+            .user-button i{
+                font-size:20px;
+            }
+
+
+            .dropdown-user{
+                position:absolute;
+                top:45px;
+                right:0;
+                background:white;
+                border-radius:15px;
+                min-width:200px;
+                box-shadow:0 5px 15px rgba(0,0,0,0.15);
+                display:none;
+                overflow:hidden;
+                z-index:999;
+            }
+
+
+            .dropdown-user.active{
+                display:flex;
+                flex-direction:column;
+            }
+
+
+            .dropdown-user a{
+                color:#421d14 !important;
+                padding:15px;
+                text-decoration:none;
+                transition:0.3s;
+                font-weight:500;
+            }
+
+
+            .dropdown-user a:hover{
+                background:#fff4ee;
+            }
+
+
+            .seta{
+                font-size:12px !important;
             }
 
             @media (max-width: 768px) {
@@ -357,7 +411,6 @@
             <li><a href="index.php">Home</a></li>
             <li><a href="cardapio.php">Cardápio</a></li>
             <li><a href="sobre.php">Sobre</a></li>
-            <li><a href="pedidos.php">Pedidos</a></li>
             <li><a href="contato.php">Contato</a></li>
 
             <div class="mobile-extra">
@@ -377,8 +430,6 @@
                             ?>
 
                         <span class="nome-user"><?= $nomeFormatado?></span>
-
-                        <li><a href="logout.php" title="Sair">Sair</a></li>
                         <?php else: ?>
 
                             <li><a href="login.php">Conta</a></li>
@@ -395,41 +446,67 @@
                     <span id="numeroC"><?php echo $totalItens; ?></span> 
                 </div>
 
-            <div class="user-icon">
+           <div class="user-menu">
 
-            <?php if(isset($_SESSION['nome'])): ?>
 
-                <div class="user-actions">
+<?php if(isset($_SESSION['nome'])): ?>
 
-                    <a href="minha_conta.php" title="Minha Conta">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
 
-                    <a href="logout.php" title="Sair">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                    </a>
+<?php
+$nome = $_SESSION['nome'];
+$partes = explode(" ", trim($nome));
+$primeiro = $partes[0];
+?>
 
-                </div>
 
-                <?php
-                $nome = $_SESSION['nome'];
-                $partes = explode(" ", trim($nome));
-                $primeiro = $partes[0];
-                $segundo = $partes[1] ?? "";
-                $nomeFormatado = $primeiro . " " . $segundo;
-                ?>
+<button class="user-button" onclick="toggleDropdown()">
 
-                <span class="nome-user"><?= $nomeFormatado ?></span>
 
-            <?php else: ?>
+    <i class="fa-solid fa-user"></i>
 
-                <a href="login.php">
-                    <i class="fa-solid fa-user"></i>
-                </a>
 
-            <?php endif; ?>
+    <span>Olá, <?= $primeiro; ?></span>
 
-            </div>
+
+    <i class="fa-solid fa-chevron-down seta"></i>
+
+
+</button>
+
+
+<div class="dropdown-user" id="dropdownUser">
+
+
+    <a href="minha_conta.php">
+        Minha Conta
+    </a>
+
+
+    <a href="pedidos.php">
+        Meus Pedidos
+    </a>
+
+
+    <a href="logout.php">
+        Sair
+    </a>
+
+
+</div>
+
+
+<?php else: ?>
+
+
+<a href="login.php">
+    <i class="fa-solid fa-user"></i>
+</a>
+
+
+<?php endif; ?>
+
+
+</div>
             </div>
         
     </header>
@@ -439,5 +516,14 @@
             document.getElementById("menu").classList.toggle("active");
         }
         </script>
+
+    <script>
+    function toggleDropdown(){
+        document
+        .getElementById("dropdownUser")
+        .classList.toggle("active");
+    }
+    </script>
+
 </body>
 </html>
