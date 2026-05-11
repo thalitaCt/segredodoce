@@ -149,7 +149,7 @@
             .icons {
                 justify-self: end;
                 display: flex;
-                gap: 20px;
+                gap: 30px;
                 font-size: 21pt;
             }
 
@@ -252,6 +252,10 @@
                 font-size:12px !important;
                 display: flex;
                 align-items: center;
+            }
+
+            #user-conta {
+                font-weight: 400;
             }
 
             @media (max-width: 768px) {
