@@ -424,7 +424,7 @@
         }
 
         .mobile-user-mobile {
-            display:none;
+            display:none !important;
         }
     }
     </style>
