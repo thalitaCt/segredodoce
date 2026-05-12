@@ -50,42 +50,6 @@ $sql->execute([
 
 $_SESSION['nome'] = $nome;
 
-// Nome vazio
-if (empty($nome)) {
-    header("Location: minha_conta.php?erro=nome_vazio");
-    exit;
-}
-
-if (empty($cep)) {
-    header("Location: minha_conta.php?erro=cep_vazio");
-    exit;
-}
-
-// Telefone vazio
-if (empty($telefone)) {
-    header("Location: minha_conta.php?erro=telefone_vazio");
-    exit;
-}
-
-if (strlen($telefone) != 11) {
-    header("Location: minha_conta.php?erro=telefone_invalido");
-    exit;
-}
-
-
-// CEP inválido
-if (!empty($cep) && strlen(preg_replace('/\D/', '', $cep)) != 8) {
-    header("Location: minha_conta.php?erro=cep_invalido");
-    exit;
-}
-
-
-// Região não selecionada
-if (empty($regiao)) {
-    header("Location: minha_conta.php?erro=regiao_vazia");
-    exit;
-}
-
 // SUCESSO (aqui você salva no banco antes)
 header("Location: minha_conta.php?msg=salvo");
 exit;
