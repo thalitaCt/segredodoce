@@ -422,6 +422,10 @@
         .icons i {
             font-size: 35px;
         }
+
+        .mobile-user-mobile {
+            display:none;
+        }
     }
     </style>
 <body>
