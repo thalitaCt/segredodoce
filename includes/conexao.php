@@ -1,4 +1,7 @@
 <?php
+
+date_default_timezone_set('America/Sao_Paulo');
+
     $host = "ep-winter-wave-acvep69a-pooler.sa-east-1.aws.neon.tech";
     $db = "neondb";
     $user = "neondb_owner";
