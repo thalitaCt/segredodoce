@@ -231,122 +231,118 @@ disabled>
 
 <div class="card-conta">
 
-
 <h2>
 <i class="fa-solid fa-location-dot"></i>
 Endereço
 </h2>
 
-
 <div class="form-grid">
-
 
 <div class="input-group">
 <label>CEP</label>
-
 
 <input
 type="text"
 id="cep"
 name="cep"
 maxlength="9"
-value="<?= htmlspecialchars($cliente['cep']) ?>">
+value="<?= htmlspecialchars($cliente['cep'] ?? '') ?>">
 </div>
-
 
 <div class="input-group">
 <label>Número</label>
 
-
 <input
 type="text"
 name="numero"
-value="<?= htmlspecialchars($cliente['numero']) ?>">
+value="<?= htmlspecialchars($cliente['numero'] ?? '') ?>">
 </div>
-
 
 <div class="input-group full">
 <label>Rua / Avenida</label>
 
-
 <input
 type="text"
 name="endereco"
-value="<?= htmlspecialchars($cliente['endereco']) ?>">
+value="<?= htmlspecialchars($cliente['endereco'] ?? '') ?>">
 </div>
-
 
 <div class="input-group">
 <label>Bairro</label>
 
-
 <input
 type="text"
 name="bairro"
-value="<?= htmlspecialchars($cliente['bairro']) ?>">
+value="<?= htmlspecialchars($cliente['bairro'] ?? '') ?>">
 </div>
-
 
 <div class="input-group">
 <label>Cidade</label>
 
-
 <input
 type="text"
 name="cidade"
-value="<?= htmlspecialchars($cliente['cidade']) ?>">
+value="<?= htmlspecialchars($cliente['cidade'] ?? '') ?>">
 </div>
 
-
+<!-- ESTADO ALINHADO COM FRETE -->
 <div class="input-group">
 <label>Estado</label>
 
+<select name="estado" required>
 
-<input
-type="text"
-name="estado"
-maxlength="2"
-value="<?= htmlspecialchars($cliente['estado']) ?>">
+<option value="">Selecione</option>
+
+<?php
+$estados = [
+"AC","AL","AP","AM","BA","CE","DF","ES","GO","MA",
+"MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN",
+"RS","RO","RR","SC","SP","SE","TO"
+];
+
+foreach($estados as $sigla){
+
+    $selected = (($cliente['estado'] ?? '') === $sigla) ? 'selected' : '';
+
+    echo "<option value='$sigla' $selected>$sigla</option>";
+}
+?>
+
+</select>
 </div>
 
+<!-- REGIÃO ALINHADA COM FRETE -->
 <div class="input-group full">
-    <label>Região</label>
-    
-    <select name="regiao" required>
+<label>Zona de entrega</label>
 
-            <option value="">Selecione sua região</option>
+<select name="regiao" required>
 
-            <option value="Centro"
-            <?= ($cliente['regiao'] ?? '') == 'Centro' ? 'selected' : '' ?>>
-            Centro
-            </option>
+<option value="">Selecione</option>
 
-            <option value="Zona Sul"
-            <?= ($cliente['regiao'] ?? '') == 'Zona Sul' ? 'selected' : '' ?>>
-            Zona Sul
-            </option>
+<?php
+$regioes = [
+"Centro",
+"Zona Sul",
+"Zona Norte",
+"Zona Oeste",
+"Entrega Externa"
+];
 
-            <option value="Zona Norte"
-            <?= ($cliente['regiao'] ?? '') == 'Zona Norte' ? 'selected' : '' ?>>
-            Zona Norte
-            </option>
+foreach($regioes as $r){
 
-            <option value="Zona Oeste"
-            <?= ($cliente['regiao'] ?? '') == 'Zona Oeste' ? 'selected' : '' ?>>
-            Zona Oeste
-            </option>
+    $selected = (($cliente['regiao'] ?? '') === $r) ? 'selected' : '';
 
-            <option value="Outro Município"
-            <?= ($cliente['regiao'] ?? '') == 'Outro Município' ? 'selected' : '' ?>>
-            Outro Município
-            </option>
-        </select>
-</div>
+    echo "<option value='$r' $selected>$r</option>";
+}
+?>
 
+</select>
 
+<small>Utilizado para cálculo de frete no checkout.</small>
 
 </div>
 
+</div>
 
 </div>
 
