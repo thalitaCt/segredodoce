@@ -105,22 +105,23 @@ small {
     margin-top: 10px;
 }
 
+/* input normal */
 .senha-box input {
     width: 100%;
     padding: 12px 40px 12px 12px;
+    box-sizing: border-box;
 }
 
+/* AGORA O SEGREDO */
 .olho {
     position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    right: 10px;
+    top: 0;
     height: 100%;
+    
+    display: grid;
+    place-items: center; /* 🔥 centralização perfeita real */
+
     cursor: pointer;
     color: #7d5147;
     font-size: 16px;
