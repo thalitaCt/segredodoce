@@ -45,7 +45,6 @@ if($forma == 'boleto'){
 
 
     $pago = false;
-    $statusPagamento = 'Aguardando pagamento';
 
 
 }
@@ -53,7 +52,6 @@ else{
 
 
     $pago = true;
-    $statusPagamento = 'Pago';
 
 
 }
@@ -63,6 +61,17 @@ else{
 
 
 $statusPedido = 'Pedido confirmado';
+
+
+/* ENDEREÇO FORMATADO */
+
+
+$enderecoCompleto =
+$endereco['endereco'] . ', ' .
+$endereco['numero'] . ' - ' .
+$endereco['bairro'] . ' - ' .
+$endereco['cidade'] . '/' .
+$endereco['estado'];
 
 
 /* INSERIR PEDIDO */
@@ -90,6 +99,8 @@ $sql->execute([
 
 
     $_SESSION['usuario'],
+
+
     $_SESSION['nome'],
 
 
@@ -99,11 +110,7 @@ $sql->execute([
     $frete,
 
 
-    $endereco['endereco'] . ', ' .
-    $endereco['numero'] . ' - ' .
-    $endereco['bairro'] . ' - ' .
-    $endereco['cidade'] . '/' .
-    $endereco['estado'],
+    $enderecoCompleto,
 
 
     $endereco['regiao'] ?? null,
@@ -162,7 +169,7 @@ foreach($carrinho as $id => $item){
     /* INSERIR ITEM */
 
 
-    $sql = $pdo->prepare("
+    $sqlItem = $pdo->prepare("
     INSERT INTO itens_pedido
     (
     pedido_id,
@@ -175,7 +182,7 @@ foreach($carrinho as $id => $item){
     ");
 
 
-    $sql->execute([
+    $sqlItem->execute([
 
 
         $pedido_id,
@@ -234,7 +241,7 @@ unset($_SESSION['endereco_pedido']);
 /* REDIRECT */
 
 
-header("Location: ../pedidos.php?msg=feito");
+header("Location: ../confirmacao.php?pedido=$pedido_id");
 
 
 exit;
