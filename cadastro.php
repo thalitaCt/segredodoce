@@ -87,8 +87,8 @@ document.getElementById('telefone').addEventListener('input', function(e) {
 
 
 // validação de senha em tempo real
-const senha = document.querySelector('input[name="senha"]');
-const confirmar = document.querySelector('input[name="confirmar_senha"]');
+const senha = document.querySelector('senha');
+const confirmar = document.querySelector('confirmar_senha');
 const msg = document.getElementById('msgSenha');
 const botao = document.querySelector('button');
 
@@ -130,6 +130,5 @@ function toggleSenha(id, icon) {
     }
 }
 </script>
-
 </body>
 </html>
