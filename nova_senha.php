@@ -113,14 +113,15 @@ small {
 .olho {
     position: absolute;
     right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: fit-content;
     cursor: pointer;
-    color: #fff;
-    opacity: 0.8;
-    transition: 0.2s;
-    color: #7d5147; /* combina com seu tema marrom */
-    font-size: 16px;
+    color: #7d5147;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
 }
 
 .olho:hover {
