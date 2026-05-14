@@ -141,10 +141,14 @@ th, td{
 <div class="alerta">
 <?php
 if($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
+if($_GET['msg'] == 'status_atualizado') echo "Status atualizado com sucesso";
+if($_GET['msg'] == 'erro_status') echo "Status inválido";
 ?>
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>
 <?php endif; ?>
+
+
 
 <header>
     <div>Atendente</div>
