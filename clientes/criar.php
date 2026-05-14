@@ -58,6 +58,61 @@ if ($_GET['erro'] == 'telefone_invalido') {
 
     <input type="text" id="telefone" name="telefone" placeholder="Telefone" maxlength="15" required>
 
+    <input type="text" name="cep" placeholder="CEP">
+
+<input type="text" name="endereco" placeholder="Endereço">
+
+<input type="text" name="numero" placeholder="Número">
+
+<input type="text" name="bairro" placeholder="Bairro">
+
+<input type="text" name="cidade" placeholder="Cidade">
+
+
+<!-- ESTADO (SIGLA PADRÃO DO SISTEMA) -->
+<select name="estado" required>
+    <option value="">Selecione o estado</option>
+
+    <option value="AC">Acre</option>
+    <option value="AL">Alagoas</option>
+    <option value="AP">Amapá</option>
+    <option value="AM">Amazonas</option>
+    <option value="BA">Bahia</option>
+    <option value="CE">Ceará</option>
+    <option value="DF">Distrito Federal</option>
+    <option value="ES">Espírito Santo</option>
+    <option value="GO">Goiás</option>
+    <option value="MA">Maranhão</option>
+    <option value="MT">Mato Grosso</option>
+    <option value="MS">Mato Grosso do Sul</option>
+    <option value="MG">Minas Gerais</option>
+    <option value="PA">Pará</option>
+    <option value="PB">Paraíba</option>
+    <option value="PR">Paraná</option>
+    <option value="PE">Pernambuco</option>
+    <option value="PI">Piauí</option>
+    <option value="RJ">Rio de Janeiro</option>
+    <option value="RN">Rio Grande do Norte</option>
+    <option value="RS">Rio Grande do Sul</option>
+    <option value="RO">Rondônia</option>
+    <option value="RR">Roraima</option>
+    <option value="SC">Santa Catarina</option>
+    <option value="SP">São Paulo</option>
+    <option value="SE">Sergipe</option>
+    <option value="TO">Tocantins</option>
+</select>
+
+
+<!-- REGIÃO (FRETE RJ) -->
+<select name="regiao">
+    <option value="">Região (opcional)</option>
+    <option value="Centro">Centro</option>
+    <option value="Zona Sul">Zona Sul</option>
+    <option value="Zona Norte">Zona Norte</option>
+    <option value="Zona Oeste">Zona Oeste</option>
+    <option value="Entrega Externa">Entrega Externa</option>
+</select>
+
     <button type="submit" id="btnSubmit">Criar Cliente</button>
 
 </form>
