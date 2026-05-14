@@ -162,6 +162,42 @@ button {
   cursor: pointer;
 }
 
+.senha-box {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* input normal */
+.senha-box input {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+    box-sizing: border-box;
+}
+
+.olho {
+    position: absolute;
+    padding-top: 8px;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    cursor: pointer;
+    color: grey;
+    font-size: 16px;
+    user-select: none;
+}
+
+.olho:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
 @media (max-width: 768px) {
   .input-box input {
     margin-left: 10px;

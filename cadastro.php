@@ -53,14 +53,15 @@
             <input type="email" name="email" placeholder="E-mail" required>
         </div>
 
-        <div class="input-box">
-            <input type="password" name="senha" placeholder="Senha" required>
-        </div>
+        <div class="input-box senha-box">
+    <input type="password" id="senha" name="senha" placeholder="Senha" required>
+    <i class="fa-solid fa-eye olho" onclick="toggleSenha('senha', this)"></i>
+</div>
 
-        <div class="input-box">
-            <input type="password" name="confirmar_senha" placeholder="Confirmar senha" required>
-            <small id="msgSenha"></small>
-        </div>
+        <div class="input-box senha-box">
+    <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirmar senha" required>
+    <i class="fa-solid fa-eye olho" onclick="toggleSenha('confirmar_senha', this)"></i>
+</div>
 
         <button type="submit">Cadastrar</button>
 
@@ -112,6 +113,22 @@ function verificarSenha() {
 
 senha.addEventListener('input', verificarSenha);
 confirmar.addEventListener('input', verificarSenha);
+</script>
+
+<script>
+function toggleSenha(id, icon) {
+    const input = document.getElementById(id);
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
 </script>
 
 </body>

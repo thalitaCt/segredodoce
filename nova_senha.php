@@ -187,11 +187,11 @@ function validar() {
 
     if (senha.value === confirmar.value) {
         msg.textContent = "✔ Senhas coincidem";
-        msg.style.color = "lightgreen";
+        msg.style.color = "green";
         btn.disabled = false;
     } else {
         msg.textContent = "✖ Senhas não coincidem";
-        msg.style.color = "yellow";
+        msg.style.color = "red";
         btn.disabled = true;
     }
 }
