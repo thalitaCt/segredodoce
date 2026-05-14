@@ -41,13 +41,13 @@
         }
 
         .navbar {
-            z-index: 900;
+            z-index: 9990;
             background-color: var(--rosa);
             top: 0px;
             left: 0px;
             right: 0px;
             padding: 20px;
-            height: 60px;
+            min-height: 70px;
             position: fixed;
             display: flex;
             justify-content: space-between;
