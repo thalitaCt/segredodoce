@@ -112,20 +112,19 @@ small {
     box-sizing: border-box;
 }
 
-/* AGORA O SEGREDO */
 .olho {
     position: absolute;
-    right: 10px;
+    padding-top: 10px;
+    right: 12px;
     top: 0;
-    height: 100%;
-    
-    display: grid;
-    place-items: center; /* 🔥 centralização perfeita real */
-
+    bottom: 0;
+    margin: auto;
+    height: fit-content;
     cursor: pointer;
     color: #7d5147;
     font-size: 16px;
-    user-select: none;
+    display: flex;
+    align-items: center;
 }
 
 .olho:hover {
