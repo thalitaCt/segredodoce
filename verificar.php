@@ -150,6 +150,7 @@ button:hover{
         if($_GET['msg'] == 'reenviado') echo "Novo código enviado";
         if($_GET['msg'] == 'verificado') echo "Conta verificada com sucesso!";
     ?>
+           <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>
 <?php endif; ?>
 
@@ -160,6 +161,7 @@ button:hover{
         if($_GET['erro'] == 'codigo') echo "Código inválido.";
         if($_GET['erro'] == 'nao_verificado') echo "Conta não verificada.";
     ?>
+           <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>
 <?php endif; ?>
 
