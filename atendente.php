@@ -2,7 +2,6 @@
 session_start();
 include 'includes/conexao.php';
 
-
 if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'recepcionista'){
     header("Location: login.php");
     exit;
@@ -10,10 +9,10 @@ if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'recepcionista'){
 
 $nome = $_SESSION['nome'] ?? 'Usuário';
 
-$sql = $pdo->query("SELECT * FROM pedidos ORDER BY data_pedido DESC");
+$sql = $pdo->prepare("SELECT * FROM pedidos ORDER BY data_pedido DESC");
+$sql->execute();
 $pedidos = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,297 +23,137 @@ $pedidos = $sql->fetchAll(PDO::FETCH_ASSOC);
 <title>Painel do Atendente</title>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --bege: #ffedcd;
-  --bege2: #fff4ee;
-  --bege3: #eacab6;
-  --marrom: #7d5147;
-  --marrom2: #833c2c;
-  --marrom3: #421d14;
-  --rosa: #ff877d;
-  --rosa2: #ee5350;
-  --verde: #347141;
-  --branco: #ffffff;
-  --preto: #000000;
-  --preto2: #1b1b1b;
-  --amarelo: #fde047;
-  --amarelo2: #facc15;
+  --rosa:#ff877d;
+  --rosa2:#ee5350;
+  --bege:#fff4ee;
+  --marrom:#7d5147;
+  --verde:#347141;
+  --cinza:#666;
 }
 
 body{
-    font-family: Poppins;
+    font-family:Poppins;
     margin:0;
-    background:#fff4ee;
+    background:var(--bege);
 }
 
-
 header{
-    background:#ff877d;
+    background:var(--rosa);
     color:white;
     padding:20px;
     display:flex;
     justify-content:space-between;
 }
 
-
 .container{
     padding:20px;
 }
 
-
+/* CARD PRINCIPAL */
 .card{
     background:white;
     padding:15px;
     margin-bottom:20px;
     border-radius:10px;
     box-shadow:0 0 5px rgba(0,0,0,0.1);
+}
 
-    h2 {
-    text-decoration: underline;
-    text-decoration-color: var(--amarelo2);
-    text-align: center;
-    font-size: 25pt;
-    }
+/* NOVO PEDIDO */
+.card.pedido form{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
 
-    button{
-    background:#ff877d;
+.card.pedido input,
+.card.pedido select{
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    width:200px;
+}
+
+.card.pedido button{
+    background:var(--rosa);
     color:white;
     border:none;
-    padding:8px 12px;
-    border-radius:5px;
+    padding:10px;
+    border-radius:10px;
     cursor:pointer;
+    font-weight:700;
 }
 
-
-select{
-    padding: 10px;
-    width: 220px;
-    border-color: var(--rosa);
-    border-radius:16px;
-    font-size:15px;
-    outline:none;
-    cursor:pointer;
+/* TABELA */
+table{
+    width:100%;
+    border-collapse:collapse;
 }
 
+th, td{
+    padding:10px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+}
 
+/* STATUS */
 .status{
     font-weight:bold;
 }
 
-input {
-    border: none;
-    padding: 10px;
-    margin: 10px;
-}
-}
-
-.alerta {
-  font-family: Poppins;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: rgb(0, 160, 13);
-  color: var(--branco);
-  padding: 25px 33px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  z-index: 9999;
-  font-weight: 650;
-}
-
-.alerta .fechar {
-  color: var(--branco);
-  font-size: 15px;
-  padding: 3px;
-  border-radius: 8px;
-  font-weight: 700;
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.card .pedido{
-    background:white;
-    padding:15px;
-    margin-bottom:20px;
+/* ALERTA */
+.alerta{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#00a00d;
+    color:white;
+    padding:20px;
     border-radius:10px;
-    box-shadow:0 0 5px rgba(0,0,0,0.1);
-    text-align: center;
-    justify-self: center;
-    justify-items: center;
-    display: flex;
-    flex-wrap: wrap;
-
-    h2 {
-    text-decoration: underline;
-    text-decoration-color: var(--amarelo2);
-    text-align: center;
-    font-size: 25pt;
-    }
-
-    form {
-    text-align: center;
-    justify-self: center;
-    justify-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    }
-
-    input {
-        border-color: var(--rosa);
-        border-radius: 14px;
-        padding:10px;
-        width: 200px;
-        margin-bottom: 10px;
-    }
-
-    button {
-        margin: 7px;
-        font-family: Poppins;
-        border-color: var(--marrom3);
-        background-color: var(--rosa);
-        padding: 10px;
-        font-size: 13pt;
-        border-radius: 10px;
-        transition: 0.5s;
-        color: var(--bege2);
-        font-weight: 800;
-        width: 100px;
-        cursor: pointer;
-    }
-
-    select {
-        width: 230px;
-        padding:11px;
-        border-color: var(--rosa);
-        border-radius:16px;
-        font-size:18px;
-        outline:none;
-        cursor:pointer;
-        }
+    font-weight:600;
 }
 
-@media (max-width: 768px){
+.fechar{
+    margin-left:10px;
+    cursor:pointer;
+}
 
-    /* CONTAINER */
-    .container{
-        padding:15px;
-    }
-
-
-    /* CARD */
-    .card{
-        padding:12px;
-    }
-
-
-    .card h2{
-        font-size:18pt;
-    }
-
-
-    /* FORMULÁRIO (NOVO PEDIDO) */
-    .card.pedido{
-        flex-direction: column;
-        align-items: center;
-    }
-
-
+/* MOBILE */
+@media(max-width:768px){
     .card.pedido form{
-        flex-direction: column;
-        width:100%;
-        align-items:center;
+        flex-direction:column;
     }
-
 
     .card.pedido input,
     .card.pedido select{
         width:100%;
-        max-width:300px;
     }
-
-
-    .card.pedido button{
-        width:100%;
-        max-width:200px;
-    }
-
-
-    /* TABELA */
-    table{
-        font-size:12px;
-        min-width:650px; /* evita esmagar */
-    }
-
-
-    th, td{
-        padding:6px;
-    }
-
-
-    /* SCROLL HORIZONTAL (ESSENCIAL) */
-    .card{
-        overflow-x:auto;
-    }
-
-
-    /* STATUS SELECT */
-    td form{
-        display:flex;
-        flex-direction:column;
-        gap:5px;
-    }
-
-
-    td select{
-        width:100%;
-    }
-
-
-    td button{
-        width:100%;
-    }
-
-
-    /* ALERTA */
-    .alerta {
-      right: 5px;
-      margin: 15px;
-      font-size: 10pt;
-    }
-
-
 }
-
 </style>
+
 </head>
+
 <body>
 
-<?php if (isset($_GET['msg'])): ?>
+<?php if(isset($_GET['msg'])): ?>
 <div class="alerta">
 <?php
-if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
+if($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
 ?>
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>
 <?php endif; ?>
 
-
 <header>
     <div>Atendente</div>
-    <div>Olá, <?= $nome ?> | <a href="../logout.php" style="color:white;">Sair</a></div>
+    <div>Olá, <?= htmlspecialchars($nome) ?> | <a href="../logout.php" style="color:white;">Sair</a></div>
 </header>
 
 <div class="container">
 
+<!-- NOVO PEDIDO -->
 <div class="card pedido">
     <h2>Novo Pedido</h2>
 
@@ -326,7 +165,7 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
 
         <select name="produto_id" required>
             <?php
-            $produtos = $pdo->query("SELECT * FROM produtos")->fetchAll();
+            $produtos = $pdo->query("SELECT * FROM produtos")->fetchAll(PDO::FETCH_ASSOC);
             foreach($produtos as $prod){
                 echo "<option value='{$prod['id_produtos']}'>
                         {$prod['nome']} - R$ {$prod['preco']}
@@ -335,8 +174,7 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
             ?>
         </select>
 
-
-        <input type="number" name="quantidade" placeholder="Quantidade" required>
+        <input type="number" name="quantidade" placeholder="Quantidade" min="1" required>
 
         <select name="forma_pagamento" required>
             <option value="pix">Pix</option>
@@ -348,12 +186,11 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
     </form>
 </div>
 
-
+<!-- LISTA DE PEDIDOS -->
 <div class="card">
     <h2>Pedidos</h2>
 
-
-    <table border="1" width="100%" cellpadding="8">
+    <table>
         <tr>
             <th>ID</th>
             <th>Cliente</th>
@@ -364,12 +201,11 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
             <th>Ação</th>
         </tr>
 
-
         <?php foreach($pedidos as $p): ?>
-
 
         <?php
         $cor = match($p['status']){
+            'Pedido Confirmado' => 'blue',
             'Pendente' => 'orange',
             'Em preparo' => 'blue',
             'Pronto' => 'green',
@@ -379,32 +215,23 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
         };
         ?>
 
-
         <tr>
             <td><?= $p['id_pedidos'] ?></td>
-            <td><?= $p['cliente_nome'] ?? 'Cliente' ?></td>
+            <td><?= htmlspecialchars($p['cliente_nome']) ?></td>
             <td>R$ <?= number_format($p['total'], 2, ',', '.') ?></td>
-
-
             <td><?= $p['forma_pagamento'] ?></td>
-
-
-            <td>
-                <?= $p['pago'] ? 'Pago' : 'Pendente' ?>
-            </td>
-
+            <td><?= $p['pago'] ? 'Pago' : 'Pendente' ?></td>
 
             <td class="status" style="color:<?= $cor ?>">
                 <?= $p['status'] ?>
             </td>
 
-
             <td>
                 <form action="atualizar_status.php" method="POST">
                     <input type="hidden" name="id" value="<?= $p['id_pedidos'] ?>">
 
-
                     <select name="status">
+                        <option <?= $p['status']=='Pedido Confirmado'?'selected':'' ?>>Pedido Confirmado</option>
                         <option <?= $p['status']=='Pendente'?'selected':'' ?>>Pendente</option>
                         <option <?= $p['status']=='Em preparo'?'selected':'' ?>>Em preparo</option>
                         <option <?= $p['status']=='Pronto'?'selected':'' ?>>Pronto</option>
@@ -412,22 +239,17 @@ if ($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
                         <option <?= $p['status']=='Cancelado'?'selected':'' ?>>Cancelado</option>
                     </select>
 
-
                     <button type="submit">Atualizar</button>
                 </form>
             </td>
         </tr>
 
-
         <?php endforeach; ?>
-
 
     </table>
 </div>
 
-
 </div>
-
 
 </body>
 </html>
