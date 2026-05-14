@@ -61,7 +61,9 @@
         <div class="input-box senha-box">
     <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirmar senha" required>
     <i class="fa-solid fa-eye olho" onclick="toggleSenha('confirmar_senha', this)"></i>
+    <small id="msgSenha"></small>
 </div>
+
 
         <button type="submit">Cadastrar</button>
 
@@ -70,7 +72,6 @@
     </form>
 
 </div>
-
 
 <script>
 // máscara telefone
@@ -87,8 +88,8 @@ document.getElementById('telefone').addEventListener('input', function(e) {
 
 
 // validação de senha em tempo real
-const senha = document.querySelector('senha');
-const confirmar = document.querySelector('confirmar_senha');
+const senha = document.querySelector('input[name="senha"]');
+const confirmar = document.querySelector('input[name="confirmar_senha"]');
 const msg = document.getElementById('msgSenha');
 const botao = document.querySelector('button');
 
@@ -115,20 +116,5 @@ senha.addEventListener('input', verificarSenha);
 confirmar.addEventListener('input', verificarSenha);
 </script>
 
-<script>
-function toggleSenha(id, icon) {
-    const input = document.getElementById(id);
-
-    if (input.type === "password") {
-        input.type = "text";
-        icon.classList.remove("fa-eye");
-        icon.classList.add("fa-eye-slash");
-    } else {
-        input.type = "password";
-        icon.classList.remove("fa-eye-slash");
-        icon.classList.add("fa-eye");
-    }
-}
-</script>
 </body>
 </html>
