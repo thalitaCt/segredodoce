@@ -48,7 +48,7 @@ body {
   background-color: var(--branco);
   border-radius: 30px;
   width: 360px;
-  height: 420px;
+  height: 470px;
 }
 
 .titulo {
@@ -168,7 +168,7 @@ button {
 
 .olho {
     position: absolute;
-    padding-top: 22px;
+    margin-top: 20px;
     right: 12px;
     top: 50%;
     transform: translateY(-50%);

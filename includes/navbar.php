@@ -47,7 +47,7 @@
             left: 0px;
             right: 0px;
             padding: 20px;
-            min-height: 55px;
+            min-height: 60px;
             position: fixed;
             display: flex;
             justify-content: space-between;
