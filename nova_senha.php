@@ -113,15 +113,18 @@ small {
 .olho {
     position: absolute;
     right: 12px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: fit-content;
-    cursor: pointer;
-    color: #7d5147;
-    font-size: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    
     display: flex;
     align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    cursor: pointer;
+    color: #7d5147;
+    font-size: 16px;
+    user-select: none;
 }
 
 .olho:hover {
