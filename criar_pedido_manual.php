@@ -2,30 +2,32 @@
 session_start();
 include 'includes/conexao.php';
 
-
 if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'recepcionista'){
     header("Location: login.php");
     exit;
 }
 
-
-$cliente_nome = $_POST['cliente_nome'];
-$cliente_email = $_POST['cliente_email'];
+$cliente_nome = trim($_POST['cliente_nome']);
+$cliente_email = trim($_POST['cliente_email']);
 $produto_id = $_POST['produto_id'];
-$quantidade = $_POST['quantidade'];
+$quantidade = (int) $_POST['quantidade'];
 $forma = $_POST['forma_pagamento'] ?? 'pix';
 
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
 try {
 
+    // BUSCAR PRODUTO
     $sql = $pdo->prepare("SELECT nome, preco, estoque FROM produtos WHERE id_produtos = ?");
     $sql->execute([$produto_id]);
     $produto = $sql->fetch(PDO::FETCH_ASSOC);
 
     if(!$produto){
         throw new Exception("Produto não encontrado");
+    }
+
+    if($quantidade <= 0){
+        throw new Exception("Quantidade inválida");
     }
 
     if($produto['estoque'] < $quantidade){
@@ -36,27 +38,32 @@ try {
     $preco = $produto['preco'];
 
     $total = $quantidade * $preco;
+
+    // pagamento (boleto não marca como pago automaticamente)
     $pago = ($forma === 'boleto') ? false : true;
 
-    // INSERT pedido
+    // STATUS ATUALIZADO
+    $status = 'Pedido Confirmado';
+
+    // INSERIR PEDIDO
     $sql = $pdo->prepare("
         INSERT INTO pedidos
         (cliente_nome, cliente_email, total, status, forma_pagamento, pago, data_pedido)
-        VALUES (?, ?, ?, 'Pendente', ?, ?, NOW())
-        RETURNING id_pedidos
+        VALUES (?, ?, ?, ?, ?, ?, NOW())
     ");
 
     $sql->execute([
         $cliente_nome,
         $cliente_email,
         $total,
+        $status,
         $forma,
         $pago
     ]);
 
-    $pedido_id = $sql->fetchColumn();
+    $pedido_id = $pdo->lastInsertId();
 
-    // INSERT item
+    // ITEM DO PEDIDO
     $sql = $pdo->prepare("
         INSERT INTO itens_pedido
         (pedido_id, produto_id, nome, quantidade, preco)
@@ -71,7 +78,7 @@ try {
         $preco
     ]);
 
-    // UPDATE estoque
+    // ATUALIZAR ESTOQUE
     $sql = $pdo->prepare("
         UPDATE produtos
         SET estoque = estoque - ?
@@ -83,10 +90,11 @@ try {
         $produto_id
     ]);
 
+    header("Location: atendente.php?msg=pedido_criado");
+    exit;
+
 } catch(Exception $e){
     echo "Erro: " . $e->getMessage();
     exit;
 }
-
-header("Location: atendente.php?msg=pedido_criado");
-exit;
+?>
