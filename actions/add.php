@@ -1,40 +1,61 @@
 <?php
 session_start();
+
 include '../includes/conexao.php';
 
-if (!isset($_SESSION['usuario'])) {
+
+if(!isset($_SESSION['usuario'])){
     header("Location: ../login.php?erro=login");
     exit;
 }
 
-$id = $_POST['id'];
+$id = $_POST['id'] ?? null;
 
-$sql = $pdo->prepare("SELECT * FROM produtos WHERE id_produtos = ?");
-$sql->execute([$id]);
 
-$produto = $sql->fetch(PDO::FETCH_ASSOC);
-
-$nome = $produto['nome'];
-$nomeCurto = mb_strimwidth($nome, 0, 35, "...");
-
-if (!$produto) {
+if(!$id){
     header("Location: ../cardapio.php?erro=produto");
     exit;
 }
 
-if ($produto['estoque'] <= 0) {
+
+$sql = $pdo->prepare("
+SELECT *
+FROM produtos
+WHERE id_produtos = ?
+");
+
+
+$sql->execute([$id]);
+$produto = $sql->fetch(PDO::FETCH_ASSOC);
+
+
+if(!$produto){
+    header("Location: ../cardapio.php?erro=produto");
+    exit;
+}
+
+if($produto['estoque'] <= 0){
     header("Location: ../cardapio.php?erro=estoque");
     exit;
 }
 
-if (isset($_SESSION['carrinho'][$id])) {
-    if ($_SESSION['carrinho'][$id]['quantidade'] < $produto['estoque']) {
+$nome = $produto['nome'];
+$nomeCurto = mb_strimwidth($nome, 0, 35, "...");
+
+
+if(isset($_SESSION['carrinho'][$id])){
+
+    if($_SESSION['carrinho'][$id]['quantidade'] < $produto['estoque']){
         $_SESSION['carrinho'][$id]['quantidade']++;
-    } else {
+
+    }
+    else{
         header("Location: ../cardapio.php?erro=estoque");
         exit;
     }
-} else {
+
+}
+else{
     $_SESSION['carrinho'][$id] = [
         'id_produtos' => $produto['id_produtos'],
         'nome' => $produto['nome'],
@@ -44,9 +65,11 @@ if (isset($_SESSION['carrinho'][$id])) {
         'estoque' => $produto['estoque'],
         'quantidade' => 1
     ];
+
+
 }
 
+header("Location: ../cardapio.php?msg=adicionado&nome=" . urlencode($nomeCurto));
 
-header ("Location: ../cardapio.php? msg=adicionado&nome=$nomeCurto");
 exit;
 ?>
