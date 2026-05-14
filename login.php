@@ -26,6 +26,7 @@ if ($_GET['erro'] == 'email') echo "Email não encontrado";
 if ($_GET['erro'] == 'senha') echo "Senha incorreta";
 if ($_GET['erro'] == 'login') echo "Faça login ou crie uma conta para comprar produtos";
 if ($_GET['erro'] == 'nao_verificado') echo "Verifique seu email antes de entrar";
+if ($_GET['erro'] == 'token_invalido') echo "Link expirado, tente novamente com outro link";
 ?>
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>
