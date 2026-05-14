@@ -119,10 +119,14 @@ small {
     color: #fff;
     opacity: 0.8;
     transition: 0.2s;
+    color: #7d5147; /* combina com seu tema marrom */
+    font-size: 16px;
 }
 
 .olho:hover {
     opacity: 1;
+    color: #ff877d; /* rosa do seu sistema */
+    transform: translateY(-50%) scale(1.1);
 }
 </style>
 </head>
