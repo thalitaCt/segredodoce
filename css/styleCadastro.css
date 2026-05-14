@@ -48,7 +48,7 @@ body {
   background-color: var(--branco);
   border-radius: 30px;
   width: 360px;
-  height: 500px;
+  height: 480px;
 }
 
 .titulo {
@@ -215,6 +215,22 @@ small {
     right: 5px;
     margin: 15px;
     font-size: 10pt;
+  }
+
+  .olho {
+    position: absolute;
+    padding-top: 8px;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    cursor: pointer;
+    font-size: 16px;
   }
 }
 
