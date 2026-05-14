@@ -40,12 +40,30 @@ if ($_GET['erro'] == 'token_invalido') echo "Link expirado, tente novamente com 
             <h2 class="titulo">Login</h2>
 
         <div class="input-box"><input type="email" name="email" placeholder="Email" required></div>
-        <div class="input-box"><input type="password" name="senha" placeholder="Senha" required></div>
+        <div class="input-box senha-box">
+    <input type="password" id="senha" name="senha" placeholder="Senha" required>
+    <i class="fa-solid fa-eye olho" onclick="toggleSenha('senha', this)"></i>
+</div>
         <p class="link senha"><a href="esqueci_senha.php">Esqueceu a senha?</a></p>
         <button type="submit">Logar</button><br>
         <p>Não tem uma conta? <span class="link cadastro"><a href="cadastro.php">Registre-se</a></span></p>
     </form>
 </div>
 
+<script>
+function toggleSenha(id, icon) {
+    const input = document.getElementById(id);
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+</script>
 </body>
 </html>

@@ -167,6 +167,33 @@ button {
   cursor: pointer;
 }
 
+.senha-box {
+    position: relative;
+}
+
+.olho {
+    position: absolute;
+    margin-top: 20px;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    cursor: pointer;
+    color: grey;
+    font-size: 23px;
+    user-select: none;
+}
+
+.olho:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
 @media (max-width: 768px) {
   .link.senha {
     margin-right: 10px;
