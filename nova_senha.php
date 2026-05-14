@@ -97,6 +97,32 @@ small {
     margin-top:6px;
     font-weight:600;
 }
+
+.senha-box {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.senha-box input {
+    width: 100%;
+    padding: 12px 40px 12px 12px;
+}
+
+.olho {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #fff;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.olho:hover {
+    opacity: 1;
+}
 </style>
 </head>
 
@@ -116,10 +142,15 @@ small {
 
     <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
 
-    <input type="password" name="senha" id="senha" placeholder="Nova senha" required>
+    <div class="senha-box">
+    <input type="password" id="senha" name="senha" placeholder="Nova senha" required>
+    <i class="fa-solid fa-eye olho" onclick="toggleSenha('senha', this)"></i>
+</div>
 
-    <input type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirmar senha" required>
-
+<div class="senha-box">
+    <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Confirmar senha" required>
+    <i class="fa-solid fa-eye olho" onclick="toggleSenha('confirmar_senha', this)"></i>
+</div>
     <small id="msgSenha"></small>
 
     <button type="submit" id="btn">Alterar senha</button>
@@ -157,5 +188,22 @@ senha.addEventListener('input', validar);
 confirmar.addEventListener('input', validar);
 </script>
 
+
+<script>
+function toggleSenha(id, icon) {
+    const input = document.getElementById(id);
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+</script>
+    
 </body>
 </html>
