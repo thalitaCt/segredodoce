@@ -44,14 +44,14 @@ $forma = $_POST['forma_pagamento'] ?? 'pix';
 if($forma == 'boleto'){
 
 
-    $pago = false;
+    $pago = 0;
 
 
 }
 else{
 
 
-    $pago = true;
+    $pago = 1;
 
 
 }
