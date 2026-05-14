@@ -1,6 +1,19 @@
 <?php
-$email = $_GET['email'] ?? '';
+$email = $_GET['email'] ?? null;
+
+
+/* =========================
+   VALIDA EMAIL
+========================= */
+
+
+if (!$email) {
+    header("Location: login.php?erro=login");
+    exit;
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,7 +30,6 @@ $email = $_GET['email'] ?? '';
     --rosa: #ff877d;
     --rosa2: #ee5350;
     --bege: #fff4ee;
-    --marrom3: #421d14;
     --branco: #fff;
 }
 
@@ -53,7 +65,6 @@ body{
 
 h2{
     margin-bottom:20px;
-    font-size:24px;
 }
 
 
@@ -93,12 +104,11 @@ button{
     font-weight:700;
     font-size:16px;
     cursor:pointer;
-    transition:0.3s;
 }
 
 
 button:hover{
-    background: #ffe1d8;
+    background:#ffe1d8;
 }
 
 
@@ -126,14 +136,6 @@ button:hover{
     font-weight:600;
     z-index:9999;
 }
-
-
-.fechar{
-    margin-left:10px;
-    cursor:pointer;
-}
-
-
 </style>
 </head>
 
@@ -141,15 +143,27 @@ button:hover{
 <body>
 
 
+<!-- ALERTAS -->
 <?php if(isset($_GET['msg'])): ?>
 <div class="alerta">
     <?php
         if($_GET['msg'] == 'reenviado') echo "Novo código enviado";
         if($_GET['msg'] == 'verificado') echo "Conta verificada com sucesso!";
     ?>
-    <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>
 <?php endif; ?>
+
+
+<?php if(isset($_GET['erro'])): ?>
+<div class="alerta" style="background:#c0392b;">
+    <?php
+        if($_GET['erro'] == 'codigo') echo "Código inválido.";
+        if($_GET['erro'] == 'nao_verificado') echo "Conta não verificada.";
+    ?>
+</div>
+<?php endif; ?>
+
+
 
 
 <div class="container">
@@ -158,12 +172,14 @@ button:hover{
     <h2>Verificar Conta</h2>
 
 
-    <form action="actions/processa_verificacao.php" method="POST">
+    <form action="actions/processa_verificacao.php" method="POST" id="formVerificacao">
 
 
+        <!-- EMAIL -->
         <input type="hidden" name="email" value="<?= htmlspecialchars($email) ?>">
 
 
+        <!-- CÓDIGO -->
         <div class="codigo-container">
             <input maxlength="1" class="codigo" inputmode="numeric">
             <input maxlength="1" class="codigo" inputmode="numeric">
@@ -202,15 +218,15 @@ button:hover{
 <script>
 const inputs = document.querySelectorAll(".codigo");
 const hidden = document.getElementById("codigoFinal");
+const form = document.getElementById("formVerificacao");
 
 
-// foco inicial
+/* foco inicial */
 inputs[0].focus();
 
 
+/* digitação */
 inputs.forEach((input, index) => {
-
-
     input.addEventListener("input", (e) => {
         e.target.value = e.target.value.replace(/\D/g, "");
 
@@ -225,28 +241,43 @@ inputs.forEach((input, index) => {
 
 
     input.addEventListener("keydown", (e) => {
-
-
         if (e.key === "Backspace" && !input.value && index > 0) {
             inputs[index - 1].focus();
         }
-
-
     });
 });
 
 
-function atualizarCodigo(){
-    let codigo = "";
+/* colar código */
+inputs[0].addEventListener("paste", (e) => {
+    let paste = (e.clipboardData || window.clipboardData).getData("text");
+    paste = paste.replace(/\D/g, "").slice(0, 6);
 
 
-    inputs.forEach(i => {
-        codigo += i.value;
+    inputs.forEach((input, i) => {
+        input.value = paste[i] || "";
     });
 
 
+    atualizarCodigo();
+});
+
+
+/* atualizar hidden */
+function atualizarCodigo(){
+    let codigo = "";
+    inputs.forEach(i => codigo += i.value);
     hidden.value = codigo;
 }
+
+
+/* validação antes de enviar */
+form.addEventListener("submit", (e) => {
+    if (hidden.value.length !== 6) {
+        e.preventDefault();
+        alert("Digite o código completo");
+    }
+});
 </script>
 
 

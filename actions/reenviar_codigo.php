@@ -2,11 +2,52 @@
 include '../includes/conexao.php';
 
 
-$email = $_POST['email'];
-$codigo = rand(100000, 999999);
+/* =========================
+   PEGAR EMAIL
+========================= */
 
 
-// atualiza código no banco
+$email = $_POST['email'] ?? null;
+
+
+if (empty($email)) {
+    header("Location: ../login.php?erro=email");
+    exit;
+}
+
+
+/* =========================
+   VERIFICAR USUÁRIO
+========================= */
+
+
+$sql = "SELECT id_usuario FROM usuarios WHERE email = :email LIMIT 1";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['email' => $email]);
+
+
+$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+if (!$usuario) {
+    header("Location: ../verificar.php?erro=codigo");
+    exit;
+}
+
+
+/* =========================
+   GERAR CÓDIGO
+========================= */
+
+
+$codigo = random_int(100000, 999999);
+
+
+/* =========================
+   ATUALIZAR CÓDIGO NO BANCO
+========================= */
+
+
 $sql = $pdo->prepare("
     UPDATE usuarios
     SET codigo_verificacao = ?
@@ -17,7 +58,11 @@ $sql = $pdo->prepare("
 $sql->execute([$codigo, $email]);
 
 
-// SENDGRID API
+/* =========================
+   ENVIO EMAIL (SENDGRID)
+========================= */
+
+
 $apiKey = getenv('SENDGRID_API_KEY');
 
 
@@ -39,7 +84,7 @@ $data = [
             "type" => "text/html",
             "value" => "
                 <h2>Seu novo código</h2>
-                <h1>$codigo</h1>
+                <h1 style='letter-spacing:5px;'>$codigo</h1>
                 <p>Use este código para verificar sua conta.</p>
             "
         ]
@@ -67,12 +112,21 @@ $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
 
+/* =========================
+   LOG DE ERRO (SE FALHAR EMAIL)
+========================= */
+
+
 if ($httpCode >= 400) {
     error_log("Erro SendGrid: " . $response);
 }
 
 
+/* =========================
+   REDIRECIONAR
+========================= */
+
+
 header("Location: ../verificar.php?email=$email&msg=reenviado");
 exit;
 ?>
-
