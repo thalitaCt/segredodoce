@@ -83,13 +83,14 @@ if ($_GET['msg'] == 'login_sucesso') echo "Login realizado com sucesso";
 
             </div>
 
-            <a href="cardapio.php"><i class="fa-solid fa-basket-shopping"></i></a>
+            
 
             </div>
 <?php endforeach; ?>
 
     </div>
 
+    <a href="cardapio.php"><i class="fa-solid fa-basket-shopping"></i>Ver Produtos</a>
     </section>
 
     <section id="mid">

@@ -184,6 +184,8 @@ h1 {
 
 .produtos {
   margin-top: 30px;
+  margin-right: 70px;
+  margin-left: 70px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-self: center;
@@ -194,14 +196,14 @@ h1 {
   background-color: var(--branco);
   color: var(--marrom3);
   border-radius: 20px;
-  min-height: 500px;
+  min-height: 440px;
   width: 380px;
   box-shadow: 0 10px 40px var(--preto2);
 
   img {
     width: 380px;
     border-radius: 20px;
-    height: 330px;
+    height: 280px;
   }
 
   a {
@@ -933,7 +935,7 @@ h1 {
   }
 
    #destaque {
-    top: 130px;
+    top: 150px;
     width: 400px;
     height: 400px;
   }
