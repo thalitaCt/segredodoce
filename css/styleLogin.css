@@ -175,7 +175,7 @@ button {
     position: absolute;
     margin-top: 20px;
     right: 12px;
-    top: 50%;
+    top: 70%;
     transform: translateY(-50%);
     
     display: flex;
@@ -185,7 +185,7 @@ button {
     height: 100%;
     cursor: pointer;
     color: grey;
-    font-size: 23px;
+    font-size: 21px;
     user-select: none;
 }
 

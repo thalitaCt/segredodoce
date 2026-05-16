@@ -215,6 +215,11 @@ small {
     margin: 15px;
     font-size: 10pt;
   }
+
+  .olho {
+    font-size: 18pt;
+    top: 80%;
+  }
 }
 
 @media (min-width: 1400px) {

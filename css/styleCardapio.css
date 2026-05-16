@@ -32,8 +32,8 @@ body {
 .produtos {
   margin-top: 30px;
   display: grid;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 80px;
+  margin-right: 80px;
   grid-template-columns: 1fr 1fr 1fr;
   justify-self: center;
   gap: 55px;
@@ -299,6 +299,13 @@ body {
 }
 
 @media (min-width: 1400px) {
+  body {
+    padding-top: 180px;
+  }
+  .produtos {
+      margin-left: 100px;
+      margin-right: 100px;
+  }
   .produto {
     width: 530px;
     min-height: 500px;
