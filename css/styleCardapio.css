@@ -43,7 +43,7 @@ body {
   background-color: var(--branco);
   color: var(--marrom3);
   border-radius: 20px;
-  min-height: 400px;
+  min-height: 460px;
   width: 380px;
   box-shadow: 0 2px 15px var(--preto2);
 
@@ -301,7 +301,7 @@ body {
 @media (min-width: 1400px) {
   .produto {
     width: 530px;
-    min-height: 700px;
+    min-height: 500px;
 
     button {
       margin-left: 230px;
@@ -310,7 +310,7 @@ body {
 
     img {
       width: 530px;
-      height: 280px;
+      height: 300px;
     }
 
     a {

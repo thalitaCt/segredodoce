@@ -169,7 +169,7 @@ button {
 .olho {
     position: absolute;
     right: 12px;
-    top: 60%;
+    top: 70%;
     transform: translateY(-50%);
     
     display: flex;
@@ -179,7 +179,7 @@ button {
     height: 100%;
     cursor: pointer;
     color: grey;
-    font-size: 20px;
+    font-size: 21px;
     user-select: none;
 }
 
@@ -189,7 +189,7 @@ button {
 }
 
 small {
-  font-size: 17pt;
+  font-size: 16pt;
 }
 
 @media (max-width: 768px) {
