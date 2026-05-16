@@ -196,7 +196,7 @@ h1 {
   background-color: var(--branco);
   color: var(--marrom3);
   border-radius: 20px;
-  min-height: 480px;
+  min-height: 500px;
   width: 380px;
   box-shadow: 0 10px 40px var(--preto2);
 
@@ -204,21 +204,6 @@ h1 {
     width: 380px;
     border-radius: 20px;
     height: 280px;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--bege2);
-    transition: 0.5s;
-
-    i {
-      margin: 8px;
-      font-size: 19px;
-      background-color: var(--rosa);
-      border-radius: 350px;
-      padding: 10px;
-      transition: 0.5s;
-    }
   }
 
   h2 {
@@ -909,7 +894,7 @@ h1 {
   }
 
   #hero {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
   }
   
   h1 {
