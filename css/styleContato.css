@@ -221,6 +221,10 @@ textarea {
 }
 
 @media (min-width: 1400px) {
+    body {
+    padding-top: 180px;
+  }
+  
     .titulo {
         font-size: 40pt;
     }

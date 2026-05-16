@@ -902,6 +902,10 @@ h1 {
 }
 
 @media (min-width: 1400px) {
+  body {
+    padding-top: 180px;
+  }
+  
   h1 {
     font-size: 45pt;
   }

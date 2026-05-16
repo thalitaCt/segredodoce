@@ -175,7 +175,7 @@ button {
     position: absolute;
     margin-top: 20px;
     right: 12px;
-    top: 60%;
+    top: 40%;
     transform: translateY(-50%);
     
     display: flex;
@@ -221,6 +221,10 @@ button {
 }
 
 @media (min-width: 1400px) {
+  body {
+    padding-top: 180px;
+  }
+  
   .form {
     width: 460px;
     height: 420px;
