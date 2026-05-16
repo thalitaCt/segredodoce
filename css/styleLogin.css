@@ -218,13 +218,17 @@ button {
     margin: 15px;
     font-size: 10pt;
   }
+
+  .olho {
+    right: 20px;
+  }
 }
 
 @media (min-width: 1400px) {
   body {
     padding-top: 180px;
   }
-  
+
   .form {
     width: 460px;
     height: 420px;
@@ -273,5 +277,9 @@ button {
 
   .alerta-sucesso.fechar {
     font-size: 18pt;
+  }
+
+  .olho {
+    top: 50%;
   }
 }

@@ -933,6 +933,7 @@ h1 {
   }
 
    #destaque {
+    top: 130px;
     width: 400px;
     height: 400px;
   }
