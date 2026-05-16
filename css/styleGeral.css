@@ -196,7 +196,7 @@ h1 {
   background-color: var(--branco);
   color: var(--marrom3);
   border-radius: 20px;
-  min-height: 440px;
+  min-height: 480px;
   width: 380px;
   box-shadow: 0 10px 40px var(--preto2);
 
@@ -907,6 +907,10 @@ h1 {
   body {
     padding-top: 180px;
   }
+
+  #hero {
+    padding-bottom: 50px;
+  }
   
   h1 {
     font-size: 45pt;
@@ -935,7 +939,7 @@ h1 {
   }
 
    #destaque {
-    top: 150px;
+    top: 170px;
     width: 400px;
     height: 400px;
   }
