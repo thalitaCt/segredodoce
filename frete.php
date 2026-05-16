@@ -281,8 +281,8 @@ h1{
 
 
 .form-grid{
-    display:grid;
-    grid-template-columns: (3, 1fr);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap:22px;
 }
 
@@ -302,7 +302,7 @@ h1{
 label{
     font-weight:600;
     color:var(--marrom3);
-    font-size: 18pt;
+    font-size: 16pt;
 }
 
 
@@ -312,7 +312,7 @@ select{
     border-radius:12px;
     border:1px solid #ddd;
     outline:none;
-    font-size:17pt;
+    font-size:15pt;
     transition:0.3s;
     background:white;
 }
