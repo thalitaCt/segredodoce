@@ -29,7 +29,7 @@ $atendentes = $pdo->query("
 SELECT f.*, u.email
 FROM funcionarios f
 JOIN usuarios u ON u.id_usuario = f.usuario_id
-WHERE u.tipo = 'recepcionista'
+WHERE u.tipo = 'atendente'
 ")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
