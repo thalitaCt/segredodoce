@@ -168,9 +168,8 @@ button {
 
 .olho {
     position: absolute;
-    margin-top: 20px;
     right: 12px;
-    top: 50%;
+    top: 60%;
     transform: translateY(-50%);
     
     display: flex;
@@ -180,7 +179,7 @@ button {
     height: 100%;
     cursor: pointer;
     color: grey;
-    font-size: 23px;
+    font-size: 20px;
     user-select: none;
 }
 
@@ -190,7 +189,7 @@ button {
 }
 
 small {
-  font-size: 19pt;
+  font-size: 17pt;
 }
 
 @media (max-width: 768px) {
@@ -216,18 +215,12 @@ small {
     margin: 15px;
     font-size: 10pt;
   }
-
-  .olho {
-    font-size: 13px;
-    margin-top: 0px;
-    top: 40%;
-  }
 }
 
 @media (min-width: 1400px) {
   .form {
     width: 480px;
-    height: 540px;
+    height: 570px;
   }
 
   .titulo {

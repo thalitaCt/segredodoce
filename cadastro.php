@@ -67,7 +67,7 @@
 
         <button type="submit">Cadastrar</button>
 
-        <p>Já tem uma conta? <a href="login.php">Login</a></p>
+        <p>Já tem uma conta? <span class="link login"><a href="login.php">Login</a></span></p>
 
     </form>
 
