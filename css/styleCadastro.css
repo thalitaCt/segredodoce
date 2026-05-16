@@ -48,7 +48,7 @@ body {
   background-color: var(--branco);
   border-radius: 30px;
   width: 360px;
-  height: 480px;
+  height: 450px;
 }
 
 .titulo {
@@ -164,6 +164,8 @@ button {
 
 .senha-box {
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .olho {
@@ -220,6 +222,7 @@ small {
   .olho {
     font-size: 13px;
     margin-top: 0px;
+    top: 40%;
   }
 }
 

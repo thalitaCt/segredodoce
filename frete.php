@@ -253,7 +253,7 @@ body{
 
 
 .container{
-    max-width:900px;
+    max-width:1200px;
     margin:auto;
     background:var(--branco);
     padding:35px;
