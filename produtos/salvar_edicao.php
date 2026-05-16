@@ -17,6 +17,8 @@ $preco = str_replace(',', '.', $_POST['preco']);
 $estoque = $_POST['estoque'];
 $imagem = trim($_POST['imagem']);
 
+$imagem = 'imagens/produtos/' . $imagem;
+
 
 /* atualiza produto */
 $sql = $pdo->prepare("
