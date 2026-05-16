@@ -217,8 +217,8 @@ small {
   }
 
   .olho {
-    font-size: 18pt;
-    top: 80%;
+    font-size: 14pt;
+    top: 70%;
   }
 }
 
@@ -263,5 +263,10 @@ small {
 
   .alerta-sucesso.fechar {
     font-size: 18pt;
+  }
+
+  .olho {
+    font-size: 20pt;
+    top: 60%;
   }
 }
