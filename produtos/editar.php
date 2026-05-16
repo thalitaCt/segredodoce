@@ -31,15 +31,114 @@ $produto = $sql->fetch(PDO::FETCH_ASSOC);
 <h2>Alterar Produto</h2>
 
 <form method="POST" action="salvar_edicao.php">
-    <input type="hidden" name="id" value="<?= $produto['id_produtos'] ?>">
 
+<input 
+type="hidden" 
+name="id" 
+value="<?= $produto['id_produtos'] ?>"
+>
 
-    <input type="text" name="nome" value="<?= $produto['nome'] ?>">
-    <input type="number" name="preco" value="<?= $produto['preco'] ?>">
-    <input type="number" name="estoque" value="<?= $produto['estoque'] ?>">
+<div class="form-grid produto-grid">
 
+<div class="input-group">
+<label>Nome</label>
 
-    <button type="submit">Salvar</button>
+<input
+type="text"
+name="nome"
+value="<?= htmlspecialchars($produto['nome']) ?>"
+required
+>
+</div>
+
+<div class="input-group">
+<label>Preço</label>
+
+<input
+type="number"
+step="0.01"
+name="preco"
+value="<?= $produto['preco'] ?>"
+required
+>
+</div>
+
+<div class="input-group">
+<label>Estoque</label>
+
+<input
+type="number"
+name="estoque"
+value="<?= $produto['estoque'] ?>"
+required
+>
+</div>
+
+<div class="input-group">
+<label>Categoria</label>
+
+<select name="categoria" required>
+
+<option value="">Selecione</option>
+
+<option value="Bolo de Pote"
+<?= $produto['categoria'] == 'Bolo de Pote' ? 'selected' : '' ?>>
+Bolo de Pote
+</option>
+
+<option value="Fatias"
+<?= $produto['categoria'] == 'Fatias' ? 'selected' : '' ?>>
+Fatias
+</option>
+
+<option value="Gourmet"
+<?= $produto['categoria'] == 'Gourmet' ? 'selected' : '' ?>>
+Gourmet
+</option>
+
+<option value="Copo da Felicidade"
+<?= $produto['categoria'] == 'Copo da Felicidade' ? 'selected' : '' ?>>
+Copo da Felicidade
+</option>
+
+</select>
+</div>
+
+<div class="input-group full">
+<label>Descrição</label>
+
+<textarea
+name="descricao"
+placeholder="Descrição do produto"
+><?= htmlspecialchars($produto['descricao']) ?></textarea>
+</div>
+
+<div class="input-group">
+<label>Nome da imagem</label>
+
+<input
+type="text"
+name="imagem"
+placeholder="ex: fatias.png"
+value="<?= str_replace('imagens/produtos/', '', $produto['imagem']) ?>"
+>
+</div>
+
+<div class="input-group">
+<label>Preview atual</label>
+
+<img 
+src="../<?= $produto['imagem'] ?>" 
+class="preview-img"
+>
+</div>
+
+</div>
+
+<button type="submit">
+Salvar
+</button>
+
 </form>
 </div>
 

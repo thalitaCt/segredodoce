@@ -21,31 +21,148 @@ if ($_GET['erro'] == 'telefone_invalido') echo "Número de celular inválido. Us
 
 <form method="POST" action="salvar_criacao.php">
 
-<input type="text" name="nome" placeholder="Nome" required>
-<input type="email" name="email" placeholder="Email" required>
-<input type="password" name="senha" placeholder="Senha" required>
-<input type="text" name="cargo" placeholder="Cargo" value="Recepcionista" required>
-<input type="text" id="telefone" name="telefone" placeholder="Telefone" maxlength="15" required>
-<input type="number" step="0.01" name="salario" placeholder="Salário" required>
+<div class="form-grid funcionario-grid">
 
-<button type="submit">Criar Atendente</button>
+<div class="input-group">
+<label>Nome</label>
+
+<input
+type="text"
+name="nome"
+placeholder="Nome completo"
+required>
+</div>
+
+<div class="input-group">
+<label>Email</label>
+
+<input
+type="email"
+name="email"
+placeholder="email@exemplo.com"
+required>
+</div>
+
+<div class="input-group">
+<label>Telefone</label>
+
+<input
+type="text"
+id="telefone"
+name="telefone"
+placeholder="(21) 99999-9999"
+maxlength="15"
+required>
+</div>
+
+<div class="input-group">
+<label>Cargo</label>
+
+<input
+type="text"
+name="cargo"
+value="Atendente"
+readonly>
+</div>
+
+<div class="input-group">
+<label>Salário</label>
+
+<input
+type="number"
+step="0.01"
+name="salario"
+placeholder="0,00"
+required>
+</div>
+
+<div class="input-group">
+<label>Senha</label>
+
+<input
+type="password"
+id="senha"
+name="senha"
+placeholder="Senha"
+required>
+</div>
+
+<div class="input-group">
+<label>Confirmar senha</label>
+
+<input
+type="password"
+id="confirmarSenha"
+placeholder="Confirmar senha"
+required>
+
+<div class="erro-senha" id="erroSenha">
+As senhas não coincidem
+</div>
+
+</div>
+
+</div>
+
+<button type="submit" id="btnSubmit">
+Cadastrar
+</button>
 
 </form>
 </div>
 
 <script>
-        document.getElementById('telefone').addEventListener('input', function(e) {
-        let v = e.target.value.replace(/\D/g,'');
 
-        if (v.length > 11) v = v.slice(0, 11);
+document.getElementById('telefone').addEventListener('input', function(e){
 
-        v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
-        v = v.replace(/(\d{5})(\d{4})$/,"$1-$2");
+    let v = e.target.value.replace(/\D/g,'');
 
-        e.target.value = v;
+    if(v.length > 11){
+        v = v.slice(0,11);
+    }
+
+    v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+
+    v = v.replace(/(\d{5})(\d{4})$/, "$1-$2");
+
+    e.target.value = v;
+
 });
 
-    </script>
+
+
+const senha = document.getElementById('senha');
+const confirmarSenha =
+document.getElementById('confirmarSenha');
+const erroSenha =
+document.getElementById('erroSenha');
+const btn =
+document.getElementById('btnSubmit');
+
+
+function validarSenha(){
+
+    if(confirmarSenha.value !== senha.value){
+
+        erroSenha.style.display = 'block';
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+
+    } else {
+
+        erroSenha.style.display = 'none';
+        btn.disabled = false;
+        btn.style.opacity = '1';
+
+    }
+
+}
+
+senha.addEventListener('input', validarSenha);
+
+confirmarSenha.addEventListener('input', validarSenha);
+
+</script>
 
 </body>
 </html>

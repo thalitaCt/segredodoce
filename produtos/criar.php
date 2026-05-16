@@ -13,11 +13,101 @@
 
 <form method="POST" action="salvar_criacao.php">
 
-<input type="text" name="nome" placeholder="Nome">
-<input type="number" name="preco" placeholder="Preço">
-<input type="number" name="estoque" placeholder="Estoque">
+<div class="form-grid produto-grid">
 
-<button type="submit">Criar</button>
+<div class="input-group">
+<label>Nome do Produto</label>
+
+<input
+type="text"
+name="nome"
+placeholder="Ex: Bolo de Morango"
+required>
+</div>
+
+<div class="input-group">
+<label>Categoria</label>
+
+<select name="categoria" required>
+
+<option value="">Selecione</option>
+
+<option value="Bolo de Pote">
+Bolo de Pote
+</option>
+
+<option value="Fatias">
+Fatias
+</option>
+
+<option value="Gourmet">
+Gourmet
+</option>
+
+<option value="Copo da Felicidade">
+Copo da Felicidade
+</option>
+
+</select>
+</div>
+
+<div class="input-group">
+<label>Preço</label>
+
+<input
+type="number"
+step="0.01"
+name="preco"
+placeholder="0,00"
+required>
+</div>
+
+<div class="input-group">
+<label>Estoque</label>
+
+<input
+type="number"
+name="estoque"
+placeholder="Quantidade"
+required>
+</div>
+
+<div class="input-group full">
+<label>Descrição</label>
+
+<textarea
+name="descricao"
+placeholder="Descrição do produto"
+rows="4"></textarea>
+</div>
+
+<div class="input-group full">
+<label>Imagem</label>
+
+<div class="prefix-input">
+
+<span>
+imagens/produtos/
+</span>
+
+<input
+type="text"
+name="imagem"
+placeholder="produto.png">
+
+</div>
+
+<small>
+Digite apenas o nome da imagem.
+</small>
+
+</div>
+
+</div>
+
+<button type="submit">
+Cadastrar Produto
+</button>
 
 </form>
 </div>

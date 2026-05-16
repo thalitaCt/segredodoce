@@ -44,76 +44,144 @@ if ($_GET['erro'] == 'telefone_invalido') {
 
 <form method="POST" action="salvar_criacao.php">
 
-    <input type="text" name="nome" placeholder="Nome" required>
 
-    <input type="email" name="email" placeholder="Email" required>
-
-    <input type="password" id="senha" name="senha" placeholder="Senha" required>
-
-    <input type="password" id="confirmar_senha" placeholder="Confirmar senha" required>
-
-    <div class="erro-senha" id="erroSenha">
-        Senhas não coincidem
-    </div>
-
-    <input type="text" id="telefone" name="telefone" placeholder="Telefone" maxlength="15" required>
-
-    <input type="text" name="cep" placeholder="CEP">
-
-<input type="text" name="endereco" placeholder="Endereço">
-
-<input type="text" name="numero" placeholder="Número">
-
-<input type="text" name="bairro" placeholder="Bairro">
-
-<input type="text" name="cidade" placeholder="Cidade">
+<div class="form-grid cliente-grid">
 
 
-<!-- ESTADO (SIGLA PADRÃO DO SISTEMA) -->
-<select name="estado" required>
-    <option value="">Selecione o estado</option>
+<div class="input-group">
+<label>Nome</label>
+<input type="text" name="nome" required>
+</div>
 
-    <option value="AC">Acre</option>
-    <option value="AL">Alagoas</option>
-    <option value="AP">Amapá</option>
-    <option value="AM">Amazonas</option>
-    <option value="BA">Bahia</option>
-    <option value="CE">Ceará</option>
-    <option value="DF">Distrito Federal</option>
-    <option value="ES">Espírito Santo</option>
-    <option value="GO">Goiás</option>
-    <option value="MA">Maranhão</option>
-    <option value="MT">Mato Grosso</option>
-    <option value="MS">Mato Grosso do Sul</option>
-    <option value="MG">Minas Gerais</option>
-    <option value="PA">Pará</option>
-    <option value="PB">Paraíba</option>
-    <option value="PR">Paraná</option>
-    <option value="PE">Pernambuco</option>
-    <option value="PI">Piauí</option>
-    <option value="RJ">Rio de Janeiro</option>
-    <option value="RN">Rio Grande do Norte</option>
-    <option value="RS">Rio Grande do Sul</option>
-    <option value="RO">Rondônia</option>
-    <option value="RR">Roraima</option>
-    <option value="SC">Santa Catarina</option>
-    <option value="SP">São Paulo</option>
-    <option value="SE">Sergipe</option>
-    <option value="TO">Tocantins</option>
+
+<div class="input-group">
+<label>Telefone</label>
+<input type="text" id="telefone" name="telefone" maxlength="15" required>
+</div>
+
+
+<div class="input-group">
+<label>Email</label>
+<input type="email" name="email" required>
+</div>
+
+
+<div class="input-group">
+<label>Senha</label>
+<input type="password" id="senha" name="senha" required>
+</div>
+
+
+<div class="input-group">
+<label>Confirmar senha</label>
+<input type="password" id="confirmar_senha" required>
+<div class="erro-senha" id="erroSenha">
+Senhas não coincidem
+</div>
+</div>
+
+
+<div class="input-group">
+<label>CEP</label>
+<input type="text" id="cep" name="cep" maxlength="9">
+</div>
+
+
+<div class="input-group">
+<label>Número</label>
+<input type="text" name="numero">
+</div>
+
+
+<div class="input-group full">
+<label>Rua / Avenida</label>
+<input type="text" name="endereco">
+</div>
+
+
+<div class="input-group">
+<label>Bairro</label>
+<input type="text" name="bairro">
+</div>
+
+
+<div class="input-group">
+<label>Cidade</label>
+<input type="text" name="cidade" id="cidade">
+</div>
+
+
+<div class="input-group">
+<label>Estado</label>
+
+
+<select name="estado" id="estado">
+
+
+<option value="">Selecione</option>
+
+
+<option value="AC">Acre (AC)</option>
+<option value="AL">Alagoas (AL)</option>
+<option value="AP">Amapá (AP)</option>
+<option value="AM">Amazonas (AM)</option>
+<option value="BA">Bahia (BA)</option>
+<option value="CE">Ceará (CE)</option>
+<option value="DF">Distrito Federal (DF)</option>
+<option value="ES">Espírito Santo (ES)</option>
+<option value="GO">Goiás (GO)</option>
+<option value="MA">Maranhão (MA)</option>
+<option value="MT">Mato Grosso (MT)</option>
+<option value="MS">Mato Grosso do Sul (MS)</option>
+<option value="MG">Minas Gerais (MG)</option>
+<option value="PA">Pará (PA)</option>
+<option value="PB">Paraíba (PB)</option>
+<option value="PR">Paraná (PR)</option>
+<option value="PE">Pernambuco (PE)</option>
+<option value="PI">Piauí (PI)</option>
+<option value="RJ">Rio de Janeiro (RJ)</option>
+<option value="RN">Rio Grande do Norte (RN)</option>
+<option value="RS">Rio Grande do Sul (RS)</option>
+<option value="RO">Rondônia (RO)</option>
+<option value="RR">Roraima (RR)</option>
+<option value="SC">Santa Catarina (SC)</option>
+<option value="SP">São Paulo (SP)</option>
+<option value="SE">Sergipe (SE)</option>
+<option value="TO">Tocantins (TO)</option>
+
+
 </select>
+</div>
 
 
-<!-- REGIÃO (FRETE RJ) -->
-<select name="regiao">
-    <option value="">Região (opcional)</option>
-    <option value="Centro">Centro</option>
-    <option value="Zona Sul">Zona Sul</option>
-    <option value="Zona Norte">Zona Norte</option>
-    <option value="Zona Oeste">Zona Oeste</option>
-    <option value="Entrega Externa">Entrega Externa</option>
+<div class="input-group">
+<label>Zona de entrega</label>
+
+
+<select name="regiao" id="regiao">
+
+
+<option value="">Selecione</option>
+
+
+<option value="Centro">Centro</option>
+<option value="Zona Sul">Zona Sul</option>
+<option value="Zona Norte">Zona Norte</option>
+<option value="Zona Oeste">Zona Oeste</option>
+<option value="Entrega Externa">Entrega Externa</option>
+
+
 </select>
+</div>
 
-    <button type="submit" id="btnSubmit">Criar Cliente</button>
+
+</div>
+
+
+<button type="submit" id="btnSubmit">
+Criar Cliente
+</button>
+
 
 </form>
 
@@ -153,6 +221,92 @@ function validarSenha(){
 
 senha.addEventListener('input', validarSenha);
 confirmar.addEventListener('input', validarSenha);
+
+document.getElementById('cep').addEventListener('input', function(e){
+
+    let v = e.target.value.replace(/\D/g,'');
+
+    if(v.length > 8){
+        v = v.slice(0,8);
+    }
+
+    v = v.replace(/(\d{5})(\d)/,'$1-$2');
+
+    e.target.value = v;
+
+});
+
+
+const cepInput = document.getElementById('cep');
+
+cepInput.addEventListener('blur', async function(){
+
+    let cep = cepInput.value.replace(/\D/g,'');
+
+    if(cep.length != 8){
+        return;
+    }
+
+    try{
+
+        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const dados = await resposta.json();
+
+        if(dados.erro){
+            return;
+        }
+
+        document.querySelector('input[name="endereco"]').value =
+        dados.logradouro || '';
+
+        document.querySelector('input[name="bairro"]').value =
+        dados.bairro || '';
+
+        document.querySelector('input[name="cidade"]').value =
+        dados.localidade || '';
+
+        document.getElementById('estado').value =
+        dados.uf || '';
+
+        verificarEntrega();
+
+    } catch(error){
+        console.log(error);
+    }
+
+});
+
+
+const cidade = document.getElementById('cidade');
+const estado = document.getElementById('estado');
+const regiao = document.getElementById('regiao');
+
+
+function verificarEntrega(){
+
+    let cidadeValor = cidade.value.toLowerCase().trim();
+    let estadoValor = estado.value.toUpperCase().trim();
+
+    if(
+        cidadeValor === 'rio de janeiro' &&
+        estadoValor === 'RJ'
+    ){
+
+        regiao.disabled = false;
+
+    } else {
+
+        regiao.value = 'Entrega Externa';
+        regiao.disabled = true;
+
+    }
+
+}
+
+
+cidade.addEventListener('input', verificarEntrega);
+estado.addEventListener('change', verificarEntrega);
+
 </script>
 
 </body>

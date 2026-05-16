@@ -200,6 +200,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
     $sucessoFrete = true;
+    $msgFrete = "Frete calculado com sucesso!";
 }
 ?>
 
@@ -281,8 +282,8 @@ h1{
 
 .form-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
+    grid-template-columns: (3, 1fr);
+    gap:22px;
 }
 
 
@@ -301,16 +302,17 @@ h1{
 label{
     font-weight:600;
     color:var(--marrom3);
+    font-size: 18pt;
 }
 
 
 input,
 select{
-    padding:14px;
+    padding:16px;
     border-radius:12px;
     border:1px solid #ddd;
     outline:none;
-    font-size:15px;
+    font-size:17pt;
     transition:0.3s;
     background:white;
 }
@@ -782,7 +784,7 @@ Calcular Frete
 <?php if($frete !== null): ?>
 
 
-<div class="resumo">
+<div class="resumo" id="resumoFrete">
 
 
 <h2>Resumo do Pedido</h2>
@@ -835,63 +837,112 @@ Continuar para Checkout
 
 <script>
 
-
 document.getElementById('cep').addEventListener('input', function(e){
 
-
     let v = e.target.value.replace(/\D/g,'');
-
 
     if(v.length > 8){
         v = v.slice(0,8);
     }
 
-
     v = v.replace(/(\d{5})(\d)/,'$1-$2');
-
 
     e.target.value = v;
 });
 
-
 const cidade = document.getElementById('cidade');
 const estado = document.getElementById('estado');
 const regiao = document.getElementById('regiao');
+window.addEventListener('load', verificarEntrega);
 
 
 function verificarEntrega(){
 
-
     let cidadeValor = cidade.value.toLowerCase().trim();
     let estadoValor = estado.value.toUpperCase().trim();
-
 
     if(
         cidadeValor === 'rio de janeiro' &&
         estadoValor === 'RJ'
     ){
 
-
         regiao.disabled = false;
 
+        if(regiao.value === 'Entrega Externa'){
+            regiao.value = '';
+        }
 
     } else {
-
-
         regiao.value = 'Entrega Externa';
+        regiao.disabled = true;
     }
 }
 
-
 cidade.addEventListener('input', verificarEntrega);
 estado.addEventListener('change', verificarEntrega);
-
 
 verificarEntrega();
 
 
 </script>
 
+<script>
+
+const cepInput = document.getElementById('cep');
+cepInput.addEventListener('blur', async function(){
+
+    let cep = cepInput.value.replace(/\D/g,'');
+
+    if(cep.length != 8){
+        return;
+    }
+
+    try{
+
+        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const dados = await resposta.json();
+
+        if(dados.erro){
+            alert("CEP não encontrado.");
+            return;
+        }
+
+
+        document.querySelector('input[name="endereco"]').value = dados.logradouro || '';
+        document.querySelector('input[name="bairro"]').value = dados.bairro || '';
+        document.getElementById('cidade').value = dados.localidade || '';
+        document.getElementById('estado').value = dados.uf || '';
+
+        verificarEntrega();
+
+    } catch(error){
+
+        console.log(error);
+        alert("Erro ao buscar CEP.");
+
+    }
+
+});
+</script>
+
+<script>
+
+window.addEventListener('load', () => {
+
+    const resumo = document.getElementById('resumoFrete');
+
+    if(resumo){
+
+        resumo.scrollIntoView({
+            behavior: 'smooth'
+        });
+
+    }
+
+});
+
+
+</script>
 
 </body>
 </html>

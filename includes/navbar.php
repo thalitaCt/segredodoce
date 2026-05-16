@@ -150,6 +150,7 @@
                 justify-self: end;
                 display: flex;
                 gap: 30px;
+                align-items: center;
                 font-size: 21pt;
             }
 

@@ -47,15 +47,75 @@ if ($_GET['erro'] == 'telefone_invalido') echo "Número de celular inválido. Us
 
 <form method="POST" action="salvar_edicao.php">
 
-<input type="hidden" name="id" value="<?= $atendente['usuario_id'] ?>">
 
-<input type="text" name="nome" value="<?= $atendente['nome'] ?>" required>
-<input type="email" name="email" value="<?= $atendente['email'] ?>" required>
-<input type="text" name="cargo" value="<?= $atendente['cargo'] ?>" required>
-<input type="text" name="telefone" value="<?= $atendente['telefone'] ?>" required>
-<input type="number" step="0.01" name="salario" value="<?= $atendente['salario'] ?>" required>
+<input
+type="hidden"
+name="id"
+value="<?= $atendente['usuario_id'] ?>">
 
-<button type="submit">Salvar alterações</button>
+
+<div class="form-grid funcionario-grid">
+
+
+<div class="input-group">
+<label>Nome</label>
+
+<input
+type="text"
+name="nome"
+value="<?= $atendente['nome'] ?>"
+required>
+</div>
+
+<div class="input-group">
+<label>Email</label>
+
+<input
+type="email"
+name="email"
+value="<?= $atendente['email'] ?>"
+required>
+</div>
+
+<div class="input-group">
+<label>Telefone</label>
+
+<input
+type="text"
+id="telefone"
+name="telefone"
+maxlength="15"
+value="<?= $atendente['telefone'] ?>"
+required>
+</div>
+
+<div class="input-group">
+<label>Cargo</label>
+
+<input
+type="text"
+name="cargo"
+value="<?= $atendente['cargo'] ?>"
+readonly>
+</div>
+
+<div class="input-group">
+<label>Salário</label>
+
+<input
+type="number"
+step="0.01"
+name="salario"
+value="<?= $atendente['salario'] ?>"
+required>
+</div>
+
+</div>
+
+<button type="submit">
+Salvar alterações
+</button>
+
 </form>
 </div>
 

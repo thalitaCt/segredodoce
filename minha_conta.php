@@ -289,23 +289,58 @@ value="<?= htmlspecialchars($cliente['cidade'] ?? '') ?>">
 <div class="input-group">
 <label>Estado</label>
 
-<select name="estado" required>
+<select name="estado" id="estado" required>
 
 <option value="">Selecione</option>
 
 <?php
+
 $estados = [
-"AC","AL","AP","AM","BA","CE","DF","ES","GO","MA",
-"MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN",
-"RS","RO","RR","SC","SP","SE","TO"
+"AC"=>"Acre",
+"AL"=>"Alagoas",
+"AP"=>"Amapá",
+"AM"=>"Amazonas",
+"BA"=>"Bahia",
+"CE"=>"Ceará",
+"DF"=>"Distrito Federal",
+"ES"=>"Espírito Santo",
+"GO"=>"Goiás",
+"MA"=>"Maranhão",
+"MT"=>"Mato Grosso",
+"MS"=>"Mato Grosso do Sul",
+"MG"=>"Minas Gerais",
+"PA"=>"Pará",
+"PB"=>"Paraíba",
+"PR"=>"Paraná",
+"PE"=>"Pernambuco",
+"PI"=>"Piauí",
+"RJ"=>"Rio de Janeiro",
+"RN"=>"Rio Grande do Norte",
+"RS"=>"Rio Grande do Sul",
+"RO"=>"Rondônia",
+"RR"=>"Roraima",
+"SC"=>"Santa Catarina",
+"SP"=>"São Paulo",
+"SE"=>"Sergipe",
+"TO"=>"Tocantins"
 ];
 
-foreach($estados as $sigla){
 
-    $selected = (($cliente['estado'] ?? '') === $sigla) ? 'selected' : '';
+foreach($estados as $sigla => $nome){
 
-    echo "<option value='$sigla' $selected>$sigla</option>";
+
+    $selected = (($cliente['estado'] ?? '') === $sigla)
+    ? 'selected'
+    : '';
+
+
+    echo "
+    <option value='$sigla' $selected>
+        $nome ($sigla)
+    </option>";
 }
+
+
 ?>
 
 </select>
@@ -315,7 +350,7 @@ foreach($estados as $sigla){
 <div class="input-group full">
 <label>Zona de entrega</label>
 
-<select name="regiao" required>
+<select name="regiao" id="regiao" required>
 
 <option value="">Selecione</option>
 
@@ -366,43 +401,104 @@ Salvar Alterações
 
 <script>
 
-
 document.getElementById('telefone').addEventListener('input', function(e){
 
-
     let v = e.target.value.replace(/\D/g,'');
-
 
     if(v.length > 11){
         v = v.slice(0,11);
     }
 
-
     v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
     v = v.replace(/(\d{5})(\d{4})$/, "$1-$2");
-
 
     e.target.value = v;
 });
 
-
 document.getElementById('cep').addEventListener('input', function(e){
 
-
     let v = e.target.value.replace(/\D/g,'');
-
 
     if(v.length > 8){
         v = v.slice(0,8);
     }
 
-
     v = v.replace(/(\d{5})(\d)/,'$1-$2');
-
 
     e.target.value = v;
 });
 
+
+const cidade = document.querySelector('input[name="cidade"]');
+const estado = document.getElementById('estado');
+const regiao = document.getElementById('regiao');
+const cepInput = document.getElementById('cep');
+
+
+cepInput.addEventListener('blur', async function(){
+
+    let cep = cepInput.value.replace(/\D/g,'');
+
+    if(cep.length != 8){
+        return;
+    }
+
+    try{
+
+        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const dados = await resposta.json();
+
+        if(dados.erro){
+            alert("CEP não encontrado.");
+            return;
+        }
+
+        document.querySelector('input[name="endereco"]').value =
+        dados.logradouro || '';
+        document.querySelector('input[name="bairro"]').value =
+        dados.bairro || '';
+
+        cidade.value = dados.localidade || '';
+
+        estado.value = dados.uf || '';
+
+        verificarEntrega();
+
+    } catch(error){
+
+        console.log(error);
+    }
+
+});
+
+function verificarEntrega(){
+
+    let cidadeValor = cidade.value.toLowerCase().trim();
+    let estadoValor = estado.value.toUpperCase().trim();
+
+    if(
+        cidadeValor === 'rio de janeiro' &&
+        estadoValor === 'RJ'
+    ){
+
+        regiao.disabled = false;
+
+        if(regiao.value === 'Entrega Externa'){
+            regiao.value = '';
+        }
+
+    } else {
+
+        regiao.value = 'Entrega Externa';
+        regiao.disabled = true;
+
+    }
+
+}
+
+cidade.addEventListener('input', verificarEntrega);
+estado.addEventListener('change', verificarEntrega);
+window.addEventListener('load', verificarEntrega);
 
 </script>
 

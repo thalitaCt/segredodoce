@@ -11,19 +11,38 @@ if($_SESSION['tipo'] != 'gerente'){
 
 $id = $_POST['id'];
 $nome = $_POST['nome'];
-$preco = $_POST['preco'];
+$descricao = $_POST['descricao'];
+$categoria = $_POST['categoria'];
+$preco = str_replace(',', '.', $_POST['preco']);
 $estoque = $_POST['estoque'];
+$imagem = trim($_POST['imagem']);
 
 
+/* atualiza produto */
 $sql = $pdo->prepare("
 UPDATE produtos 
-SET nome=?, preco=?, estoque=? 
-WHERE id_produtos=?
+SET 
+nome = ?,
+descricao = ?,
+categoria = ?,
+preco = ?,
+estoque = ?,
+imagem = ?
+WHERE id_produtos = ?
 ");
 
 
-$sql->execute([$nome, $preco, $estoque, $id]);
+$sql->execute([
+    $nome,
+    $descricao,
+    $categoria,
+    $preco,
+    $estoque,
+    $imagem,
+    $id
+]);
 
 
 header("Location: ../gerente.php?msg=produto_editado");
 exit;
+?>
