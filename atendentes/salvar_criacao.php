@@ -39,7 +39,7 @@ try {
     /* cria usuario */
     $sql = $pdo->prepare("
         INSERT INTO usuarios (email, senha, tipo, verificado)
-        VALUES (?, ?, 'recepcionista', true)
+        VALUES (?, ?, 'atendente', true)
         RETURNING id_usuario
     ");
 
