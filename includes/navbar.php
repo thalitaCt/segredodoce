@@ -252,7 +252,7 @@
             }
 
             .mobile-user-mobile{
-                display: none !important;
+                display: none;
             }
 
             @media (max-width: 768px) {
@@ -361,11 +361,9 @@
                         font-size: 6pt;
                     }
                 }
-               
-            }
 
-            .mobile-user-mobile{
-            display:flex !important;
+                .mobile-user-mobile{
+            display:flex;
             flex-direction:column;
             gap:10px;
         }
@@ -391,6 +389,8 @@
             padding:10px 8px;
             border-bottom:1px solid rgba(255,255,255,0.3);
             margin-bottom:5px;
+        }
+               
         }
 
     @media (min-width: 1400px) {
@@ -424,7 +424,7 @@
         }
 
         .mobile-user-mobile {
-            display:none !important;
+            display:none;
         }
     }
     </style>
