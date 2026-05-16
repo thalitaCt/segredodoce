@@ -2,7 +2,7 @@
 session_start();
 include 'includes/conexao.php';
 
-if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'recepcionista'){
+if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'atendente'){
     header("Location: login.php");
     exit;
 }
