@@ -21,10 +21,233 @@
 
 body{
     margin:0;
-    background:#f5f3ff;
-    font-family: Poppins;
+    font-family:Poppins;
+    background:#fff4ee;
 }
 
+
+header{
+    background:
+    linear-gradient(
+        135deg,
+        var(--rosa),
+        var(--rosa2)
+    );
+    color:white;
+    padding:18px 35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+
+.header-esquerda{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+
+
+.logo-painel{
+    font-size:24px;
+    font-weight:700;
+}
+
+
+.painel-titulo{
+    font-size:14px;
+    opacity:0.9;
+}
+
+
+.header-direita{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+
+.usuario-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+
+.usuario-avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:white;
+    color:var(--rosa2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:18px;
+}
+
+
+.usuario-info{
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+}
+
+
+.usuario-info span{
+    font-size:12px;
+    opacity:0.8;
+}
+
+
+.usuario-info strong{
+    font-size:15px;
+}
+
+
+.btn-sair{
+    background:white;
+    color:var(--rosa2);
+    padding:10px 18px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+
+.btn-sair:hover{
+    transform:translateY(-2px);
+    background:var(--bege2);
+}
+
+.card-gerente{
+    margin-top: 25px;
+    background:white;
+    padding:20px;
+    margin-bottom:25px;
+    border-radius:10px;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
+}
+
+
+.card-gerente h2{
+    font-size: 22pt;
+    text-align:center;
+    text-decoration: underline;
+    text-decoration-color:#facc15;
+    margin-bottom:15px;
+}
+
+
+/* TABELAS */
+table{
+    width:100%;
+    border-collapse: collapse;
+    margin-top:10px;
+    background:white;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+tr {
+    transition: .2s;
+}
+
+tr:hover {
+    background: #fff7f3;
+}
+
+th, td{
+    border:1px solid #eee;
+    padding:10px;
+    text-align:center;
+}
+
+
+th{
+    background:#ffedcd;
+}
+
+
+button{
+    background: linear-gradient(135deg, var(--rosa), var(--rosa2));
+    color:white;
+    border:none;
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    margin:2px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(0,0,0,.12);
+}
+
+.container {
+    margin: 30px;
+}
+
+
+.top-actions{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:10px;
+}
+
+
+.top-actions button{
+    padding:10px 15px;
+    font-weight:bold;
+}
+
+.alerta {
+  font-family: Poppins;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgb(0, 160, 13);
+  color: var(--branco);
+  padding: 25px 33px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 9999;
+  font-weight: 650;
+}
+
+.alerta .fechar {
+  color: var(--branco);
+  font-size: 15px;
+  padding: 3px;
+  border-radius: 8px;
+  font-weight: 700;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* LISTA */
+.item2{
+    background:white;
+    padding:10px;
+    margin:5px 0;
+    border-radius:8px;
+}
 
 .admin-container{
     max-width:1200px;
@@ -40,6 +263,7 @@ body{
 
 
 .cards{
+    margin-top: 30px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
@@ -49,24 +273,31 @@ body{
 
 .card{
     background:#fff;
-    border-radius:14px;
-    padding:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.07);
+    transition:.3s;
+    border-left: 6px solid var(--rosa);
+    border:1px solid rgba(0,0,0,.03);
 }
 
+.card:hover{
+    transform:translateY(-5px);
+}
 
 .card h3{
-    margin:0 0 10px 0;
-    color: var(--rosa);
+    margin:0 0 12px 0;
+    color: var(--marrom3);
+    font-size: 17px;
+    font-weight: 600;
 }
-
 
 .card p{
-    font-size:28px;
+    font-size:38px;
     margin:0;
-    font-weight:bold;
+    font-weight:700;
+    color: var(--rosa2);
 }
-
 
 .grid{
     display:grid;
@@ -94,9 +325,125 @@ body{
     border-bottom:1px solid #eee;
 }
 
+.relatorios-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+}
 
-@media(max-width:768px){
+
+.box-relatorio{
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 20px rgba(0,0,0,.06);
+    transition:.3s;
+    border-top:5px solid var(--rosa);
+}
+
+
+.box-relatorio:hover{
+    transform:translateY(-4px);
+}
+
+
+.box-relatorio h3{
+    margin-bottom:15px;
+    color:#421d14;
+    font-size:18px;
+}
+
+
+.linha{
+    display:flex;
+    justify-content:space-between;
+    padding:8px 0;
+    border-bottom:1px solid #eee;
+}
+
+
+.linha:last-child{
+    border-bottom:none;
+}
+
+
+.destaque{
+    font-size:26px;
+    font-weight:bold;
+    color:#ff877d;
+    text-align:center;
+}
+
+@media (max-width: 768px){
+
+    /* CONTAINER */
+    .container{
+        margin:15px;
+    }
+
+    .admin-container{
+        padding:15px;
+    }
+
+    /* CARDS DASHBOARD */
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .card p{
+        font-size:22px;
+    }
+
+    /* GRID (ULTIMOS CLIENTES / PEDIDOS) */
     .grid{
         grid-template-columns:1fr;
     }
+
+    /* RELATÓRIOS */
+    .relatorios-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* TABELA (GERENTES) */
+    table{
+        font-size:12px;
+    }
+
+    th, td{
+        padding:6px;
+    }
+
+    /* SCROLL HORIZONTAL (IMPORTANTE) */
+    .card-gerente{
+        overflow-x:auto;
+    }
+
+    /* BOTÕES */
+    button{
+        padding:6px 8px;
+        font-size:12px;
+    }
+
+    .top-actions{
+        justify-content:center;
+    }
+
+    /* ALERTA */
+    .alerta {
+      right: 5px;
+      margin: 15px;
+      font-size: 10pt;
+    }
+
+    /* TÍTULOS */
+    .card-gerente h2,
+    .box h2{
+        font-size:18px;
+    }
+
+    /* ITENS LISTA */
+    .item, .item2{
+        font-size:14px;
+    }
+
 }

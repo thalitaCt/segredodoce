@@ -103,343 +103,8 @@ LIMIT 5
 <head>
 <meta charset="UTF-8">
 <title>Admin</title>
-
-
+<link rel="stylesheet" href="css/styleAdmin.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-:root {
-  --bege: #ffedcd;
-  --bege2: #fff4ee;
-  --bege3: #eacab6;
-  --marrom: #7d5147;
-  --marrom2: #833c2c;
-  --marrom3: #421d14;
-  --rosa: #ff877d;
-  --rosa2: #ee5350;
-  --verde: #347141;
-  --branco: #ffffff;
-  --preto: #000000;
-  --preto2: #1b1b1b;
-  --amarelo: #fde047;
-  --amarelo2: #facc15;
-}
-
-body{
-    margin:0;
-    font-family:Poppins;
-    background:#fff4ee;
-}
-
-
-header{
-    background:#ff877d;
-    color:white;
-    padding:20px;
-    display:flex;
-    justify-content:space-between;
-}
-
-.card-gerente{
-    margin-top: 25px;
-    background:white;
-    padding:20px;
-    margin-bottom:25px;
-    border-radius:10px;
-    box-shadow:0 0 8px rgba(0,0,0,0.1);
-}
-
-
-.card-gerente h2{
-    font-size: 22pt;
-    text-align:center;
-    text-decoration: underline;
-    text-decoration-color:#facc15;
-    margin-bottom:15px;
-}
-
-
-/* TABELAS */
-table{
-    width:100%;
-    border-collapse: collapse;
-    margin-top:10px;
-    background:white;
-}
-
-
-th, td{
-    border:1px solid #eee;
-    padding:10px;
-    text-align:center;
-}
-
-
-th{
-    background:#ffedcd;
-}
-
-
-button{
-    background:#ff877d;
-    color:white;
-    border:none;
-    padding:6px 10px;
-    border-radius:6px;
-    cursor:pointer;
-    margin:2px;
-}
-
-
-button:hover{
-    background:#ee5350;
-}
-
-.container {
-    margin: 30px;
-}
-
-
-.top-actions{
-    display:flex;
-    justify-content:flex-end;
-    margin-bottom:10px;
-}
-
-
-.top-actions button{
-    padding:10px 15px;
-    font-weight:bold;
-}
-
-.alerta {
-  font-family: Poppins;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: rgb(0, 160, 13);
-  color: var(--branco);
-  padding: 25px 33px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  z-index: 9999;
-  font-weight: 650;
-}
-
-.alerta .fechar {
-  color: var(--branco);
-  font-size: 15px;
-  padding: 3px;
-  border-radius: 8px;
-  font-weight: 700;
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  cursor: pointer;
-}
-
-/* LISTA */
-.item2{
-    background:white;
-    padding:10px;
-    margin:5px 0;
-    border-radius:8px;
-}
-
-.admin-container{
-    max-width:1200px;
-    margin:auto;
-    padding:30px;
-}
-
-
-.titulo{
-    color: var(--rosa);
-    margin-bottom:25px;
-}
-
-
-.cards{
-    margin-top: 30px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    margin-bottom:30px;
-}
-
-
-.card{
-    background:#fff;
-    border-radius:14px;
-    padding:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-
-.card h3{
-    margin:0 0 10px 0;
-    color: var(--rosa);
-}
-
-
-.card p{
-    font-size:28px;
-    margin:0;
-    font-weight:bold;
-}
-
-
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-
-.box{
-    background:#fff;
-    padding:20px;
-    border-radius:14px;
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-
-.box h2{
-    color: var(--rosa);
-    margin-top:0;
-}
-
-
-.item{
-    padding:10px 0;
-    border-bottom:1px solid #eee;
-}
-
-.relatorios-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-    gap:20px;
-}
-
-
-.box-relatorio{
-    background:#fff;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-
-.box-relatorio h3{
-    margin-bottom:15px;
-    color:#421d14;
-    font-size:18px;
-}
-
-
-.linha{
-    display:flex;
-    justify-content:space-between;
-    padding:8px 0;
-    border-bottom:1px solid #eee;
-}
-
-
-.linha:last-child{
-    border-bottom:none;
-}
-
-
-.destaque{
-    font-size:26px;
-    font-weight:bold;
-    color:#ff877d;
-    text-align:center;
-}
-
-@media (max-width: 768px){
-
-    /* CONTAINER */
-    .container{
-        margin:15px;
-    }
-
-    .admin-container{
-        padding:15px;
-    }
-
-    /* CARDS DASHBOARD */
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .card p{
-        font-size:22px;
-    }
-
-    /* GRID (ULTIMOS CLIENTES / PEDIDOS) */
-    .grid{
-        grid-template-columns:1fr;
-    }
-
-    /* RELATÓRIOS */
-    .relatorios-grid{
-        grid-template-columns:1fr;
-    }
-
-    /* TABELA (GERENTES) */
-    table{
-        font-size:12px;
-    }
-
-    th, td{
-        padding:6px;
-    }
-
-    /* SCROLL HORIZONTAL (IMPORTANTE) */
-    .card-gerente{
-        overflow-x:auto;
-    }
-
-    /* BOTÕES */
-    button{
-        padding:6px 8px;
-        font-size:12px;
-    }
-
-    .top-actions{
-        justify-content:center;
-    }
-
-    /* ALERTA */
-    .alerta {
-      right: 5px;
-      margin: 15px;
-      font-size: 10pt;
-    }
-
-    /* TÍTULOS */
-    .card-gerente h2,
-    .box h2{
-        font-size:18px;
-    }
-
-    /* ITENS LISTA */
-    .item, .item2{
-        font-size:14px;
-    }
-
-}
-
-</style>
 </head>
 
 
@@ -482,8 +147,40 @@ switch($_GET['msg']){
 
 
 <header>
-    <div>Admin</div>
-    <div>Olá, <?= $nome ?> | <a href="logout.php" style="color:white;">Sair</a></div>
+
+    <div class="header-esquerda">
+
+        <div class="logo-painel">
+            Segredo Doce
+        </div>
+
+        <div class="painel-titulo">
+            Painel do Admin
+        </div>
+
+    </div>
+
+    <div class="header-direita">
+
+        <div class="usuario-box">
+
+            <div class="usuario-avatar">
+                <?= strtoupper(substr($nome,0,1)) ?>
+            </div>
+
+            <div class="usuario-info">
+                <span>Olá,</span>
+                <strong><?= $nome ?></strong>
+            </div>
+
+        </div>
+
+        <a href="logout.php" class="btn-sair">
+            Sair
+        </a>
+
+    </div>
+
 </header>
 
 <div class="container">
