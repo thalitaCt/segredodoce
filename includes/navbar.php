@@ -183,6 +183,7 @@
                 display: flex;
                 align-items: center;
                 gap: 8px;
+                top: 50px;
                 height: 60px;
             }
 
@@ -208,7 +209,7 @@
 
             .dropdown-user{
                 position:absolute;
-                top:20px;
+                top:45px;
                 right:0;
                 background:white;
                 border-radius:15px;
