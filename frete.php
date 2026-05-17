@@ -148,7 +148,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
             default:
-                $frete = 35;
+                $frete = 30;
         }
 
 
