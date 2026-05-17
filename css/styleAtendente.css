@@ -254,6 +254,47 @@ tbody tr:hover {
     }
 }
 
+td select{
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    outline:none;
+    font-size:13px;
+    background:white;
+    transition:0.3s;
+}
+
+
+td select:focus{
+    border-color:var(--rosa);
+    box-shadow:
+    0 0 6px rgba(255,135,125,0.3);
+}
+
+
+td form{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+
+td form button{
+    background:var(--verde);
+    color:white;
+    border:none;
+    border-radius:10px;
+    padding:10px 12px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:600;
+}
+
+td form button:hover{
+    transform:translateY(-2px);
+}
+
 /* MOBILE */
 @media(max-width:768px){
     .card {
