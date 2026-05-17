@@ -9,23 +9,23 @@ if($_SESSION['tipo'] != 'gerente'){
 
 
 /* pedidos */
-$pedidos = $pdo->query("SELECT COUNT(*) FROM pedidos")->fetchColumn();
+$totalPedidos = $pdo->query("SELECT COUNT(*) FROM pedidos")->fetchColumn();
 
 
 /* clientes */
-$clientes = $pdo->query("SELECT COUNT(*) FROM clientes")->fetchColumn();
+$totalClientes = $pdo->query("SELECT COUNT(*) FROM clientes")->fetchColumn();
 
 
 /* funcionarios */
-$funcionarios = $pdo->query("SELECT COUNT(*) FROM funcionarios")->fetchColumn();
+$totalFuncionarios = $pdo->query("SELECT COUNT(*) FROM funcionarios")->fetchColumn();
 
 
 /* produtos */
-$produtos = $pdo->query("SELECT COUNT(*) FROM produtos")->fetchColumn();
+$totalProdutos = $pdo->query("SELECT COUNT(*) FROM produtos")->fetchColumn();
 
 
 /* pedidos pendentes */
-$pendentes = $pdo->query("SELECT COUNT(*) FROM pedidos WHERE status = 'Pendente'")->fetchColumn();
+$totalPendentes = $pdo->query("SELECT COUNT(*) FROM pedidos WHERE status = 'Pendente'")->fetchColumn();
 ?>
 
 <!DOCTYPE html>
@@ -120,31 +120,31 @@ $pendentes = $pdo->query("SELECT COUNT(*) FROM pedidos WHERE status = 'Pendente'
 
     <div class="card-dash" onclick="abrirSecao('pedidos')">
         <h3>Total de Pedidos</h3>
-        <div class="numero"><?= $pedidos ?></div>
+        <div class="numero"><?= $totalPedidos ?></div>
     </div>
 
 
     <div class="card-dash" onclick="abrirSecao('clientes')">
         <h3>Clientes</h3>
-        <div class="numero"><?= $clientes ?></div>
+        <div class="numero"><?= $totalClientes ?></div>
     </div>
 
 
-    <div class="card-dash" onclick="abrirSecao('atendente')">
+    <div class="card-dash" onclick="abrirSecao('atendentes')">
         <h3>Funcionários</h3>
-        <div class="numero"><?= $funcionarios ?></div>
+        <div class="numero"><?= $totalFuncionarios ?></div>
     </div>
 
 
     <div class="card-dash" onclick="abrirSecao('produtos')">
         <h3>Produtos</h3>
-        <div class="numero"><?= $produtos ?></div>
+        <div class="numero"><?= $totalProdutos ?></div>
     </div>
 
 
     <div class="card-dash">
         <h3>Pedidos Pendentes</h3>
-        <div class="numero"><?= $pendentes ?></div>
+        <div class="numero"><?= $totalPendentes ?></div>
     </div>
 
 
