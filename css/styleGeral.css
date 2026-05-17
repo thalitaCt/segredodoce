@@ -181,12 +181,13 @@ h1 {
     text-decoration: none;
     color: var(--bege2);
     transition: 0.5s;
+    background-color: var(--rosa);
 
     i {
       border: none;
       background-color: var(--rosa);
-      border-radius: 350px;
-      color: var(--rosa);
+      border-radius: 30px;
+      color: var(--bege2);
       padding: 4px;
       transition: 0.5s;
     }
