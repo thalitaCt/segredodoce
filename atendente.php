@@ -19,120 +19,9 @@ $pedidos = $sql->fetchAll(PDO::FETCH_ASSOC);
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/styleAtendente.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <title>Painel do Atendente</title>
-
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
-:root {
-  --rosa:#ff877d;
-  --rosa2:#ee5350;
-  --bege:#fff4ee;
-  --marrom:#7d5147;
-  --verde:#347141;
-  --cinza:#666;
-}
-
-body{
-    font-family:Poppins;
-    margin:0;
-    background:var(--bege);
-}
-
-header{
-    background:var(--rosa);
-    color:white;
-    padding:20px;
-    display:flex;
-    justify-content:space-between;
-}
-
-.container{
-    padding:20px;
-}
-
-/* CARD PRINCIPAL */
-.card{
-    background:white;
-    padding:15px;
-    margin-bottom:20px;
-    border-radius:10px;
-    box-shadow:0 0 5px rgba(0,0,0,0.1);
-}
-
-/* NOVO PEDIDO */
-.card.pedido form{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.card.pedido input,
-.card.pedido select{
-    padding:10px;
-    border-radius:10px;
-    border:1px solid #ddd;
-    width:200px;
-}
-
-.card.pedido button{
-    background:var(--rosa);
-    color:white;
-    border:none;
-    padding:10px;
-    border-radius:10px;
-    cursor:pointer;
-    font-weight:700;
-}
-
-/* TABELA */
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-th, td{
-    padding:10px;
-    border-bottom:1px solid #eee;
-    text-align:center;
-}
-
-/* STATUS */
-.status{
-    font-weight:bold;
-}
-
-/* ALERTA */
-.alerta{
-    position:fixed;
-    top:20px;
-    right:20px;
-    background:#00a00d;
-    color:white;
-    padding:20px;
-    border-radius:10px;
-    font-weight:600;
-}
-
-.fechar{
-    margin-left:10px;
-    cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-    .card.pedido form{
-        flex-direction:column;
-    }
-
-    .card.pedido input,
-    .card.pedido select{
-        width:100%;
-    }
-}
-</style>
-
 </head>
 
 <body>
@@ -151,8 +40,40 @@ if($_GET['msg'] == 'erro_status') echo "Status inválido";
 
 
 <header>
-    <div>Atendente</div>
-    <div>Olá, <?= htmlspecialchars($nome) ?> | <a href="../logout.php" style="color:white;">Sair</a></div>
+
+    <div class="header-esquerda">
+
+        <div class="logo-painel">
+            Segredo Doce
+        </div>
+
+        <div class="painel-titulo">
+            Painel do Atendente
+        </div>
+
+    </div>
+
+    <div class="header-direita">
+
+        <div class="usuario-box">
+
+            <div class="usuario-avatar">
+                <?= strtoupper(substr($nome,0,1)) ?>
+            </div>
+
+            <div class="usuario-info">
+                <span>Olá,</span>
+                <strong><?= $nome ?></strong>
+            </div>
+
+        </div>
+
+        <a href="logout.php" class="btn-sair">
+            Sair
+        </a>
+
+    </div>
+
 </header>
 
 <div class="container">

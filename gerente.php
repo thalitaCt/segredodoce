@@ -126,7 +126,7 @@ switch($_GET['msg']){
     <div class="header-esquerda">
 
         <div class="logo-painel">
-            🍰 Segredo Doce
+            Segredo Doce
         </div>
 
         <div class="painel-titulo">
@@ -283,7 +283,8 @@ switch($_GET['msg']){
 
 <?php
         $cor = match($p['status']){
-            'Pedido confirmado' => 'lightblue',
+            'Pedido confirmado' => 'yellow',
+            'Pedido Confirmado' => 'yellow',
             'Pendente' => 'orange',
             'Em preparo' => 'blue',
             'Pronto' => 'green',
