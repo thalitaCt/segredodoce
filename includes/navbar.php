@@ -203,7 +203,7 @@
 
 
             .user-button i{
-                font-size:20px;
+                font-size:24px;
             }
 
 
@@ -251,6 +251,7 @@
 
             #user-conta {
                 font-weight: 400;
+                font-size: 15pt;
             }
 
             .mobile-user-mobile{
