@@ -183,7 +183,7 @@
                 display: flex;
                 align-items: center;
                 gap: 8px;
-                top: 50px;
+                top: 10px;
                 height: 60px;
             }
 
