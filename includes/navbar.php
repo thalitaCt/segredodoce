@@ -208,7 +208,7 @@
 
             .dropdown-user{
                 position:absolute;
-                top:60px;
+                top:20px;
                 right:0;
                 background:white;
                 border-radius:15px;
