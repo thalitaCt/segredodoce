@@ -31,6 +31,15 @@ FROM funcionarios f
 JOIN usuarios u ON u.id_usuario = f.usuario_id
 WHERE u.tipo = 'atendente'
 ")->fetchAll(PDO::FETCH_ASSOC);
+
+/* PEDIDOS */
+$pedidosLista = $pdo->query("
+SELECT p.*, c.nome
+FROM pedidos p
+JOIN clientes c ON c.usuario_id = p.cliente_id
+ORDER BY p.id_pedidos DESC
+")->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -183,6 +192,10 @@ button:hover{
   cursor: pointer;
 }
 
+.secao {
+    display: none;
+}
+
 @media (max-width: 768px){
 
     /* CONTAINER */
@@ -323,12 +336,13 @@ switch($_GET['msg']){
     <div>Olá, <?= $nome ?> | <a href="logout.php" style="color:white;">Sair</a></div>
 </header>
 
+<?php include 'includes/dashboard.php'; ?>
 
 <div class="container">
 
 
 <!-- PRODUTOS -->
-<div class="card">
+<div class="card secao" id="secao-produtos">
     <h2>Produtos</h2>
 
 
@@ -362,7 +376,7 @@ switch($_GET['msg']){
 
 
 <!-- CLIENTES -->
-<div class="card">
+<div class="card secao" id="secao-clientes">
     <h2>Clientes</h2>
 
 
@@ -396,7 +410,7 @@ switch($_GET['msg']){
 
 
 <!-- ATENDENTES -->
-<div class="card">
+<div class="card secao" id="secao-atendentes">
     <h2>Atendentes</h2>
 
 
@@ -428,9 +442,55 @@ switch($_GET['msg']){
     </table>
 </div>
 
+<div class="card secao" id="secao-pedidos">
+
+<h2>Pedidos</h2>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Cliente</th>
+    <th>Status</th>
+    <th>Total</th>
+</tr>
+
+<?php foreach($pedidosLista as $p): ?>
+<tr>
+    <td><?= $p['id_pedidos'] ?></td>
+    <td><?= $p['nome'] ?></td>
+    <td><?= $p['status'] ?></td>
+    <td>R$ <?= number_format($p['total'],2,',','.') ?></td>
+</tr>
+<?php endforeach; ?>
+
+</table>
 </div>
 
-<?php include 'includes/dashboard.php'; ?>
+</div>
+
+
+<script>
+
+function abrirSecao(secao){
+
+    // esconder todas
+    document.querySelectorAll('.secao').forEach(function(card){
+        card.style.display = 'none';
+    });
+
+    // mostrar selecionada
+    const elemento = document.getElementById('secao-' + secao);
+
+    if(elemento){
+        elemento.style.display = 'block';
+
+        elemento.scrollIntoView({
+            behavior:'smooth'
+        });
+    }
+}
+
+</script>
 
 </body>
 </html>
