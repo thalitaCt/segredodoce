@@ -173,20 +173,6 @@ h1 {
     font-size: 15pt;
     line-height: 23px;
   }
-
-  .btn {
-  font-family: Poppins;
-  font-size: 15pt;
-  background-color: var(--rosa2);
-  padding: 5px;
-  border-radius: 13px;
-  border-color: var(--marrom);
-  font-weight: 600;
-
-  a {
-    color: var(--bege2);
-  }
-}
 }
 
 .titulo {
@@ -947,10 +933,11 @@ h1 {
 
   .produto {
     width: 530px;
+    height: 480px;
 
     img {
       width: 530px;
-      height: 330px;
+      height: 350px;
     }
 
     a {
