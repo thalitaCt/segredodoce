@@ -168,6 +168,7 @@ Senhas não coincidem
 <option value="Zona Sul">Zona Sul</option>
 <option value="Zona Norte">Zona Norte</option>
 <option value="Zona Oeste">Zona Oeste</option>
+<option value="Zona Sudoeste">Zona Sudoeste</option>
 <option value="Entrega Externa">Entrega Externa</option>
 
 

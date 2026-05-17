@@ -87,6 +87,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         'Zona Sul',
         'Zona Norte',
         'Zona Oeste',
+        'Zona Sudoeste',
         'Entrega Externa'
     ];
 
@@ -141,9 +142,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $frete = 20;
             break;
 
+            case 'Zona Sudoeste':
+                $frete = 25;
+            break;
+
 
             default:
-                $frete = 25;
+                $frete = 35;
         }
 
 
@@ -748,6 +753,11 @@ Zona Norte
 
 <option value="Zona Oeste"
 <?= ($cliente['regiao'] ?? '') == 'Zona Oeste' ? 'selected' : '' ?>>
+Zona Oeste
+</option>
+
+<option value="Zona Sudoeste"
+<?= ($cliente['regiao'] ?? '') == 'Zona Sudoeste' ? 'selected' : '' ?>>
 Zona Oeste
 </option>
 

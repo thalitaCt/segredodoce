@@ -49,6 +49,7 @@ $regioesValidas = [
 "Zona Sul",
 "Zona Norte",
 "Zona Oeste",
+"Zona Sudoeste",
 "Entrega Externa"
 ];
 

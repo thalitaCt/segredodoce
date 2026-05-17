@@ -177,6 +177,8 @@ value="<?= $cliente['cidade'] ?>">
 
 <option value="Zona Oeste" <?= $cliente['regiao']=='Zona Oeste'?'selected':'' ?>>Zona Oeste</option>
 
+<option value="Zona Sudoeste" <?= $cliente['regiao']=='Zona Sudoeste'?'selected':'' ?>>Zona Sudoeste</option>
+
 <option value="Entrega Externa" <?= $cliente['regiao']=='Entrega Externa'?'selected':'' ?>>
 Entrega Externa
 </option>

@@ -189,17 +189,17 @@ switch($_GET['msg']){
 <div class="cards">  
     
 <div class="card">  
-<h3>Clientes</h3>  
+<h3><i class="fa-solid fa-users"></i>Clientes</h3>  
 <p><?= $totalClientes ?></p>  
 </div>  
 
 <div class="card">  
-<h3>Pedidos</h3>  
+<h3><i class="fa-solid fa-cart-shopping"></i>Pedidos</h3>  
 <p><?= $totalPedidos ?></p>  
 </div>  
 
 <div class="card">  
-<h3>Total Vendido</h3>  
+<h3><i class="fa-solid fa-money-bill"></i>Total Vendido</h3>  
 <p>R$ <?= number_format($totalVendas,2,',','.') ?></p>  
 </div>
 
