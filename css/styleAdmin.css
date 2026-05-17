@@ -386,6 +386,14 @@ button:hover{
     text-align:center;
 }
 
+.btn-editar {
+    background: var(--verde);
+}
+
+.btn-excluir {
+    background: var(--rosa2);
+}
+
 @media (max-width: 768px){
 
     /* CONTAINER */

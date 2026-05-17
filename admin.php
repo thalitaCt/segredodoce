@@ -189,17 +189,17 @@ switch($_GET['msg']){
 <div class="cards">  
     
 <div class="card">  
-<h3><i class="fa-solid fa-users"></i>Clientes</h3>  
+<h3><i class="fa-solid fa-users"></i> Clientes</h3>  
 <p><?= $totalClientes ?></p>  
 </div>  
 
 <div class="card">  
-<h3><i class="fa-solid fa-cart-shopping"></i>Pedidos</h3>  
+<h3><i class="fa-solid fa-cart-shopping"></i> Pedidos</h3>  
 <p><?= $totalPedidos ?></p>  
 </div>  
 
 <div class="card">  
-<h3><i class="fa-solid fa-money-bill"></i>Total Vendido</h3>  
+<h3><i class="fa-solid fa-money-bill"></i> Total Vendido</h3>  
 <p>R$ <?= number_format($totalVendas,2,',','.') ?></p>  
 </div>
 
@@ -263,8 +263,8 @@ Pedido #<?= $p['id_pedidos'] ?><br>
             <td><?= $g['email'] ?></td>
             <td><?= $g['cargo'] ?></td>
             <td>
-                <a href="gerentes/editar.php?id=<?= $g['usuario_id'] ?>"><button>Editar</button></a>
-                <a href="gerentes/excluir.php?id=<?= $g['usuario_id'] ?>"><button>Excluir</button></a>
+                <a href="gerentes/editar.php?id=<?= $g['usuario_id'] ?>"><button class="btn-editar"><i class="fa-solid fa-pen"></i></button></a>
+                <a href="gerentes/excluir.php?id=<?= $g['usuario_id'] ?>"onclick="return confirm('Deseja excluir este gerente?')"><button class="btn-excluir"><i class="fa-solid fa-trash"></i></button></a>
             </td>
         </tr>
         <?php endforeach; ?>
