@@ -175,18 +175,20 @@ h1 {
   }
 
   a {
+    padding: 10px;
     font-family: Poppins;;
     margin: 10px;
     font-size: 19pt;
     text-decoration: none;
     color: var(--bege2);
     transition: 0.5s;
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: var(--rosa);
     border: solid;
     border-color: var(--marrom2);
 
     i {
+      border-radius: 20px;
       border: none;
       background-color: var(--rosa);
       color: var(--bege2);
