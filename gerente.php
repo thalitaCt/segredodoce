@@ -122,8 +122,40 @@ switch($_GET['msg']){
 
 
 <header>
-    <div>Gerente</div>
-    <div>Olá, <?= $nome ?> | <a href="logout.php" style="color:white;">Sair</a></div>
+
+    <div class="header-esquerda">
+
+        <div class="logo-painel">
+            🍰 Segredo Doce
+        </div>
+
+        <div class="painel-titulo">
+            Painel do Gerente
+        </div>
+
+    </div>
+
+    <div class="header-direita">
+
+        <div class="usuario-box">
+
+            <div class="usuario-avatar">
+                <?= strtoupper(substr($nome,0,1)) ?>
+            </div>
+
+            <div class="usuario-info">
+                <span>Olá,</span>
+                <strong><?= $nome ?></strong>
+            </div>
+
+        </div>
+
+        <a href="logout.php" class="btn-sair">
+            Sair
+        </a>
+
+    </div>
+
 </header>
 
 <?php include 'includes/dashboard.php'; ?>
@@ -251,7 +283,7 @@ switch($_GET['msg']){
 
 <?php
         $cor = match($p['status']){
-            'Pedido Confirmado' => 'blue',
+            'Pedido confirmado' => 'lightblue',
             'Pendente' => 'orange',
             'Em preparo' => 'blue',
             'Pronto' => 'green',

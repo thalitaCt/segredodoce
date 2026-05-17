@@ -27,7 +27,8 @@ body{
 
 
 header{
-    background: linear-gradient(
+    background:
+    linear-gradient(
         135deg,
         var(--rosa),
         var(--rosa2)
@@ -37,12 +38,94 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.08);
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:999;
 }
 
+
+.header-esquerda{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+
+
+.logo-painel{
+    font-size:24px;
+    font-weight:700;
+}
+
+
+.painel-titulo{
+    font-size:14px;
+    opacity:0.9;
+}
+
+
+.header-direita{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+
+.usuario-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+
+.usuario-avatar{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:white;
+    color:var(--rosa2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:18px;
+}
+
+
+.usuario-info{
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+}
+
+
+.usuario-info span{
+    font-size:12px;
+    opacity:0.8;
+}
+
+
+.usuario-info strong{
+    font-size:15px;
+}
+
+
+.btn-sair{
+    background:white;
+    color:var(--rosa2);
+    padding:10px 18px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+
+.btn-sair:hover{
+    transform:translateY(-2px);
+    background:var(--bege2);
+}
 
 
 .container{
@@ -134,7 +217,6 @@ button{
 }
 
 button:hover{
-    background:var(--rosa2);
     transform:translateY(-2px);
     box-shadow:
     0 8px 18px rgba(238,83,80,0.25);
@@ -154,6 +236,7 @@ button:hover{
 }
 
 .alerta {
+  animation: slide 0.4s ease;
   font-family: Poppins;
   position: fixed;
   top: 20px;
@@ -194,6 +277,10 @@ button:hover{
     animation: fade 0.35s ease;
 }
 
+.status {
+    font-weight:bold;
+}
+
 @keyframes fade {
     from {
         opacity: 0;
@@ -203,6 +290,18 @@ button:hover{
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes slide {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
@@ -264,6 +363,18 @@ button:hover{
       right: 5px;
       margin: 15px;
       font-size: 10pt;
+    }
+
+    header{
+        flex-direction:column;
+        gap:15px;
+        padding:18px;
+        text-align:center;
+    }
+
+
+    .header-direita{
+        flex-direction:column;
     }
 
 }    

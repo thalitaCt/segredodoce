@@ -209,7 +209,7 @@ if($_GET['msg'] == 'erro_status') echo "Status inválido";
 
         <?php
         $cor = match($p['status']){
-            'Pedido Confirmado' => 'blue',
+            'Pedido confirmado' => 'lightblue',
             'Pendente' => 'orange',
             'Em preparo' => 'blue',
             'Pronto' => 'green',
