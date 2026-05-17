@@ -201,6 +201,12 @@ h1 {
 #favoritos a:hover {
   transform: scale(1.2);
   background-color: var(--amarelo2);
+  font-weight: 600;
+
+  i {
+    transform: scale(1.2);
+    background-color: var(--amarelo2);
+  }
 }
 
 #favoritos a i:hover {
