@@ -82,35 +82,65 @@ body{
 
 
 header{
-    background:#ff877d;
+    background: linear-gradient(
+        135deg,
+        var(--rosa),
+        var(--rosa2)
+    );
     color:white;
-    padding:20px;
+    padding:18px 35px;
     display:flex;
     justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 
+
 .container{
-    padding:20px;
+    padding:35px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 
 .card{
     background:white;
-    padding:20px;
-    margin-bottom:25px;
-    border-radius:10px;
-    box-shadow:0 0 8px rgba(0,0,0,0.1);
+    padding:25px;
+    margin-bottom:30px;
+    border-radius:22px;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+    border:1px solid rgba(0,0,0,0.04);
+    transition:0.3s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
 }
 
 
 .card h2{
-    font-size: 22pt;
+    font-size:26px;
     text-align:center;
-    text-decoration: underline;
-    text-decoration-color:#facc15;
-    margin-bottom:15px;
+    color:var(--marrom3);
+    margin-bottom:25px;
+    position:relative;
 }
+
+.card h2::after{
+    content:"";
+    width:80px;
+    height:5px;
+    background:var(--amarelo2);
+    border-radius:20px;
+    display:block;
+    margin:10px auto 0 auto;
+}
+
 
 
 /* TABELAS */
@@ -130,23 +160,39 @@ th, td{
 
 
 th{
-    background:#ffedcd;
+    background:var(--bege);
+    color:var(--marrom3);
+    font-weight:700;
+}
+
+tr{
+    transition:0.2s;
+}
+
+tr:hover{
+    background:#fff9f5;
 }
 
 
 button{
-    background:#ff877d;
+    background:var(--rosa);
     color:white;
     border:none;
-    padding:6px 10px;
-    border-radius:6px;
+    padding:10px 16px;
+    border-radius:12px;
     cursor:pointer;
     margin:2px;
+    font-weight:600;
+    transition:0.25s;
+    box-shadow:
+    0 4px 10px rgba(255,135,125,0.25);
 }
 
-
 button:hover{
-    background:#ee5350;
+    background:var(--rosa2);
+    transform:translateY(-2px);
+    box-shadow:
+    0 8px 18px rgba(238,83,80,0.25);
 }
 
 
@@ -193,6 +239,19 @@ button:hover{
 
 .secao {
     display: none;
+    animation: fade 0.35s ease;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px){
