@@ -175,13 +175,19 @@ h1 {
   }
 
   a {
+    font-family: Poppins;;
+    margin: 10px;
+    font-size: 19pt;
     text-decoration: none;
     color: var(--bege2);
     transition: 0.5s;
 
     i {
-      margin: 8px;
-      font-size: 19px;
+      border: none;
+      background-color: var(--rosa);
+      border-radius: 350px;
+      color: var(--rosa);
+      padding: 4px;
       transition: 0.5s;
     }
   }
@@ -945,7 +951,7 @@ h1 {
 
   .produto {
     width: 530px;
-    height: 540px;
+    height: 570px;
 
     img {
       width: 530px;
