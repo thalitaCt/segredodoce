@@ -170,13 +170,6 @@ $totalPendentes = $pdo->query("SELECT COUNT(*) FROM pedidos WHERE status = 'Pend
     </div>
 
 
-    <div class="card-dash">
-        <h3>Pedidos Pendentes</h3>
-        <div class="numero"><?= $totalPendentes ?></div>
-        <p class="clique-info">Clique para visualizar</p>
-    </div>
-
-
 </div>
 
 </body>

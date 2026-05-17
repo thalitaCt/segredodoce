@@ -46,279 +46,11 @@ ORDER BY id_pedidos DESC
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/stylePainelGerente.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
 <title>Painel do Gerente</title>
-
-
-<style>
-@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
-:root {
-  --bege: #ffedcd;
-  --bege2: #fff4ee;
-  --bege3: #eacab6;
-  --marrom: #7d5147;
-  --marrom2: #833c2c;
-  --marrom3: #421d14;
-  --rosa: #ff877d;
-  --rosa2: #ee5350;
-  --verde: #347141;
-  --branco: #ffffff;
-  --preto: #000000;
-  --preto2: #1b1b1b;
-  --amarelo: #fde047;
-  --amarelo2: #facc15;
-}
-
-body{
-    font-family:Poppins;
-    margin:0;
-    background:#fff4ee;
-}
-
-
-header{
-    background: linear-gradient(
-        135deg,
-        var(--rosa),
-        var(--rosa2)
-    );
-    color:white;
-    padding:18px 35px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-
-
-.container{
-    padding:35px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-
-.card{
-    background:white;
-    padding:25px;
-    margin-bottom:30px;
-    border-radius:22px;
-    box-shadow:
-    0 10px 30px rgba(0,0,0,0.06);
-    border:1px solid rgba(0,0,0,0.04);
-    transition:0.3s;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-}
-
-
-.card h2{
-    font-size:26px;
-    text-align:center;
-    color:var(--marrom3);
-    margin-bottom:25px;
-    position:relative;
-}
-
-.card h2::after{
-    content:"";
-    width:80px;
-    height:5px;
-    background:var(--amarelo2);
-    border-radius:20px;
-    display:block;
-    margin:10px auto 0 auto;
-}
-
-
-
-/* TABELAS */
-table{
-    width:100%;
-    border-collapse: collapse;
-    margin-top:10px;
-    background:white;
-}
-
-
-th, td{
-    border:1px solid #eee;
-    padding:10px;
-    text-align:center;
-}
-
-
-th{
-    background:var(--bege);
-    color:var(--marrom3);
-    font-weight:700;
-}
-
-tr{
-    transition:0.2s;
-}
-
-tr:hover{
-    background:#fff9f5;
-}
-
-
-button{
-    background:var(--rosa);
-    color:white;
-    border:none;
-    padding:10px 16px;
-    border-radius:12px;
-    cursor:pointer;
-    margin:2px;
-    font-weight:600;
-    transition:0.25s;
-    box-shadow:
-    0 4px 10px rgba(255,135,125,0.25);
-}
-
-button:hover{
-    background:var(--rosa2);
-    transform:translateY(-2px);
-    box-shadow:
-    0 8px 18px rgba(238,83,80,0.25);
-}
-
-
-.top-actions{
-    display:flex;
-    justify-content:flex-end;
-    margin-bottom:10px;
-}
-
-
-.top-actions button{
-    padding:10px 15px;
-    font-weight:bold;
-}
-
-.alerta {
-  font-family: Poppins;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: rgb(0, 160, 13);
-  color: var(--branco);
-  padding: 25px 33px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  z-index: 9999;
-  font-weight: 650;
-}
-
-.alerta .fechar {
-  color: var(--branco);
-  font-size: 15px;
-  padding: 3px;
-  border-radius: 8px;
-  font-weight: 700;
-  position: absolute;
-  top: 8px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.secao {
-    display: none;
-    animation: fade 0.35s ease;
-}
-
-@keyframes fade {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px){
-
-    /* CONTAINER */
-    .container{
-        padding:15px;
-    }
-
-    /* CARDS */
-    .card{
-        padding:15px;
-    }
-
-    .card h2{
-        font-size:18pt;
-    }
-
-    /* BOTÃO CADASTRAR */
-    .top-actions{
-        justify-content:center;
-    }
-
-    .top-actions button{
-        width:100%;
-        max-width:250px;
-    }
-
-    /* TABELAS */
-    table{
-        font-size:12px;
-        min-width:650px; /* impede esmagar */
-    }
-
-    th, td{
-        padding:6px;
-    }
-
-    /* SCROLL HORIZONTAL (ESSENCIAL) */
-    .card{
-        overflow-x:auto;
-    }
-
-    /* AÇÕES (botões dentro da tabela) */
-    td{
-        white-space:nowrap;
-    }
-
-    td button{
-        display:block;
-        width:100%;
-        margin:3px 0;
-        font-size:12px;
-    }
-
-    /* ALERTA */
-    .alerta {
-      right: 5px;
-      margin: 15px;
-      font-size: 10pt;
-    }
-
-}    
-
-</style>
 </head>
-
 
 <body>
 
@@ -424,8 +156,8 @@ switch($_GET['msg']){
             <td>R$ <?= number_format($p['preco'],2,',','.') ?></td>
             <td><?= $p['estoque'] ?></td>
             <td>
-                <a href="produtos/editar.php?id=<?= $p['id_produtos'] ?>"><button>Editar</button></a>
-                <a href="produtos/excluir.php?id=<?= $p['id_produtos'] ?>"><button>Excluir</button></a>
+                <a href="produtos/editar.php?id=<?= $p['id_produtos'] ?>"><button class="btn-editar"><i class="fa-solid fa-pen"></i></button></a>
+                <a href="produtos/excluir.php?id=<?= $p['id_produtos'] ?>"onclick="return confirm('Deseja excluir este produto?')"><button class="btn-excluir"><i class="fa-solid fa-trash"></i></button></a>
             </td>
         </tr>
         <?php endforeach; ?>
@@ -458,8 +190,8 @@ switch($_GET['msg']){
             <td><?= $c['email'] ?></td>
             <td><?= $c['telefone'] ?></td>
             <td>
-                <a href="clientes/editar.php?id=<?= $c['usuario_id'] ?>"><button>Editar</button></a>
-                <a href="clientes/excluir.php?id=<?= $c['usuario_id'] ?>"><button>Excluir</button></a>
+                <a href="clientes/editar.php?id=<?= $c['usuario_id'] ?>"><button class="btn-editar"><i class="fa-solid fa-pen"></i></button></a>
+                <a href="clientes/excluir.php?id=<?= $c['usuario_id'] ?>"onclick="return confirm('Deseja excluir este cliente?')"><button class="btn-excluir"><i class="fa-solid fa-trash"></i></button></a>
             </td>
         </tr>
         <?php endforeach; ?>
@@ -492,8 +224,8 @@ switch($_GET['msg']){
             <td><?= $a['email'] ?></td>
             <td><?= $a['cargo'] ?></td>
             <td>
-                <a href="atendentes/editar.php?id=<?= $a['usuario_id'] ?>"><button>Editar</button></a>
-                <a href="atendentes/excluir.php?id=<?= $a['usuario_id'] ?>"><button>Excluir</button>
+                <a href="atendentes/editar.php?id=<?= $a['usuario_id'] ?>"><button class="btn-editar"><i class="fa-solid fa-pen"></i></button></a>
+                <a href="atendentes/excluir.php?id=<?= $a['usuario_id'] ?>"onclick="return confirm('Deseja excluir este atendente?')"><button class="btn-excluir"><i class="fa-solid fa-trash"></i></button>
             </td>
         </tr>
         <?php endforeach; ?>
@@ -517,6 +249,18 @@ switch($_GET['msg']){
 
 <?php foreach($pedidosLista as $p): ?>
 
+<?php
+        $cor = match($p['status']){
+            'Pedido Confirmado' => 'blue',
+            'Pendente' => 'orange',
+            'Em preparo' => 'blue',
+            'Pronto' => 'green',
+            'Entregue' => 'gray',
+            'Cancelado' => 'red',
+            default => 'black'
+        };
+        ?>
+
 <tr>
 
     <td><?= $p['id_pedidos'] ?></td>
@@ -527,7 +271,9 @@ switch($_GET['msg']){
         R$ <?= number_format($p['total'],2,',','.') ?>
     </td>
 
-    <td><?= $p['status'] ?></td>
+    <td class="status" style="color:<?= $cor ?>">
+                <?= $p['status'] ?>
+            </td>
 
     <td><?= $p['forma_pagamento'] ?></td>
 
