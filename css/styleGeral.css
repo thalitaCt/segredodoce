@@ -175,6 +175,7 @@ h1 {
   }
 
   .btn {
+  height: 20px;
   font-family: Poppins;
   font-size: 15pt;
   background-color: var(--rosa2);
@@ -950,7 +951,7 @@ h1 {
 
     img {
       width: 530px;
-      height: 450px;
+      height: 300px;
     }
 
     a {
