@@ -34,10 +34,9 @@ WHERE u.tipo = 'atendente'
 
 /* PEDIDOS */
 $pedidosLista = $pdo->query("
-SELECT p.*, c.nome
-FROM pedidos p
-JOIN clientes c ON c.usuario_id = p.cliente_id
-ORDER BY p.id_pedidos DESC
+SELECT *
+FROM pedidos
+ORDER BY id_pedidos DESC
 ")->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -447,20 +446,36 @@ switch($_GET['msg']){
 <h2>Pedidos</h2>
 
 <table>
+
 <tr>
     <th>ID</th>
     <th>Cliente</th>
-    <th>Status</th>
     <th>Total</th>
+    <th>Status</th>
+    <th>Pagamento</th>
+    <th>Data</th>
 </tr>
 
 <?php foreach($pedidosLista as $p): ?>
+
 <tr>
+
     <td><?= $p['id_pedidos'] ?></td>
-    <td><?= $p['nome'] ?></td>
+
+    <td><?= $p['cliente_nome'] ?></td>
+
+    <td>
+        R$ <?= number_format($p['total'],2,',','.') ?>
+    </td>
+
     <td><?= $p['status'] ?></td>
-    <td>R$ <?= number_format($p['total'],2,',','.') ?></td>
+
+    <td><?= $p['forma_pagamento'] ?></td>
+
+    <td><?= $p['data_pedido'] ?></td>
+
 </tr>
+
 <?php endforeach; ?>
 
 </table>
