@@ -5,6 +5,33 @@
     if (!isset($_SESSION['carrinho'])) {
         $_SESSION['carrinho'] = [];
     }
+    
+    if(isset($_POST['atualizarQtd'])){
+
+    $id = $_POST['id'];
+    $novaQtd = (int) $_POST['quantidade'];
+
+    if(isset($_SESSION['carrinho'][$id])){
+
+        $estoque = $_SESSION['carrinho'][$id]['estoque'];
+
+        if($novaQtd <= 0){
+
+            unset($_SESSION['carrinho'][$id]);
+
+        } else {
+
+            if($novaQtd > $estoque){
+                $novaQtd = $estoque;
+            }
+
+            $_SESSION['carrinho'][$id]['quantidade'] = $novaQtd;
+        }
+    }
+
+    header("Location: carrinho.php");
+    exit;
+}
 
     if (isset($_GET['aumentar'])) {
     $id = $_GET['aumentar'];
@@ -118,18 +145,37 @@
             
         <div class="quantidade">
 
-            <a href="carrinho.php?remover=<?php echo $id; ?>">-</a>
+    <a href="carrinho.php?remover=<?php echo $id; ?>">-</a>
 
-            <span>
-                <?php echo $qtde; ?>
-            </span>
+    <form method="POST" class="form-qtd">
 
-            <?php if($qtde < $produto['estoque']): ?>
-            <a href="carrinho.php?aumentar=<?php echo $id; ?>">+</a>
-            <?php else: ?>
-                <span class="bloqueado">+</span>
-            <?php endif; ?>
-        </div>
+        <input
+        type="hidden"
+        name="id"
+        value="<?php echo $id; ?>">
+
+        <input
+        type="number"
+        name="quantidade"
+        class="input-qtd"
+        min="1"
+        max="<?php echo $produto['estoque']; ?>"
+        value="<?php echo $qtde; ?>">
+
+        <input
+        type="hidden"
+        name="atualizarQtd"
+        value="1">
+
+    </form>
+
+    <?php if($qtde < $produto['estoque']): ?>
+        <a href="carrinho.php?aumentar=<?php echo $id; ?>">+</a>
+    <?php else: ?>
+        <span class="bloqueado">+</span>
+    <?php endif; ?>
+
+</div>
 
         <div class="total">
             R$ <?php echo number_format($totalItem, 2, ',', '.'); ?>
@@ -165,6 +211,20 @@
             <a href="carrinho.php?limpar=true"><button id="limpar">Limpar Carrinho</button></a>
 
             <?php endif; ?>
+
+<script>
+
+document.querySelectorAll('.input-qtd').forEach(input => {
+
+    input.addEventListener('change', function(){
+
+        this.closest('form').submit();
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>

@@ -86,7 +86,7 @@ p {
 .quantidade a {
   display: inline-block;
   background-color: var(--rosa);
-  color: var(--rosa2);
+  color: var(--branco);
   padding: 10px;
   margin: 0 5px;
   border-radius: 8px;
@@ -192,6 +192,32 @@ p {
   font-size: 16px;
   text-decoration: none;
 }
+
+.form-qtd{
+  margin: 0;
+}
+
+
+.input-qtd{
+  width: 65px;
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid var(--rosa);
+  background-color: var(--branco);
+  color: var(--marrom3);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  outline: none;
+  transition: 0.3s;
+}
+
+
+.input-qtd:focus{
+  border-color: var(--rosa2);
+  box-shadow: 0 0 8px rgba(255, 135, 125, 0.4);
+}
+
 
 @media (max-width: 768px) {
   .item img {
