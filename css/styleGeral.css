@@ -173,6 +173,18 @@ h1 {
     font-size: 15pt;
     line-height: 23px;
   }
+
+  a {
+    text-decoration: none;
+    color: var(--bege2);
+    transition: 0.5s;
+
+    i {
+      margin: 8px;
+      font-size: 19px;
+      transition: 0.5s;
+    }
+  }
 }
 
 .titulo {
@@ -933,7 +945,7 @@ h1 {
 
   .produto {
     width: 530px;
-    height: 480px;
+    height: 540px;
 
     img {
       width: 530px;
