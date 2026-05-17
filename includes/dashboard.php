@@ -70,13 +70,37 @@ $totalPendentes = $pdo->query("SELECT COUNT(*) FROM pedidos WHERE status = 'Pend
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     transition: 0.3s;
-    cursor: pointer;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
     border-left: 6px solid var(--rosa);
 }
 
+.card-dash::after{
+    content:"→";
+    position:absolute;
+    right:18px;
+    top:18px;
+    font-size:22px;
+    color:var(--rosa);
+    opacity:0.7;
+    transition:0.3s;
+}
+
+.card-dash:hover::after{
+    transform:translateX(5px);
+}
+
+.clique-info{
+    margin-top:12px;
+    font-size:13px;
+    color:#777;
+    font-weight:500;
+}
 
 .card-dash:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:0 12px 25px rgba(0,0,0,0.12);
 }
 
 
@@ -121,30 +145,35 @@ $totalPendentes = $pdo->query("SELECT COUNT(*) FROM pedidos WHERE status = 'Pend
     <div class="card-dash" onclick="abrirSecao('pedidos')">
         <h3>Total de Pedidos</h3>
         <div class="numero"><?= $totalPedidos ?></div>
+        <p class="clique-info">Clique para visualizar</p>
     </div>
 
 
     <div class="card-dash" onclick="abrirSecao('clientes')">
         <h3>Clientes</h3>
         <div class="numero"><?= $totalClientes ?></div>
+        <p class="clique-info">Clique para visualizar</p>
     </div>
 
 
     <div class="card-dash" onclick="abrirSecao('atendentes')">
         <h3>Funcionários</h3>
         <div class="numero"><?= $totalFuncionarios ?></div>
+        <p class="clique-info">Clique para visualizar</p>
     </div>
 
 
     <div class="card-dash" onclick="abrirSecao('produtos')">
         <h3>Produtos</h3>
         <div class="numero"><?= $totalProdutos ?></div>
+        <p class="clique-info">Clique para visualizar</p>
     </div>
 
 
     <div class="card-dash">
         <h3>Pedidos Pendentes</h3>
         <div class="numero"><?= $totalPendentes ?></div>
+        <p class="clique-info">Clique para visualizar</p>
     </div>
 
 

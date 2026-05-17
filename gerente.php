@@ -507,5 +507,20 @@ function abrirSecao(secao){
 
 </script>
 
+<script>
+function abrirSecao(secao){
+
+    const elemento = document.getElementById('secao-' + secao);
+
+    if(elemento){
+        elemento.scrollIntoView({
+            behavior:'smooth',
+            block:'start'
+        });
+
+    }
+}
+</script>
+
 </body>
 </html>
