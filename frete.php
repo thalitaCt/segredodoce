@@ -758,7 +758,7 @@ Zona Oeste
 
 <option value="Zona Sudoeste"
 <?= ($cliente['regiao'] ?? '') == 'Zona Sudoeste' ? 'selected' : '' ?>>
-Zona Oeste
+Zona Sudoeste
 </option>
 
 
