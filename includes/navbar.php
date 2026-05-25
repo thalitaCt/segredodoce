@@ -485,7 +485,7 @@ display:none;
 </style>
 <body>
 <header class="navbar">
-<div class="logo">
+<a href="index.php" class="logo">
 <img src="imagens/LogoSegredo.png">
 <div class="logo-text">
 
@@ -495,12 +495,12 @@ display:none;
 
 </div>
 
-</div>
+</a>
 
 <?php
-$`totalItens = 0;
+$totalItens = 0;
 
-if(isset($_SESSION['carrinho'])) { foreach ($_SESSION['carrinho'] as $item) { $totalItens += `$item['quantidade'] ?? 1;
+if(isset($_SESSION['carrinho'])) { foreach ($_SESSION['carrinho'] as $item) { $totalItens += $item['quantidade'] ?? 1;
 }
 }
 ?>
