@@ -26,6 +26,20 @@ $produto = $sql->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
 
+<?php if (isset($_GET['erro'])): ?>
+<div class="alerta erro">
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+<?php
+if ($_GET['erro'] == 'invalida') echo "Envie uma imagem válida.";
+if ($_GET['erro'] == 'formato') echo "Formato de imagem inválido.";
+if ($_GET['erro'] == 'upload') echo "Erro ao enviar imagem.";
+
+?>
+<span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
+</div>
+<?php endif; ?>
+
 <div class="form-card">
 
 <h2>Alterar Produto</h2>
