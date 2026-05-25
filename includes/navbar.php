@@ -32,7 +32,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 }
 
-*{
+.navbar *{
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -116,7 +116,7 @@ body{
 .logo-text h1{
 
     font-family:'Berkshire Swash';
-
+    color: var(--branco);
     font-size:34px;
     font-weight:400;
 
@@ -170,7 +170,7 @@ body{
 
 }
 
-.menu a{
+.navbar .menu a{
 
     display:block;
 
@@ -187,7 +187,7 @@ body{
 
 /* ICONS */
 
-.icons{
+.navbar .icons{
 
     display:flex;
     align-items:center;
@@ -232,11 +232,11 @@ body{
 
     position:absolute;
 
-    top:-10px;
-    right:-12px;
+    top:-6px;
+    right:-8px;
 
-    min-width:22px;
-    height:22px;
+    min-width:20px;
+    height:20px;
 
     border-radius:50%;
 
@@ -248,7 +248,7 @@ body{
     align-items:center;
     justify-content:center;
 
-    font-size:11px;
+    font-size:10px;
     font-weight:700;
 
     padding:2px;
@@ -263,7 +263,7 @@ body{
 
 }
 
-.user-button{
+.navbar .user-button{
 
     background:none;
     border:none;
@@ -282,13 +282,13 @@ body{
 
 }
 
-.user-button i{
+.navbar .user-button i{
 
     transition:0.3s;
 
 }
 
-.user-button:hover i{
+.navbar .user-button:hover i{
 
     color:var(--bege2);
 
@@ -385,6 +385,26 @@ body{
 /* RESPONSIVO */
 
 @media(max-width:768px){
+
+    .navbar{
+
+    overflow:visible;
+
+}
+
+.navbar .icons{
+
+    gap:14px;
+
+    margin-right:6px;
+
+}
+
+.navbar .carrinho-icon{
+
+    transform:scale(0.95);
+
+}
 
     .navbar{
 
@@ -605,15 +625,15 @@ Olá, Cliente
 </li>
 
 <li>
-<a href="#">Minha Conta</a>
+<a href="minha_conta.php">Minha Conta</a>
 </li>
 
 <li>
-<a href="#">Pedidos</a>
+<a href="pedidos.php">Pedidos</a>
 </li>
 
 <li>
-<a href="#">Sair</a>
+<a href="logout.php">Sair</a>
 </li>
 
 </div>
@@ -630,7 +650,7 @@ Olá, Cliente
 
 <div class="carrinho-icon">
 
-<a href="#">
+<a href=acarrinho.php">
 
 <i class="fa-solid fa-bag-shopping"></i>
 
