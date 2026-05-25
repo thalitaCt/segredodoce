@@ -1,583 +1,492 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root{
-
-    --rosa1:#ffb3aa;
-    --rosa2:#ff877d;
-    --rosa3:#ee5350;
-
-    --bege:#fff4ee;
-    --bege2:#ffedcd;
-
-    --marrom:#7d5147;
-    --marrom2:#421d14;
-
-    --branco:#ffffff;
-    --preto:#1e1e1e;
-
+:root {
+--bege: #ffedcd;
+--bege2: #fff4ee;
+--bege3: #eacab6;
+--marrom: #7d5147;
+--marrom2: #833c2c;
+--marrom3: #421d14;
+--rosa: #ff877d;
+--rosa2: #ee5350;
+--verde: #347141;
+--branco: #ffffff;
+--preto: #000000;
+--preto2: #1b1b1b;
+--amarelo: #fde047;
+--amarelo2: #facc15;
 }
 
-.navbar *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Poppins;
+.logo {
+font-family: Berkshire Swash;
+display: flex;
+align-items: center;
+gap: 10px;
+
+img {
+width: 50px;
+height: 50px;
+border-radius: 350px;
+}
 }
 
-body{
-    padding-top:95px;
+.navbar {
+z-index: 9990;
+background:linear-gradient(
+135deg,
+var(--rosa1),
+var(--rosa2),
+var(--rosa3)
+);
+
+box-shadow:
+0 5px 20px rgba(0,0,0,0.12),
+0 1px 0 rgba(255,255,255,0.08);
+
+backdrop-filter:blur(10px);
+top: 0px;
+left: 0px;
+right: 0px;
+padding: 20px;
+min-height: 60px;
+position: fixed;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 17pt;
+color: var(--branco);
+font-family: Poppins;
+
+.carrinho-icon {
+position: relative;
+display: inline-block;
+margin-top: 13px;
+
+#numeroC {
+position:absolute;
+top: -18px;
+right: -19px;
+min-width:20px;
+height:20px;
+border-radius:50%;
+background:var(--marrom2);
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:10px;
+font-weight:700;
+padding:2px;
+}
+}
 }
 
-/* NAVBAR */
-
-.navbar{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-    right:0;
-
-    z-index:9999;
-
-    height:90px;
-
-    padding:0 35px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    background:linear-gradient(
-    135deg,
-    var(--rosa1),
-    var(--rosa2),
-    var(--rosa3)
-    );
-
-    box-shadow:
-    0 5px 20px rgba(0,0,0,0.12),
-    0 1px 0 rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(10px);
-
-}
-
-/* LOGO */
-
-.logo{
-
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    text-decoration:none;
-    color:var(--branco);
-
-}
-
-.logo img{
-
-    width:58px;
-    height:58px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:3px solid rgba(255,255,255,0.3);
-
+.logo {
+justify-self: flex-start;
 }
 
 .logo-text{
 
-    display:flex;
-    flex-direction:column;
+display:flex;
+flex-direction:column;
 
-    line-height:1;
+line-height:1;
 
 }
 
 .logo-text h1{
 
-    font-family:'Berkshire Swash';
-    color: var(--branco);
-    font-size:34px;
-    font-weight:400;
+font-family:'Berkshire Swash';
+color: var(--branco);
+font-size:34px;
+font-weight:400;
 
 }
 
 .logo-text span{
 
-    font-size:11px;
+font-size:11px;
 
-    letter-spacing:2px;
+letter-spacing:2px;
 
-    opacity:0.9;
-
-}
-
-/* MENU */
-
-.menu{
-
-    display:flex;
-    align-items:center;
+opacity:0.9;
 
 }
 
-.menu ul{
 
-    display:flex;
-    align-items:center;
 
-    gap:18px;
-
-    list-style:none;
-
+.navbar .menu ul {
+list-style: none;
+display: flex;
+justify-content: center;
+gap: 30px;
+transition: 0.5s;
 }
+
+
+.navbar .menu a {
+color: var(--branco);
+padding:12px 16px;
+text-decoration: none;
+transition: 0.5s;
+}
+
+
+.navbar .menu ul li {
+transition: 0.5s
+}
+
+
+.menu {
+display: flex;
+align-items: center;
+justify-self: center;
+gap: 10px;
+}
+
 
 .menu li{
 
-    transition:0.3s;
+transition:0.3s;
 
-    border-radius:14px;
+border-radius:14px;
 
 }
 
 .menu li:hover{
 
-    transform:translateY(-2px);
+transform:translateY(-2px);
 
-    background:rgba(255,255,255,0.15);
+background:rgba(255,255,255,0.15);
 
-    backdrop-filter:blur(5px);
-
-}
-
-.navbar .menu a{
-
-    display:block;
-
-    padding:12px 16px;
-
-    color:var(--branco);
-
-    text-decoration:none;
-
-    font-size:15px;
-    font-weight:500;
+backdrop-filter:blur(5px);
 
 }
 
-/* ICONS */
 
-.navbar .icons{
 
-    display:flex;
-    align-items:center;
-
-    gap:22px;
-
+.navbar .icons a {
+color: var(--bege2);
+text-decoration: none;
+padding-left: 25px;
+transition: 0.5s;
 }
 
-/* CARRINHO */
 
-.carrinho-icon{
-
-    position:relative;
-
+.navbar .icons a:hover {
+color: var(--marrom2);
 }
 
-.carrinho-icon a{
 
-    color:white;
-
-    text-decoration:none;
-
+.icons i {
+transition: 0.5s;
 }
 
-.carrinho-icon i{
 
-    font-size:24px;
-
-    transition:0.3s;
-
+.icons i:hover {
+transform: scale(1.3);
 }
 
-.carrinho-icon i:hover{
 
-    transform:scale(1.12);
-
-    color:var(--bege2);
-
+.icons {
+justify-self: end;
+display: flex;
+gap: 30px;
+align-items: center;
+font-size: 21pt;
 }
 
-#numeroC{
 
-    position:absolute;
+.user-icon {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
 
-    top:-6px;
-    right:-8px;
 
-    min-width:20px;
-    height:20px;
-
-    border-radius:50%;
-
-    background:var(--marrom2);
-
-    color:white;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:10px;
-    font-weight:700;
-
-    padding:2px;
-
+i {
+margin-top: 18px;
 }
 
-/* USER */
+
+span {
+font-size: 9pt;
+margin-left: 17px;
+}
+}
+
+
+.menu-icon {
+display: none;
+}
 
 .user-menu{
-
-    position:relative;
-
+position:relative;
+display: flex;
+align-items: center;
+gap: 8px;
+top: 7px;
+height: 60px;
 }
 
-.navbar .user-button{
 
-    background:none;
-    border:none;
-
-    color:white;
-
-    display:flex;
-    align-items:center;
-
-    gap:10px;
-
-    cursor:pointer;
-
-    font-size:15px;
-    font-weight:500;
-
+.user-button{
+background:none;
+border:none;
+color:white;
+display:flex;
+align-items:center;
+gap: 8px;
+cursor:pointer;
+font-size:16px;
+font-family:Poppins;
+height: 60px;
 }
 
-.navbar .user-button i{
 
-    transition:0.3s;
-
+.user-button i{
+font-size:24px;
 }
 
-.navbar .user-button:hover i{
-
-    color:var(--bege2);
-
-}
-
-.user-avatar{
-
-    width:42px;
-    height:42px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,0.15);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:18px;
-
-}
-
-/* DROPDOWN */
 
 .dropdown-user{
-
-    position:absolute;
-
-    top:60px;
-    right:0;
-
-    width:220px;
-
-    background:white;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    display:none;
-    flex-direction:column;
-
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
+position:absolute;
+top:45px;
+right:0;
+background:white;
+border-radius:15px;
+min-width:200px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+display:none;
+overflow:hidden;
+z-index:999;
 }
+
 
 .dropdown-user.active{
-
-    display:flex;
-
+font-size: 13pt;
+display:flex;
+flex-direction:column;
 }
+
 
 .dropdown-user a{
-
-    padding:16px 18px;
-
-    text-decoration:none;
-
-    color:var(--marrom2);
-
-    font-size:15px;
-    font-weight:500;
-
-    transition:0.3s;
-
+font-size: 13pt;
+color:#421d14 !important;
+padding:15px;
+text-decoration:none;
+transition:0.3s;
+font-weight:500;
 }
+
 
 .dropdown-user a:hover{
-
-    background:var(--bege);
-
+background:#fff4ee;
 }
 
-/* MENU MOBILE */
 
-.menu-icon{
+.user-button .seta{
+font-size:12px !important;
+display: flex;
+align-items: center;
+}
 
-    display:none;
-
-    color:white;
-
-    font-size:28px;
-
-    cursor:pointer;
-
+#user-conta {
+font-weight: 400;
+font-size: 15pt;
 }
 
 .mobile-user-mobile{
+display: none;
+}
 
-    display:none;
+@media (max-width: 768px) {
+
+html, body {
+overflow-x: hidden;
+}
+
+.navbar {
+display: flex !important;
+align-items: center;
+justify-content: space-between;
+padding: 10px;
+width: 100%;
+gap: 10px;
+min-height: 70px;
+box-sizing: border-box;
+}
+
+.navbar .icons a {
+padding-left: 0 !important;
+}
+
+
+.logo {
+order: 1;
+}
+
+
+.menu a {
+color:white;
+text-decoration:none;
+}
+
+.menu-icon {
+order: 3;
+display: block !important;
+font-size:30px;
+margin-left: 0px;
+flex-shrink: 0;
+}
+
+.menu {
+justify-self: end;
+text-align: center;
+display:none;
+flex-direction:column;
+background:var(--rosa);
+position:absolute;
+top:90px;
+right:15px;
+width:200px;
+padding:10px;
+border-radius: 15px;
+gap: 20px;
+}
+
+
+.menu ul {
+text-align: center;
+flex-direction: column;
+}
+
+
+.icons {
+order: 2;
+display: flex;
+align-items: center;
+justify-content: center;
+justify-items: center;
+align-items: center;
+gap: 15px;
+margin-left: auto;
+margin-right: 0px;
+}
+
+
+.user-menu {
+display: none;
+}
+
+.menu.active{
+display:flex;
+flex-direction: column;
+position: absolute;
+top: 48px;
+right: 5px;
+}
+
+.carrinho-icon {
+order: 2;
+display: flex;
+flex-direction: row;
+font-size:25px;
+padding-bottom: 10px;
+justify-content: center;
+justify-items: center;
+align-items: center;
+gap: 10px;
+margin-left: auto;
+
+#numeroC {
+margin-right: 57px;
+padding: 3px;
+margin-top: 10px;
+font-size: 6pt;
+}
+}
+
+.mobile-user-mobile{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+
+.mobile-user-mobile li{
+list-style:none;
+}
+
+
+.mobile-user-mobile a{
+color:white;
+text-decoration:none;
+font-size:16px;
+padding:8px;
+display:block;
+}
+
+
+.user-header{
+font-weight:600;
+font-size:18px;
+padding:10px 8px;
+border-bottom:1px solid rgba(255,255,255,0.3);
+margin-bottom:5px;
+}
 
 }
 
-/* RESPONSIVO */
+@media (min-width: 1400px) {
+.logo {
+font-size: 25pt;
 
-@media(max-width:768px){
-
-    .navbar{
-
-    overflow:visible;
-
+img {
+width: 80px;
+height: 80px;
+}
 }
 
-.navbar .icons{
+.navbar {
+padding: 30px;
 
-    gap:14px;
+.carrinho-icon {
+font-size: 35px;
 
-    margin-right:6px;
-
+#numeroC {
+font-size: 16pt;
+}
+}
 }
 
-.navbar .carrinho-icon{
-
-    transform:scale(0.95);
-
+.menu ul li {
+font-size: 22pt;
 }
 
-    .navbar{
-
-        height:85px;
-
-        padding:0 18px;
-
-    }
-
-    .logo img{
-
-        width:50px;
-        height:50px;
-
-    }
-
-    .logo-text h1{
-
-        font-size:28px;
-
-    }
-
-    .menu-icon{
-
-        display:block;
-
-    }
-
-    .menu{
-
-        position:absolute;
-
-        top:90px;
-        right:15px;
-
-        width:240px;
-
-        padding:20px;
-
-        border-radius:20px;
-
-        background:linear-gradient(
-        135deg,
-        var(--rosa2),
-        var(--rosa3)
-        );
-
-        display:none;
-
-        box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
-    }
-
-    .menu.active{
-
-        display:flex;
-
-        animation:menuFade 0.3s ease;
-
-    }
-
-    .menu ul{
-
-        width:100%;
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:8px;
-
-    }
-
-    .menu li{
-
-        width:100%;
-
-    }
-
-    .menu a{
-
-        width:100%;
-
-    }
-
-    .user-menu{
-
-        display:none;
-
-    }
-
-    .mobile-user-mobile{
-
-        display:flex;
-
-        flex-direction:column;
-
-        width:100%;
-
-        margin-top:10px;
-        padding-top:15px;
-
-        border-top:1px solid rgba(255,255,255,0.15);
-
-    }
-
-    .mobile-user-mobile li{
-
-        list-style:none;
-
-    }
-
-    .mobile-user-mobile a{
-
-        display:block;
-
-        width:100%;
-
-        color:white;
-
-        text-decoration:none;
-
-        padding:10px;
-
-    }
-
-    .user-header{
-
-        color:var(--bege2);
-
-        font-size:16px;
-        font-weight:600;
-
-        padding:10px;
-
-    }
-
+.icons i {
+font-size: 35px;
 }
 
-/* ANIMAÇÃO */
-
-@keyframes menuFade{
-
-    from{
-
-        opacity:0;
-        transform:translateY(-10px);
-
-    }
-
-    to{
-
-        opacity:1;
-        transform:translateY(0);
-
-    }
-
+.mobile-user-mobile {
+display:none;
 }
-
+}
 </style>
-
-</head>
-
 <body>
-
 <header class="navbar">
-
-<!-- LOGO -->
-
-<a href="index.php" class="logo">
-
+<div class="logo">
 <img src="imagens/LogoSegredo.png">
-
 <div class="logo-text">
 
 <h1>Segredo Doce</h1>
@@ -586,168 +495,145 @@ body{
 
 </div>
 
-</a>
-
-<!-- MENU MOBILE -->
-
-<div class="menu-icon" onclick="toggleMenu()">
-
-<i class="fa-solid fa-bars"></i>
-
 </div>
 
-<!-- MENU -->
+<?php
+$`totalItens = 0;
 
-<nav class="menu" id="menu">
+if(isset($_SESSION['carrinho'])) { foreach ($_SESSION['carrinho'] as $item) { $totalItens += `$item['quantidade'] ?? 1;
+}
+}
+?>
 
-<ul>
+<div class="menu-icon" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
 
-<li>
-<a href="index.php">Home</a>
-</li>
-
-<li>
-<a href="cardapio.php">Cardápio</a>
-</li>
-
-<li>
-<a href="sobre.php">Sobre</a>
-</li>
-
-<li>
-<a href="contato.php">Contato</a>
-</li>
+<div class="menu" id="menu"><ul>
+<li><a href="index.php">Home</a></li>
+<li><a href="cardapio.php">Cardápio</a></li>
+<li><a href="sobre.php">Sobre</a></li>
+<li><a href="contato.php">Contato</a></li>
 
 <div class="mobile-user-mobile">
 
+
+<?php if(isset($`_SESSION['nome'])): ?>
+
+<?php
+$nome = $_SESSION['nome'];
+$partes = explode(" ", trim($nome));
+$primeiro = $partes[0];
+?>
+
+
 <li class="user-header">
-Olá, Cliente
+Olá, <?= `$primeiro; ?>
 </li>
 
-<li>
-<a href="minha_conta.php">Minha Conta</a>
-</li>
 
-<li>
-<a href="pedidos.php">Pedidos</a>
-</li>
+<li><a href="minha_conta.php">Minha Conta</a></li>
+<li><a href="pedidos.php">Meus Pedidos</a></li>
+<li><a href="logout.php">Sair</a></li>
 
-<li>
-<a href="logout.php">Sair</a>
-</li>
+
+<?php else: ?>
+
+
+<li><a href="login.php">Entrar / Criar Conta</a></li>
+
+
+<?php endif; ?>
+
 
 </div>
 
 </ul>
-
-</nav>
-
-<!-- ICONS -->
+</div>
 
 <div class="icons">
 
-<!-- CARRINHO -->
-
 <div class="carrinho-icon">
-
-<a href=acarrinho.php">
-
-<i class="fa-solid fa-bag-shopping"></i>
-
-</a>
-
-<span id="numeroC">2</span>
-
+<a href="carrinho.php"> <i class="fa-solid fa-bag-shopping"></i> </a>
+<?php if( totalItens; ?></span>
+<?php endif; ?>
 </div>
-
-<!-- USER -->
 
 <div class="user-menu">
 
-<button
-class="user-button"
-onclick="toggleDropdown()">
 
-<div class="user-avatar">
+<?php if(isset($`_SESSION['nome'])): ?>
+
+
+<?php
+$nome = $_SESSION['nome'];
+$partes = explode(" ", trim($nome));
+$primeiro = $partes[0];
+?>
+
+
+<button class="user-button" onclick="toggleDropdown()">
+
 
 <i class="fa-solid fa-user"></i>
 
-</div>
 
-<span>
-Olá, Cliente
-</span>
+<span id="user-conta">Olá, <?= `$primeiro; ?></span>
 
-<i class="fa-solid fa-chevron-down"></i>
+
+<i class="fa-solid fa-chevron-down seta"></i>
+
 
 </button>
 
-<div
-class="dropdown-user"
-id="dropdownUser">
 
-<a href="#">
+<div class="dropdown-user" id="dropdownUser">
+
+
+<a href="minha_conta.php">
 Minha Conta
 </a>
 
-<a href="#">
-Pedidos
+
+<a href="pedidos.php">
+Meus Pedidos
 </a>
 
-<a href="#">
+
+<a href="logout.php">
 Sair
 </a>
 
-</div>
 
 </div>
 
+
+<?php else: ?>
+
+
+<a href="login.php">
+<i class="fa-solid fa-user"></i>
+</a>
+
+
+<?php endif; ?>
+
+
+</div>
 </div>
 
 </header>
 
 <script>
-
-function toggleMenu(){
-
-    document
-    .getElementById("menu")
-    .classList.toggle("active");
-
+function toggleMenu() {
+document.getElementById("menu").classList.toggle("active");
 }
+</script>
 
+<script>
 function toggleDropdown(){
-
-    document
-    .getElementById("dropdownUser")
-    .classList.toggle("active");
-
+document
+.getElementById("dropdownUser")
+.classList.toggle("active");
 }
-
-window.addEventListener("click", function(e){
-
-    const dropdown =
-    document.getElementById("dropdownUser");
-
-    const button =
-    document.querySelector(".user-button");
-
-    if(dropdown && button){
-
-        if(
-            !dropdown.contains(e.target)
-            &&
-            !button.contains(e.target)
-        ){
-
-            dropdown.classList.remove("active");
-
-        }
-
-    }
-
-});
-
 </script>
 
 </body>
