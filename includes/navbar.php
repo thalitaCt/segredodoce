@@ -91,6 +91,10 @@ padding:2px;
 }
 }
 
+.logo a {
+  text-decoration: none;
+  color: var(--branco);
+}
 .logo {
 justify-self: flex-start;
 }
@@ -176,7 +180,7 @@ backdrop-filter:blur(5px);
 
 
 .navbar .icons a {
-color: var(--bege2);
+color: var(--branco);
 text-decoration: none;
 padding-left: 25px;
 transition: 0.5s;
