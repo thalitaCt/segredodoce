@@ -25,7 +25,7 @@ if ($_GET['erro'] == 'upload') echo "Erro ao enviar imagem.";
 
 <h2>Cadastrar Produto</h2>
 
-<form method="POST" action="salvar_criacao.php">
+<form method="POST" action="salvar_criacao.php" enctype="multipart/form-data">
 
 <div class="form-grid produto-grid">
 
