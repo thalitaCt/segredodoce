@@ -44,7 +44,7 @@ if ($_GET['erro'] == 'upload') echo "Erro ao enviar imagem.";
 
 <h2>Alterar Produto</h2>
 
-<form method="POST" action="salvar_edicao.php">
+<form method="POST" action="salvar_edicao.php" enctype="multipart/form-data">
 
 <input 
 type="hidden" 
