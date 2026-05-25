@@ -516,7 +516,7 @@ if(isset($_SESSION['carrinho'])) { foreach ($_SESSION['carrinho'] as $item) { $t
 <div class="mobile-user-mobile">
 
 
-<?php if(isset($`_SESSION['nome'])): ?>
+<?php if(isset($_SESSION['nome'])): ?>
 
 <?php
 $nome = $_SESSION['nome'];
@@ -526,7 +526,7 @@ $primeiro = $partes[0];
 
 
 <li class="user-header">
-Olá, <?= `$primeiro; ?>
+Olá, <?= $primeiro; ?>
 </li>
 
 
@@ -553,14 +553,15 @@ Olá, <?= `$primeiro; ?>
 
 <div class="carrinho-icon">
 <a href="carrinho.php"> <i class="fa-solid fa-bag-shopping"></i> </a>
-<?php if( totalItens; ?></span>
-<?php endif; ?>
+<?php if($totalItens > 0): ?>
+                    <span id="numeroC"><?php echo $totalItens; ?></span>
+                     <?php endif; ?>
 </div>
 
 <div class="user-menu">
 
 
-<?php if(isset($`_SESSION['nome'])): ?>
+<?php if(isset($_SESSION['nome'])): ?>
 
 
 <?php
@@ -576,7 +577,7 @@ $primeiro = $partes[0];
 <i class="fa-solid fa-user"></i>
 
 
-<span id="user-conta">Olá, <?= `$primeiro; ?></span>
+<span id="user-conta">Olá, <?= $primeiro; ?></span>
 
 
 <i class="fa-solid fa-chevron-down seta"></i>
