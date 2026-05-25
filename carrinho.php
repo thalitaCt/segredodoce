@@ -2,6 +2,11 @@
     session_start();
     include 'includes/conexao.php';
 
+    if(!isset($_SESSION['usuario'])){
+    header("Location: login.php?erro=login_carrinho");
+    exit;
+    }
+
     if (!isset($_SESSION['carrinho'])) {
         $_SESSION['carrinho'] = [];
     }

@@ -11,7 +11,8 @@
 <body>
 
 <?php if(isset($_GET['msg'])): ?>
-<div class="alerta-sucesso">
+<div class="alerta sucesso">
+<i class="fa-solid fa-circle-check"></i>
     <?php
     if ($_GET['msg'] == 'cadastro_ok') echo "Cadastro realizado com sucesso!";
     ?>
@@ -21,7 +22,8 @@
 
 
 <?php if (isset($_GET['erro'])): ?>
-<div class="alerta">
+<div class="alerta erro">
+<i class="fa-solid fa-triangle-exclamation"></i>
     <?php
     if ($_GET['erro'] == 'email_existente') echo "E-mail já cadastrado";
     if ($_GET['erro'] == 'telefone_invalido') echo "Telefone inválido";

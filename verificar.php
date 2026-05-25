@@ -127,14 +127,54 @@ button:hover{
 
 .alerta{
     position:fixed;
-    top:20px;
-    right:20px;
-    background:#00a00d;
-    color:white;
-    padding:20px;
-    border-radius:10px;
-    font-weight:600;
+
+    top:25px;
+    right:25px;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
     z-index:9999;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.25);
+
+    font-weight:600;
+
+    animation:aparecer 0.3s ease;
+}
+
+.sucesso{
+    background:#22c55e;
+    color:white;
+}
+
+.erro{
+    background:#ef4444;
+    color:white;
+}
+
+.fechar{
+    cursor:pointer;
+    margin-left:10px;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 </style>
 </head>
@@ -145,7 +185,8 @@ button:hover{
 
 <!-- ALERTAS -->
 <?php if(isset($_GET['msg'])): ?>
-<div class="alerta">
+<div class="alerta sucesso">
+<i class="fa-solid fa-circle-check"></i>
     <?php
         if($_GET['msg'] == 'reenviado') echo "Novo código enviado";
         if($_GET['msg'] == 'verificado') echo "Conta verificada com sucesso!";
@@ -156,7 +197,8 @@ button:hover{
 
 
 <?php if(isset($_GET['erro'])): ?>
-<div class="alerta" style="background:#c0392b;">
+<div class="alerta erro">
+<i class="fa-solid fa-triangle-exclamation"></i>
     <?php
         if($_GET['erro'] == 'codigo') echo "Código inválido.";
         if($_GET['erro'] == 'nao_verificado') echo "Conta não verificada.";

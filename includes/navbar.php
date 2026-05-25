@@ -493,7 +493,9 @@ $primeiro = $partes[0];
 
                 <div class="carrinho-icon">
                     <a href="carrinho.php"> <i class="fa-solid fa-bag-shopping"></i> </a>
-                    <span id="numeroC"><?php echo $totalItens; ?></span> 
+                    <?php if($totalItens > 0): ?>
+                    <span id="numeroC"><?php echo $totalItens; ?></span>
+                     <?php endif; ?>
                 </div>
 
            <div class="user-menu">

@@ -226,31 +226,54 @@ tbody tr:hover {
 
 /* ALERTA */
 .alerta{
-    animation: slide 0.4s ease;
     position:fixed;
-    top:20px;
-    right:20px;
-    background:#00a00d;
-    color:white;
-    padding:20px;
-    border-radius:10px;
+
+    top:25px;
+    right:25px;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    z-index:9999;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.25);
+
     font-weight:600;
+
+    animation:aparecer 0.3s ease;
+}
+
+.sucesso{
+    background:#22c55e;
+    color:white;
+}
+
+.erro{
+    background:#ef4444;
+    color:white;
 }
 
 .fechar{
-    margin-left:10px;
     cursor:pointer;
+    margin-left:10px;
 }
 
-@keyframes slide {
-    from {
-        opacity: 0;
-        transform: translateX(100px);
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
     }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 

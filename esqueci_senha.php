@@ -85,23 +85,56 @@ button:hover {
 
 
 /* ALERTA */
-.alerta {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #e53935;
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    z-index: 9999;
-    font-weight: 600;
+.alerta{
+    position:fixed;
+
+    top:25px;
+    right:25px;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    z-index:9999;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.25);
+
+    font-weight:600;
+
+    animation:aparecer 0.3s ease;
 }
 
+.sucesso{
+    background:#22c55e;
+    color:white;
+}
 
-.fechar {
-    margin-left: 10px;
-    cursor: pointer;
-    font-weight: bold;
+.erro{
+    background:#ef4444;
+    color:white;
+}
+
+.fechar{
+    cursor:pointer;
+    margin-left:10px;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 
@@ -112,10 +145,13 @@ button:hover {
     }
 
 
-    .alerta {
-        right: 10px;
-        left: 10px;
-        font-size: 14px;
+    .alerta{
+        left:15px;
+        right:15px;
+
+        top:15px;
+
+        font-size:14px;
     }
 }
 </style>
@@ -128,8 +164,8 @@ button:hover {
 
 
 <?php if(isset($_GET['erro'])): ?>
-<div class="alerta">
-
+<div class="alerta erro">
+<i class="fa-solid fa-triangle-exclamation"></i>
 
 <?php
 if($_GET['erro'] === 'email') {

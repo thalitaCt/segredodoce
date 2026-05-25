@@ -417,36 +417,56 @@ small{
 }
 
 
-.alerta,
-.alerta-sucesso{
+.alerta{
     position:fixed;
-    top:20px;
-    right:20px;
-    padding:18px 24px;
-    border-radius:12px;
-    color:white;
-    z-index:9999;
-    font-weight:600;
+
+    top:25px;
+    right:25px;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
     display:flex;
     align-items:center;
-    gap:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    gap:15px;
+
+    z-index:9999;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.25);
+
+    font-weight:600;
+
+    animation:aparecer 0.3s ease;
 }
 
-
-.alerta{
-    background:var(--vermelho);
+.sucesso{
+    background:#22c55e;
+    color:white;
 }
 
-
-.alerta-sucesso{
-    background:var(--verde);
+.erro{
+    background:#ef4444;
+    color:white;
 }
-
 
 .fechar{
     cursor:pointer;
-    font-weight:bold;
+    margin-left:10px;
+}
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 
@@ -468,10 +488,12 @@ small{
     }
 
 
-    .alerta,
-    .alerta-sucesso{
-        left:10px;
-        right:10px;
+    .alerta{
+        left:15px;
+        right:15px;
+
+        top:15px;
+
         font-size:14px;
     }
 }
@@ -487,10 +509,10 @@ small{
 <?php if(isset($_GET['erro'])): ?>
 
 
-<div class="alerta">
+<div class="alerta erro">
 
 
-<i class="fa-solid fa-circle-exclamation"></i>
+<i class="fa-solid fa-triangle-exclamation"></i>
 
 
 <?php
@@ -539,7 +561,7 @@ X
 <?php if(isset($sucessoFrete)): ?>
 
 
-<div class="alerta-sucesso">
+<div class="alerta sucesso">
 
 
 <i class="fa-solid fa-circle-check"></i>
@@ -898,8 +920,28 @@ verificarEntrega();
 
 <script>
 
+document.getElementById('cep')
+.addEventListener('input', function(e){
+
+let v = e.target.value.replace(/\D/g,'');
+
+if(v.length > 8){
+    v = v.slice(0,8);
+}
+
+v = v.replace(/(\d{5})(\d)/,'$1-$2');
+
+e.target.value = v;
+
+});
+
 const cepInput = document.getElementById('cep');
-cepInput.addEventListener('blur', async function(){
+
+/* =========================
+   BUSCAR CEP
+========================= */
+
+async function buscarCEP(){
 
     let cep = cepInput.value.replace(/\D/g,'');
 
@@ -909,7 +951,9 @@ cepInput.addEventListener('blur', async function(){
 
     try{
 
-        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const resposta =
+        await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
         const dados = await resposta.json();
 
         if(dados.erro){
@@ -917,22 +961,78 @@ cepInput.addEventListener('blur', async function(){
             return;
         }
 
+        document.querySelector('input[name="endereco"]').value =
+        dados.logradouro || '';
 
-        document.querySelector('input[name="endereco"]').value = dados.logradouro || '';
-        document.querySelector('input[name="bairro"]').value = dados.bairro || '';
-        document.getElementById('cidade').value = dados.localidade || '';
-        document.getElementById('estado').value = dados.uf || '';
+        document.querySelector('input[name="bairro"]').value =
+        dados.bairro || '';
+
+        cidade.value = dados.localidade || '';
+
+        estado.value = dados.uf || '';
 
         verificarEntrega();
 
-    } catch(error){
+    }
+    catch(error){
 
         console.log(error);
-        alert("Erro ao buscar CEP.");
 
     }
 
+}
+
+/* QUANDO SAI DO INPUT */
+cepInput.addEventListener('blur', buscarCEP);
+
+/* QUANDO APERTA ENTER */
+cepInput.addEventListener('keydown', async function(e){
+
+    if(e.key === 'Enter'){
+
+        e.preventDefault();
+
+        await buscarCEP();
+
+        document.querySelector('input[name="numero"]').focus();
+    }
 });
+
+function verificarEntrega(){
+
+let cidadeValor =
+cidade.value.toLowerCase().trim();
+
+let estadoValor =
+estado.value.toUpperCase().trim();
+
+if(
+cidadeValor === 'rio de janeiro'
+&&
+estadoValor === 'RJ'
+){
+
+regiao.disabled = false;
+
+if(regiao.value === 'Entrega Externa'){
+    regiao.value = '';
+}
+
+}
+else{
+
+regiao.value = 'Entrega Externa';
+regiao.disabled = true;
+
+}
+
+}
+
+cidade.addEventListener('input', verificarEntrega);
+
+estado.addEventListener('change', verificarEntrega);
+
+window.addEventListener('load', verificarEntrega);
 </script>
 
 <script>

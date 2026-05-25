@@ -113,8 +113,8 @@ LIMIT 5
 <?php if(isset($_GET['msg'])): ?>
 
 
-<div class="alerta">
-
+<div class="alerta sucesso">
+<i class="fa-solid fa-circle-check"></i>
 
 <?php
 switch($_GET['msg']){

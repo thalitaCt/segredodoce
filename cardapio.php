@@ -15,7 +15,8 @@ session_start();
 
 <?php if (isset($_GET['msg'])): ?>
     
-<div class="alerta" id="alerta">
+<div class="alerta sucesso" id="alerta">
+<i class="fa-solid fa-circle-check"></i>
 
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 
@@ -25,7 +26,8 @@ session_start();
     <?php endif; ?>
 
 <?php if (isset($_GET['erro'])): ?>
-<div class="alerta">
+<div class="alerta erro">
+<i class="fa-solid fa-triangle-exclamation"></i>
 <?php
 if ($_GET['erro'] == 'estoque') echo "Produto sem estoque";
 if ($_GET['erro'] == 'produto') echo "Produto não encontrado";

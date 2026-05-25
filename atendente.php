@@ -27,7 +27,8 @@ $pedidos = $sql->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
 <?php if(isset($_GET['msg'])): ?>
-<div class="alerta">
+<div class="alerta sucesso">
+<i class="fa-solid fa-circle-check"></i>
 <?php
 if($_GET['msg'] == 'pedido_criado') echo "Pedido realizado com sucesso";
 if($_GET['msg'] == 'status_atualizado') echo "Status atualizado com sucesso";

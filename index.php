@@ -20,7 +20,8 @@ $produtos = $sql->fetchAll(PDO::FETCH_ASSOC);
 <body>
 
 <?php if (isset($_GET['msg'])): ?>
-<div class="alerta-sucesso">
+<div class="alerta sucesso">
+<i class="fa-solid fa-circle-check"></i>
 <?php
 if ($_GET['msg'] == 'cadastrado') echo "Conta criada com sucesso";
 if ($_GET['msg'] == 'login_sucesso') echo "Login realizado com sucesso";

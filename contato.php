@@ -14,21 +14,24 @@ session_start();
 <body>
 
 <?php if(isset($_GET['msg']) && $_GET['msg'] == 'enviado'): ?>
-<div class="alerta">
+<div class="alerta sucesso">
+<i class="fa-solid fa-circle-check"></i>
 <p>Mensagem enviada com sucesso!</p>
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>
 <?php endif; ?>
 
 <?php if(isset($_GET['erro']) && $_GET['erro'] == 'campos_vazios'): ?>
-<div class="alerta">
+<div class="alerta erro">
+<i class="fa-solid fa-triangle-exclamation"></i>
 <p>Preencha todos os campos!</p>
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>
 <?php endif; ?>
 
 <?php if(isset($_GET['erro']) && $_GET['erro'] == 'assunto'): ?>
-<div class="alerta">
+<div class="alerta erro">
+<i class="fa-solid fa-triangle-exclamation"></i>
 <p>Selecione um assunto válido!</p>
 <span class="fechar" onclick="this.parentElement.style.display='none'">X</span>
 </div>

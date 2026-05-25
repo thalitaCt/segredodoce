@@ -59,6 +59,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="alerta">
 
+<i class="fa-solid fa-triangle-exclamation"></i>
 
 <?php
 
@@ -116,8 +117,9 @@ X
 <?php if(isset($_GET['msg'])): ?>
 
 
-<div class="alerta-sucesso">
+<div class="alerta sucesso">
 
+<i class="fa-solid fa-circle-check"></i>
 
 <?php
 
@@ -416,27 +418,31 @@ document.getElementById('telefone').addEventListener('input', function(e){
     e.target.value = v;
 });
 
-document.getElementById('cep').addEventListener('input', function(e){
+document.getElementById('cep')
+.addEventListener('input', function(e){
 
-    let v = e.target.value.replace(/\D/g,'');
+let v = e.target.value.replace(/\D/g,'');
 
-    if(v.length > 8){
-        v = v.slice(0,8);
-    }
+if(v.length > 8){
+    v = v.slice(0,8);
+}
 
-    v = v.replace(/(\d{5})(\d)/,'$1-$2');
+v = v.replace(/(\d{5})(\d)/,'$1-$2');
 
-    e.target.value = v;
+e.target.value = v;
+
 });
-
 
 const cidade = document.querySelector('input[name="cidade"]');
 const estado = document.getElementById('estado');
 const regiao = document.getElementById('regiao');
 const cepInput = document.getElementById('cep');
 
+/* =========================
+   BUSCAR CEP
+========================= */
 
-cepInput.addEventListener('blur', async function(){
+async function buscarCEP(){
 
     let cep = cepInput.value.replace(/\D/g,'');
 
@@ -446,7 +452,9 @@ cepInput.addEventListener('blur', async function(){
 
     try{
 
-        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const resposta =
+        await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
         const dados = await resposta.json();
 
         if(dados.erro){
@@ -456,6 +464,7 @@ cepInput.addEventListener('blur', async function(){
 
         document.querySelector('input[name="endereco"]').value =
         dados.logradouro || '';
+
         document.querySelector('input[name="bairro"]').value =
         dados.bairro || '';
 
@@ -465,42 +474,64 @@ cepInput.addEventListener('blur', async function(){
 
         verificarEntrega();
 
-    } catch(error){
+    }
+    catch(error){
 
         console.log(error);
+
     }
 
+}
+
+/* QUANDO SAI DO INPUT */
+cepInput.addEventListener('blur', buscarCEP);
+
+/* QUANDO APERTA ENTER */
+cepInput.addEventListener('keydown', async function(e){
+
+    if(e.key === 'Enter'){
+
+        e.preventDefault();
+
+        await buscarCEP();
+
+        document.querySelector('input[name="numero"]').focus();
+    }
 });
 
 function verificarEntrega(){
 
-    let cidadeValor = cidade.value.toLowerCase().trim();
-    let estadoValor = estado.value.toUpperCase().trim();
+let cidadeValor =
+cidade.value.toLowerCase().trim();
 
-    if(
-        cidadeValor === 'rio de janeiro' &&
-        estadoValor === 'RJ'
-    ){
+let estadoValor =
+estado.value.toUpperCase().trim();
 
-        regiao.disabled = false;
+if(
+cidadeValor === 'rio de janeiro'
+&&
+estadoValor === 'RJ'
+){
 
-        if(regiao.value === 'Entrega Externa'){
-            regiao.value = '';
-        }
+regiao.disabled = false;
 
-    } else {
+if(regiao.value === 'Entrega Externa'){
+    regiao.value = '';
+}
 
-        regiao.value = 'Entrega Externa';
-        regiao.disabled = true;
+}
+else{
 
-    }
+regiao.value = 'Entrega Externa';
+regiao.disabled = true;
+
+}
 
 }
 
 cidade.addEventListener('input', verificarEntrega);
 estado.addEventListener('change', verificarEntrega);
 window.addEventListener('load', verificarEntrega);
-
 </script>
 
 
