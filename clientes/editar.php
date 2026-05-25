@@ -254,9 +254,15 @@ estado.addEventListener('change', verificarEntrega);
 
 verificarEntrega();
 
-document.getElementById('cep').addEventListener('blur', async function(){
+const cepInput = document.getElementById('cep');
 
-    let cep = this.value.replace(/\D/g,'');
+/* =========================
+   BUSCAR CEP
+========================= */
+
+async function buscarCEP(){
+
+    let cep = cepInput.value.replace(/\D/g,'');
 
     if(cep.length != 8){
         return;
@@ -270,6 +276,7 @@ document.getElementById('cep').addEventListener('blur', async function(){
         const dados = await resposta.json();
 
         if(dados.erro){
+            alert("CEP não encontrado.");
             return;
         }
 
@@ -279,18 +286,35 @@ document.getElementById('cep').addEventListener('blur', async function(){
         document.querySelector('input[name="bairro"]').value =
         dados.bairro || '';
 
-        cidade.value =
-        dados.localidade || '';
+        cidade.value = dados.localidade || '';
 
-        estado.value =
-        dados.uf || '';
+        estado.value = dados.uf || '';
 
         verificarEntrega();
 
-    } catch(error){
+    }
+    catch(error){
+
         console.log(error);
+
     }
 
+}
+
+/* QUANDO SAI DO INPUT */
+cepInput.addEventListener('blur', buscarCEP);
+
+/* QUANDO APERTA ENTER */
+cepInput.addEventListener('keydown', async function(e){
+
+    if(e.key === 'Enter'){
+
+        e.preventDefault();
+
+        await buscarCEP();
+
+        document.querySelector('input[name="numero"]').focus();
+    }
 });
 </script>
 
