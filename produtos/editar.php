@@ -114,23 +114,36 @@ placeholder="Descrição do produto"
 </div>
 
 <div class="input-group">
-<label>Nome da imagem</label>
+<label>Imagem Atual</label>
 
-<input
-type="text"
-name="imagem"
-placeholder="ex: fatias.png"
-value="<?= str_replace('imagens/produtos/', '', $produto['imagem']) ?>"
->
+<?php
+
+if(str_contains($produto['imagem'], 'http')){
+
+    $imagemProduto = $produto['imagem'];
+
+}else{
+
+    $imagemProduto = '../../' . $produto['imagem'];
+
+}
+
+?>
+
+<img
+src="<?= $imagemProduto; ?>"
+class="preview-img">
+
 </div>
 
-<div class="input-group">
-<label>Preview atual</label>
+<div class="grupo">
 
-<img 
-src="../<?= $produto['imagem'] ?>" 
-class="preview-img"
->
+<label>Nova Imagem (Opcional)</label>
+
+<input
+type="file"
+name="imagem">
+
 </div>
 
 </div>

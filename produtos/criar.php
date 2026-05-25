@@ -84,22 +84,10 @@ rows="4"></textarea>
 <div class="input-group full">
 <label>Imagem</label>
 
-<div class="prefix-input">
-
-<span>
-imagens/produtos/
-</span>
-
 <input
-type="text"
-name="imagem"
-placeholder="produto.png">
-
-</div>
-
-<small>
-Digite apenas o nome da imagem.
-</small>
+type="file"
+name="imagem" 
+required>
 
 </div>
 
