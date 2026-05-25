@@ -60,7 +60,7 @@ if(
 
 ){
 
-    header("Location: criar.php?erro=imageminvalida");
+    header("Location: criar.php?erro=invalida");
     exit;
 }
 
