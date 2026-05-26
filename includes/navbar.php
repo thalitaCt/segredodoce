@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -30,9 +29,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     --branco:#ffffff;
     --preto:#1b1b1b;
 
-    --glass:rgba(255,255,255,0.15);
-    --borda:rgba(255,255,255,0.18);
+    --shadow:0 10px 25px rgba(0,0,0,0.12);
 }
+
+/* RESET */
 
 *{
     margin:0;
@@ -40,32 +40,30 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     box-sizing:border-box;
 }
 
-body{
-    font-family:Poppins;
-}
-
 /* NAVBAR */
 
 .navbar{
+    z-index:9990;
     position:fixed;
     top:0;
     left:0;
     right:0;
 
-    z-index:9999;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:18px 40px;
+    padding:18px 35px;
 
     background:rgba(255,135,125,0.92);
     backdrop-filter:blur(14px);
 
     border-bottom:1px solid rgba(255,255,255,0.15);
 
+    font-family:Poppins;
     color:var(--branco);
+
+    min-height:85px;
 }
 
 /* LOGO */
@@ -78,8 +76,9 @@ body{
     text-decoration:none;
     color:var(--branco);
 
-    font-family:Yeseva One;
+    font-family:"Yeseva One";
     font-size:28px;
+    letter-spacing:0.5px;
 
     transition:0.3s;
 }
@@ -91,41 +90,49 @@ body{
 .logo img{
     width:58px;
     height:58px;
-
+    border-radius:50%;
     object-fit:cover;
 
-    border-radius:50%;
-
-    border:2px solid rgba(255,255,255,0.3);
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
 }
 
 /* MENU */
 
-.menu ul{
+.menu{
     display:flex;
     align-items:center;
-    gap:14px;
+}
 
+.menu ul{
+    list-style:none;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.menu li{
     list-style:none;
 }
 
 .menu a{
-    color:var(--branco);
     text-decoration:none;
+    color:var(--branco);
 
     font-size:15px;
     font-weight:500;
 
     padding:10px 18px;
-
-    border-radius:30px;
+    border-radius:999px;
 
     transition:0.3s;
 }
 
 .menu a:hover{
     background:rgba(255,255,255,0.18);
-    color:var(--bege2);
+    color:var(--branco);
+
+    transform:translateY(-2px);
 }
 
 /* ICONS */
@@ -133,7 +140,7 @@ body{
 .icons{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:20px;
 }
 
 /* CARRINHO */
@@ -150,13 +157,14 @@ body{
     align-items:center;
     justify-content:center;
 
-    text-decoration:none;
-
-    color:var(--branco);
-
     border-radius:50%;
 
-    background:rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.14);
+
+    color:var(--branco);
+    text-decoration:none;
+
+    font-size:21px;
 
     transition:0.3s;
 }
@@ -166,15 +174,11 @@ body{
     background:rgba(255,255,255,0.22);
 }
 
-.carrinho-icon i{
-    font-size:20px;
-}
-
 #numeroC{
     position:absolute;
 
-    top:-5px;
-    right:-5px;
+    top:-6px;
+    right:-6px;
 
     min-width:22px;
     height:22px;
@@ -185,17 +189,19 @@ body{
 
     padding:3px 6px;
 
-    border-radius:50px;
-
     background:var(--marrom3);
 
-    color:var(--branco);
+    color:white;
+
+    border-radius:999px;
 
     font-size:11px;
     font-weight:700;
+
+    border:2px solid var(--rosa);
 }
 
-/* USER MENU */
+/* USER */
 
 .user-menu{
     position:relative;
@@ -203,7 +209,7 @@ body{
 
 .user-button{
     border:none;
-    outline:none;
+    cursor:pointer;
 
     display:flex;
     align-items:center;
@@ -211,16 +217,14 @@ body{
 
     padding:10px 16px;
 
-    border-radius:50px;
+    border-radius:999px;
 
-    cursor:pointer;
+    background:rgba(255,255,255,0.14);
 
-    background:rgba(255,255,255,0.12);
-
-    color:var(--branco);
+    color:white;
 
     font-family:Poppins;
-    font-size:15px;
+    font-size:14px;
     font-weight:500;
 
     transition:0.3s;
@@ -230,41 +234,48 @@ body{
     background:rgba(255,255,255,0.22);
 }
 
-.user-button i{
+.user-button .fa-user{
     font-size:18px;
 }
+
+.user-button .seta{
+    font-size:11px;
+}
+
+/* DROPDOWN */
 
 .dropdown-user{
     position:absolute;
 
-    top:65px;
+    top:60px;
     right:0;
 
-    width:240px;
+    width:230px;
 
-    background:var(--branco);
+    background:white;
 
-    border-radius:20px;
+    border-radius:18px;
 
     overflow:hidden;
 
     display:none;
+    flex-direction:column;
 
-    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+    box-shadow:var(--shadow);
 }
 
 .dropdown-user.active{
     display:flex;
-    flex-direction:column;
 }
 
 .dropdown-user a{
-    padding:16px 18px;
-
-    color:var(--marrom3);
     text-decoration:none;
 
-    font-size:15px;
+    padding:15px 18px;
+
+    color:var(--marrom3);
+
+    font-size:14px;
     font-weight:500;
 
     transition:0.3s;
@@ -286,61 +297,47 @@ body{
 
     border-radius:50%;
 
-    background:rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.14);
 
-    color:var(--branco);
+    color:white;
     text-decoration:none;
+
+    font-size:19px;
 
     transition:0.3s;
 }
 
 .login-icon:hover{
     background:rgba(255,255,255,0.22);
-    transform:translateY(-2px);
-}
-
-.login-icon i{
-    font-size:20px;
-}
-
-/* MENU MOBILE */
-
-.menu-icon{
-    display:none;
-
-    width:48px;
-    height:48px;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,0.12);
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-.menu-icon:hover{
-    background:rgba(255,255,255,0.22);
-}
-
-.menu-icon i{
-    font-size:22px;
 }
 
 /* MOBILE */
 
-.mobile-user{
+.menu-icon{
+    display:none;
+
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* MOBILE USER */
+
+.mobile-user-mobile{
     display:none;
 }
 
-@media(max-width:900px){
+/* RESPONSIVO */
+
+@media(max-width:768px){
+
+    html,
+    body{
+        overflow-x:hidden;
+    }
 
     .navbar{
-        padding:15px 18px;
+        padding:12px 16px;
+        min-height:75px;
     }
 
     .logo{
@@ -353,65 +350,102 @@ body{
     }
 
     .menu-icon{
-        display:flex;
+        display:block;
+        order:3;
     }
 
     .menu{
+        display:none;
+
         position:absolute;
 
-        top:85px;
-        right:18px;
+        top:82px;
+        right:12px;
 
-        width:260px;
+        width:240px;
 
-        padding:20px;
+        background:var(--rosa);
 
-        border-radius:24px;
+        border-radius:20px;
 
-        background:rgba(255,135,125,0.97);
+        padding:18px;
 
-        backdrop-filter:blur(14px);
-
-        border:1px solid rgba(255,255,255,0.15);
-
-        display:none;
+        box-shadow:var(--shadow);
     }
 
     .menu.active{
-        display:block;
+        display:flex;
     }
 
     .menu ul{
+        width:100%;
         flex-direction:column;
-        align-items:stretch;
+        align-items:flex-start;
+        gap:8px;
     }
 
     .menu a{
-        display:block;
         width:100%;
+        display:block;
     }
 
-    .desktop-user{
+    .icons{
+        gap:12px;
+        margin-left:auto;
+    }
+
+    .user-menu{
         display:none;
     }
 
-    .mobile-user{
+    .mobile-user-mobile{
         display:flex;
         flex-direction:column;
+        width:100%;
+        gap:5px;
 
-        margin-top:15px;
-        padding-top:15px;
+        margin-top:10px;
+        padding-top:10px;
 
         border-top:1px solid rgba(255,255,255,0.2);
     }
 
-    .mobile-user span{
-        padding:10px 18px;
+    .mobile-user-mobile li{
+        list-style:none;
+        width:100%;
+    }
 
-        font-size:15px;
+    .mobile-user-mobile a{
+        width:100%;
+        display:block;
+    }
+
+    .user-header{
+        font-size:16px;
         font-weight:600;
 
-        color:var(--bege2);
+        padding:10px 12px;
+
+        color:white;
+    }
+
+}
+
+/* TELAS GRANDES */
+
+@media(min-width:1400px){
+
+    .navbar{
+        padding:22px 50px;
+    }
+
+    .logo{
+        font-size:34px;
+    }
+
+    .logo img{
+        width:70px;
+        height:70px;
     }
 
 }
@@ -422,7 +456,6 @@ body{
 <body>
 
 <?php
-
 $totalItens = 0;
 
 if(isset($_SESSION['carrinho'])){
@@ -430,22 +463,25 @@ if(isset($_SESSION['carrinho'])){
     foreach($_SESSION['carrinho'] as $item){
 
         $totalItens += $item['quantidade'] ?? 1;
-
     }
-
 }
-
 ?>
 
 <header class="navbar">
 
 <a href="index.php" class="logo">
 
-<img src="imagens/LogoSegredo.png" alt="Logo">
+    <img src="imagens/LogoSegredo.png" alt="Segredo Doce">
 
-<span>Segredo Doce</span>
+    <span>Segredo Doce</span>
 
 </a>
+
+<div class="menu-icon" onclick="toggleMenu()">
+
+    <i class="fa-solid fa-bars"></i>
+
+</div>
 
 <nav class="menu" id="menu">
 
@@ -453,43 +489,47 @@ if(isset($_SESSION['carrinho'])){
 
 <li>
 <a href="index.php">
+<i class="fa-solid fa-house"></i>
 Home
 </a>
 </li>
 
 <li>
 <a href="cardapio.php">
+<i class="fa-solid fa-cake-candles"></i>
 Cardápio
 </a>
 </li>
 
 <li>
 <a href="sobre.php">
+<i class="fa-solid fa-heart"></i>
 Sobre
 </a>
 </li>
 
 <li>
 <a href="contato.php">
+<i class="fa-solid fa-envelope"></i>
 Contato
 </a>
 </li>
 
-<div class="mobile-user">
+<div class="mobile-user-mobile">
 
 <?php if(isset($_SESSION['nome'])): ?>
 
 <?php
-
 $nome = $_SESSION['nome'];
 $partes = explode(" ", trim($nome));
 $primeiro = $partes[0];
-
 ?>
 
-<span>
+<li class="user-header">
+
 Olá, <?= $primeiro; ?>
-</span>
+
+</li>
 
 <li>
 <a href="minha_conta.php">
@@ -547,31 +587,25 @@ Entrar / Criar Conta
 
 </div>
 
-<div class="desktop-user">
-
 <?php if(isset($_SESSION['nome'])): ?>
 
 <?php
-
 $nome = $_SESSION['nome'];
 $partes = explode(" ", trim($nome));
 $primeiro = $partes[0];
-
 ?>
 
 <div class="user-menu">
 
-<button
-class="user-button"
-onclick="toggleDropdown()">
+<button class="user-button" onclick="toggleDropdown()">
 
 <i class="fa-solid fa-user"></i>
 
 <span>
-<?= $primeiro; ?>
+Olá, <?= $primeiro; ?>
 </span>
 
-<i class="fa-solid fa-chevron-down"></i>
+<i class="fa-solid fa-chevron-down seta"></i>
 
 </button>
 
@@ -614,14 +648,6 @@ Sair
 
 </div>
 
-<div class="menu-icon" onclick="toggleMenu()">
-
-<i class="fa-solid fa-bars"></i>
-
-</div>
-
-</div>
-
 </header>
 
 <script>
@@ -629,38 +655,33 @@ Sair
 function toggleMenu(){
 
     document
-    .getElementById('menu')
-    .classList
-    .toggle('active');
+    .getElementById("menu")
+    .classList.toggle("active");
 
 }
 
 function toggleDropdown(){
 
     document
-    .getElementById('dropdownUser')
-    .classList
-    .toggle('active');
+    .getElementById("dropdownUser")
+    .classList.toggle("active");
 
 }
 
 window.addEventListener('click', function(e){
 
     const dropdown =
-    document.getElementById('dropdownUser');
+    document.getElementById("dropdownUser");
 
     const botao =
-    document.querySelector('.user-button');
+    document.querySelector(".user-button");
 
     if(
         dropdown &&
-        botao &&
         !dropdown.contains(e.target) &&
         !botao.contains(e.target)
     ){
-
-        dropdown.classList.remove('active');
-
+        dropdown.classList.remove("active");
     }
 
 });
