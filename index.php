@@ -482,9 +482,6 @@ renderizar();
 
 <h2>Transformando pequenos momentos em doces lembranças</h2>
 
-
-
-
         </section>
 
 
