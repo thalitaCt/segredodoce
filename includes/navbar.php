@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root {
-    --bege: #ffedcd;
-    --bege2: #fff4ee;
-    --bege3: #eacab6;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    --marrom: #7d5147;
-    --marrom2: #833c2c;
-    --marrom3: #421d14;
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    --rosa: #ff877d;
-    --rosa2: #ee5350;
+<style>
 
-    --verde: #347141;
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    --branco: #ffffff;
-    --preto: #000000;
-    --preto2: #1b1b1b;
+:root{
+    --bege:#ffedcd;
+    --bege2:#fff4ee;
+    --bege3:#eacab6;
 
-    --glass: rgba(255,255,255,0.15);
-    --borda: rgba(255,255,255,0.2);
+    --marrom:#7d5147;
+    --marrom2:#833c2c;
+    --marrom3:#421d14;
 
-    --sombra:
-    0 8px 30px rgba(0,0,0,0.15);
+    --rosa:#ff877d;
+    --rosa2:#ee5350;
+
+    --verde:#347141;
+
+    --branco:#ffffff;
+    --preto:#1b1b1b;
+
+    --glass:rgba(255,255,255,0.15);
+    --borda:rgba(255,255,255,0.18);
 }
 
 *{
@@ -42,39 +41,31 @@
 }
 
 body{
-    padding-top:110px;
-    overflow-x:hidden;
+    font-family:Poppins;
 }
 
 /* NAVBAR */
 
 .navbar{
     position:fixed;
-    top:15px;
-    left:20px;
-    right:20px;
+    top:0;
+    left:0;
+    right:0;
 
-    z-index:9990;
+    z-index:9999;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:18px 30px;
-
-    border-radius:24px;
+    padding:18px 40px;
 
     background:rgba(255,135,125,0.92);
+    backdrop-filter:blur(14px);
 
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,0.18);
-
-    box-shadow:var(--sombra);
+    border-bottom:1px solid rgba(255,255,255,0.15);
 
     color:var(--branco);
-
-    font-family:Poppins;
 }
 
 /* LOGO */
@@ -84,105 +75,57 @@ body{
     align-items:center;
     gap:12px;
 
-    font-family:'Yeseva One';
-    font-size:28px;
-    color:var(--branco);
-
-    user-select:none;
-}
-
-.logo img{
-    width:58px;
-    height:58px;
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:3px solid rgba(255,255,255,0.25);
-
-    box-shadow:
-    0 4px 10px rgba(0,0,0,0.12);
-}
-
-.logo{
-    justify-self:flex-start;
-}
-
-.logo-link{
-    display:flex;
-    align-items:center;
-    gap:14px;
     text-decoration:none;
+    color:var(--branco);
+
+    font-family:Yeseva One;
+    font-size:28px;
+
+    transition:0.3s;
+}
+
+.logo:hover{
+    transform:scale(1.02);
 }
 
 .logo img{
     width:58px;
     height:58px;
-    border-radius:50%;
+
     object-fit:cover;
-    box-shadow:0 4px 15px rgba(0,0,0,0.15);
-}
 
-.logo-texto{
-    display:flex;
-    flex-direction:column;
-    line-height:1;
-}
+    border-radius:50%;
 
-.logo-titulo{
-    font-family:'Yeseva One', serif;
-    font-size:30px;
-    color:var(--branco);
-    letter-spacing:0.5px;
-}
-
-.logo-subtitulo{
-    margin-top:6px;
-    font-family:'Poppins', sans-serif;
-    font-size:11px;
-    font-weight:500;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:rgba(255,255,255,0.85);
+    border:2px solid rgba(255,255,255,0.3);
 }
 
 /* MENU */
 
-.menu{
-    display:flex;
-    align-items:center;
-}
-
 .menu ul{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:14px;
 
     list-style:none;
-}
-
-.menu ul li{
-    transition:0.25s ease;
 }
 
 .menu a{
     color:var(--branco);
     text-decoration:none;
 
-    padding:10px 16px;
-    border-radius:14px;
-
-    font-size:16px;
+    font-size:15px;
     font-weight:500;
 
-    transition:0.25s ease;
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    transition:0.3s;
 }
 
 .menu a:hover{
     background:rgba(255,255,255,0.18);
-    color:var(--branco);
-
-    transform:translateY(-2px);
+    color:var(--bege2);
 }
 
 /* ICONS */
@@ -190,102 +133,106 @@ body{
 .icons{
     display:flex;
     align-items:center;
-    gap:20px;
-}
-
-.icons a{
-    color:var(--branco);
-    text-decoration:none;
+    gap:18px;
 }
 
 /* CARRINHO */
 
 .carrinho-icon{
     position:relative;
+}
+
+.carrinho-icon a{
+    width:48px;
+    height:48px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
+    text-decoration:none;
+
+    color:var(--branco);
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.12);
+
+    transition:0.3s;
+}
+
+.carrinho-icon a:hover{
+    transform:translateY(-2px);
+    background:rgba(255,255,255,0.22);
 }
 
 .carrinho-icon i{
-    font-size:28px;
-    transition:0.25s ease;
-}
-
-.carrinho-icon i:hover{
-    transform:scale(1.12);
+    font-size:20px;
 }
 
 #numeroC{
     position:absolute;
 
-    top:-10px;
-    right:-12px;
+    top:-5px;
+    right:-5px;
 
     min-width:22px;
     height:22px;
-
-    padding:2px 6px;
-
-    border-radius:999px;
-
-    background:var(--marrom3);
-
-    color:white;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
+    padding:3px 6px;
+
+    border-radius:50px;
+
+    background:var(--marrom3);
+
+    color:var(--branco);
+
     font-size:11px;
     font-weight:700;
-
-    border:2px solid white;
 }
 
 /* USER MENU */
 
 .user-menu{
     position:relative;
-    display:flex;
-    align-items:center;
 }
 
 .user-button{
-    background:none;
     border:none;
-
-    color:white;
+    outline:none;
 
     display:flex;
     align-items:center;
     gap:10px;
 
+    padding:10px 16px;
+
+    border-radius:50px;
+
     cursor:pointer;
 
-    padding:10px 14px;
+    background:rgba(255,255,255,0.12);
 
-    border-radius:14px;
-
-    transition:0.25s ease;
+    color:var(--branco);
 
     font-family:Poppins;
+    font-size:15px;
+    font-weight:500;
+
+    transition:0.3s;
 }
 
 .user-button:hover{
-    background:rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.22);
 }
 
 .user-button i{
-    font-size:22px;
+    font-size:18px;
 }
-
-#user-conta{
-    font-size:15px;
-    font-weight:500;
-}
-
-/* DROPDOWN */
 
 .dropdown-user{
     position:absolute;
@@ -293,370 +240,432 @@ body{
     top:65px;
     right:0;
 
-    width:230px;
+    width:240px;
 
-    background:white;
+    background:var(--branco);
 
-    border-radius:18px;
+    border-radius:20px;
 
     overflow:hidden;
 
     display:none;
-    flex-direction:column;
 
-    box-shadow:
-    0 10px 35px rgba(0,0,0,0.18);
-
-    animation:dropdown 0.25s ease;
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
 }
 
 .dropdown-user.active{
     display:flex;
+    flex-direction:column;
 }
 
 .dropdown-user a{
-    color:var(--marrom3) !important;
-
     padding:16px 18px;
 
+    color:var(--marrom3);
     text-decoration:none;
 
     font-size:15px;
     font-weight:500;
 
-    transition:0.2s;
+    transition:0.3s;
 }
 
 .dropdown-user a:hover{
     background:var(--bege2);
-    padding-left:24px;
 }
 
-@keyframes dropdown{
+/* LOGIN ICON */
 
-    from{
-        opacity:0;
-        transform:translateY(-10px);
-    }
+.login-icon{
+    width:48px;
+    height:48px;
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.12);
+
+    color:var(--branco);
+    text-decoration:none;
+
+    transition:0.3s;
 }
 
-/* MENU ICON */
+.login-icon:hover{
+    background:rgba(255,255,255,0.22);
+    transform:translateY(-2px);
+}
+
+.login-icon i{
+    font-size:20px;
+}
+
+/* MENU MOBILE */
 
 .menu-icon{
     display:none;
+
+    width:48px;
+    height:48px;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.12);
+
+    cursor:pointer;
+
+    transition:0.3s;
 }
 
+.menu-icon:hover{
+    background:rgba(255,255,255,0.22);
+}
 
+.menu-icon i{
+    font-size:22px;
+}
 
-            @media (max-width: 768px) {
+/* MOBILE */
 
-            html, body {
-                overflow-x: hidden;
-            }
+.mobile-user{
+    display:none;
+}
 
-            .navbar {
-                display: flex !important;
-                align-items: center;
-                justify-content: space-between;
-                padding: 10px;
-                width: 100%;
-                gap: 10px;
-                min-height: 70px;
-                box-sizing: border-box;
-            }
+@media(max-width:900px){
 
-            .navbar .icons a {
-                padding-left: 0 !important;
-            }
+    .navbar{
+        padding:15px 18px;
+    }
 
+    .logo{
+        font-size:22px;
+    }
 
-            .logo {
-                order: 1;
-            }
+    .logo img{
+        width:48px;
+        height:48px;
+    }
 
+    .menu-icon{
+        display:flex;
+    }
 
-            .menu a {
-                color:white;
-                text-decoration:none;
-            }
+    .menu{
+        position:absolute;
 
-            .menu-icon {
-                order: 3;
-                display: block !important;
-                font-size:30px;
-                margin-left: 0px;
-                flex-shrink: 0;
-            }
+        top:85px;
+        right:18px;
 
-                .menu {
-                    justify-self: end;
-                    text-align: center;
-                    display:none;
-                    flex-direction:column;
-                    background:var(--rosa);
-                    position:absolute;
-                    top:90px;
-                    right:15px;
-                    width:200px;
-                    padding:10px;
-                    border-radius: 15px;
-                    gap: 20px;
-                }
+        width:260px;
 
+        padding:20px;
 
-                .menu ul {
-                    text-align: center;
-                    flex-direction: column;
-                }
+        border-radius:24px;
 
+        background:rgba(255,135,125,0.97);
 
-                .icons {
-                    order: 2;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    justify-items: center;
-                    align-items: center;
-                    gap: 15px;
-                    margin-left: auto;
-                    margin-right: 0px;
-                }
+        backdrop-filter:blur(14px);
 
+        border:1px solid rgba(255,255,255,0.15);
 
-                .user-menu {
-                    display: none;
-                }
+        display:none;
+    }
 
-                .menu.active{
-                    display:flex;
-                    flex-direction: column;
-                    position: absolute;
-                    top: 48px;
-                    right: 5px;
-                }
+    .menu.active{
+        display:block;
+    }
 
-                .carrinho-icon {
-                    order: 2;
-                    display: flex;
-                    flex-direction: row;
-                    font-size:25px;
-                    padding-bottom: 10px;
-                    justify-content: center;
-                    justify-items: center;
-                    align-items: center;
-                    gap: 10px;
-                    margin-left: auto;
+    .menu ul{
+        flex-direction:column;
+        align-items:stretch;
+    }
 
-                    #numeroC {
-                        margin-right: 57px;
-                        padding: 3px;
-                        margin-top: 10px;
-                        font-size: 6pt;
-                    }
-                }
+    .menu a{
+        display:block;
+        width:100%;
+    }
 
-                .mobile-user-mobile{
-            display:flex;
-            flex-direction:column;
-            gap:10px;
-        }
+    .desktop-user{
+        display:none;
+    }
 
+    .mobile-user{
+        display:flex;
+        flex-direction:column;
 
-        .mobile-user-mobile li{
-            list-style:none;
-        }
+        margin-top:15px;
+        padding-top:15px;
 
+        border-top:1px solid rgba(255,255,255,0.2);
+    }
 
-        .mobile-user-mobile a{
-            color:white;
-            text-decoration:none;
-            font-size:16px;
-            padding:8px;
-            display:block;
-        }
+    .mobile-user span{
+        padding:10px 18px;
 
+        font-size:15px;
+        font-weight:600;
 
-        .user-header{
-            font-weight:600;
-            font-size:18px;
-            padding:10px 8px;
-            border-bottom:1px solid rgba(255,255,255,0.3);
-            margin-bottom:5px;
-        }
-               
-        }
-    </style>
+        color:var(--bege2);
+    }
+
+}
+
+</style>
+</head>
+
 <body>
-    <header class="navbar">
-        <div class="logo">
-
-    <a href="index.php" class="logo-link">
-
-        <img src="imagens/LogoSegredo.png" alt="Segredo Doce">
-
-        <div class="logo-texto">
-
-            <span class="logo-titulo">
-                Segredo Doce
-            </span>
-
-            <span class="logo-subtitulo">
-                Confeitaria Artesanal
-            </span>
-
-        </div>
-
-    </a>
-
-</div>
 
 <?php
-  $totalItens = 0;
 
-  if(isset($_SESSION['carrinho'])) {
-    foreach ($_SESSION['carrinho'] as $item) {
+$totalItens = 0;
+
+if(isset($_SESSION['carrinho'])){
+
+    foreach($_SESSION['carrinho'] as $item){
+
         $totalItens += $item['quantidade'] ?? 1;
+
     }
-  }
+
+}
+
 ?>
 
-<div class="menu-icon" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+<header class="navbar">
 
-            <div class="menu" id="menu"><ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="cardapio.php">Cardápio</a></li>
-            <li><a href="sobre.php">Sobre</a></li>
-            <li><a href="contato.php">Contato</a></li>
+<a href="index.php" class="logo">
 
-            <div class="mobile-user-mobile">
+<img src="imagens/LogoSegredo.png" alt="Logo">
 
+<span>Segredo Doce</span>
+
+</a>
+
+<nav class="menu" id="menu">
+
+<ul>
+
+<li>
+<a href="index.php">
+Home
+</a>
+</li>
+
+<li>
+<a href="cardapio.php">
+Cardápio
+</a>
+</li>
+
+<li>
+<a href="sobre.php">
+Sobre
+</a>
+</li>
+
+<li>
+<a href="contato.php">
+Contato
+</a>
+</li>
+
+<div class="mobile-user">
 
 <?php if(isset($_SESSION['nome'])): ?>
 
 <?php
+
 $nome = $_SESSION['nome'];
 $partes = explode(" ", trim($nome));
 $primeiro = $partes[0];
+
 ?>
 
+<span>
+Olá, <?= $primeiro; ?>
+</span>
 
-    <li class="user-header">
-        Olá, <?= $primeiro; ?>
-    </li>
+<li>
+<a href="minha_conta.php">
+Minha Conta
+</a>
+</li>
 
+<li>
+<a href="pedidos.php">
+Meus Pedidos
+</a>
+</li>
 
-    <li><a href="minha_conta.php">Minha Conta</a></li>
-    <li><a href="pedidos.php">Meus Pedidos</a></li>
-    <li><a href="logout.php">Sair</a></li>
-
+<li>
+<a href="logout.php">
+Sair
+</a>
+</li>
 
 <?php else: ?>
 
-
-    <li><a href="login.php">Entrar / Criar Conta</a></li>
-
+<li>
+<a href="login.php">
+Entrar / Criar Conta
+</a>
+</li>
 
 <?php endif; ?>
 
+</div>
+
+</ul>
+
+</nav>
+
+<div class="icons">
+
+<div class="carrinho-icon">
+
+<a href="carrinho.php">
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+</a>
+
+<?php if($totalItens > 0): ?>
+
+<span id="numeroC">
+
+<?= $totalItens; ?>
+
+</span>
+
+<?php endif; ?>
 
 </div>
 
-        </ul>
-            </div>
-
-        <div class="icons">
-
-                <div class="carrinho-icon">
-                    <a href="carrinho.php"> <i class="fa-solid fa-bag-shopping"></i> </a>
-                    <?php if($totalItens > 0): ?>
-                    <span id="numeroC"><?php echo $totalItens; ?></span>
-                     <?php endif; ?>
-                </div>
-
-           <div class="user-menu">
-
+<div class="desktop-user">
 
 <?php if(isset($_SESSION['nome'])): ?>
 
-
 <?php
+
 $nome = $_SESSION['nome'];
 $partes = explode(" ", trim($nome));
 $primeiro = $partes[0];
+
 ?>
 
+<div class="user-menu">
 
-<button class="user-button" onclick="toggleDropdown()">
+<button
+class="user-button"
+onclick="toggleDropdown()">
 
+<i class="fa-solid fa-user"></i>
 
-    <i class="fa-solid fa-user"></i>
+<span>
+<?= $primeiro; ?>
+</span>
 
-
-    <span id="user-conta">Olá, <?= $primeiro; ?></span>
-
-
-    <i class="fa-solid fa-chevron-down seta"></i>
-
+<i class="fa-solid fa-chevron-down"></i>
 
 </button>
 
-
 <div class="dropdown-user" id="dropdownUser">
 
+<a href="minha_conta.php">
 
-    <a href="minha_conta.php">
-        Minha Conta
-    </a>
+<i class="fa-solid fa-user"></i>
+Minha Conta
 
+</a>
 
-    <a href="pedidos.php">
-        Meus Pedidos
-    </a>
+<a href="pedidos.php">
 
+<i class="fa-solid fa-box"></i>
+Meus Pedidos
 
-    <a href="logout.php">
-        Sair
-    </a>
+</a>
 
+<a href="logout.php">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+Sair
+
+</a>
 
 </div>
 
+</div>
 
 <?php else: ?>
 
+<a href="login.php" class="login-icon">
 
-<a href="login.php">
-    <i class="fa-solid fa-user"></i>
+<i class="fa-solid fa-user"></i>
+
 </a>
-
 
 <?php endif; ?>
 
+</div>
+
+<div class="menu-icon" onclick="toggleMenu()">
+
+<i class="fa-solid fa-bars"></i>
 
 </div>
-            </div>
-        
-    </header>
 
-    <script>
-        function toggleMenu() {
-            document.getElementById("menu").classList.toggle("active");
-        }
-        </script>
+</div>
 
-    <script>
-    function toggleDropdown(){
-        document
-        .getElementById("dropdownUser")
-        .classList.toggle("active");
+</header>
+
+<script>
+
+function toggleMenu(){
+
+    document
+    .getElementById('menu')
+    .classList
+    .toggle('active');
+
+}
+
+function toggleDropdown(){
+
+    document
+    .getElementById('dropdownUser')
+    .classList
+    .toggle('active');
+
+}
+
+window.addEventListener('click', function(e){
+
+    const dropdown =
+    document.getElementById('dropdownUser');
+
+    const botao =
+    document.querySelector('.user-button');
+
+    if(
+        dropdown &&
+        botao &&
+        !dropdown.contains(e.target) &&
+        !botao.contains(e.target)
+    ){
+
+        dropdown.classList.remove('active');
+
     }
-    </script>
+
+});
+
+</script>
 
 </body>
 </html>
-
