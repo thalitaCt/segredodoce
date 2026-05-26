@@ -10,253 +10,348 @@
         @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-        :root {
-            --bege: #ffedcd;
-            --bege2: #fff4ee;
-            --bege3: #eacab6;
-            --marrom: #7d5147;
-            --marrom2: #833c2c;
-            --marrom3: #421d14;
-            --rosa: #ff877d;
-            --rosa2: #ee5350;
-            --verde: #347141;
-            --branco: #ffffff;
-            --preto: #000000;
-            --preto2: #1b1b1b;
-            --amarelo: #fde047;
-            --amarelo2: #facc15;
-        }
+:root {
+    --bege: #ffedcd;
+    --bege2: #fff4ee;
+    --bege3: #eacab6;
 
-        .logo {
-            font-family: Yeseva One;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+    --marrom: #7d5147;
+    --marrom2: #833c2c;
+    --marrom3: #421d14;
 
-            img {
-                width: 50px;
-                height: 50px;
-                border-radius: 350px;
-            }
-        }
+    --rosa: #ff877d;
+    --rosa2: #ee5350;
 
-        .navbar {
-            z-index: 9990;
-            background-color: var(--rosa);
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            padding: 20px;
-            min-height: 60px;
-            position: fixed;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 17pt;
-            color: var(--bege2);
-            font-family: Poppins;
+    --verde: #347141;
 
-            .carrinho-icon {
-                    position: relative;
-                    display: inline-block;
-                    margin-top: 13px;
+    --branco: #ffffff;
+    --preto: #000000;
+    --preto2: #1b1b1b;
 
-                    #numeroC {
-                    position:absolute;
-                    top: -18px;
-                    right: -19px;
-                    background-color: red;
-                    color: var(--branco);
-                    font-weight: 500;
-                    font-size: 12pt;
-                    border-radius: 8px;
-                    padding: 2px;
-                    }
+    --glass: rgba(255,255,255,0.15);
+    --borda: rgba(255,255,255,0.2);
+
+    --sombra:
+    0 8px 30px rgba(0,0,0,0.15);
 }
-        }
 
-        .logo {
-                justify-self: flex-start;
-            }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    padding-top:110px;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:fixed;
+    top:15px;
+    left:20px;
+    right:20px;
+
+    z-index:9990;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:18px 30px;
+
+    border-radius:24px;
+
+    background:rgba(255,135,125,0.92);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.18);
+
+    box-shadow:var(--sombra);
+
+    color:var(--branco);
+
+    font-family:Poppins;
+}
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    font-family:'Yeseva One';
+    font-size:28px;
+    color:var(--branco);
+
+    user-select:none;
+}
+
+.logo img{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid rgba(255,255,255,0.25);
+
+    box-shadow:
+    0 4px 10px rgba(0,0,0,0.12);
+}
+
+.logo{
+    justify-self:flex-start;
+}
+
+.logo-link{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+}
+
+.logo img{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.logo-texto{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+}
+
+.logo-titulo{
+    font-family:'Yeseva One', serif;
+    font-size:30px;
+    color:var(--branco);
+    letter-spacing:0.5px;
+}
+
+.logo-subtitulo{
+    margin-top:6px;
+    font-family:'Poppins', sans-serif;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.85);
+}
+
+/* MENU */
+
+.menu{
+    display:flex;
+    align-items:center;
+}
+
+.menu ul{
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    list-style:none;
+}
+
+.menu ul li{
+    transition:0.25s ease;
+}
+
+.menu a{
+    color:var(--branco);
+    text-decoration:none;
+
+    padding:10px 16px;
+    border-radius:14px;
+
+    font-size:16px;
+    font-weight:500;
+
+    transition:0.25s ease;
+}
+
+.menu a:hover{
+    background:rgba(255,255,255,0.18);
+    color:var(--branco);
+
+    transform:translateY(-2px);
+}
+
+/* ICONS */
+
+.icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.icons a{
+    color:var(--branco);
+    text-decoration:none;
+}
+
+/* CARRINHO */
+
+.carrinho-icon{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.carrinho-icon i{
+    font-size:28px;
+    transition:0.25s ease;
+}
+
+.carrinho-icon i:hover{
+    transform:scale(1.12);
+}
+
+#numeroC{
+    position:absolute;
+
+    top:-10px;
+    right:-12px;
+
+    min-width:22px;
+    height:22px;
+
+    padding:2px 6px;
+
+    border-radius:999px;
+
+    background:var(--marrom3);
+
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:11px;
+    font-weight:700;
+
+    border:2px solid white;
+}
+
+/* USER MENU */
+
+.user-menu{
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.user-button{
+    background:none;
+    border:none;
+
+    color:white;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    cursor:pointer;
+
+    padding:10px 14px;
+
+    border-radius:14px;
+
+    transition:0.25s ease;
+
+    font-family:Poppins;
+}
+
+.user-button:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+.user-button i{
+    font-size:22px;
+}
+
+#user-conta{
+    font-size:15px;
+    font-weight:500;
+}
+
+/* DROPDOWN */
+
+.dropdown-user{
+    position:absolute;
+
+    top:65px;
+    right:0;
+
+    width:230px;
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    display:none;
+    flex-direction:column;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,0.18);
+
+    animation:dropdown 0.25s ease;
+}
+
+.dropdown-user.active{
+    display:flex;
+}
+
+.dropdown-user a{
+    color:var(--marrom3) !important;
+
+    padding:16px 18px;
+
+    text-decoration:none;
+
+    font-size:15px;
+    font-weight:500;
+
+    transition:0.2s;
+}
+
+.dropdown-user a:hover{
+    background:var(--bege2);
+    padding-left:24px;
+}
+
+@keyframes dropdown{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MENU ICON */
+
+.menu-icon{
+    display:none;
+}
 
 
-            .navbar .menu ul {
-                list-style: none;
-                display: flex;
-                justify-content: center;
-                gap: 30px;
-                transition: 0.5s;
-            }
-
-
-            .navbar .menu a {
-                color: var(--branco);
-                text-decoration: none;
-                transition: 0.5s;
-            }
-
-
-            .navbar .menu ul li {
-                transition: 0.5s
-            }
-
-
-            .menu {
-                display: flex;
-                align-items: center;
-                justify-self: center;
-                gap: 10px;
-            }
-
-
-            .navbar .menu li:hover {
-                transform: scale(1.1);
-                background-color: var(--bege);
-                border-radius: 20px;
-                padding: 3px;
-                font-weight: 700;
-            }
-
-
-            .navbar .menu a:hover {
-                color: var(--marrom3);
-            }
-
-
-            .navbar .icons a {
-                color: var(--bege2);
-                text-decoration: none;
-                padding-left: 25px;
-                transition: 0.5s;
-            }
-
-
-            .navbar .icons a:hover {
-                color: var(--marrom2);
-            }
-
-
-            .icons i {
-                transition: 0.5s;
-            }
-
-
-            .icons i:hover {
-                transform: scale(1.3);
-            }
-
-
-            .icons {
-                justify-self: end;
-                display: flex;
-                gap: 30px;
-                align-items: center;
-                font-size: 21pt;
-            }
-
-
-            .user-icon {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-
-
-                i {
-                    margin-top: 18px;
-                }
-
-
-                span {
-                    font-size: 9pt;
-                    margin-left: 17px;
-                }
-            }
-
-
-            .menu-icon {
-                display: none;
-            }
-
-            .user-menu{
-                position:relative;
-                display: flex;
-                align-items: center;
-                gap: 8px;
-                top: 7px;
-                height: 60px;
-            }
-
-
-            .user-button{
-                background:none;
-                border:none;
-                color:white;
-                display:flex;
-                align-items:center;
-                gap: 8px;
-                cursor:pointer;
-                font-size:16px;
-                font-family:Poppins;
-                height: 60px;
-            }
-
-
-            .user-button i{
-                font-size:24px;
-            }
-
-
-            .dropdown-user{
-                position:absolute;
-                top:45px;
-                right:0;
-                background:white;
-                border-radius:15px;
-                min-width:200px;
-                box-shadow:0 5px 15px rgba(0,0,0,0.15);
-                display:none;
-                overflow:hidden;
-                z-index:999;
-            }
-
-
-            .dropdown-user.active{
-                font-size: 13pt;
-                display:flex;
-                flex-direction:column;
-            }
-
-
-            .dropdown-user a{
-                font-size: 13pt;
-                color:#421d14 !important;
-                padding:15px;
-                text-decoration:none;
-                transition:0.3s;
-                font-weight:500;
-            }
-
-
-            .dropdown-user a:hover{
-                background:#fff4ee;
-            }
-
-
-            .user-button .seta{
-                font-size:12px !important;
-                display: flex;
-                align-items: center;
-            }
-
-            #user-conta {
-                font-weight: 400;
-                font-size: 15pt;
-            }
-
-            .mobile-user-mobile{
-                display: none;
-            }
 
             @media (max-width: 768px) {
 
@@ -395,45 +490,30 @@
         }
                
         }
-
-    @media (min-width: 1400px) {
-        .logo {
-            font-size: 25pt;
-
-            img {
-                width: 80px;
-                height: 80px;
-            }
-        }
-
-        .navbar {
-            padding: 30px;
-
-            .carrinho-icon {
-                font-size: 35px;
-
-                #numeroC {
-                    font-size: 16pt;
-                }
-            }
-        }
-
-        .menu ul li {
-            font-size: 22pt;
-        }
-
-        .icons i {
-            font-size: 35px;
-        }
-
-        .mobile-user-mobile {
-            display:none;
-        }
-    }
     </style>
 <body>
     <header class="navbar">
-        <div class="logo"><img src="imagens/LogoSegredo.png">Segredo Doce</div>
+        <div class="logo">
+
+    <a href="index.php" class="logo-link">
+
+        <img src="imagens/LogoSegredo.png" alt="Segredo Doce">
+
+        <div class="logo-texto">
+
+            <span class="logo-titulo">
+                Segredo Doce
+            </span>
+
+            <span class="logo-subtitulo">
+                Confeitaria Artesanal
+            </span>
+
+        </div>
+
+    </a>
+
+</div>
 
 <?php
   $totalItens = 0;
