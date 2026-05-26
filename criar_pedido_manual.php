@@ -2,15 +2,7 @@
 session_start();
 include 'includes/conexao.php';
 
-if(
-    !isset($_SESSION['tipo'])
-    ||
-    (
-        $_SESSION['tipo'] != 'atendente'
-        &&
-        $_SESSION['tipo'] != 'master'
-    )
-){
+if(!isset($_SESSION['tipo']) || $_SESSION['tipo'] != 'atendente'){
     header("Location: login.php");
     exit;
 }
