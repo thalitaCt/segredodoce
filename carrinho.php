@@ -172,8 +172,6 @@
         name="atualizarQtd"
         value="1">
 
-         <p class="msg-estoque"></p>
-
     </form>
 
     <?php if($qtde < $produto['estoque']): ?>
@@ -181,6 +179,8 @@
     <?php else: ?>
         <span class="bloqueado">+</span>
     <?php endif; ?>
+
+    <p class="msg-estoque"></p>
 
 </div>
 
