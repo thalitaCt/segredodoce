@@ -8,35 +8,125 @@ ORDER BY id_produtos DESC
 
 ?>
 
-<div class="card secao">
+<div class="card-master">
 
-<h2>Produtos</h2>
+<div class="topo-secao">
 
-    <div class="top-actions">
-        
-    <button onclick="location.href='produtos/criar.php'">Cadastrar Produto</button>    
-</div>    
+<div>
 
+<h1>Produtos</h1>
+<p>Gerencie os produtos da loja</p>
 
-<table>    
-    <tr>    
-        <th>Nome</th>    
-        <th>Preço</th>    
-        <th>Estoque</th>    
-        <th>Ações</th>    
-    </tr>    
+</div>
 
+<button
+class="btn-principal"
+onclick="location.href='produtos/criar.php'">
 
-    <?php foreach($produtos as $p): ?>    
-    <tr>    
-        <td><?= $p['nome'] ?></td>    
-        <td>R$ <?= number_format($p['preco'],2,',','.') ?></td>    
-        <td><?= $p['estoque'] ?></td>    
-        <td>    
-            <a href="produtos/editar.php?id=<?= $p['id_produtos'] ?>"><button class="btn-editar"><i class="fa-solid fa-pen"></i></button></a>    
-            <a href="produtos/excluir.php?id=<?= $p['id_produtos'] ?>"onclick="return confirm('Deseja excluir este produto?')"><button class="btn-excluir"><i class="fa-solid fa-trash"></i></button></a>    
-        </td>    
-    </tr>    
-    <?php endforeach; ?>    
+<i class="fa-solid fa-plus"></i>
+Novo Produto
+
+</button>
+
+</div>
+
+<div class="tabela-container">
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Produto</th>
+<th>Preço</th>
+<th>Estoque</th>
+<th>Ações</th>
+
+</tr>
+
+<?php foreach($produtos as $p): ?>
+
+<tr>
+
+<td>
+#<?= $p['id_produtos'] ?>
+</td>
+
+<td class="produto-info">
+
+<img
+src="<?= $p['imagem'] ?>"
+class="img-tabela">
+
+<div>
+
+<strong><?= $p['nome'] ?></strong>
+
+<small>
+<?= $p['categoria'] ?>
+</small>
+
+</div>
+
+</td>
+
+<td>
+
+R$
+<?= number_format($p['preco'],2,',','.') ?>
+
+</td>
+
+<td>
+
+<?php if($p['estoque'] <= 5): ?>
+
+<span class="estoque-baixo">
+
+<?= $p['estoque'] ?>
+
+</span>
+
+<?php else: ?>
+
+<?= $p['estoque'] ?>
+
+<?php endif; ?>
+
+</td>
+
+<td class="acoes">
+
+<a href="produtos/editar.php?id=<?= $p['id_produtos'] ?>">
+
+<button class="btn-editar">
+
+<i class="fa-solid fa-pen"></i>
+
+</button>
+
+</a>
+
+<a
+href="produtos/excluir.php?id=<?= $p['id_produtos'] ?>"
+onclick="return confirm('Deseja excluir este produto?')">
+
+<button class="btn-excluir">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</a>
+
+</td>
+
+</tr>
+
+<?php endforeach; ?>
+
 </table>
+
+</div>
+
 </div>
