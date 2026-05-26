@@ -68,7 +68,7 @@ if(
 
     if(!in_array($extensao, $permitidas)){
 
-        header("Location: ../editar.php?erro=formato");
+        header("Location: editar.php?erro=formato");
         exit;
     }
 
@@ -91,7 +91,7 @@ if(
     }
     catch(Exception $e){
 
-        header("Location: ../editar.php?erro=upload");
+        header("Location: editar.php?erro=upload");
         exit;
     }
 

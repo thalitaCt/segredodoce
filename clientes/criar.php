@@ -240,7 +240,11 @@ document.getElementById('cep').addEventListener('input', function(e){
 
 const cepInput = document.getElementById('cep');
 
-cepInput.addEventListener('blur', async function(){
+/* =========================
+   BUSCAR CEP
+========================= */
+
+async function buscarCEP(){
 
     let cep = cepInput.value.replace(/\D/g,'');
 
@@ -250,10 +254,13 @@ cepInput.addEventListener('blur', async function(){
 
     try{
 
-        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const resposta =
+        await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+
         const dados = await resposta.json();
 
         if(dados.erro){
+            alert("CEP não encontrado.");
             return;
         }
 
@@ -263,18 +270,35 @@ cepInput.addEventListener('blur', async function(){
         document.querySelector('input[name="bairro"]').value =
         dados.bairro || '';
 
-        document.querySelector('input[name="cidade"]').value =
-        dados.localidade || '';
+        cidade.value = dados.localidade || '';
 
-        document.getElementById('estado').value =
-        dados.uf || '';
+        estado.value = dados.uf || '';
 
         verificarEntrega();
 
-    } catch(error){
+    }
+    catch(error){
+
         console.log(error);
+
     }
 
+}
+
+/* QUANDO SAI DO INPUT */
+cepInput.addEventListener('blur', buscarCEP);
+
+/* QUANDO APERTA ENTER */
+cepInput.addEventListener('keydown', async function(e){
+
+    if(e.key === 'Enter'){
+
+        e.preventDefault();
+
+        await buscarCEP();
+
+        document.querySelector('input[name="numero"]').focus();
+    }
 });
 
 

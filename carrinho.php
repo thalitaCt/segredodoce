@@ -172,6 +172,8 @@
         name="atualizarQtd"
         value="1">
 
+         <p class="msg-estoque"></p>
+
     </form>
 
     <?php if($qtde < $produto['estoque']): ?>
@@ -224,6 +226,41 @@ document.querySelectorAll('.input-qtd').forEach(input => {
     input.addEventListener('change', function(){
 
         this.closest('form').submit();
+
+    });
+
+});
+
+const inputs =
+document.querySelectorAll('.input-qtd');
+
+inputs.forEach(input => {
+
+    input.addEventListener('input', () => {
+
+        const max =
+        parseInt(input.max);
+
+        let valor =
+        parseInt(input.value);
+
+        const aviso =
+        input.parentElement
+        .querySelector('.msg-estoque');
+
+        if(valor > max){
+
+            input.value = max;
+
+            aviso.innerHTML =
+            `Máximo disponível: ${max}`;
+
+        }
+        else{
+
+            aviso.innerHTML = '';
+
+        }
 
     });
 

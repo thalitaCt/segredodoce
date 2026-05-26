@@ -60,7 +60,7 @@ if(
 
 ){
 
-    header("Location: criar.php?erro=imagem_invalida");
+    header("Location: criar.php?erro=invalida");
     exit;
 }
 
@@ -94,7 +94,7 @@ $permitidas = [
 
 if(!in_array($extensao, $permitidas)){
 
-    header("Location: criar.php?erro=formato_invalido");
+    header("Location: criar.php?erro=formato");
     exit;
 }
 
@@ -120,7 +120,7 @@ try{
 }
 catch(Exception $e){
 
-    header("Location: criar.php?erro=erro_upload");
+    header("Location: criar.php?erro=upload");
     exit;
 }
 
