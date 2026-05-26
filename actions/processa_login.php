@@ -59,6 +59,10 @@ if ($usuario) {
                 header("Location: ../atendente.php");
                 break;
 
+            case 'master':
+                header("Location: ../master.php");
+                break;
+
 
             default:
                 header("Location: ../index.php");
