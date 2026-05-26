@@ -10,6 +10,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root{
@@ -102,7 +103,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 }
 
 .logo-titulo{
-    font-family:"Yeseva One", serif !important;
+    font-family:"Berkshire Swash" !important;
 
     font-size:28px;
     font-weight:400;
@@ -171,7 +172,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 .icons{
     display:flex;
     align-items:center;
-    gap:20px;
+    gap:30px;
 }
 
 /* CARRINHO */
