@@ -1,5 +1,19 @@
-<div class="container">   
-    <h2>Produtos</h2>  
+<?php
+
+$produtos = $pdo->query("
+SELECT *
+FROM produtos
+ORDER BY id_produtos DESC
+")->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
+<div class="card secao">
+
+<h2>Produtos</h2>
+
+    <div class="top-actions">
+        
     <button onclick="location.href='produtos/criar.php'">Cadastrar Produto</button>    
 </div>    
 
@@ -26,5 +40,3 @@
     <?php endforeach; ?>    
 </table>
 </div>
-</body>
-</html>
