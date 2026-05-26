@@ -74,11 +74,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     gap:12px;
 
     text-decoration:none;
-    color:var(--branco);
 
-    font-family:"Yeseva One";
-    font-size:28px;
-    letter-spacing:0.5px;
+    color:var(--branco);
 
     transition:0.3s;
 }
@@ -90,10 +87,44 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 .logo img{
     width:58px;
     height:58px;
+
     border-radius:50%;
     object-fit:cover;
 
     box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+
+.logo-texto{
+    display:flex;
+    flex-direction:column;
+
+    line-height:1;
+}
+
+.logo-titulo{
+    font-family:"Yeseva One", serif !important;
+
+    font-size:28px;
+    font-weight:400;
+
+    color:var(--branco);
+
+    letter-spacing:0.5px;
+}
+
+.logo-subtitulo{
+    font-family:"Poppins", sans-serif !important;
+
+    font-size:11px;
+    font-weight:500;
+
+    color:rgba(255,255,255,0.85);
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-top:4px;
 }
 
 /* MENU */
@@ -330,6 +361,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 @media(max-width:768px){
 
+    .login-icon {
+       display: none;
+}
+
     html,
     body{
         overflow-x:hidden;
@@ -473,10 +508,19 @@ if(isset($_SESSION['carrinho'])){
 
     <img src="imagens/LogoSegredo.png" alt="Segredo Doce">
 
-    <span>Segredo Doce</span>
+    <div class="logo-texto">
+
+        <span class="logo-titulo">
+            Segredo Doce
+        </span>
+
+        <span class="logo-subtitulo">
+            CONFEITARIA ARTESANAL
+        </span>
+
+    </div>
 
 </a>
-
 <div class="menu-icon" onclick="toggleMenu()">
 
     <i class="fa-solid fa-bars"></i>
@@ -489,28 +533,24 @@ if(isset($_SESSION['carrinho'])){
 
 <li>
 <a href="index.php">
-<i class="fa-solid fa-house"></i>
 Home
 </a>
 </li>
 
 <li>
 <a href="cardapio.php">
-<i class="fa-solid fa-cake-candles"></i>
 Cardápio
 </a>
 </li>
 
 <li>
 <a href="sobre.php">
-<i class="fa-solid fa-heart"></i>
 Sobre
 </a>
 </li>
 
 <li>
 <a href="contato.php">
-<i class="fa-solid fa-envelope"></i>
 Contato
 </a>
 </li>
