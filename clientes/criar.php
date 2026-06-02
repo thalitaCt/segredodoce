@@ -317,14 +317,14 @@ function verificarEntrega(){
         estadoValor === 'RJ'
     ){
 
-        regiao.style.pointerEvents = 'none';
-        regiao.style.opacity = '0.7';
+        regiao.style.pointerEvents = 'auto';
+        regiao.style.opacity = '1';
 
     } else {
 
         regiao.value = 'Entrega Externa';
-        regiao.style.pointerEvents = 'auto';
-        regiao.style.opacity = '1';
+        regiao.style.pointerEvents = 'none';
+        regiao.style.opacity = '0.7';
 
     }
 
