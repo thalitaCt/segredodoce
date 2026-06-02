@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $bairro = trim($_POST['bairro']);
     $cidade = trim($_POST['cidade']);
     $estado = trim($_POST['estado']);
-    $regiao = trim($_POST['regiao']);
+    $regiao = trim($_POST['regiao'] ?? '');
 
 
     /* VALIDAÇÕES */
@@ -92,10 +92,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     ];
 
 
-    if(!in_array($regiao, $regioesValidas)){
-        header("Location: frete.php?erro=regiao_invalida");
-        exit;
-    }
+    if(
+    mb_strtolower(trim($cidade)) !== 'rio de janeiro' ||
+    strtoupper(trim($estado)) !== 'RJ'
+){
+    $regiao = 'Entrega Externa';
+}
+
+if(empty($regiao)){
+    header("Location: frete.php?erro=regiao_vazia");
+    exit;
+}
 
 
     /* FRETE */
@@ -193,15 +200,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 
     $update->execute([
-        $cep,
-        $endereco,
-        $numero,
-        $bairro,
-        $cidade,
-        $estado,
-        $regiao,
-        $idUsuario
-    ]);
+    $cep,
+    $endereco,
+    $numero,
+    $bairro,
+    $cidade,
+    $estado,
+    $regiao,
+    $idUsuario
+]);
+
+$sql = $pdo->prepare("
+SELECT *
+FROM clientes
+WHERE usuario_id = ?
+");
+
+$sql->execute([$idUsuario]);
+
+$cliente = $sql->fetch(PDO::FETCH_ASSOC);
 
 
     $sucessoFrete = true;
