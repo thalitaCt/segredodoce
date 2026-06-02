@@ -17,7 +17,16 @@ $numero = trim($_POST['numero']);
 $bairro = trim($_POST['bairro']);
 $cidade = trim($_POST['cidade']);
 $estado = strtoupper(trim($_POST['estado']));
-$regiao = trim($_POST['regiao']);
+$regiao = trim($_POST['regiao'] ?? '');
+
+$cidadeNormalizada = mb_strtolower(trim($cidade));
+
+if(
+    $cidadeNormalizada !== 'rio de janeiro' ||
+    $estado !== 'RJ'
+){
+    $regiao = 'Entrega Externa';
+}
 
 /* =========================
    VALIDAÇÕES IMPORTANTES
